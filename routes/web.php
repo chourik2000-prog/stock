@@ -25,4 +25,5 @@ Route::resource('categories', App\Http\Controllers\CategorieController::class);
 Route::resource('approvisionnements', App\Http\Controllers\ApprovisionnementController::class);
 Route::resource('demandes', App\Http\Controllers\DemandeController::class);
 Route::resource('ajustements', App\Http\Controllers\AjustementController::class);
+Route::resource('articles', App\Http\Controllers\ArticleController::class);
 

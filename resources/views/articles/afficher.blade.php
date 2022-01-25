@@ -3,7 +3,7 @@
 <head>
 	<!-- Basic Page Info -->
 	<meta charset="utf-8">
-	<title>Approvisionnements</title>
+	<title>Articles</title>
 
 	<!-- Site favicon -->
 	<link rel="apple-touch-icon" sizes="180x180" href="vendors/images/apple-touch-icon.png">
@@ -71,7 +71,7 @@
 					<div class="clearfix mb-20">
 						<div class="pull-left">
                         <h4 class="font-20 weight-500 mb-10 text-capitalize">
-						<div class="weight-600 font-30 text-blue">Approvisionnements</div>
+						<div class="weight-600 font-30 text-blue">Articles</div>
 						</h4>
 						</div>
 						
@@ -95,15 +95,15 @@
 							</tr>
 						</thead>
 						<tbody>
-                        @foreach ($approvisionnements as $approvisionnement)
+                        @foreach ($articles as $article)
         <tr>
-            <td>{{ $approvisionnement->libelle}}</td>
-            <td>{{ $approvisionnement->quantite}}</td>
-            <td>{{ $approvisionnement->date}}</td>
+            <td>{{ $article->libelle}}</td>
+            <td>{{ $article->quantite}}</td>
+            <td>{{ $article->date}}</td>
             <td>
-                <form action="{{ route('approvisionnements.destroy',$approvisionnement->id) }}" method="POST">    
+                <form action="{{ route('articles.destroy',$article->id) }}" method="POST">    
                     <button type="button" class="btn btn-warning" data-toggle="modal" 
-					data-target="#modaledit{{$approvisionnement->id}}">Modifier</button>
+					data-target="#modaledit{{$article->id}}">Modifier</button>
    
                     @csrf
                     @method('DELETE')
@@ -112,13 +112,13 @@
                 </form>
             </td>
         </tr>
-        @include('approvisionnements.modalmodifier')
+        @include('articles.modalmodifier')
         @endforeach
     </table>
 
-    @include('approvisionnements.modalafficher')
+    @include('articles.modalafficher')
  
-	{!! $approvisionnements->render() !!}
+	{!! $articles->render() !!}
       
 @endsection
 
