@@ -74,13 +74,13 @@
 									</div>
 								</div>
 								<div class="form-group row">
-									<label class="col-sm-12 col-md-2 col-form-label">To</label>
+									<label class="col-sm-12 col-md-2 col-form-label">Pour</label>
 									<div class="col-sm-12 col-md-10">
 										<input class="form-control form-control-sm form-control-line" type="text">
 									</div>
 								</div>
 								<div class="form-group row">
-									<label class="col-sm-12 col-md-2 col-form-label">Subject</label>
+									<label class="col-sm-12 col-md-2 col-form-label">Demandeur</label>
 									<div class="col-sm-12 col-md-10">
 										<input class="form-control form-control-sm form-control-line" type="text">
 									</div>
