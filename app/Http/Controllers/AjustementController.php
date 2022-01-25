@@ -39,7 +39,6 @@ class AjustementController extends Controller
         $request->validate([
             'quantite' => 'required',
             'motif' => 'required',
-            'idAppro' => 'required',
         ]);
         Ajustement::create($request->all());
         return redirect()->route('ajustements.index')
@@ -80,7 +79,6 @@ class AjustementController extends Controller
         $request->validate([
             'quantite' => 'required',
             'motif' => 'required',
-            'idAppro' => 'required',
         ]);
         $ajustement->update($request->all());
     

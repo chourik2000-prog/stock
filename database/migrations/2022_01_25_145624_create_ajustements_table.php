@@ -17,9 +17,7 @@ class CreateAjustementsTable extends Migration
             $table->id();
             $table->integer('quantite');
             $table->string('motif');
-            $table->integer('idAppro')->unsigned();
             $table->timestamps();
-            $table->foreign('idAppro')->references('id')->on('approvisionnements');
         });
     }
 

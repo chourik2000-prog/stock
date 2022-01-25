@@ -44,7 +44,6 @@
  @section('content')
 	<div class="mobile-menu-overlay"></div>
 	<div class="main-container col-lg-12" id="bar1" >
-	
 			<div class="min-height-10px" >
 				<div class="page-header">
 					<div class="row">
