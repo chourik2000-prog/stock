@@ -3,7 +3,7 @@
 <head>
 	<!-- Basic Page Info -->
 	<meta charset="utf-8">
-	<title>Demandes d'article</title>
+	<title>Agents</title>
 
 	<!-- Site favicon -->
 	<link rel="apple-touch-icon" sizes="180x180" href="vendors/images/apple-touch-icon.png">
@@ -26,6 +26,17 @@
 		  right: 200px;
 		  top: -100px
 	  }
+	  .modal-header{
+		padding:9px 15px;
+    border-bottom:1px solid #eee;
+    background-color: #0480be;
+    -webkit-border-top-left-radius: 100px;
+    -webkit-border-top-right-radius: 100px;
+    -moz-border-radius-topleft: 100px;
+    -moz-border-radius-topright: 100px;
+     border-top-left-radius: 100px;
+     border-top-right-radius: 100px; 
+	  }
    </style>
 
 	<!-- Global site tag (gtag.js) - Google Analytics -->
@@ -44,7 +55,6 @@
  @section('content')
 	<div class="mobile-menu-overlay"></div>
 	<div class="main-container col-lg-12" id="bar1" >
-	
 			<div class="min-height-10px" >
 				<div class="page-header">
 					<div class="row">
@@ -71,7 +81,7 @@
 					<div class="clearfix mb-20">
 						<div class="pull-left">
                         <h4 class="font-20 weight-500 mb-10 text-capitalize">
-						<div class="weight-600 font-30 text-blue">Article sortant</div>
+						<div class="weight-600 font-30 text-blue">Agents</div>
 						</h4>
 						</div>
 						
@@ -88,22 +98,22 @@
 					<table class="table">
 						<thead>
 							<tr>
-								<th scope="col"> <strong> Libellé</strong> </th>
-                                <th scope="col"> <strong> Date</strong> </th>
-                                <th scope="col"> <strong> Quantité</strong> </th>
+                                <th scope="col"> <strong>Nom</strong> </th>
+                                <th scope="col"> <strong>Prenom</strong> </th>
+                                <th scope="col"> <strong>Poste</strong> </th>
 								<th scope="col"> <strong> Actions</strong> </th>
-							</tr>:
+							</tr>
 						</thead>
 						<tbody>
-                        @foreach ($demandes as $demande)
+                        @foreach ($agents as $agent)
         <tr>
-            <td>{{ $demande->libelle}}</td>
-            <td>{{ $demande->date}}</td>
-            <td>{{ $demande->qsortant}}</td>
+            <td>{{ $agent->nom}}</td>
+            <td>{{ $agent->prenom}}</td>
+            <td>{{ $agent->poste}}</td>
             <td>
-                <form action="{{ route('demandes.destroy',$demande->id) }}" method="POST">    
+                <form action="{{ route('agents.destroy',$agent->id) }}" method="POST">    
                     <button type="button" class="btn btn-info" data-toggle="modal" 
-					data-target="#modaledit{{$demande->id}}"><a  href="#"><span class="
+					data-target="#modaledit{{$agent->id}}"><a  href="#"><span class="
 					glyphicon glyphicon-pencil"></span></a></button>
    
                     @csrf
@@ -114,13 +124,13 @@
                 </form>
             </td>
         </tr>
-        @include('demandes.modalmodifier')
+        @include('agents.modalmodifier')
         @endforeach
     </table>
 
-    @include('demandes.modalafficher')
+    @include('agents.modalafficher')
  
-	{!! $demandes->render() !!}
+	{!! $agents->render() !!}
       
 @endsection
 

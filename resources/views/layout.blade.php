@@ -191,6 +191,11 @@
 						</a>
 					</li>
 					<li class="dropdown">
+						<a href="/agents" class="dropdown-toggle no-arrow">
+						<span class="micon dw dw-browser2"></span><span class="mtext">Agents</span>
+						</a>
+					</li>
+					<li class="dropdown">
 						<a href="/categories" class="dropdown-toggle no-arrow">
 							<span class="micon dw dw-library"></span><span class="mtext">Catégories</span>
 						</a>
