@@ -76,7 +76,7 @@
 						</div>
 						
 						<div class="pull-right">
-                <a class="btn btn-success" data-toggle="modal" data-target="#exampleModal"> + Ajouter</a>
+                <a class="btn btn-success btn-sm" data-toggle="modal" data-target="#exampleModal"> + Ajouter</a>
             </div>
 						</div>
 					
@@ -104,13 +104,15 @@
             <td>{{ $demande->qsortant}}</td>
             <td>
                 <form action="{{ route('demandes.destroy',$demande->id) }}" method="POST">    
-                    <button type="button" class="btn btn-warning" data-toggle="modal" 
-					data-target="#modaledit{{$demande->id}}">Modifier</button>
+                    <button type="button" class="btn btn-info" data-toggle="modal" 
+					data-target="#modaledit{{$demande->id}}"><a  href="#"><span class="
+					glyphicon glyphicon-pencil"></span></a></button>
    
                     @csrf
                     @method('DELETE')
       
-                    <button type="submit" class="btn btn-danger" onClick='return confirmSubmit()'>Supprimer</button>
+                    <button type="submit" class="btn btn-warning" onClick='return confirmSubmit()'>
+						<a  href="#"><span class="glyphicon glyphicon-trash"></span></a></button>
                 </form>
             </td>
         </tr>

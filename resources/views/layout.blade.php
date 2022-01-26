@@ -10,7 +10,7 @@
 	<link rel="icon" type="image/png" sizes="32x32" href="{{('vendors/images/favicon-32x32.png')}}">
 	<link rel="icon" type="image/png" sizes="16x16" href="{{('vendors/images/favicon-16x16.png')}}">
 
-	<!--<link rel="apple-touch-icon" sizes="180x180" href="{{url('vendors/images/apple-touch-icon.png')}}"> -->
+	<link rel="apple-touch-icon" sizes="180x180" href="{{url('vendors/images/apple-touch-icon.png')}}">
 	<link rel="icon" type="image/png" sizes="32x32" href="{{('vendors/images/logo-icon.png')}}">
 	<link rel="icon" type="image/png" sizes="16x16" href="{{('vendors/images/logo-icon.png')}}">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -29,10 +29,10 @@
 	<link rel="stylesheet" type="text/css" href="{{('src/plugins/datatables/css/responsive.bootstrap4.min.css')}}">
 	<link rel="stylesheet" type="text/css" href="{{('vendors/styles/style.css')}}">
 	
-	<link href="vendors\styles/bootstrap.css" rel="stylesheet">
-        <link href="vendors\styles/bootstrap.min.css" rel="stylesheet">
-        <script src="vendors\scripts/jquery.min.js"></script>
-        <script src="vendors\scripts/bootstrap.min.js"></script>
+	<link href="{{('vendors/styles/bootstrap.css')}}" rel="stylesheet">
+        <link href="{{('vendors/styles/bootstrap.min.css')}}" rel="stylesheet">
+        <script src="{{('vendors/scripts/jquery.min.js')}}"></script>
+        <script src="{{('vendors/scripts/bootstrap.min.js')}}"></script>
 	<!-- Global site tag (gtag.js) - Google Analytics -->
 	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-119386393-1"></script>
 	<script>

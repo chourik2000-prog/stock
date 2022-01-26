@@ -26,6 +26,17 @@
 		  right: 200px;
 		  top: -100px
 	  }
+	  .modal-header{
+		padding:9px 15px;
+    border-bottom:1px solid #eee;
+    background-color: #0480be;
+    -webkit-border-top-left-radius: 100px;
+    -webkit-border-top-right-radius: 100px;
+    -moz-border-radius-topleft: 100px;
+    -moz-border-radius-topright: 100px;
+     border-top-left-radius: 100px;
+     border-top-right-radius: 100px; 
+	  }
    </style>
 
 	<!-- Global site tag (gtag.js) - Google Analytics -->
@@ -75,7 +86,7 @@
 						</div>
 						
 						<div class="pull-right">
-                <a class="btn btn-success" data-toggle="modal" data-target="#exampleModal"> + Ajouter</a>
+                <a class="btn btn-success btn-sm" data-toggle="modal" data-target="#exampleModal"> + Ajouter</a>
             </div>
 						</div>
 					
@@ -99,13 +110,15 @@
             <td>{{ $ajustement->motif}}</td>
             <td>
                 <form action="{{ route('ajustements.destroy',$ajustement->id) }}" method="POST">    
-                    <button type="button" class="btn btn-warning" data-toggle="modal" 
-					data-target="#modaledit{{$ajustement->id}}">Modifier</button>
+                    <button type="button" class="btn btn-info" data-toggle="modal" 
+					data-target="#modaledit{{$ajustement->id}}"><a  href="#"><span class="
+					glyphicon glyphicon-pencil"></span></a></button>
    
                     @csrf
                     @method('DELETE')
       
-                    <button type="submit" class="btn btn-danger" onClick='return confirmSubmit()'>Supprimer</button>
+                    <button type="submit" class="btn btn-warning" onClick='return confirmSubmit()'>
+						<a  href="#"><span class="glyphicon glyphicon-trash"></span></a></button>
                 </form>
             </td>
         </tr>
