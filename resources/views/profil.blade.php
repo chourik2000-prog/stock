@@ -46,11 +46,11 @@
 								<ul>
 									<li>
 										<span>Adresse e-mail:</span>
-										FerdinandMChilds@test.com
+										iaitogo@iai-togo.com
 									</li>
 									<li>
 										<span>Numéro de téléphone:</span>
-										619-229-0054
+										22 20 47 00
 									</li>
 				
 								</ul>
