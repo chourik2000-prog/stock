@@ -39,7 +39,6 @@ class AgentController extends Controller
         $request->validate([
             'nom' => 'required',
             'prenom' => 'required',
-            'poste' => 'required',
         ]);
         Agent::create($request->all());
         return redirect()->route('agents.index')
@@ -80,7 +79,6 @@ class AgentController extends Controller
         $request->validate([
             'nom' => 'required',
             'prenom' => 'required',
-            'poste' => 'required',
         ]);
         $agent->update($request->all());
     

@@ -100,7 +100,6 @@
 							<tr>
                                 <th scope="col"> <strong>Nom</strong> </th>
                                 <th scope="col"> <strong>Prenom</strong> </th>
-                                <th scope="col"> <strong>Poste</strong> </th>
 								<th scope="col"> <strong> Actions</strong> </th>
 							</tr>
 						</thead>
@@ -109,7 +108,6 @@
         <tr>
             <td>{{ $agent->nom}}</td>
             <td>{{ $agent->prenom}}</td>
-            <td>{{ $agent->poste}}</td>
             <td>
                 <form action="{{ route('agents.destroy',$agent->id) }}" method="POST">    
                     <button type="button" class="btn btn-info" data-toggle="modal" 

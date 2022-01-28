@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="site.css">
+        <!--[if lt IE 9]>
+        <script
+        src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+      <title>jeudi </title>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+	<!-- Mobile Specific Metas -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<!-- Google Font -->
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+	<!-- CSS -->
+	<link rel="stylesheet" type="text/css" href="{{('vendors/styles/core.css')}}">
+	<link rel="stylesheet" type="text/css" href="{{('vendors/styles/icon-font.min.css')}}">
+	<link rel="stylesheet" type="text/css" href="{{('src/plugins/datatables/css/dataTables.bootstrap4.min.css')}}">
+	<link rel="stylesheet" type="text/css" href="{{('src/plugins/datatables/css/responsive.bootstrap4.min.css')}}">
+	<link rel="stylesheet" type="text/css" href="{{('vendors/styles/style.css')}}">
+	
+	<link href="{{('vendors/styles/bootstrap.css')}}" rel="stylesheet">
+        <link href="{{('vendors/styles/bootstrap.min.css')}}" rel="stylesheet">
+        <script src="{{('vendors/scripts/jquery.min.js')}}"></script>
+        <script src="{{('vendors/scripts/bootstrap.min.js')}}"></script>
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-119386393-1"></script>
+  <style>
+      body{
+          background-color: aliceblue;
+      }
+      #bar1{
+		  height: -1500px; 
+		  width: 600px;
+		  right: -400px;
+		  top: 20px;
+          border: solid 3px white;
+          background: white;
+      }
+   #montrez{
+      bottom: -800px;
+       height: -700px;
+
+   }
+        
+    
+      #recherche{
+          width: 2000px;
+          bottom: -500px;
+           left: 200px;
+          
+      }
+      #page{
+          bottom: -260px;
+          left: 200px;
+      }
+      #envoyer{
+        bottom: -200px;
+        left: 400px;
+      }
+     
+  </style>
+    </head>
+    <body>
+        <section class="col-sm-2" id="envoyer">
+            <div class="thumbnail">
+            <strong>Nom</strong>
+            <input type="text"><hr>
+            <button type="submit" class="btn btn-info" >Envoyer</button>
+            </div>
+            </section>
+           
+  
+        <div id="recherche" >Chercher
+        <input type="text" class=" col-lg-1"  placeholder="recherche" ></span> </div>  </div>
+        <section id="montrez"> Montrez
+            <select> 
+            <option>10</option>
+            <option>20</option>
+            <option>30</option>
+            <option>40</option>
+            </select> </section>
+        <div class="carousel slide">   
+            <div class="carousel-inner">
+            <div class="item active"> ... </div>
+            <div class="item"> ... </div>
+            <div class="item"> ... </div>
+            </div>
+            </div>
+            <div class="container">
+            <div class="col-lg-offset-2 col-lg-2" id="bar1">    
+            <div class="carousel slide"> 
+            <div class="carousel-inner"> 
+            <div class="item active">  
+               
+                 <table class="table col-sm-8" >
+                <thead>
+                    <tr>
+                        <th scope="col">nom</th>
+                        <th scope="col">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                 <td>daniel</td>
+             <td> <button type="button" class="btn btn-info" ><a  href="#">
+                  <span class=" glyphicon glyphicon-pencil"></span></a></button>          
+             <button type="submit" class="btn btn-warning">
+             <a  href="#"><span class="glyphicon glyphicon-trash"></span></a></button></td>
+                    </tr>
+                    <tr>
+                        <td>Franchisa</td>
+                    <td> <button type="button" class="btn btn-info" ><a  href="#">
+                         <span class=" glyphicon glyphicon-pencil"></span></a></button>          
+                    <button type="submit" class="btn btn-warning">
+                    <a  href="#"><span class="glyphicon glyphicon-trash"></span></a></button></td>
+                           </tr>
+                    <tr>
+                        <td>Larryna</td>
+                        <td> <button type="button" class="btn btn-info" ><a  href="#">
+                            <span class=" glyphicon glyphicon-pencil"></span></a></button>          
+                       <button type="submit" class="btn btn-warning">
+                       <a  href="#"><span class="glyphicon glyphicon-trash"></span></a></button></td>
+                    </tr>
+                </tbody>
+            </table>
+            </div>
+            </div>
+            </div>
+            </div>
+            <div class="btn-group" data-toggle="buttons" id="page">
+                <label class="btn btn-sm">
+                <input type="radio">Precedent
+                </label>
+                <label class="btn btn-primary">
+                <input type="radio">1
+                </label>
+                <label class="btn btn-sm">
+                <input type="radio">Suivant
+                </label>
+                </div>
+
+            <script src="assets/js/jquery.js"></script>
+            <script src="assets/js/bootstrap.min.js"></script>
+            <script>
+            $(function (){
+            $('.carousel').carousel();
+            });
+            </script>
+     
+    </body>
+</html>

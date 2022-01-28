@@ -71,7 +71,7 @@
 					<div class="clearfix mb-20">
 						<div class="pull-left">
                         <h4 class="font-20 weight-500 mb-10 text-capitalize">
-						<div class="weight-600 font-30 text-blue">Article sortant</div>
+						<div class="weight-600 font-30 text-blue">Faire une demande d'article</div>
 						</h4>
 						</div>
 						
@@ -110,7 +110,7 @@
                     @method('DELETE')
       
                     <button type="submit" class="btn btn-warning" onClick='return confirmSubmit()'>
-						<a  href="#"><span class="glyphicon glyphicon-trash"></span></a></button>
+					<a  href="#"><span class="glyphicon glyphicon-trash"></span></a></button>
                 </form>
             </td>
         </tr>

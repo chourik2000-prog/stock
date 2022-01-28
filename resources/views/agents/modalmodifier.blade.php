@@ -23,10 +23,6 @@
                     <strong>Prenom:</strong>
                     <input type="text" name="prenom" value="{{ $agent->prenom }}" class="form-control" placeholder="Le prenom de l'agent">
                 </div>
-                <div class="form-group">
-                    <strong>Poste:</strong>
-                    <input type="text" name="poste" value="{{ $agent->poste }}" class="form-control">
-                </div>
             </div>
             </div>
             <div class="modal-footer">

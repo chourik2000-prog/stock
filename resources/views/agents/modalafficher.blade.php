@@ -17,15 +17,11 @@
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Nom:</strong>
-                <input type="text" name="nom" class="form-control" placeholder="Le nom de l'agent">
+                <input type="text" name="nom" class="form-control" placeholder="Le nom de l'agent" required>
             </div>
             <div class="form-group">
                 <strong>Prenom:</strong>
                 <input type="text" name="prenom" class="form-control" placeholder="Le prenom de l'agent">
-            </div>
-            <div class="form-group">
-                <strong>Poste:</strong>
-                <input type="text" name="poste" class="form-control" placeholder="Le titre de l'agent">
             </div>
         </div>
         </div>
