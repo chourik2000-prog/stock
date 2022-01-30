@@ -23,6 +23,14 @@
                 <strong>Prenom:</strong>
                 <input type="text" name="prenom" class="form-control" placeholder="Le prenom de l'agent">
             </div>
+            <div class="form-group">
+                <strong>Domaine:</strong>
+                <select name="idcat" class="form-control">
+                    @foreach($categories as $categorie)
+                    <option value="{{$categorie->id}}">{{$categorie->libelle}}</option>
+                    @endforeach
+                </select>
+            </div>
         </div>
         </div>
       </div>

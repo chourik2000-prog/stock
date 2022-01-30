@@ -1,5 +1,5 @@
 <?php
-
+use App\Models\Agent;
 use Illuminate\Support\Facades\Route;
 
 /*

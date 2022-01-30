@@ -43,42 +43,49 @@
           background: white;
       }
    #montrez{
-      bottom: -800px;
-       height: -700px;
+      bottom: -30px;
+       height: -800px;
+       left: 600px;
 
    }
+   #inp{
+     padding-left: 5px;
+     padding-right: 5px;
+   }
         
-    
       #recherche{
           width: 2000px;
-          bottom: -500px;
-           left: 200px;
+          bottom: -50px;
+           left: 985px;
           
       }
       #page{
-          bottom: -260px;
-          left: 200px;
+          bottom: -40px;
+          left: 900px;
       }
-      #envoyer{
-        bottom: -200px;
-        left: 400px;
+      #form{
+        bottom: -235px;
+        left: 380px;
       }
+      #table{
+          bottom: -5px;
+          left: -10px;
+    }
      
   </style>
     </head>
     <body>
-        <section class="col-sm-2" id="envoyer">
-            <div class="thumbnail">
+        <section class="col-sm-2" id="form">
+            <div class="thumbnail" id="inp">
             <strong>Nom</strong>
-            <input type="text"><hr>
-            <button type="submit" class="btn btn-info" >Envoyer</button>
+           <div id="inp"><input type="text"><hr></div>
+         <button type="submit" class="btn btn-info" >Envoyer</button>
             </div>
             </section>
-           
-  
-        <div id="recherche" >Chercher
+            <section class="col-sm-2" id="recherche"> <div id="recherche">
         <input type="text" class=" col-lg-1"  placeholder="recherche" ></span> </div>  </div>
-        <section id="montrez"> Montrez
+            </section>
+        <section class="col-sm-2" id="montrez"> Montrez
             <select> 
             <option>10</option>
             <option>20</option>
@@ -92,13 +99,9 @@
             <div class="item"> ... </div>
             </div>
             </div>
-            <div class="container">
-            <div class="col-lg-offset-2 col-lg-2" id="bar1">    
-            <div class="carousel slide"> 
-            <div class="carousel-inner"> 
-            <div class="item active">  
-               
-                 <table class="table col-sm-8" >
+            <div class="container" id="contai">
+            <div class="col-lg-offset-1 col-lg-4" id="bar1">    
+                 <table class="table col-sm-4" >
                 <thead>
                     <tr>
                         <th scope="col">nom</th>

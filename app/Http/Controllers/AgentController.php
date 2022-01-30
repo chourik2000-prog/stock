@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\categorie;
 use App\Models\Agent;
 use Illuminate\Http\Request;
 
@@ -14,8 +14,9 @@ class AgentController extends Controller
      */
     public function index()
     {
-        $agents = agent::latest()->paginate(5);
-        return view('agents.afficher',compact('agents'));
+        $agents = Agent::join('agents', 'agents.idcat', '=', 'categories', 'categories.id')
+                  ->get(['agents.nom', 'agents.prenom', 'categories.libelle']);
+        return view('agents.afficher',compact('agents'))->with('categories',$categories);
     }
 
     /**
@@ -25,6 +26,7 @@ class AgentController extends Controller
      */
     public function create()
     {
+        $categories = categorie::all();
         return view('agents.create');
     }
 
@@ -39,6 +41,8 @@ class AgentController extends Controller
         $request->validate([
             'nom' => 'required',
             'prenom' => 'required',
+            'idcat' => 'required',
+           
         ]);
         Agent::create($request->all());
         return redirect()->route('agents.index')

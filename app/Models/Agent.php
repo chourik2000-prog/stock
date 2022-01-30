@@ -8,7 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Agent extends Model
 {
     use HasFactory;
+    protected $table = 'agents';
+
     protected $fillable = [
-        'nom', 'prenom', 'idcat'
+        'nom', 'prenom'
     ];
 }
