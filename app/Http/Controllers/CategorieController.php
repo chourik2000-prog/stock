@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Agent;
 use Illuminate\Http\Request;
 use App\Models\categorie;
 use Illuminate\Support\Facades\DB;
@@ -16,8 +16,7 @@ class CategorieController extends Controller
      */
     public function index()
     {
-        $categories = categorie::latest()->paginate(5);
-    
+        $categories = Categorie::with(['agents'])->get();
         return view('categories.afficher',compact('categories'));
     }
 

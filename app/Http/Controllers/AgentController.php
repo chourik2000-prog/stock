@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\categorie;
 use App\Models\Agent;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class AgentController extends Controller
 {
@@ -14,9 +15,10 @@ class AgentController extends Controller
      */
     public function index()
     {
-        $agents = Agent::join('agents', 'agents.idcat', '=', 'categories', 'categories.id')
-                  ->get(['agents.nom', 'agents.prenom', 'categories.libelle']);
-        return view('agents.afficher',compact('agents'))->with('categories',$categories);
+        $agents = Agent::with('categorie')
+        ->orderBy('id','DESC')
+        ->first();
+        return view('agents.afficher',compact('agents'));
     }
 
     /**
@@ -26,7 +28,7 @@ class AgentController extends Controller
      */
     public function create()
     {
-        $categories = categorie::all();
+        $agents = agent::all();
         return view('agents.create');
     }
 

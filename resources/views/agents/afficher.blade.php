@@ -105,11 +105,11 @@
 							</tr>
 						</thead>
 						<tbody>
-                        @foreach ($agents as $agent)
+                        @foreach ($categorie->agents as $agent)
         <tr>
             <td>{{ $agent->nom}}</td>
             <td>{{ $agent->prenom}}</td>
-            <td>{{ $agent->libelle}}</td>
+            <td>{{ $agent->idcat}}</td>
             <td>
                 <form action="{{ route('agents.destroy',$agent->id) }}" method="POST">    
                     <button type="button" class="btn btn-info" data-toggle="modal" 

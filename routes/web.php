@@ -1,6 +1,7 @@
 <?php
 use App\Models\Agent;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AgentController; 
 
 /*
 |--------------------------------------------------------------------------
@@ -25,5 +26,4 @@ Route::resource('categories', App\Http\Controllers\CategorieController::class);
 Route::resource('demandes', App\Http\Controllers\DemandeController::class);
 Route::resource('articles', App\Http\Controllers\ArticleController::class);
 Route::resource('agents', App\Http\Controllers\AgentController::class);
-
 
