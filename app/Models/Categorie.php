@@ -9,9 +9,8 @@ use Illuminate\Database\Eloquent\Model;
 class Categorie extends Model
 {
     use HasFactory;
-    protected $table = categories;
-    public function agents(){
-        return $this->hasMany(Agent::class);
-    }
+    protected $table = 'categories';
+    protected $fillable = ['libelle'];
+
   
 }

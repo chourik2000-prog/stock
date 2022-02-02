@@ -4,7 +4,6 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\Categorie;
 
 class Agent extends Model
 {
@@ -12,8 +11,4 @@ class Agent extends Model
 
     protected $table = "agents";
 
-
-    public function categorie(){
-        return $this->belongsTo(Categorie::class, 'idcat');
-    }
 }

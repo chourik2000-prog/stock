@@ -15,8 +15,10 @@ class CategorieController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        $categories = Categorie::with(['agents'])->get();
+    {       
+        $categories = DB::table('categories')
+            ->select('categories.*')
+            ->get();
         return view('categories.afficher',compact('categories'));
     }
 
@@ -95,9 +97,7 @@ class CategorieController extends Controller
      */
     public function destroy($id)
     {
-        DB::table('categories')->where('id',$id)->delete();
-
-        
+        DB::table('categories')->where('id',$id)->delete(); 
         return redirect()->route('categories.index')
                         ->with('success','suppression avec succès');
     }

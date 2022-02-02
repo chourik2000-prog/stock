@@ -22,6 +22,10 @@ Route::get('/accueil', function () {
     return view('accueil');
 });
 
+Route::get('/categories', 'App\Http\Controllers\CategorieController@index');
+
+
+
 Route::resource('categories', App\Http\Controllers\CategorieController::class);
 Route::resource('demandes', App\Http\Controllers\DemandeController::class);
 Route::resource('articles', App\Http\Controllers\ArticleController::class);

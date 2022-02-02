@@ -105,7 +105,7 @@
 							</tr>
 						</thead>
 						<tbody>
-                        @foreach ($categorie->agents as $agent)
+                        @foreach ($agents as $agent)
         <tr>
             <td>{{ $agent->nom}}</td>
             <td>{{ $agent->prenom}}</td>

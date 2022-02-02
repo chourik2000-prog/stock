@@ -115,8 +115,6 @@
     </table>
 
     @include('categories.modalafficher')
- 
-	{!! $categories->render() !!}
       
 @endsection
 

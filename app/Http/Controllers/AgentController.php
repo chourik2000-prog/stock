@@ -15,9 +15,7 @@ class AgentController extends Controller
      */
     public function index()
     {
-        $agents = Agent::with('categorie')
-        ->orderBy('id','DESC')
-        ->first();
+        $agents = agent::latest()->paginate(5);
         return view('agents.afficher',compact('agents'));
     }
 
@@ -44,7 +42,7 @@ class AgentController extends Controller
             'nom' => 'required',
             'prenom' => 'required',
             'idcat' => 'required',
-           
+
         ]);
         Agent::create($request->all());
         return redirect()->route('agents.index')
@@ -87,7 +85,7 @@ class AgentController extends Controller
             'prenom' => 'required',
         ]);
         $agent->update($request->all());
-    
+
         return redirect()->route('agents.index')
                         ->with('success','Mise à jour avec succès');
     }
