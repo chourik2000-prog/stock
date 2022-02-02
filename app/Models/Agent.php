@@ -13,6 +13,6 @@ class Agent extends Model
     protected $fillable = ['nom' ,'prenom', 'idcat'];
 
     public function categorie(){
-        return $this->belongsTo(Categorie::class); 
+        return $this->belongsTo(Categorie::class ,'idcat'); 
     }
 }

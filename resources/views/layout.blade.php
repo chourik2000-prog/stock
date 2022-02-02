@@ -204,11 +204,6 @@
 						<a href="javascript:;" class="dropdown-toggle no-arrow">
 							<span class="micon dw dw-edit2"></span><span class="mtext">Articles</span>
 						</a>
-						<ul class="submenu">
-							<li><a href="/approvisionnements">Approvisionnements</a></li>
-							<li><a href="/ajustements">Ajustements</a></li>
-							<li><a href="/articles">Articles</a></li>
-						</ul>
 					</li>
 					<li>
 						<a href="/demandes" class="dropdown-toggle no-arrow">

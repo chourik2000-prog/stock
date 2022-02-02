@@ -17,12 +17,23 @@
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Nom:</strong>
-                    <input type="text" name="nom" value="{{ $agent->nom }}" class="form-control" placeholder="Le nom de l'agent">
+                    <input type="text" name="nom" value="{{ $agent->nom }}" class="form-control" >
                 </div>
                 <div class="form-group">
                     <strong>Prenom:</strong>
-                    <input type="text" name="prenom" value="{{ $agent->prenom }}" class="form-control" placeholder="Le prenom de l'agent">
+                    <input type="text" name="prenom" value="{{ $agent->prenom }}" class="form-control" >
                 </div>
+
+                <div class="form-group">
+                  <label class="label">Catégorie</label>
+                  <div class="select">
+                      <select class="form-control" name="idcat">
+                          @foreach($categories as $categorie)
+                              <option name="libelle" value="{{ $categorie->id }}">{{ $categorie->libelle }}</option>
+                          @endforeach
+                      </select>
+                  </div>
+              </div>
             </div>
             </div>
             <div class="modal-footer">

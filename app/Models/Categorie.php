@@ -13,6 +13,6 @@ class Categorie extends Model
     protected $fillable = ['libelle'];
 
     public function agents(){
-    return $this->hasMany(Agent::class);
+    return $this->hasMany(Agent::class, 'idcat');
 }
 }

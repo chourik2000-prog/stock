@@ -109,7 +109,7 @@
         <tr>
             <td>{{ $agent->nom}}</td>
             <td>{{ $agent->prenom}}</td>
-            <td>{{ $agent->idcat}}</td>
+            <td>{{ $agent->categorie->libelle}}</td>
             <td>
                 <form action="{{ route('agents.destroy',$agent->id) }}" method="POST">    
                     <button type="button" class="btn btn-info" data-toggle="modal" 
@@ -129,8 +129,6 @@
     </table>
 
     @include('agents.modalafficher')
- 
-	{!! $agents->render() !!}
       
 @endsection
 

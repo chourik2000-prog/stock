@@ -15,13 +15,9 @@ class AgentController extends Controller
      */
     public function index($slug = null)
     {
-    // $query = $slug ? Categorie::whereSlug($slug)->firstOrFail()->agents() : Agent::query();
-    //$agents = $query->withTrashed()->oldest('nom')->paginate(5);
-    //$categories = Categorie::all();
-    //return view('agents.afficher', compact('agents', 'categories', 'slug'));
-    $cat = Categorie::all();
-     $agents = agent::latest()->paginate(5);
-     return view('agents.afficher',compact('agents'))->with('cat', $cat);
+     $categories = Categorie::all();
+     $agents = agent::latest()->get();
+     return view('agents.afficher',compact('agents'))->with('categories', $categories);
     }
 
     /**
@@ -45,12 +41,7 @@ class AgentController extends Controller
      */
     public function store(Request $request)
     {
-        // $request->validate([
-        //     'nom' => 'required',
-        //     'prenom' => 'required',
-        //     'idcat' => 'required',
-        // ]);
-      //  Agent::create($request->all());
+    
         $data = new Agent([
             'nom' => $request->get('nom'),
             'prenom' => $request->get('prenom'),
