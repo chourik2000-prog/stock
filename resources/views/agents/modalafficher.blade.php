@@ -23,6 +23,17 @@
                 <strong>Prenom:</strong>
                 <input type="text" name="prenom" class="form-control" placeholder="Le prenom de l'agent">
             </div>
+            <div class="form-group">
+              <label class="label">Catégorie</label>
+              <div class="select">
+                  <select class="form-control" name="idcat">
+                      @foreach($cat as $c)
+                          <option value="{{ $c->id }}">{{ $c->libelle }}</option>
+                      @endforeach
+                  </select>
+              </div>
+          </div>
+
         </div>
         </div>
       </div>

@@ -12,5 +12,7 @@ class Categorie extends Model
     protected $table = 'categories';
     protected $fillable = ['libelle'];
 
-  
+    public function agents(){
+    return $this->hasMany(Agent::class);
+}
 }

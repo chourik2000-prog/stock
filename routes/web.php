@@ -31,3 +31,5 @@ Route::resource('demandes', App\Http\Controllers\DemandeController::class);
 Route::resource('articles', App\Http\Controllers\ArticleController::class);
 Route::resource('agents', App\Http\Controllers\AgentController::class);
 
+
+

@@ -10,5 +10,9 @@ class Agent extends Model
     use HasFactory;
 
     protected $table = "agents";
+    protected $fillable = ['nom' ,'prenom', 'idcat'];
 
+    public function categorie(){
+        return $this->belongsTo(Categorie::class); 
+    }
 }

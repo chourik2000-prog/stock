@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\categorie;
+use App\Models\Categorie;
 use App\Models\Agent;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -13,10 +13,15 @@ class AgentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($slug = null)
     {
-        $agents = agent::latest()->paginate(5);
-        return view('agents.afficher',compact('agents'));
+    // $query = $slug ? Categorie::whereSlug($slug)->firstOrFail()->agents() : Agent::query();
+    //$agents = $query->withTrashed()->oldest('nom')->paginate(5);
+    //$categories = Categorie::all();
+    //return view('agents.afficher', compact('agents', 'categories', 'slug'));
+    $cat = Categorie::all();
+     $agents = agent::latest()->paginate(5);
+     return view('agents.afficher',compact('agents'))->with('cat', $cat);
     }
 
     /**
@@ -26,8 +31,10 @@ class AgentController extends Controller
      */
     public function create()
     {
-        $agents = agent::all();
-        return view('agents.create');
+        $cat = Categorie::all();
+        return view('agents.create')->with('cat', $cat);
+       // $agents = agent::all();
+       // return view('agents.create',compact('categories'));
     }
 
     /**
@@ -38,13 +45,18 @@ class AgentController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'nom' => 'required',
-            'prenom' => 'required',
-            'idcat' => 'required',
-
+        // $request->validate([
+        //     'nom' => 'required',
+        //     'prenom' => 'required',
+        //     'idcat' => 'required',
+        // ]);
+      //  Agent::create($request->all());
+        $data = new Agent([
+            'nom' => $request->get('nom'),
+            'prenom' => $request->get('prenom'),
+            'idcat' => $request->get('idcat')
         ]);
-        Agent::create($request->all());
+        $data->save();
         return redirect()->route('agents.index')
                         ->with('success',"L'article est enregistré avec succès.");
     }
