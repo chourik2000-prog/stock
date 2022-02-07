@@ -16,21 +16,18 @@
          <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
-                    <strong>Libellé:</strong>
+                    <strong>Désignation:</strong>
                     <input type="text" name="libelle" value="{{ $demande->libelle }}" class="form-control" placeholder="Le libellé de l'article">
                 </div>
                 <div class="form-group">
-                    <strong>Demandeur:</strong>
-                    <input type="text" name="demandeur" value="{{ $demande->demandeur }}" class="form-control" placeholder="Le nom du demadeur d'article">
-                </div>
+                  <strong>Quantité livrée:</strong>
+                  <input type="number" name="qlivree" value="{{ $demande->qlivree }}" class="form-control" placeholder="La quantité sortant">
+              </div>
                 <div class="form-group">
                     <strong>Date:</strong>
                     <input type="date" name="date" value="{{ $demande->date }}" class="form-control">
                 </div>
-                <div class="form-group">
-                    <strong>Quantité sortant:</strong>
-                    <input type="number" name="qsortant" value="{{ $demande->qsortant }}" class="form-control" placeholder="La quantité sortant">
-                </div>
+               
             </div>
             </div>
             <div class="modal-footer">

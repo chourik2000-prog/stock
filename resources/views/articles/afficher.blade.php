@@ -88,18 +88,14 @@
 					<table class="table">
 						<thead>
 							<tr>
-								<th scope="col"> <strong> Libellé</strong> </th>
-                                <th scope="col"> <strong> Quantité</strong> </th>
-                                <th scope="col"> <strong> Date</strong> </th>
-								<th scope="col"> <strong> Actions</strong> </th>
+								<th scope="col"> <strong>Désignation</strong> </th>
+								<th scope="col"> <strong>Actions</strong> </th>
 							</tr>
 						</thead>
 						<tbody>
                         @foreach ($articles as $article)
         <tr>
             <td>{{ $article->libelle}}</td>
-            <td>{{ $article->quantite}}</td>
-            <td>{{ $article->date}}</td>
             <td>
                 <form action="{{ route('articles.destroy',$article->id) }}" method="POST">    
                     <button type="button" class="btn btn-info" data-toggle="modal" 
@@ -119,8 +115,6 @@
     </table>
 
     @include('articles.modalafficher')
- 
-	{!! $articles->render() !!}
       
 @endsection
 

@@ -3,7 +3,7 @@
 <head>
 	<!-- Basic Page Info -->
 	<meta charset="utf-8">
-	<title>Demandes d'article</title>
+	<title>Approvisionnement</title>
 
 	<!-- Site favicon -->
 	<link rel="apple-touch-icon" sizes="180x180" href="vendors/images/apple-touch-icon.png">
@@ -71,12 +71,12 @@
 					<div class="clearfix mb-20">
 						<div class="pull-left">
                         <h4 class="font-20 weight-500 mb-10 text-capitalize">
-						<div class="weight-600 font-30 text-blue">Enregistrer les demandes</div>
+						<div class="weight-600 font-30 text-blue">Approvisionnement</div>
 						</h4>
 						</div>
 						
 						<div class="pull-right">
-                <a class="btn btn-success btn-sm" data-toggle="modal" data-target="#exampleModal"> + Ajouter</a>
+                <a class="btn btn-success btn-sm" data-toggle="modal" data-target="#exampleModal">+ Ajouter</a>
             </div>
 						</div>
 					
@@ -88,37 +88,39 @@
 					<table class="table">
 						<thead>
 							<tr>
-								<th scope="col"> <strong>Article</strong> </th>
-                                <th scope="col"> <strong>Quantité livrée</strong> </th>
+								<th scope="col"> <strong>Désignation</strong> </th>
+                                <th scope="col"> <strong>Fournisseur</strong> </th>
+                                <th scope="col"> <strong>Quantité</strong> </th>
                                 <th scope="col"> <strong>Date</strong> </th>
 								<th scope="col"> <strong>Actions</strong> </th>
 							</tr>
 						</thead>
 						<tbody>
-                        @foreach ($demandes as $demande)
+                        @foreach ($approvisionnements as $approvisionnement)
         <tr>
-            <td>{{ $demande->libelle}}</td>
-            <td>{{ $demande->qlivree}}</td>
-			<td>{{ $demande->date}}</td>
+            <td>{{ $approvisionnement->libelle}}</td>
+            <td>{{ $approvisionnement->fournisseur}}</td>
+            <td>{{ $approvisionnement->quantite}}</td>
+            <td>{{ $approvisionnement->date}}</td>
             <td>
-                <form action="{{ route('demandes.destroy',$demande->id) }}" method="POST">    
+                <form action="{{ route('approvisionnements.destroy',$approvisionnement->id) }}" method="POST">    
                     <button type="button" class="btn btn-info" data-toggle="modal" 
-					data-target="#modaledit{{$demande->id}}"><a  href="#"><span class="
+					data-target="#modaledit{{$approvisionnement->id}}"><a  href="#"><span class="
 					glyphicon glyphicon-pencil"></span></a></button>
    
                     @csrf
                     @method('DELETE')
       
                     <button type="submit" class="btn btn-warning" onClick='return confirmSubmit()'>
-					<a  href="#"><span class="glyphicon glyphicon-trash"></span></a></button>
+						<a  href="#"><span class="glyphicon glyphicon-trash"></span></a></button>
                 </form>
             </td>
         </tr>
-        @include('demandes.modalmodifier')
+        @include('approvisionnements.modalmodifier')
         @endforeach
     </table>
 
-    @include('demandes.modalafficher')
+    @include('approvisionnements.modalafficher')
       
 @endsection
 

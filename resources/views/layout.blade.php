@@ -191,18 +191,8 @@
 						</a>
 					</li>
 					<li class="dropdown">
-						<a href="/agents" class="dropdown-toggle no-arrow">
-						<span class="micon dw dw-browser2"></span><span class="mtext">Agents</span>
-						</a>
-					</li>
-					<li class="dropdown">
-						<a href="/categories" class="dropdown-toggle no-arrow">
-							<span class="micon dw dw-library"></span><span class="mtext">Catégories</span>
-						</a>
-					</li>
-					<li class="dropdown">
-						<a href="javascript:;" class="dropdown-toggle no-arrow">
-							<span class="micon dw dw-edit2"></span><span class="mtext">Articles</span>
+						<a href="/approvisionnements" class="dropdown-toggle no-arrow">
+							<span class="micon icon-copy dw dw-edit-file"></span><span class="mtext">Approvisionnements</span>
 						</a>
 					</li>
 					<li>
@@ -212,40 +202,41 @@
 					</li>
 					<li class="dropdown">
 						<a href="javascript:;" class="dropdown-toggle no-arrow">
-							<span class="micon dw dw-apartment"></span><span class="mtext">Notifications</span>
+							<span class="micon icon-copy dw dw-pagoda"></span><span class="mtext">Stocks</span>
+						</a>
+					</li>
+					
+					<li class="dropdown">
+						<a href="/articles" class="dropdown-toggle no-arrow">
+						<span class="micon dw dw-browser2"></span><span class="mtext">Articles</span>
+						</a>
+					</li>
+
+					<li class="dropdown">
+						<a href="/agents" class="dropdown-toggle no-arrow">
+						<span class="micon icon-copy dw dw-add-user"></span><span class="mtext">Agents</span>
 						</a>
 					</li>
 					<li class="dropdown">
-						<a href="javascript:;" class="dropdown-toggle no-arrow">
-							<span class="micon dw dw-browser2"></span><span class="mtext">Page d'erreur</span>
+						<a href="/categories" class="dropdown-toggle no-arrow">
+							<span class="micon dw dw-library"></span><span class="mtext">Catégories</span>
 						</a>
-						<ul class="submenu">
-							<li><a href="400.html">400</a></li>
-							<li><a href="403.html">403</a></li>
-							<li><a href="404.html">404</a></li>
-							<li><a href="500.html">500</a></li>
-							<li><a href="503.html">503</a></li>
-						</ul>
 					</li>
-
+					
+					
+					<li class="dropdown">
+						<a href="javascript:;" class="dropdown-toggle no-arrow">
+							<span class="micon icon-copy dw dw-settings1"></span><span class="mtext">Paramètres</span>
+						</a>
+					</li>
 				
-					<li>
-						<a href="javascript:;" class="dropdown-toggle no-arrow">
-							<span class="micon dw dw-edit-2"></span><span class="mtext">Documentation</span>
-						</a>
-						<ul class="submenu">
-							<li><a href="introduction.html">Introduction</a></li>
-							<li><a href="getting-started.html">Démarrage</a></li>
-							<li><a href="color-settings.html">Réglages de couleur</a></li>
-							<li><a href="third-party-plugins.html">Plugins tiers</a></li>
-						</ul>
-					</li>
-					<li>
+				
+				<!--	<li>
 						<a href="https://www.iai-togo.tg/" target="_blank" class="dropdown-toggle no-arrow">
 							<span class="micon dw dw-paper-plane1"></span>
 							<span class="mtext">Site de l'institut <img src="{{('vendors/images/coming-soon.png')}}" alt="" width="25"></span>
 						</a>
-					</li>
+					</li> -->
 				</ul>
 			</div>
 		</div>

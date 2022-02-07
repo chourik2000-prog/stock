@@ -16,16 +16,8 @@
          <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
-                    <strong>Libellé:</strong>
+                    <strong>Désignation:</strong>
                     <input type="text" name="libelle" value="{{ $article->libelle }}" class="form-control" placeholder="Le libellé">
-                </div>
-                <div class="form-group">
-                    <strong>Quantité:</strong>
-                    <input type="number" name="quantite" value="{{ $article->quantite }}" class="form-control" placeholder="La quantité">
-                </div>
-                <div class="form-group">
-                    <strong>Date:</strong>
-                    <input type="date" name="date" value="{{ $article->date }}" class="form-control">
                 </div>
             </div>
             </div>

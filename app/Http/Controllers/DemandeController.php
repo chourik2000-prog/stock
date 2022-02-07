@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\DB;
 use App\Models\Demande;
 use Illuminate\Http\Request;
 
@@ -14,7 +14,9 @@ class DemandeController extends Controller
      */
     public function index()
     {
-        $demandes = demande::latest()->paginate(5);
+        $demandes = DB::table('demandes')
+            ->select('demandes.*')
+            ->get();
         return view('demandes.afficher',compact('demandes'));
     }
 
@@ -38,9 +40,8 @@ class DemandeController extends Controller
     {
         $request->validate([
             'libelle' => 'required',
-            'demandeur' => 'required',
-            'date' => 'required',
-            'qsortant' => 'required',
+            'qlivree' => 'required',
+            'date' => 'required',  
         ]);
         Demande::create($request->all());
         return redirect()->route('demandes.index')
@@ -80,9 +81,8 @@ class DemandeController extends Controller
     {
         $request->validate([
             'libelle' => 'required',
-            'demandeur' => 'required',
+            'qlivree' => 'required',
             'date' => 'required',
-            'qsortant' => 'required',
         ]);
         $demande->update($request->all());
     

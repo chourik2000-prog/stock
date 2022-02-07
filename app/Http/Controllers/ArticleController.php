@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\DB;
 use App\Models\Article;
 use Illuminate\Http\Request;
 
@@ -14,7 +14,9 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        $articles = article::latest()->paginate(5);
+        $articles = DB::table('articles')
+            ->select('articles.*')
+            ->get();
         return view('articles.afficher',compact('articles'));
     }
 
@@ -38,8 +40,6 @@ class ArticleController extends Controller
     {
         $request->validate([
             'libelle' => 'required',
-            'quantite' => 'required',
-            'date' => 'required',
         ]);
         Article::create($request->all());
         return redirect()->route('articles.index')
@@ -79,8 +79,6 @@ class ArticleController extends Controller
     {
         $request->validate([
             'libelle' => 'required',
-            'quantite' => 'required',
-            'date' => 'required',
         ]);
         $article->update($request->all());
     

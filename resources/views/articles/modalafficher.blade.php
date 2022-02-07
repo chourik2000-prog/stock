@@ -17,23 +17,16 @@
      <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>Libellé:</strong>
+                <strong>Désignation:</strong>
                 <input type="text" name="libelle" class="form-control" placeholder="Le libellé de l'article">
             </div>
-            <div class="form-group">
-                <strong>Quantité:</strong>
-                <input type="number" name="quantite" class="form-control" placeholder="La quantité entrant">
-            </div>
-            <div class="form-group">
-                <strong>Date:</strong>
-                <input type="date" name="date" class="form-control" placeholder="La date du jour">
-            </div>
+           
         </div>
         </div>
       </div>
       <div class="modal-footer">
+      <button type="button" class="btn btn-danger" data-dismiss="modal">Fermer</button>
       <button type="submit" class="btn btn-primary">Enregistrer</button>
-      <button type="button" class="btn btn-danger" data-dismiss="modal">Fermer</button> 
       </div>
 </form>
       </div>

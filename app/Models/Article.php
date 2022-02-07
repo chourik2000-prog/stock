@@ -9,6 +9,6 @@ class Article extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'libelle', 'quantite','date'
+        'libelle'
     ];
 }
