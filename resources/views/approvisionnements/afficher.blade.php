@@ -22,7 +22,7 @@
    <style>
       #bar1{
 		  height: -1500px; 
-		  width: 1000px;
+		  width: 10000px;
 		  right: 200px;
 		  top: -100px
 	  }
