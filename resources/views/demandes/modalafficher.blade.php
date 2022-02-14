@@ -16,10 +16,16 @@
     @csrf
      <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
-                <strong>Libellé:</strong>
-                <input type="text" name="libelle" class="form-control" placeholder="Le libellé de l'article">
+          <div class="form-group">
+            <label class="label">Désignation</label>
+            <div class="select">
+                <select class="form-control" name="id_article">
+                    @foreach($articles as $article)
+                        <option value="{{ $article->id }}">{{ $article->libelle }}</option>
+                    @endforeach
+                </select>
             </div>
+        </div>
             <div class="form-group">
               <strong>Quantité livrée:</strong>
               <input type="number" name="qlivree" class="form-control" placeholder="La quantité sortant">

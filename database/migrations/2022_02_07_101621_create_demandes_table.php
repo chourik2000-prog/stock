@@ -15,9 +15,10 @@ class CreateDemandesTable extends Migration
     {
         Schema::create('demandes', function (Blueprint $table) {
             $table->id();
-            $table->string('libelle');
             $table->integer('qlivree');
             $table->date('date');
+            $table->Integer('id_article')->unsigned();
+            $table->foreign('id_article')->references('id')->on('articles');
             $table->timestamps();
         });
     }

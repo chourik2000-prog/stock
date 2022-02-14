@@ -20,6 +20,10 @@
                 <strong>Désignation:</strong>
                 <input type="text" name="libelle" class="form-control" placeholder="Le libellé de l'article">
             </div>
+            <div class="form-group">
+              <strong>Caractéristiques:</strong>
+              <input type="text" name="caracteristique" class="form-control" placeholder="Les caractéristiques">
+          </div>
            
         </div>
         </div>

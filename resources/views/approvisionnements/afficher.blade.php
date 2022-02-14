@@ -76,7 +76,7 @@
 						</div>
 						
 						<div class="pull-right">
-                <a class="btn btn-success btn-sm" data-toggle="modal" data-target="#exampleModal">+ Ajouter</a>
+                <a class="btn btn-success btn-sm text-white" data-toggle="modal" data-target="#exampleModal">+ Ajouter</a>
             </div>
 						</div>
 					
@@ -98,7 +98,7 @@
 						<tbody>
                         @foreach ($approvisionnements as $approvisionnement)
         <tr>
-            <td>{{ $approvisionnement->libelle}}</td>
+			<td>{{ $approvisionnement->article->libelle}}</td>
             <td>{{ $approvisionnement->fournisseur}}</td>
             <td>{{ $approvisionnement->quantite}}</td>
             <td>{{ $approvisionnement->date}}</td>
@@ -106,13 +106,13 @@
                 <form action="{{ route('approvisionnements.destroy',$approvisionnement->id) }}" method="POST">    
                     <button type="button" class="btn btn-info" data-toggle="modal" 
 					data-target="#modaledit{{$approvisionnement->id}}"><a  href="#"><span class="
-					glyphicon glyphicon-pencil"></span></a></button>
+					glyphicon glyphicon-pencil text-white"></span></a></button>
    
                     @csrf
                     @method('DELETE')
       
                     <button type="submit" class="btn btn-warning" onClick='return confirmSubmit()'>
-						<a  href="#"><span class="glyphicon glyphicon-trash"></span></a></button>
+						<a  href="#"><span class="glyphicon glyphicon-trash text-white"></span></a></button>
                 </form>
             </td>
         </tr>

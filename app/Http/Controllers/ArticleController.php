@@ -40,6 +40,7 @@ class ArticleController extends Controller
     {
         $request->validate([
             'libelle' => 'required',
+            'caracteristique' => 'required',
         ]);
         Article::create($request->all());
         return redirect()->route('articles.index')
@@ -79,6 +80,7 @@ class ArticleController extends Controller
     {
         $request->validate([
             'libelle' => 'required',
+            'caracteristique' => 'required',
         ]);
         $article->update($request->all());
     

@@ -76,7 +76,7 @@
 						</div>
 						
 						<div class="pull-right">
-                <a class="btn btn-success btn-sm" data-toggle="modal" data-target="#exampleModal"> + Ajouter</a>
+                <a class="btn btn-success btn-sm text-white" data-toggle="modal" data-target="#exampleModal"> + Ajouter</a>
             </div>
 						</div>
 					
@@ -89,6 +89,7 @@
 						<thead>
 							<tr>
 								<th scope="col"> <strong>Désignation</strong> </th>
+								<th scope="col"> <strong>Caractéristiques</strong> </th>
 								<th scope="col"> <strong>Actions</strong> </th>
 							</tr>
 						</thead>
@@ -96,17 +97,18 @@
                         @foreach ($articles as $article)
         <tr>
             <td>{{ $article->libelle}}</td>
+			<td>{{ $article->caracteristique}}</td>
             <td>
                 <form action="{{ route('articles.destroy',$article->id) }}" method="POST">    
                     <button type="button" class="btn btn-info" data-toggle="modal" 
 					data-target="#modaledit{{$article->id}}"><a  href="#"><span class="
-					glyphicon glyphicon-pencil"></span></a></button>
+					glyphicon glyphicon-pencil text-white"></span></a></button>
    
                     @csrf
                     @method('DELETE')
       
                     <button type="submit" class="btn btn-warning" onClick='return confirmSubmit()'>
-                        <a  href="#"><span class="glyphicon glyphicon-trash"></span></a></button>
+                        <a  href="#"><span class="glyphicon glyphicon-trash text-white"></span></a></button>
                 </form>
             </td>
         </tr>

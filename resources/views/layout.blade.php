@@ -201,7 +201,7 @@
 						</a>
 					</li>
 					<li class="dropdown">
-						<a href="javascript:;" class="dropdown-toggle no-arrow">
+						<a href="/stock" class="dropdown-toggle no-arrow">
 							<span class="micon icon-copy dw dw-pagoda"></span><span class="mtext">Stocks</span>
 						</a>
 					</li>

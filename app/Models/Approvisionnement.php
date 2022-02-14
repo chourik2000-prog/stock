@@ -10,6 +10,9 @@ class Approvisionnement extends Model
     use HasFactory;
     protected $table = 'approvisionnements';
     protected $fillable = [
-        'libelle','fournisseur','quantite','date'
+        'id_article', 'fournisseur','quantite','date'
     ];
+    public function article(){
+        return $this->belongsTo(Article::class ,'id_article'); 
+    }
 }

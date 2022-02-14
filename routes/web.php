@@ -1,5 +1,7 @@
 <?php
 use App\Models\Agent;
+use App\Models\Approvisionnement;
+use App\Models\Demande;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AgentController; 
 
@@ -20,6 +22,10 @@ Route::get('/', function () {
 
 Route::get('/accueil', function () {
     return view('accueil');
+});
+
+Route::get('/stock', function () {
+    return view('stock\afficher');
 });
 
 Route::get('/categories', 'App\Http\Controllers\CategorieController@index');

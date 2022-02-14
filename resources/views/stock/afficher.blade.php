@@ -3,7 +3,7 @@
 <head>
 	<!-- Basic Page Info -->
 	<meta charset="utf-8">
-	<title>Catégories</title>
+	<title>Stocks</title>
 
 	<!-- Site favicon -->
 	<link rel="apple-touch-icon" sizes="180x180" href="vendors/images/apple-touch-icon.png">
@@ -72,63 +72,33 @@
 					<div class="clearfix mb-20">
 						<div class="pull-left">
                         <h4 class="font-20 weight-500 mb-10 text-capitalize">
-						<div class="weight-600 font-30 text-blue">Catégorie</div>
+						<div class="weight-600 font-30 text-blue">Stock</div>
 						</h4>
 						</div>
 						
 						<div class="pull-right">
                 <a class="btn btn-success btn-sm text-white" data-toggle="modal" data-target="#exampleModal">+ Ajouter</a>
             </div>
-						</div>
+		</div>
 					
-                    @if ($message = Session::get('success'))
-        <div class="alert alert-success">
-            <p>{{ $message }}</p>
-        </div>
-    @endif
-					<table class="table">
-						<thead>
-							<tr>
-								<th scope="col"> <strong> Libellé</strong> </th>
-								<th scope="col"> <strong> Actions</strong> </th>
-							</tr>
-						</thead>
-						<tbody>
-                        @foreach ($categories as $categorie)
-        <tr>
-            <td>{{ $categorie->libelle}}</td>
-            <td>
-                <form action="{{ route('categories.destroy',$categorie->id) }}" method="POST">    
-                    <button type="button" class="btn btn-info" data-toggle="modal" 
-					data-target="#modaledit{{$categorie->id}}"><a  href="#"><span class="
-					glyphicon glyphicon-pencil text-white"></span></a></button>
-   
-                    @csrf
-                    @method('DELETE')
-      
-                    <button type="submit" class="btn btn-warning" onClick='return confirmSubmit()'>
-						<a  href="#"><span class="glyphicon glyphicon-trash text-white"></span></a></button>
-                </form>
-            </td>
-        </tr>
-        @include('categories.modalmodifier')
-        @endforeach
+		<table class="table">
+			<thead>
+				<tr>
+				<th scope="col"> <strong> Articles</strong> </th>
+				<th scope="col"> <strong> Quantité restante</strong> </th>
+				</tr>
+			</thead>
+			<tbody>
+          @foreach ($categories as $categorie) 
+              <tr>
+               <td>{{ $categorie->libelle}}</td>
+               <td>  </td>
+             </tr> 
+        @endforeach 
     </table>
-
-    @include('categories.modalafficher')
       
 @endsection
 
-<script>
-    function confirmSubmit()
- {
- var agree=confirm("Êtes-vous sûr de vouloir supprimer?");
- if (agree)
-  return true ;
- else
-  return false ;
- }
- </script>
 	<!-- js -->
 	<script src="vendors/scripts/core.js"></script>
 	<script src="vendors/scripts/script.min.js"></script>

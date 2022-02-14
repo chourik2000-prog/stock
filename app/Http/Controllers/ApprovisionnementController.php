@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Approvisionnement;
+use App\Models\Article;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 class ApprovisionnementController extends Controller
@@ -14,10 +15,9 @@ class ApprovisionnementController extends Controller
      */
     public function index()
     {
-        $approvisionnements = DB::table('approvisionnements')
-            ->select('approvisionnements.*')
-            ->get();
-        return view('approvisionnements.afficher',compact('approvisionnements'));
+        $articles = Article::all();
+        $approvisionnements = approvisionnement::latest()->get();
+        return view('approvisionnements.afficher',compact('approvisionnements'))->with('articles', $articles);
     }
 
     /**
@@ -27,7 +27,8 @@ class ApprovisionnementController extends Controller
      */
     public function create()
     {
-        return view('approvisionnements.create');
+        $cat = Article::all();
+        return view('approvisionnements.create')->with('cat', $cat);
     }
 
     /**
@@ -38,15 +39,16 @@ class ApprovisionnementController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'libelle' => 'required',
-            'fournisseur' => 'required',
-            'quantite' => 'required',
-            'date' => 'required',
+        $data = new Approvisionnement([
+            'id_article' => $request->get('id_article'),
+            'fournisseur' => $request->get('fournisseur'),
+            'quantite' => $request->get('quantite'),
+            'date' => $request->get('date')
+           
         ]);
-        Approvisionnement::create($request->all());
+        $data->save();
         return redirect()->route('approvisionnements.index')
-                        ->with('success','Produit enregistré avec succès.');
+                        ->with('success',"L'article est enregistré avec succès.");
     }
 
     /**
@@ -81,7 +83,6 @@ class ApprovisionnementController extends Controller
     public function update(Request $request, Approvisionnement $approvisionnement)
     {
         $request->validate([
-            'libelle' => 'required',
             'fournisseur' => 'required',
             'quantite' => 'required',
             'date' => 'required',

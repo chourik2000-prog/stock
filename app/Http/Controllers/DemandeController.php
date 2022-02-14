@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\DB;
 use App\Models\Demande;
+use App\Models\Article;
 use Illuminate\Http\Request;
 
 class DemandeController extends Controller
@@ -14,11 +15,11 @@ class DemandeController extends Controller
      */
     public function index()
     {
-        $demandes = DB::table('demandes')
-            ->select('demandes.*')
-            ->get();
-        return view('demandes.afficher',compact('demandes'));
+     $articles = Article::all();
+     $demandes = demande::latest()->get();
+     return view('demandes.afficher',compact('demandes'))->with('articles', $articles);
     }
+
 
     /**
      * Show the form for creating a new resource.
@@ -27,7 +28,8 @@ class DemandeController extends Controller
      */
     public function create()
     {
-        return view('demandes.create');
+        $cat = Demande::all();
+        return view('demandes.create')->with('cat', $cat);
     }
 
     /**
@@ -38,12 +40,12 @@ class DemandeController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'libelle' => 'required',
-            'qlivree' => 'required',
-            'date' => 'required',  
+        $data = new Demande([
+            'id_article' => $request->get('id_article'),
+            'qlivree' => $request->get('qlivree'),
+            'date' => $request->get('date')
         ]);
-        Demande::create($request->all());
+        $data->save();
         return redirect()->route('demandes.index')
                         ->with('success',"L'article est enregistré avec succès.");
     }
@@ -80,7 +82,6 @@ class DemandeController extends Controller
     public function update(Request $request, Demande $demande)
     {
         $request->validate([
-            'libelle' => 'required',
             'qlivree' => 'required',
             'date' => 'required',
         ]);

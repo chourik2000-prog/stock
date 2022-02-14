@@ -19,6 +19,10 @@
                     <strong>Désignation:</strong>
                     <input type="text" name="libelle" value="{{ $article->libelle }}" class="form-control" placeholder="Le libellé">
                 </div>
+                <div class="form-group">
+                  <strong>Caractéristiques:</strong>
+                  <input type="text" name="libelle" value="{{ $article->caracteristique }}" class="form-control" placeholder="Le libellé">
+              </div>
             </div>
             </div>
             <div class="modal-footer">
