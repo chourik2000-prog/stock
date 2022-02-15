@@ -22,8 +22,8 @@
 								<div id="chart"></div>
 							</div>
 							<div class="widget-data">
-								<div class="h4 mb-0">2020</div>
-								<div class="weight-600 font-14">Contact</div>
+								<div class="h4 mb-0">102</div>
+								<div class="weight-600 font-14">Demande</div>
 							</div>
 						</div>
 					</div>
@@ -35,8 +35,8 @@
 								<div id="chart2"></div>
 							</div>
 							<div class="widget-data">
-								<div class="h4 mb-0">400</div>
-								<div class="weight-600 font-14">Affaires</div>
+								<div class="h4 mb-0">40</div>
+								<div class="weight-600 font-14">Restant</div>
 							</div>
 						</div>
 					</div>
@@ -49,7 +49,7 @@
 							</div>
 							<div class="widget-data">
 								<div class="h4 mb-0">350</div>
-								<div class="weight-600 font-14">Campagne</div>
+								<div class="weight-600 font-14">Achat</div>
 							</div>
 						</div>
 					</div>
@@ -61,8 +61,8 @@
 								<div id="chart4"></div>
 							</div>
 							<div class="widget-data">
-								<div class="h4 mb-0">$6060</div>
-								<div class="weight-600 font-14">Valeur</div>
+								<div class="h4 mb-0">11</div>
+								<div class="weight-600 font-14">Agent</div>
 							</div>
 						</div>
 					</div>

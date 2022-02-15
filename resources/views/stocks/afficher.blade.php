@@ -89,10 +89,15 @@
 				</tr>
 			</thead>
 			<tbody>
-          @foreach ($categories as $categorie) 
+          @foreach ($stocks as $stock) 
               <tr>
-               <td>{{ $categorie->libelle}}</td>
-               <td>  </td>
+				  @php
+					  $entrant = Illuminate\Support\Facades\DB::table('approvisionnements')->where('id_article',$stock->id)->sum('quantite');
+					  $sortant = Illuminate\Support\Facades\DB::table('demandes')->where('id_article',$stock->id)->sum('qlivree');
+					  $reste = $entrant-$sortant;
+				  @endphp
+               <td>{{ $stock->libelle}}</td>
+			   <td>{{$reste}} </td>
              </tr> 
         @endforeach 
     </table>
