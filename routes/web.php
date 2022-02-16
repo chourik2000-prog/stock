@@ -30,9 +30,12 @@ Route::get('/stock', function () {
     return view('stockS\afficher',compact('articles'));
 });
 
+Route::get('/accueil', function () {
+    $articles = Article::all();
+    return view('accueil',compact('articles'));
+});
+
 Route::get('/categories', 'App\Http\Controllers\CategorieController@index');
-
-
 
 Route::resource('categories', App\Http\Controllers\CategorieController::class);
 Route::resource('demandes', App\Http\Controllers\DemandeController::class);
@@ -40,7 +43,7 @@ Route::resource('articles', App\Http\Controllers\ArticleController::class);
 Route::resource('agents', App\Http\Controllers\AgentController::class);
 Route::resource('approvisionnements', App\Http\Controllers\ApprovisionnementController::class);
 Route::resource('stocks', App\Http\Controllers\StockController::class);
-
+Route::resource('accueil',App\Http\Controllers\AccueilController::class);
 
 
 

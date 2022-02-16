@@ -27,6 +27,9 @@
 		  top: -100px
 		  
 	  }
+	  .lignecoloree{
+		  color: red;
+	  }
    </style>
 
 	<!-- Global site tag (gtag.js) - Google Analytics -->
@@ -61,7 +64,7 @@
 						<div class="col-md-6 col-sm-12 text-right"  >
 							<div class="dropdown">
 								<a class="btn btn-primary dropdown-toggle" href="#" role="button" data-toggle="dropdown">
-									Janvier 2022
+									Avril 2022
 								</a>
 							</div>
 						</div>
@@ -77,7 +80,7 @@
 						</div>
 						
 						<div class="pull-right">
-                <a class="btn btn-success btn-sm text-white" data-toggle="modal" data-target="#exampleModal">+ Ajouter</a>
+                <a href="/approvisionnements" class="btn btn-success btn-sm text-white">Approvisionnement</a>
             </div>
 		</div>
 					
@@ -85,7 +88,8 @@
 			<thead>
 				<tr>
 				<th scope="col"> <strong> Articles</strong> </th>
-				<th scope="col"> <strong> Quantité restante</strong> </th>
+				<th scope="col"> <strong> Stock final</strong> </th>
+				<th scope="col"> <strong>Alerte</strong> </th>
 				</tr>
 			</thead>
 			<tbody>
@@ -95,9 +99,17 @@
 					  $entrant = Illuminate\Support\Facades\DB::table('approvisionnements')->where('id_article',$stock->id)->sum('quantite');
 					  $sortant = Illuminate\Support\Facades\DB::table('demandes')->where('id_article',$stock->id)->sum('qlivree');
 					  $reste = $entrant-$sortant;
+				
 				  @endphp
-               <td>{{ $stock->libelle}}</td>
+				  
+               <td>{{ $stock->libelle}}({{$stock->caracteristique}})</td>
 			   <td>{{$reste}} </td>
+			   @if ($reste<10)
+			   <td><span class="btn btn-lg btn-danger" id="rond"></span> </td>
+			   @else
+			   <td><span class="btn btn-lg btn-success" id="rond"></span> </td>
+			   @endif
+			   
              </tr> 
         @endforeach 
     </table>

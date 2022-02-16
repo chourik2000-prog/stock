@@ -22,8 +22,8 @@
 								<div id="chart"></div>
 							</div>
 							<div class="widget-data">
-								<div class="h4 mb-0">102</div>
-								<div class="weight-600 font-14">Demande</div>
+								<div class="h4 mb-0">502</div>
+								<div class="weight-600 font-14">Achat</div>
 							</div>
 						</div>
 					</div>
@@ -35,8 +35,8 @@
 								<div id="chart2"></div>
 							</div>
 							<div class="widget-data">
-								<div class="h4 mb-0">40</div>
-								<div class="weight-600 font-14">Restant</div>
+								<div class="h4 mb-0">100</div>
+								<div class="weight-600 font-14">Demandes</div>
 							</div>
 						</div>
 					</div>
@@ -48,8 +48,8 @@
 								<div id="chart3"></div>
 							</div>
 							<div class="widget-data">
-								<div class="h4 mb-0">350</div>
-								<div class="weight-600 font-14">Achat</div>
+								<div class="h4 mb-0">402</div>
+								<div class="weight-600 font-14">En stock</div>
 							</div>
 						</div>
 					</div>
@@ -71,144 +71,40 @@
 		
 			<div class="card-box mb-30">
 				<h2 class="h4 pd-20">Listes de fournitures en stock</h2>
-				<table class="data-table table nowrap">
+				<table class=" table nowrap">
 					<thead>
 						<tr>
-							<th class="table-plus datatable-nosort">Produit</th>
-							<th>Nom</th>
-							<th>Couleur</th>
-							<th>taille</th>
-							<th>Prix</th>
-							<th>Oty</th>
-							<th class="datatable-nosort">Action</th>
+							<th>Articles</th>
+							<th>Fournisseurs</th>
+							<th>QExistant</th>
+							<th>QLivrée</th>
+							<th>Stock final</th>
+							<th>Alerte</th>
 						</tr>
 					</thead>
 					<tbody>
+						@foreach($accueils as $accueil)
 						<tr>
-							<td class="table-plus">
-								<img src="{{('vendors/images/product-1.jpg')}}" width="70" height="70" alt="">
-							</td>
-							<td>
-								<h5 class="font-16">Chemise</h5>
-								by John Doe
-							</td>
-							<td>Black</td>
-							<td>M</td>
-							<td>$1000</td>
-							<td>1</td>
-							<td>
-								<div class="dropdown">
-									<a class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle" href="#" role="button" data-toggle="dropdown">
-										<i class="dw dw-more"></i>
-									</a>
-									<div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
-										<a class="dropdown-item" href="#"><i class="dw dw-eye"></i>Voir</a>
-										<a class="dropdown-item" href="#"><i class="dw dw-edit2"></i>Editer</a>
-										<a class="dropdown-item" href="#"><i class="dw dw-delete-3"></i>Effacer</a>
-									</div>
-								</div>
-							</td>
-						</tr>
-						<tr>
-							<td class="table-plus">
-								<img src="{{('vendors/images/product-2.jpg')}}" width="70" height="70" alt="">
-							</td>
-							<td>
-								<h5 class="font-16">Bottes</h5>
-								by Lea R. Frith
-							</td>
-							<td>brown</td>
-							<td>9UK</td>
-							<td>$900</td>
-							<td>1</td>
-							<td>
-								<div class="dropdown">
-									<a class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle" href="#" role="button" data-toggle="dropdown">
-										<i class="dw dw-more"></i>
-									</a>
-									<div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
-										<a class="dropdown-item" href="#"><i class="dw dw-eye"></i>Vor</a>
-										<a class="dropdown-item" href="#"><i class="dw dw-edit2"></i>Editer</a>
-										<a class="dropdown-item" href="#"><i class="dw dw-delete-3"></i>Effacer</a>
-									</div>
-								</div>
-							</td>
-						</tr>
-						<tr>
-							<td class="table-plus">
-								<img src="{{('vendors/images/product-3.jpg')}}" width="70" height="70" alt="">
-							</td>
-							<td>
-								<h5 class="font-16">Hat</h5>
-								by Erik L. Richards
-							</td>
-							<td>Orange</td>
-							<td>M</td>
-							<td>$100</td>
-							<td>4</td>
-							<td>
-								<div class="dropdown">
-									<a class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle" href="#" role="button" data-toggle="dropdown">
-										<i class="dw dw-more"></i>
-									</a>
-									<div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
-										<a class="dropdown-item" href="#"><i class="dw dw-eye"></i> View</a>
-										<a class="dropdown-item" href="#"><i class="dw dw-edit2"></i> Edit</a>
-										<a class="dropdown-item" href="#"><i class="dw dw-delete-3"></i> Delete</a>
-									</div>
-								</div>
-							</td>
-						</tr>
-						<tr>
-							<td class="table-plus">
-								<img src="{{('vendors/images/product-4.jpg')}}" width="70" height="70" alt="">
-							</td>
-							<td>
-								<h5 class="font-16">Long Dress</h5>
-								by Renee I. Hansen
-							</td>
-							<td>Gray</td>
-							<td>L</td>
-							<td>$1000</td>
-							<td>1</td>
-							<td>
-								<div class="dropdown">
-									<a class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle" href="#" role="button" data-toggle="dropdown">
-										<i class="dw dw-more"></i>
-									</a>
-									<div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
-										<a class="dropdown-item" href="#"><i class="dw dw-eye"></i> View</a>
-										<a class="dropdown-item" href="#"><i class="dw dw-edit2"></i> Edit</a>
-										<a class="dropdown-item" href="#"><i class="dw dw-delete-3"></i> Delete</a>
-									</div>
-								</div>
-							</td>
-						</tr>
-						<tr>
-							<td class="table-plus">
-								<img src="{{('vendors/images/product-5.jpg')}}" width="70" height="70" alt="">
-							</td>
-							<td>
-								<h5 class="font-16">Blazer</h5>
-								by Vicki M. Coleman
-							</td>
-							<td>Blue</td>
-							<td>M</td>
-							<td>$1000</td>
-							<td>1</td>
-							<td>
-								<div class="dropdown">
-									<a class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle" href="#" role="button" data-toggle="dropdown">
-										<i class="dw dw-more"></i>
-									</a>
-									<div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
-										<a class="dropdown-item" href="#"><i class="dw dw-eye"></i> View</a>
-										<a class="dropdown-item" href="#"><i class="dw dw-edit2"></i> Edit</a>
-										<a class="dropdown-item" href="#"><i class="dw dw-delete-3"></i> Delete</a>
-									</div>
-								</div>
-							</td>
-						</tr>
+							@php
+								$entrant = Illuminate\Support\Facades\DB::table('approvisionnements')->where('id_article',$accueil->id)->sum('quantite');
+								$sortant = Illuminate\Support\Facades\DB::table('demandes')->where('id_article',$accueil->id)->sum('qlivree');
+								$reste = $entrant-$sortant;
+						  
+							@endphp
+							
+						 <td>{{ $accueil->libelle}}({{$accueil->caracteristique}})</td>
+						 <td>{{ $accueil->fournisseur}}</td>
+						 <td>{{ $accueil->quantite}}</td>
+						 <td>{{ $accueil->qlivree}}</td>
+						 <td>{{$reste}} </td>
+						 @if ($reste<10)
+						 <td><span class="btn btn-lg btn-danger" id="rond"></span> </td>
+						 @else
+						 <td><span class="btn btn-lg btn-success" id="rond"></span> </td>
+						 @endif
+						 
+					   </tr> 
+				  @endforeach 
 					</tbody>
 				</table>
 			</div>
