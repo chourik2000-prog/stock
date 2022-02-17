@@ -83,9 +83,12 @@
 						</tr>
 					</thead>
 					<tbody>
-						@foreach($accueils as $accueil)
+						@foreach ($accueils as $accueil)
 						<tr>
 							@php
+								$fournisseur = Illuminate\Support\Facades\DB::table('approvisionnements')->where('id_article',$accueil->id)->value('fournisseur');
+								$quantite = Illuminate\Support\Facades\DB::table('approvisionnements')->where('id_article',$accueil->id)->value('quantite');
+								$qlivree = Illuminate\Support\Facades\DB::table('demandes')->where('id_article',$accueil->id)->value('qlivree');
 								$entrant = Illuminate\Support\Facades\DB::table('approvisionnements')->where('id_article',$accueil->id)->sum('quantite');
 								$sortant = Illuminate\Support\Facades\DB::table('demandes')->where('id_article',$accueil->id)->sum('qlivree');
 								$reste = $entrant-$sortant;
@@ -93,16 +96,17 @@
 							@endphp
 							
 						 <td>{{ $accueil->libelle}}({{$accueil->caracteristique}})</td>
-						 <td>{{ $accueil->fournisseur}}</td>
-						 <td>{{ $accueil->quantite}}</td>
-						 <td>{{ $accueil->qlivree}}</td>
+						 <td>{{ $fournisseur}}</td>
+						 <td>{{ $quantite}}</td> 
+					 	 @if ($qlivree == null) <td>0</td> @endif
+						 <td>{{ $qlivree}}</td>
 						 <td>{{$reste}} </td>
 						 @if ($reste<10)
 						 <td><span class="btn btn-lg btn-danger" id="rond"></span> </td>
 						 @else
 						 <td><span class="btn btn-lg btn-success" id="rond"></span> </td>
 						 @endif
-						 
+
 					   </tr> 
 				  @endforeach 
 					</tbody>

@@ -17,22 +17,15 @@ use App\Http\Controllers\AgentController;
 |
 */
 
-Route::get('/', function () {
-    return view('accueil');
-});
-
-Route::get('/accueil', function () {
-    return view('accueil');
-});
 
 Route::get('/stock', function () {
     $articles = Article::all();
-    return view('stockS\afficher',compact('articles'));
+    return view('stocks\afficher',compact('articles'));
 });
 
-Route::get('/accueil', function () {
-    $articles = Article::all();
-    return view('accueil',compact('articles'));
+Route::get('/', function () {
+    $accueils = Article::all();
+    return view('accueil',compact('accueils'));
 });
 
 Route::get('/categories', 'App\Http\Controllers\CategorieController@index');
@@ -43,7 +36,7 @@ Route::resource('articles', App\Http\Controllers\ArticleController::class);
 Route::resource('agents', App\Http\Controllers\AgentController::class);
 Route::resource('approvisionnements', App\Http\Controllers\ApprovisionnementController::class);
 Route::resource('stocks', App\Http\Controllers\StockController::class);
-Route::resource('accueil',App\Http\Controllers\AccueilController::class);
+Route::resource('accueil', App\Http\Controllers\AccueilController::class);
 
 
 
