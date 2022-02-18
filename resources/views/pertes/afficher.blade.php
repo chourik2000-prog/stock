@@ -3,7 +3,7 @@
 <head>
 	<!-- Basic Page Info -->
 	<meta charset="utf-8">
-	<title>Demandes d'article</title>
+	<title>Pertes</title>
 
 	<!-- Site favicon -->
 	<link rel="apple-touch-icon" sizes="180x180" href="vendors/images/apple-touch-icon.png">
@@ -26,6 +26,17 @@
 		  right: 200px;
 		  top: -100px
 	  }
+	  .modal-header{
+		padding:9px 15px;
+    border-bottom:1px solid #eee;
+    background-color: #0480be;
+    -webkit-border-top-left-radius: 100px;
+    -webkit-border-top-right-radius: 100px;
+    -moz-border-radius-topleft: 100px;
+    -moz-border-radius-topright: 100px;
+     border-top-left-radius: 100px;
+     border-top-right-radius: 100px; 
+	  }
    </style>
 
 	<!-- Global site tag (gtag.js) - Google Analytics -->
@@ -44,7 +55,6 @@
  @section('content')
 	<div class="mobile-menu-overlay"></div>
 	<div class="main-container col-lg-12" id="bar1" >
-	
 			<div class="min-height-10px" >
 				<div class="page-header">
 					<div class="row">
@@ -60,7 +70,7 @@
 						<div class="col-md-6 col-sm-12 text-right"  >
 							<div class="dropdown">
 								<a class="btn btn-primary dropdown-toggle" href="#" role="button" data-toggle="dropdown">
-									Janvier 2022
+									Avril 2022
 								</a>
 							</div>
 						</div>
@@ -71,7 +81,7 @@
 					<div class="clearfix mb-20">
 						<div class="pull-left">
                         <h4 class="font-20 weight-500 mb-10 text-capitalize">
-						<div class="weight-600 font-30 text-blue">Enregistrer les demandes</div>
+						<div class="weight-600 font-30 text-blue">Pertes</div>
 						</h4>
 						</div>
 						
@@ -88,39 +98,37 @@
 					<table class="table">
 						<thead>
 							<tr>
-								<th scope="col"> <strong>Demandeur</strong> </th>
-								<th scope="col"> <strong>Désignation</strong> </th>
-                                <th scope="col"> <strong>Quantité livrée</strong> </th>
+                                <th scope="col"> <strong>Désignation</strong> </th>
+                                <th scope="col"> <strong>Perte</strong> </th>
                                 <th scope="col"> <strong>Date</strong> </th>
-								<th scope="col"> <strong>Actions</strong> </th>
+								<th scope="col"> <strong> Actions</strong> </th>
 							</tr>
 						</thead>
 						<tbody>
-                        @foreach ($demandes as $demande)
+                        @foreach ($pertes as $perte)
         <tr>
-			<td>{{$demande->demandeur}}</td>
-            <td>{{ $demande->article->libelle}}</td>
-            <td>{{ $demande->qlivree}}</td>
-			<td>{{ $demande->date}}</td>
+            <td>{{ $perte->article->libelle}}</td>
+            <td>{{ $perte->qperdue}}</td>
+            <td>{{ $perte->date}}</td>
             <td>
-                <form action="{{ route('demandes.destroy',$demande->id) }}" method="POST">    
+                <form action="{{ route('pertes.destroy',$perte->id) }}" method="POST">    
                     <button type="button" class="btn btn-info" data-toggle="modal" 
-					data-target="#modaledit{{$demande->id}}"><a  href="#"><span class="
+					data-target="#modaledit{{$perte->id}}"><a  href="#"><span class="
 					glyphicon glyphicon-pencil text-white"></span></a></button>
    
                     @csrf
                     @method('DELETE')
       
                     <button type="submit" class="btn btn-warning" onClick='return confirmSubmit()'>
-					<a  href="#"><span class="glyphicon glyphicon-trash text-white"></span></a></button>
+						<a  href="#"><span class="glyphicon glyphicon-trash text-white"></span></a></button>
                 </form>
             </td>
         </tr>
-        @include('demandes.modalmodifier')
+        @include('pertes.modalmodifier')
         @endforeach
     </table>
 
-    @include('demandes.modalafficher')
+    @include('pertes.modalafficher')
       
 @endsection
 

@@ -41,6 +41,7 @@ class DemandeController extends Controller
     public function store(Request $request)
     {
         $data = new Demande([
+            'demandeur' => $request->get('demandeur'),
             'id_article' => $request->get('id_article'),
             'qlivree' => $request->get('qlivree'),
             'date' => $request->get('date')
@@ -82,6 +83,7 @@ class DemandeController extends Controller
     public function update(Request $request, Demande $demande)
     {
         $request->validate([
+            'demandeur' => 'demandeur',
             'qlivree' => 'required',
             'date' => 'required',
         ]);

@@ -218,13 +218,17 @@
 						</a>
 					</li>
 					
+					<li class="dropdown">
+						<a href="/pertes" class="dropdown-toggle no-arrow">
+							<span class="micon dw dw-delete-3"></span><span class="mtext">Pertes</span>
+						</a>
+					</li>
 					
 					<li class="dropdown">
 						<a href="javascript:;" class="dropdown-toggle no-arrow">
-							<span class="micon icon-copy dw dw-settings1"></span><span class="mtext">Paramètres</span>
+							<span class="micon icon-copy dw dw-hourglass1"></span><span class="mtext">Bilan</span>
 						</a>
 					</li>
-				
 				
 				<!--	<li>
 						<a href="https://www.iai-togo.tg/" target="_blank" class="dropdown-toggle no-arrow">

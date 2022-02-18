@@ -17,6 +17,7 @@ class CreateDemandesTable extends Migration
             $table->id();
             $table->integer('qlivree');
             $table->date('date');
+            $table->string('demandeur');
             $table->Integer('id_article')->unsigned();
             $table->foreign('id_article')->references('id')->on('articles');
             $table->timestamps();

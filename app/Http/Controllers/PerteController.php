@@ -1,23 +1,23 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\Categorie;
-use App\Models\Agent;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
-class AgentController extends Controller
+use App\Models\Article;
+use App\Models\Perte;
+use Illuminate\Http\Request;
+
+class PerteController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($slug = null)
+    public function index()
     {
-     $categories = Categorie::all();
-     $agents = agent::latest()->get();
-     return view('agents.afficher',compact('agents'))->with('categories', $categories);
+        $pertes = Perte::all();
+        $articles = Article::latest()->get();
+        return view('pertes.afficher',compact('articles'))->with('pertes', $pertes);
     }
 
     /**
@@ -27,9 +27,8 @@ class AgentController extends Controller
      */
     public function create()
     {
-        $cat = Categorie::all();
-        return view('agents.create')->with('cat', $cat);
-      
+        $cat = Perte::all();
+        return view('pertes.create')->with('cat', $cat);
     }
 
     /**
@@ -40,68 +39,67 @@ class AgentController extends Controller
      */
     public function store(Request $request)
     {
-    
-        $data = new Agent([
-            'nom' => $request->get('nom'),
-            'prenom' => $request->get('prenom'),
-            'idcat' => $request->get('idcat')
+        $data = new Perte([
+            'id_article' => $request->get('id_article'),
+            'qperdue' => $request->get('qperdue'),
+            'date' => $request->get('date')
         ]);
         $data->save();
-        return redirect()->route('agents.index')
+        return redirect()->route('pertes.index')
                         ->with('success',"L'article est enregistré avec succès.");
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Agent  $agent
+     * @param  \App\Models\Perte  $perte
      * @return \Illuminate\Http\Response
      */
-    public function show(Agent $agent)
+    public function show(Perte $perte)
     {
-        return view('agents.show',compact('agent'));
+        return view('pertes.show',compact('perte'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Agent  $agent
+     * @param  \App\Models\Perte  $perte
      * @return \Illuminate\Http\Response
      */
-    public function edit(Agent $agent)
+    public function edit(Perte $perte)
     {
-        return view('agents.edit',compact('agent'));
+        return view('pertes.edit',compact('perte'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Agent  $agent
+     * @param  \App\Models\Perte  $perte
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Agent $agent)
+    public function update(Request $request, Perte $perte)
     {
         $request->validate([
-            'nom' => 'required',
-            'prenom' => 'required',
+            'qperdue' => 'required',
+            'date' => 'required',
         ]);
-        $agent->update($request->all());
+        $perte->update($request->all());
 
-        return redirect()->route('agents.index')
+        return redirect()->route('pertes.index')
                         ->with('success','Mise à jour avec succès');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Agent  $agent
+     * @param  \App\Models\Perte  $perte
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Agent $agent)
+    public function destroy(Perte $perte)
     {
-        $agent->delete();
-        return redirect()->route('agents.index')
+        $perte->delete();
+        return redirect()->route('pertes.index')
                         ->with('success','suppression avec succès');
     }
 }

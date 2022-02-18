@@ -104,12 +104,13 @@
 				  
                <td>{{ $stock->libelle}}({{$stock->caracteristique}})</td>
 			   <td>{{$reste}} </td>
-			   @if ($reste<10)
-			   <td><span class="btn btn-lg btn-danger" id="rond"></span> </td>
-			   @else
+			   @if ($reste == 0)
+			   <td><span class="btn btn-lg btn-danger" id="rond"></span> </td> @endif
+			    @if ($reste < 10 & $reste >0)
+			   <td><span class="btn btn-lg btn-warning" id="rond"></span> </td> @endif		   
+			  @if ($reste>=10)
 			   <td><span class="btn btn-lg btn-success" id="rond"></span> </td>
-			   @endif
-			   
+			   @endif   
              </tr> 
         @endforeach 
     </table>

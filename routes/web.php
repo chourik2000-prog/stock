@@ -37,6 +37,7 @@ Route::resource('agents', App\Http\Controllers\AgentController::class);
 Route::resource('approvisionnements', App\Http\Controllers\ApprovisionnementController::class);
 Route::resource('stocks', App\Http\Controllers\StockController::class);
 Route::resource('accueil', App\Http\Controllers\AccueilController::class);
+Route::resource('pertes', App\Http\Controllers\PerteController::class);
 
 
 

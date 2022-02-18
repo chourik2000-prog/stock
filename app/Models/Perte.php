@@ -5,12 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Demande extends Model
+class Perte extends Model
 {
     use HasFactory;
-    protected $table = 'demandes';
+    protected $table = 'pertes';
     protected $fillable = [
-       'demandeur', 'id_article' ,'qlivree' ,'date'
+        'id_article', 'qperdue','date'
     ];
     public function article(){
         return $this->belongsTo(Article::class ,'id_article'); 

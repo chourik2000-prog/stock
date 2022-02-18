@@ -17,6 +17,10 @@
      <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12">
           <div class="form-group">
+            <strong>Demandeur:</strong>
+            <input type="text" name="demandeur" class="form-control" placeholder="Le nom du demandeur">
+        </div>
+          <div class="form-group">
             <label class="label">Désignation</label>
             <div class="select">
                 <select class="form-control" name="id_article">
