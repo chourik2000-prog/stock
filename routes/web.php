@@ -27,6 +27,9 @@ Route::get('/', function () {
     $accueils = Article::all();
     return view('accueil',compact('accueils'));
 });
+Route::get('/bilans',function(){
+    return view('bilans\afficher');
+});
 
 Route::get('/categories', 'App\Http\Controllers\CategorieController@index');
 
@@ -38,6 +41,7 @@ Route::resource('approvisionnements', App\Http\Controllers\ApprovisionnementCont
 Route::resource('stocks', App\Http\Controllers\StockController::class);
 Route::resource('accueil', App\Http\Controllers\AccueilController::class);
 Route::resource('pertes', App\Http\Controllers\PerteController::class);
+Route::resource('fournisseurs', App\Http\Controllers\FournisseurController::class);
 
 
 

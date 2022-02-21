@@ -15,11 +15,13 @@ class CreateApprovisionnementsTable extends Migration
     {
         Schema::create('approvisionnements', function (Blueprint $table) {
             $table->id();
-            $table->string('fournisseur');
-            $table->integer('quantite');
+            $table->Integer('qexistant');
+            $table->integer('qentrant');
             $table->date('date');
             $table->Integer('id_article')->unsigned();
+            $table->Integer('id_fournisseur')->unsigned();
             $table->foreign('id_article')->references('id')->on('articles');
+            $table->foreign('id_fournisseur')->references('id')->on('fournisseurs');
             $table->timestamps();
         });
     }

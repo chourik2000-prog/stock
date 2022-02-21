@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Approvisionnement;
 use App\Models\Article;
+use App\Models\Fournisseur;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 class ApprovisionnementController extends Controller
@@ -16,8 +17,9 @@ class ApprovisionnementController extends Controller
     public function index()
     {
         $articles = Article::all();
+        $fournisseurs = Fournisseur::all();
         $approvisionnements = approvisionnement::latest()->get();
-        return view('approvisionnements.afficher',compact('approvisionnements'))->with('articles', $articles);
+        return view('approvisionnements.afficher',compact('approvisionnements'))->with('fournisseurs', $fournisseurs)->with('articles', $articles);
     }
 
     /**
@@ -27,8 +29,9 @@ class ApprovisionnementController extends Controller
      */
     public function create()
     {
+        $four = Fournisseur::all();
         $cat = Article::all();
-        return view('approvisionnements.create')->with('cat', $cat);
+        return view('approvisionnements.create')->with('four', $four)->with('cat', $cat);
     }
 
     /**
@@ -41,8 +44,9 @@ class ApprovisionnementController extends Controller
     {
         $data = new Approvisionnement([
             'id_article' => $request->get('id_article'),
-            'fournisseur' => $request->get('fournisseur'),
-            'quantite' => $request->get('quantite'),
+            'id_fournisseur' => $request->get('id_fournisseur'),
+            'qexistant' => $request->get('qexistant'),
+            'qentrant' => $request->get('qentrant'),
             'date' => $request->get('date')
            
         ]);
@@ -83,8 +87,8 @@ class ApprovisionnementController extends Controller
     public function update(Request $request, Approvisionnement $approvisionnement)
     {
         $request->validate([
-            'fournisseur' => 'required',
-            'quantite' => 'required',
+            'qexistant' => 'required',
+            'qentrant' => 'required',
             'date' => 'required',
         ]);
         $approvisionnement->update($request->all());

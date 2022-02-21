@@ -78,42 +78,21 @@
 						<div class="weight-600 font-30 text-blue">Stock</div>
 						</h4>
 						</div>
-						
-						<div class="pull-right">
-                <a href="/approvisionnements" class="btn btn-success btn-sm text-white">Approvisionnement</a>
-            </div>
+					
 		</div>
 					
 		<table class="table">
 			<thead>
 				<tr>
 				<th scope="col"> <strong> Articles</strong> </th>
-				<th scope="col"> <strong> Stock final</strong> </th>
-				<th scope="col"> <strong>Alerte</strong> </th>
+				<th scope="col"> <strong> Stock Existant</strong> </th>
+				<th scope="col"> <strong>Stock Entrant</strong> </th>
+                <th scope="col"> <strong>Stock Total</strong> </th>
 				</tr>
 			</thead>
 			<tbody>
-          @foreach ($stocks as $stock) 
-              <tr>
-				  @php
-					  $entrant = Illuminate\Support\Facades\DB::table('approvisionnements')->where('id_article',$stock->id)->sum('quantite');
-					  $sortant = Illuminate\Support\Facades\DB::table('demandes')->where('id_article',$stock->id)->sum('qlivree');
-					  $reste = $entrant-$sortant;
-				
-				  @endphp
-				  
-               <td>{{ $stock->libelle}}({{$stock->caracteristique}})</td>
-			   <td>{{$reste}} </td>
-			   @if ($reste == 0)
-			   <td><span class="btn btn-lg btn-danger" id="rond"></span> </td> @endif
-			    @if ($reste < 10 & $reste >0)
-			   <td><span class="btn btn-lg btn-warning" id="rond"></span> </td> @endif		   
-			  @if ($reste>=10)
-			   <td><span class="btn btn-lg btn-success" id="rond"></span> </td>
-			   @endif   
-             </tr> 
-        @endforeach 
-		</tbody>
+
+       </tbody>
     </table>
       
 @endsection

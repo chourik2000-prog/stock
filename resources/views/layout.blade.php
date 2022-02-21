@@ -190,11 +190,17 @@
 							<span class="micon icon-copy dw dw-edit-file"></span><span class="mtext">Approvisionnements</span>
 						</a>
 					</li>
+					<li> 
+						<a href="/fournisseurs" class="dropdown-toggle no-arrow">
+							<span class="micon dw dw-user-12"></span><span class="mtext">Fournisseurs</span>
+						</a>
+					</li>
 					<li>
 						<a href="/demandes" class="dropdown-toggle no-arrow">
 							<span class="micon dw dw-calendar1"></span><span class="mtext">Demandes</span>
 						</a>
 					</li>
+				
 					<li class="dropdown">
 						<a href="/stocks" class="dropdown-toggle no-arrow">
 							<span class="micon icon-copy dw dw-pagoda"></span><span class="mtext">Stocks</span>
@@ -212,6 +218,12 @@
 						<span class="micon icon-copy dw dw-add-user"></span><span class="mtext">Agents</span>
 						</a>
 					</li>
+					
+					<li class="dropdown">
+						<a href="/pertes" class="dropdown-toggle no-arrow">
+							<span class="micon dw dw-delete-3"></span><span class="mtext">Pertes</span>
+						</a>
+					</li>
 					<li class="dropdown">
 						<a href="/categories" class="dropdown-toggle no-arrow">
 							<span class="micon dw dw-library"></span><span class="mtext">Catégories</span>
@@ -219,13 +231,7 @@
 					</li>
 					
 					<li class="dropdown">
-						<a href="/pertes" class="dropdown-toggle no-arrow">
-							<span class="micon dw dw-delete-3"></span><span class="mtext">Pertes</span>
-						</a>
-					</li>
-					
-					<li class="dropdown">
-						<a href="javascript:;" class="dropdown-toggle no-arrow">
+						<a href="/bilans" class="dropdown-toggle no-arrow">
 							<span class="micon icon-copy dw dw-hourglass1"></span><span class="mtext">Bilan</span>
 						</a>
 					</li>

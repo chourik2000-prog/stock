@@ -3,7 +3,7 @@
 <head>
 	<!-- Basic Page Info -->
 	<meta charset="utf-8">
-	<title>Stocks</title>
+	<title>Fournisseurs</title>
 
 	<!-- Site favicon -->
 	<link rel="apple-touch-icon" sizes="180x180" href="vendors/images/apple-touch-icon.png">
@@ -26,9 +26,6 @@
 		  right: 200px;
 		  top: -100px
 		  
-	  }
-	  .lignecoloree{
-		  color: red;
 	  }
    </style>
 
@@ -64,7 +61,7 @@
 						<div class="col-md-6 col-sm-12 text-right"  >
 							<div class="dropdown">
 								<a class="btn btn-primary dropdown-toggle" href="#" role="button" data-toggle="dropdown">
-									Avril 2022
+									 2022
 								</a>
 							</div>
 						</div>
@@ -75,49 +72,65 @@
 					<div class="clearfix mb-20">
 						<div class="pull-left">
                         <h4 class="font-20 weight-500 mb-10 text-capitalize">
-						<div class="weight-600 font-30 text-blue">Stock</div>
+						<div class="weight-600 font-30 text-blue">Fournisseur</div>
 						</h4>
 						</div>
 						
 						<div class="pull-right">
-                <a href="/approvisionnements" class="btn btn-success btn-sm text-white">Approvisionnement</a>
+                <a class="btn btn-success btn-sm text-white" data-toggle="modal" data-target="#exampleModal">+ Ajouter</a>
             </div>
-		</div>
+						</div>
 					
-		<table class="table">
-			<thead>
-				<tr>
-				<th scope="col"> <strong> Articles</strong> </th>
-				<th scope="col"> <strong> Stock final</strong> </th>
-				<th scope="col"> <strong>Alerte</strong> </th>
-				</tr>
-			</thead>
-			<tbody>
-          @foreach ($stocks as $stock) 
-              <tr>
-				  @php
-					  $entrant = Illuminate\Support\Facades\DB::table('approvisionnements')->where('id_article',$stock->id)->sum('quantite');
-					  $sortant = Illuminate\Support\Facades\DB::table('demandes')->where('id_article',$stock->id)->sum('qlivree');
-					  $reste = $entrant-$sortant;
-				
-				  @endphp
-				  
-               <td>{{ $stock->libelle}}({{$stock->caracteristique}})</td>
-			   <td>{{$reste}} </td>
-			   @if ($reste == 0)
-			   <td><span class="btn btn-lg btn-danger" id="rond"></span> </td> @endif
-			    @if ($reste < 10 & $reste >0)
-			   <td><span class="btn btn-lg btn-warning" id="rond"></span> </td> @endif		   
-			  @if ($reste>=10)
-			   <td><span class="btn btn-lg btn-success" id="rond"></span> </td>
-			   @endif   
-             </tr> 
-        @endforeach 
-		</tbody>
+                    @if ($message = Session::get('success'))
+        <div class="alert alert-success">
+            <p>{{ $message }}</p>
+        </div>
+    @endif
+					<table class="table">
+						<thead>
+							<tr>
+								<th scope="col"> <strong> Nom</strong> </th>
+								<th scope="col"> <strong> Contact</strong> </th>
+								<th scope="col"> <strong> Actions</strong> </th>
+							</tr>
+						</thead>
+						<tbody>
+                        @foreach ($fournisseurs as $fournisseur)
+        <tr>
+            <td>{{ $fournisseur->nom}}</td>
+			<td>{{ $fournisseur->contact}}</td>
+            <td>
+                <form action="{{ route('fournisseurs.destroy',$fournisseur->id) }}" method="POST">    
+                    <button type="button" class="btn btn-info" data-toggle="modal" 
+					data-target="#modaledit{{$fournisseur->id}}"><a  href="#"><span class="
+					glyphicon glyphicon-pencil text-white"></span></a></button>
+   
+                    @csrf
+                    @method('DELETE')
+      
+                    <button type="submit" class="btn btn-warning" onClick='return confirmSubmit()'>
+						<a  href="#"><span class="glyphicon glyphicon-trash text-white"></span></a></button>
+                </form>
+            </td>
+        </tr>
+        @include('fournisseurs.modalmodifier')
+        @endforeach
     </table>
+
+    @include('fournisseurs.modalafficher')
       
 @endsection
 
+<script>
+    function confirmSubmit()
+ {
+ var agree=confirm("Êtes-vous sûr de vouloir supprimer?");
+ if (agree)
+  return true ;
+ else
+  return false ;
+ }
+ </script>
 	<!-- js -->
 	<script src="vendors/scripts/core.js"></script>
 	<script src="vendors/scripts/script.min.js"></script>

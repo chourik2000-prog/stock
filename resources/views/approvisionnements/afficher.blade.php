@@ -90,7 +90,8 @@
 							<tr>
 								<th scope="col"> <strong>Désignation</strong> </th>
                                 <th scope="col"> <strong>Fournisseur</strong> </th>
-                                <th scope="col"> <strong>Quantité</strong> </th>
+                                <th scope="col"> <strong>QExistant</strong> </th>
+								<th scope="col"> <strong>QEntrant</strong> </th>
                                 <th scope="col"> <strong>Date</strong> </th>
 								<th scope="col"> <strong>Actions</strong> </th>
 							</tr>
@@ -99,8 +100,9 @@
                         @foreach ($approvisionnements as $approvisionnement)
         <tr>
 			<td>{{ $approvisionnement->article->libelle}}</td>
-            <td>{{ $approvisionnement->fournisseur}}</td>
-            <td>{{ $approvisionnement->quantite}}</td>
+            <td>{{ $approvisionnement->fournisseur->nom}}</td>
+            <td>{{ $approvisionnement->qexistant}}</td>
+			<td>{{ $approvisionnement->qentrant}}</td>
             <td>{{ $approvisionnement->date}}</td>
             <td>
                 <form action="{{ route('approvisionnements.destroy',$approvisionnement->id) }}" method="POST">    

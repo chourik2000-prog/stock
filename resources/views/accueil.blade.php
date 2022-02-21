@@ -8,9 +8,9 @@
 					</div>
 					<div class="col-md-8">
 						<h4 class="font-20 weight-500 mb-10 text-capitalize">
-							Bienvenue!<div class="weight-600 font-30 text-blue">IAI-TOGO(2022)</div>
+							Bienvenue!<div class="weight-600 font-30 text-blue">IAI-TOGO</div>
 						</h4>
-						<p class="font-18 max-width-600">Cette plateforme est pour la gestion des fournitures de l'IAI-TOGO.</p>
+						<p class="font-18 max-width-600">Gestion des fournitures de l'IAI-TOGO.</p>
 					</div>
 				</div>
 			</div>

@@ -38,13 +38,13 @@
         </div>
       </div>
       <div class="modal-footer">
-      <button type="submit" class="btn btn-info">Enregistrer</button>
-      <button type="button" class="btn btn-warning" data-dismiss="modal">Fermer</button> 
+        <button type="button" class="btn btn-warning" data-dismiss="modal">Fermer</button> 
+        <button type="submit" class="btn btn-info">Enregistrer</button>
       </div>
-     </form>
+       </form>
+      </div>
       </div>
     </div>
-  </div>
 </div>
  </div>
 </div>

@@ -24,8 +24,9 @@
         </div>
       </div>
       <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Fermer</button> 
       <button type="submit" class="btn btn-primary">Enregistrer</button>
-      <button type="button" class="btn btn-danger" data-dismiss="modal">Fermer</button> 
+     
       </div>
 </form>
       </div>

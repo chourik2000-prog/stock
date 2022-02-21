@@ -15,4 +15,7 @@ class Approvisionnement extends Model
     public function article(){
         return $this->belongsTo(Article::class ,'id_article'); 
     }
+    public function fournisseur(){
+        return $this->belongsTo(Fournisseur::class ,'id_fournisseur'); 
+    }
 }

@@ -25,10 +25,16 @@
                   </select>
               </div>
           </div>
-              <div class="form-group">
-                <strong>Fournisseur:</strong>
-                <input type="text" name="fournisseur" class="form-control" placeholder="Le nom de l'article">
+          <div class="form-group">
+            <label class="label">Fournisseur</label>
+            <div class="select">
+                <select class="form-control" name="id_fournisseur">
+                    @foreach($fournisseurs as $fournisseur)
+                        <option value="{{ $fournisseur->id }}">{{ $fournisseur->nom }}</option>
+                    @endforeach
+                </select>
             </div>
+        </div>
             <div class="form-group">
                 <strong>Quantité:</strong>
                 <input type="number" name="quantite" class="form-control" placeholder="La quantité de l'article">
