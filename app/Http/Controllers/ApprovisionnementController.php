@@ -42,17 +42,17 @@ class ApprovisionnementController extends Controller
      */
     public function store(Request $request)
     {
-        $data = new Approvisionnement([
-            'id_article' => $request->get('id_article'),
-            'id_fournisseur' => $request->get('id_fournisseur'),
-            'qexistant' => $request->get('qexistant'),
-            'qentrant' => $request->get('qentrant'),
-            'date' => $request->get('date')
-           
-        ]);
-        $data->save();
-        return redirect()->route('approvisionnements.index')
-                        ->with('success',"L'article est enregistré avec succès.");
+    $qexistant = 0;
+    Approvisionnement::create([
+        'id_article' => $request->input('id_article'),
+        'id_fournisseur' => $request->input('id_fournisseur'),
+        'qentrant' => $request->input('qentrant'),
+        'date' => $request->input('date'),
+        'qexistant' => $qexistant,
+    ]);
+
+    return redirect()->route('approvisionnements.index')
+                    ->with('success',"L'article est enregistré avec succès.");
     }
 
     /**
@@ -87,7 +87,6 @@ class ApprovisionnementController extends Controller
     public function update(Request $request, Approvisionnement $approvisionnement)
     {
         $request->validate([
-            'qexistant' => 'required',
             'qentrant' => 'required',
             'date' => 'required',
         ]);

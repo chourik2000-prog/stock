@@ -98,7 +98,7 @@
 						<tbody>
                         @foreach ($demandes as $demande)
         <tr>
-			<td>{{$demande->demandeur}}</td>
+			<td>{{$demande->agent->nom}}</td>
             <td>{{ $demande->article->libelle}}</td>
             <td>{{ $demande->qlivree}}</td>
 			<td>{{ $demande->date}}</td>

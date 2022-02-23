@@ -21,7 +21,7 @@
 					<thead>
 						<tr>
 							<th>Articles</th>
-							<th>Entrant</th>
+							<th>Stock</th>
 							<th>Livrée</th>
 							<th>Perte</th>
 							<th>Stock final</th>
@@ -32,17 +32,16 @@
 			@foreach ($accueils as $accueil)
 				<tr>
 					@php
-						$fournisseur = Illuminate\Support\Facades\DB::table('approvisionnements')->where('id_article',$accueil->id)->value('fournisseur');
-						$quantite = Illuminate\Support\Facades\DB::table('approvisionnements')->where('id_article',$accueil->id)->value('quantite');
-						$qlivree = Illuminate\Support\Facades\DB::table('demandes')->where('id_article',$accueil->id)->value('qlivree');
-						$entrant = Illuminate\Support\Facades\DB::table('approvisionnements')->where('id_article',$accueil->id)->sum('quantite');
-						$sortant = Illuminate\Support\Facades\DB::table('demandes')->where('id_article',$accueil->id)->sum('qlivree');
+					    $existant = Illuminate\Support\Facades\DB::table('approvisionnements')->where('id_article',$accueil->id)->sum('qexistant');
+						$qlivree = Illuminate\Support\Facades\DB::table('demandes')->where('id_article',$accueil->id)->sum('qlivree');
+						$entrant = Illuminate\Support\Facades\DB::table('approvisionnements')->where('id_article',$accueil->id)->sum('qentrant');
 						$perte = Illuminate\Support\Facades\DB::table('pertes')->where('id_article',$accueil->id)->sum('qperdue');
-						$reste = $entrant-$sortant-$perte;
+						$reste = $entrant-$qlivree-$perte;
+						$stock = $entrant + $existant
 					@endphp
 							
 						<td>{{ $accueil->libelle}}({{$accueil->caracteristique}})</td>
-						<td>{{ $quantite}}</td> 
+						<td>{{ $stock}}</td> 
 					@if ($qlivree == null) <td>0</td> @else <td>{{$qlivree}}</td>  @endif 
 					<td>{{ $perte}}</td> 
 						<td>{{$reste}} </td>

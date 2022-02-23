@@ -4,13 +4,15 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Demande;
+use App\Models\Perte;
 
 class Approvisionnement extends Model
 {
     use HasFactory;
     protected $table = 'approvisionnements';
     protected $fillable = [
-        'id_article', 'fournisseur','quantite','date'
+        'id_article', 'id_fournisseur','qexistant','qentrant','date'
     ];
     public function article(){
         return $this->belongsTo(Article::class ,'id_article'); 

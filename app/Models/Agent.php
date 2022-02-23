@@ -15,4 +15,7 @@ class Agent extends Model
     public function categorie(){
         return $this->belongsTo(Categorie::class ,'idcat'); 
     }
+    public function demandes(){
+        return $this->hasMany(Demande::class, 'id_agent');
+    }
 }

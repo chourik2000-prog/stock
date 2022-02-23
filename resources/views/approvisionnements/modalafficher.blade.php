@@ -35,9 +35,10 @@
                 </select>
             </div>
         </div>
+      
             <div class="form-group">
                 <strong>Quantité:</strong>
-                <input type="number" name="quantite" class="form-control" placeholder="La quantité de l'article">
+                <input type="number" name="qentrant" class="form-control" placeholder="La quantité de l'article">
             </div>
             <div class="form-group">
                 <strong>Date:</strong>
@@ -45,11 +46,12 @@
             </div>
           </div>
           </div>
-        </div>
+       
         <div class="modal-footer">
         <button type="button" class="btn btn-danger" data-dismiss="modal">Fermer</button> 
         <button type="submit" class="btn btn-primary">Enregistrer</button>
         </div>
+      </div>
        </form>
       </div>
       </div>

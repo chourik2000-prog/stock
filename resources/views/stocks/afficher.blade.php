@@ -88,30 +88,30 @@
 			<thead>
 				<tr>
 				<th scope="col"> <strong> Articles</strong> </th>
-				<th scope="col"> <strong> Stock final</strong> </th>
-				<th scope="col"> <strong>Alerte</strong> </th>
+				<th scope="col"> <strong> QExistant</strong> </th>
+				<th scope="col"> <strong> QEntrée</strong> </th>
+				<th scope="col"> <strong> QLivrée</strong> </th>
+				<th scope="col"> <strong> Perte</strong> </th>
+	
 				</tr>
 			</thead>
 			<tbody>
           @foreach ($stocks as $stock) 
               <tr>
 				  @php
-					  $entrant = Illuminate\Support\Facades\DB::table('approvisionnements')->where('id_article',$stock->id)->sum('quantite');
-					  $sortant = Illuminate\Support\Facades\DB::table('demandes')->where('id_article',$stock->id)->sum('qlivree');
-					  $reste = $entrant-$sortant;
+					  $entrant = Illuminate\Support\Facades\DB::table('approvisionnements')->where('id_article',$stock->id)->sum('qentrant');
+					  $existant = Illuminate\Support\Facades\DB::table('approvisionnements')->where('id_article',$stock->id)->sum('qexistant');
+					  $qlivree = Illuminate\Support\Facades\DB::table('demandes')->where('id_article',$stock->id)->sum('qlivree');
+					  $perte = Illuminate\Support\Facades\DB::table('pertes')->where('id_article',$stock->id)->sum('qperdue');
 				
 				  @endphp
 				  
                <td>{{ $stock->libelle}}({{$stock->caracteristique}})</td>
-			   <td>{{$reste}} </td>
-			   @if ($reste == 0)
-			   <td><span class="btn btn-lg btn-danger" id="rond"></span> </td> @endif
-			    @if ($reste < 10 & $reste >0)
-			   <td><span class="btn btn-lg btn-warning" id="rond"></span> </td> @endif		   
-			  @if ($reste>=10)
-			   <td><span class="btn btn-lg btn-success" id="rond"></span> </td>
-			   @endif   
-             </tr> 
+			   <td>{{$existant}} </td>
+			   <td>{{$entrant}} </td>
+			   <td>{{$qlivree}} </td>
+			   <td>{{$perte}} </td>
+			  
         @endforeach 
 		</tbody>
     </table>

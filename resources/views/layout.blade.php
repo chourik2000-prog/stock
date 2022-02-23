@@ -143,29 +143,12 @@
 
 	<div class="right-sidebar">
 		<div class="sidebar-title">
-			<h3 class="weight-600 font-16 text-blue">
-			Paramètres de mise en page
-				<span class="btn-block font-weight-400 font-12">Paramètres de l'interface utilisateur</span>
-			</h3>
+		
 			<div class="close-sidebar" data-toggle="right-sidebar-close">
 				<i class="icon-copy ion-close-round"></i>
 			</div>
-		</div>
-		<div class="right-sidebar-body customscroll">
-			<div class="right-sidebar-body-content">
-				<h4 class="weight-600 font-18 pb-10">Fond de l'en-tête</h4>
-				<div class="sidebar-btn-group pb-30 mb-10">
-					<a href="javascript:void(0);" class="btn btn-outline-primary header-white active">Blanc</a>
-					<a href="javascript:void(0);" class="btn btn-outline-primary header-dark">Sombre</a>
-				</div>
-
-				<h4 class="weight-600 font-18 pb-10">Fond de la barre latérale</h4>
-				<div class="sidebar-btn-group pb-30 mb-10">
-					<a href="javascript:void(0);" class="btn btn-outline-primary sidebar-light ">Blanc</a>
-					<a href="javascript:void(0);" class="btn btn-outline-primary sidebar-dark active">Sombre</a>
-				</div>
-		</div>
-	</div>
+		</div>	
+		<a href="javascript:void(0);" class=" header-dark"></a>
   </div>
 	<div class="left-side-bar">
 		<div class="brand-logo">

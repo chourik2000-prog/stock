@@ -97,11 +97,14 @@
 							</tr>
 						</thead>
 						<tbody>
-                        @foreach ($approvisionnements as $approvisionnement)
+       @foreach ($approvisionnements as $approvisionnement)
         <tr>
+			@php
+				$qentrer = Illuminate\Support\Facades\DB::table('approvisionnements')->where('id_article',$approvisionnement->id)->sum('qexistant');
+	    	@endphp
 			<td>{{ $approvisionnement->article->libelle}}</td>
             <td>{{ $approvisionnement->fournisseur->nom}}</td>
-            <td>{{ $approvisionnement->qexistant}}</td>
+            <td>{{$qentrer}}</td>
 			<td>{{ $approvisionnement->qentrant}}</td>
             <td>{{ $approvisionnement->date}}</td>
             <td>

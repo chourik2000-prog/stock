@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\DB;
 use App\Models\Demande;
 use App\Models\Article;
+use App\Models\Agent;
 use Illuminate\Http\Request;
 
 class DemandeController extends Controller
@@ -16,8 +17,9 @@ class DemandeController extends Controller
     public function index()
     {
      $articles = Article::all();
+     $agents = Agent::all();
      $demandes = demande::latest()->get();
-     return view('demandes.afficher',compact('demandes'))->with('articles', $articles);
+     return view('demandes.afficher',compact('demandes'))->with('articles', $articles)->with('agents', $agents);
     }
 
 
@@ -41,7 +43,7 @@ class DemandeController extends Controller
     public function store(Request $request)
     {
         $data = new Demande([
-            'demandeur' => $request->get('demandeur'),
+            'id_agent' => $request->get('id_agent'),
             'id_article' => $request->get('id_article'),
             'qlivree' => $request->get('qlivree'),
             'date' => $request->get('date')
@@ -83,7 +85,6 @@ class DemandeController extends Controller
     public function update(Request $request, Demande $demande)
     {
         $request->validate([
-            'demandeur' => 'demandeur',
             'qlivree' => 'required',
             'date' => 'required',
         ]);

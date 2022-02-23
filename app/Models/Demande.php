@@ -10,9 +10,13 @@ class Demande extends Model
     use HasFactory;
     protected $table = 'demandes';
     protected $fillable = [
-       'demandeur', 'id_article' ,'qlivree' ,'date'
+       'id_agent', 'id_article' ,'qlivree' ,'date'
     ];
     public function article(){
         return $this->belongsTo(Article::class ,'id_article'); 
+    }
+
+    public function agent(){
+        return $this->belongsTo(Agent::class ,'id_agent'); 
     }
 }
