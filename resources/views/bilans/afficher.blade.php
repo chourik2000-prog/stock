@@ -90,9 +90,7 @@
                 <th scope="col"> <strong>Stock Total</strong> </th>
 				</tr>
 			</thead>
-			<tbody>
-
-       </tbody>
+		
     </table>
       
 @endsection

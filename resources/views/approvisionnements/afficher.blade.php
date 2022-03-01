@@ -90,7 +90,7 @@
 							<tr>
 								<th scope="col"> <strong>Désignation</strong> </th>
                                 <th scope="col"> <strong>Fournisseur</strong> </th>
-                                <th scope="col"> <strong>QExistant</strong> </th>
+               
 								<th scope="col"> <strong>QEntrant</strong> </th>
                                 <th scope="col"> <strong>Date</strong> </th>
 								<th scope="col"> <strong>Actions</strong> </th>
@@ -100,11 +100,14 @@
        @foreach ($approvisionnements as $approvisionnement)
         <tr>
 			@php
-				$qentrer = Illuminate\Support\Facades\DB::table('approvisionnements')->where('id_article',$approvisionnement->id)->sum('qexistant');
+			 $entrant = Illuminate\Support\Facades\DB::table('approvisionnements')->where('id_article',$approvisionnement->id)->sum('qentrant');
+			 $livree = Illuminate\Support\Facades\DB::table('demandes')->where('id_article',$approvisionnement->id)->sum('qlivree');
+			 $perte = Illuminate\Support\Facades\DB::table('pertes')->where('id_article',$approvisionnement->id)->sum('qperdue');
+			$existant = $entrant - $livree - $perte;
 	    	@endphp
 			<td>{{ $approvisionnement->article->libelle}}</td>
             <td>{{ $approvisionnement->fournisseur->nom}}</td>
-            <td>{{$qentrer}}</td>
+
 			<td>{{ $approvisionnement->qentrant}}</td>
             <td>{{ $approvisionnement->date}}</td>
             <td>

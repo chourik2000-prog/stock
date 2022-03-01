@@ -88,10 +88,10 @@
 			<thead>
 				<tr>
 				<th scope="col"> <strong> Articles</strong> </th>
-				<th scope="col"> <strong> QExistant</strong> </th>
 				<th scope="col"> <strong> QEntrée</strong> </th>
 				<th scope="col"> <strong> QLivrée</strong> </th>
 				<th scope="col"> <strong> Perte</strong> </th>
+				<th scope="col"> <strong> QRestant</strong> </th>
 	
 				</tr>
 			</thead>
@@ -100,17 +100,17 @@
               <tr>
 				  @php
 					  $entrant = Illuminate\Support\Facades\DB::table('approvisionnements')->where('id_article',$stock->id)->sum('qentrant');
-					  $existant = Illuminate\Support\Facades\DB::table('approvisionnements')->where('id_article',$stock->id)->sum('qexistant');
-					  $qlivree = Illuminate\Support\Facades\DB::table('demandes')->where('id_article',$stock->id)->sum('qlivree');
+					  $livree = Illuminate\Support\Facades\DB::table('demandes')->where('id_article',$stock->id)->sum('qlivree');
 					  $perte = Illuminate\Support\Facades\DB::table('pertes')->where('id_article',$stock->id)->sum('qperdue');
 				
+					  $existant = $entrant - $livree  - $perte;
 				  @endphp
 				  
                <td>{{ $stock->libelle}}({{$stock->caracteristique}})</td>
-			   <td>{{$existant}} </td>
 			   <td>{{$entrant}} </td>
-			   <td>{{$qlivree}} </td>
+			   <td>{{$livree}} </td>
 			   <td>{{$perte}} </td>
+			   <td>{{$existant}} </td>
 			  
         @endforeach 
 		</tbody>

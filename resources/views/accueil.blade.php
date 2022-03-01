@@ -32,12 +32,12 @@
 			@foreach ($accueils as $accueil)
 				<tr>
 					@php
-					    $existant = Illuminate\Support\Facades\DB::table('approvisionnements')->where('id_article',$accueil->id)->sum('qexistant');
+					    $qexistant = Illuminate\Support\Facades\DB::table('approvisionnements')->where('id_article',$accueil->id)->sum('qexistant');
 						$qlivree = Illuminate\Support\Facades\DB::table('demandes')->where('id_article',$accueil->id)->sum('qlivree');
-						$entrant = Illuminate\Support\Facades\DB::table('approvisionnements')->where('id_article',$accueil->id)->sum('qentrant');
+						$qentrant = Illuminate\Support\Facades\DB::table('approvisionnements')->where('id_article',$accueil->id)->sum('qentrant');
 						$perte = Illuminate\Support\Facades\DB::table('pertes')->where('id_article',$accueil->id)->sum('qperdue');
-						$reste = $entrant-$qlivree-$perte;
-						$stock = $entrant + $existant
+						$reste = $qentrant + $qexistant -$qlivree-$perte;
+						$stock = $qentrant + $qexistant
 					@endphp
 							
 						<td>{{ $accueil->libelle}}({{$accueil->caracteristique}})</td>

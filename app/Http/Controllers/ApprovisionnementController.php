@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Approvisionnement;
 use App\Models\Article;
+use App\Models\Demande;
+use App\Models\Perte;
 use App\Models\Fournisseur;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -42,7 +44,12 @@ class ApprovisionnementController extends Controller
      */
     public function store(Request $request)
     {
-    $qexistant = 0;
+    
+     $qentrant = DB::table('approvisionnements')->where('id_article',$request->input('id_article'))->sum('qentrant');
+     $qlivree = DB::table('demandes')->where('id_article',$request->input('id_article'))->sum('qlivree');
+     $perte = DB::table('pertes')->where('id_article',$request->input('id_article'))->sum('qperdue');
+     $qexistant = $qentrant - $qlivree - $perte ; 
+ 
     Approvisionnement::create([
         'id_article' => $request->input('id_article'),
         'id_fournisseur' => $request->input('id_fournisseur'),
