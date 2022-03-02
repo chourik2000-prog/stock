@@ -18,7 +18,7 @@ class DemandeController extends Controller
     {
      $articles = Article::all();
      $agents = Agent::all();
-     $demandes = demande::latest()->get();
+     $demandes = demande::all();
      return view('demandes.afficher',compact('demandes'))->with('articles', $articles)->with('agents', $agents);
     }
 

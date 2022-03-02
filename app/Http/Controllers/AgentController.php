@@ -16,7 +16,7 @@ class AgentController extends Controller
     public function index($slug = null)
     {
      $categories = Categorie::all();
-     $agents = agent::latest()->get();
+     $agents = agent::all();
      return view('agents.afficher',compact('agents'))->with('categories', $categories);
     }
 

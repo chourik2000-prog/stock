@@ -9,6 +9,8 @@ use App\Models\Perte;
 use App\Models\Fournisseur;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
+
 class ApprovisionnementController extends Controller
 {
     /**
@@ -17,11 +19,11 @@ class ApprovisionnementController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
+    { 
         $articles = Article::all();
         $fournisseurs = Fournisseur::all();
-        $approvisionnements = approvisionnement::latest()->get();
-        return view('approvisionnements.afficher',compact('approvisionnements'))->with('fournisseurs', $fournisseurs)->with('articles', $articles);
+        $approvisionnements = Approvisionnement::all();
+    return view('approvisionnements.afficher',compact('approvisionnements'))->with('fournisseurs', $fournisseurs)->with('articles', $articles);
     }
 
     /**
@@ -49,7 +51,6 @@ class ApprovisionnementController extends Controller
      $qlivree = DB::table('demandes')->where('id_article',$request->input('id_article'))->sum('qlivree');
      $perte = DB::table('pertes')->where('id_article',$request->input('id_article'))->sum('qperdue');
      $qexistant = $qentrant - $qlivree - $perte ; 
- 
     Approvisionnement::create([
         'id_article' => $request->input('id_article'),
         'id_fournisseur' => $request->input('id_fournisseur'),
