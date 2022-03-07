@@ -13,6 +13,13 @@
 	<!-- Mobile Specific Metas -->
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
+	<!-- chart laravel -->
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Chart Sample</title>
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+
+
 	<!-- Google Font -->
 	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 	<!-- CSS -->
@@ -42,7 +49,7 @@
 		gtag('config', 'UA-119386393-1');
 	</script>
 </head>
-<body>
+<body class="h-screen bg-gray-100">
 @extends('layout')
  
  @section('content')
@@ -80,19 +87,17 @@
 						</div>
 					
 		</div>
-					
-		<table class="table">
-			<thead>
-				<tr>
-				<th scope="col"> <strong> Articles</strong> </th>
-				<th scope="col"> <strong> Stock Existant</strong> </th>
-				<th scope="col"> <strong>Stock Entrant</strong> </th>
-                <th scope="col"> <strong>Stock Total</strong> </th>
-				</tr>
-			</thead>
+		<div class="container px-4 mx-auto">
+
+			<div class="p-6 m-20 bg-white rounded shadow">
+				{!! $chart->container() !!}
+			</div>
 		
-    </table>
-      
+		</div>
+		
+		<script src="{{ $chart->cdn() }}"></script>
+		
+		{{ $chart->script() }}
 @endsection
 
 	<!-- js -->

@@ -27,12 +27,10 @@ Route::get('/', function () {
     $accueils = Article::all();
     return view('accueil',compact('accueils'));
 });
-Route::get('/bilans',function(){
-    return view('bilans\afficher');
-});
+
+Route::get('/bilans', 'App\Http\Controllers\UserController@index');
 
 Route::get('/categories', 'App\Http\Controllers\CategorieController@index');
-
 Route::resource('categories', App\Http\Controllers\CategorieController::class);
 Route::resource('demandes', App\Http\Controllers\DemandeController::class);
 Route::resource('articles', App\Http\Controllers\ArticleController::class);
