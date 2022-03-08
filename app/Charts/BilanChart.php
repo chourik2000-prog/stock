@@ -1,11 +1,10 @@
 <?php
 
 namespace App\Charts;
-
-
+use App\Http\Controllers\UserController;
 use ArielMejiaDev\LarapexCharts\LarapexChart;
 
-class MonthlyUsersChart
+class BilanChart
 {
     protected $chart;
 
@@ -18,9 +17,6 @@ class MonthlyUsersChart
     {
         return $this->chart->pieChart()
             ->setTitle('Statistiques')
-            ->setSubtitle('Saison 2021.')
-            ->addData([40, 50, 30])
-            ->setLabels(['Player 12', 'Player 10', 'Player 9']);
-        
+            ->setSubtitle('Saison 2021.');
     }
 }

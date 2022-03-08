@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('deskapp.layout')
 <div class="main-container">
 		<div class="pd-ltr-20 xs-pd-20-10">
 			<div class="min-height-200px">
@@ -68,9 +68,7 @@
 										</li>
 									</ul>
 									<div class="tab-content">
-										<!-- Timeline Tab start -->
-										
-										<!-- Tasks Tab End -->
+								
 										<!-- Setting Tab start -->
 										<div class="tab-pane fade height-100-p" id="setting" role="tabpanel">
 											<div class="profile-setting">

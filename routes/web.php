@@ -29,6 +29,8 @@ Route::get('/', function () {
 });
 
 Route::get('/bilans', 'App\Http\Controllers\UserController@index');
+Route::get('/bilans/store/{id_article}', 'App\Http\Controllers\UserController@store');
+Route::resource('bilans', App\Http\Controllers\UserController::class);
 
 Route::get('/categories', 'App\Http\Controllers\CategorieController@index');
 Route::resource('categories', App\Http\Controllers\CategorieController::class);
