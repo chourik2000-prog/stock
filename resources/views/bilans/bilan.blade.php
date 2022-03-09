@@ -5,6 +5,7 @@
 	<div class="mobile-menu-overlay"></div>
 	<div class="main-container col-lg-12" id="bar1" >
         <div class="min-height-10px" >
+
 				<div class="page-header">
 					<div class="row">
 						<div class="col-md-6 col-sm-12">
@@ -25,12 +26,19 @@
 						</div>
 					</div>
 				</div>
-
 				<!-- basic table  Start -->
 				<div class="pd-20 card-box mb-30">
-                    <div class="container px-4 mx-auto">
-                        {!! $chart->container() !!}
-                    </div>
+					<a href={{route('rechercheform')}} class="btn btn-primary">
+						<i class="icon-copy dw dw-left-arrow1"></i>
+						Voir pour un autre article
+					</a>
+                    <div class="container px-4 mx-auto mt-4">
+                       @if($qEntrant == 0)
+							<p class="text-center">Vous n'avez pas de quantité pour l'article en question</p>
+						@else
+							{!! $chart->container() !!}
+					   @endif  
+					</div>
                 </div> 
         </div>  
 	</div>
@@ -39,4 +47,5 @@
 	
 	{{ $chart->script() }}
 		
+
 @endsection

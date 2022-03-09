@@ -15,7 +15,7 @@ use App\Models\Approvisionnement;
 use App\Models\Demande;
 use ArielMejiaDev\LarapexCharts\LarapexChart;
 
-class UserController extends Controller
+class BilanController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -24,17 +24,29 @@ class UserController extends Controller
      */
     public function index(BilanChart $chart)
     {
-        return view('bilans.bilan', ['chart' => $chart->build()]);
-    }
+        $bilans = DB::table('articles')
+            ->select('articles.*')
+            ->get();
+            return view('bilans.bilan', compact('bilans') , ['chart' => $chart->build()]);
+      //  return view('bilans.bilan' ,['chart' => $chart->build()]);
+    } 
 
     /**
-     * Show the form for creating a new resource.
-     *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function recherche(Request $request)
     {
-        //
+        $bilans = DB::table('articles')->get();
+
+        if($request->input('id_article') != null) {
+           return  redirect()->route('bilanChart', [
+            'id_article' => $request->input('id_article')
+           ]);
+        }
+
+        return view('bilans.recherche', [
+            "bilans" => $bilans
+        ]);
     }
 
     /**
@@ -62,12 +74,9 @@ class UserController extends Controller
             $restant = $qEntrant - $qLivree - $perte;
 
             
-            $plivree = round((($qLivree/$qEntrant)*100), 2);
-            $pperte = round((($perte/$qEntrant)*100), 2);
-            $prestant =round((($restant/$qEntrant)*100), 2);
-
-        
-            //dd($plivree,$pperte,$prestant);
+            $plivree = $qEntrant == 0? 0 : round((($qLivree/$qEntrant)*100), 2);
+            $pperte = $qEntrant  == 0? 0 : round((($perte/$qEntrant)*100),  2);
+            $prestant =$qEntrant == 0? 0 : round((($restant/$qEntrant)*100), 2);
 
             $bilanChart = $chart->pieChart()
                 ->setTitle('Statistiques')
@@ -75,15 +84,12 @@ class UserController extends Controller
                 ->addData([$plivree, $pperte,$prestant])
                 ->setLabels(['Quantité livrée','Qunatité perdue', 'Quantité restante']);
 
-
-             return view('bilans.bilan', ['chart' => $bilanChart]);
+            return view('bilans.bilan', [
+                'chart' => $bilanChart,
+                'qEntrant' => $qEntrant
+            ]);
        }
 
-
-
-
-
-     return redirect()->route('bilans.bilan');
     }
 
     /**

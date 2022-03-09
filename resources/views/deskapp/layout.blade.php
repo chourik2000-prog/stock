@@ -31,7 +31,7 @@
         }
      </style>
 </head>
-<body>
+<body class="header-dark sidebar-dark">
 	<div class="pre-loader">
 		<div class="pre-loader-box">
 			<div class="loader-logo"><img src="{{asset('vendors/images/logo-icon.png')}}" alt=""><h3> IAIgestion</h3></div>

@@ -1,8 +1,8 @@
 <div class="left-side-bar">
     <div class="brand-logo">
-        <a href="index.html">
-            <img src={{asset('vendors/images/deskapp-logo.svg')}} alt="" class="dark-logo">
-            <img src={{asset('vendors/images/deskapp-logo-white.svg')}} alt="" class="light-logo">
+        <a href="/accueil">
+            <img src="{{asset('vendors/images/logo-icon.png')}}"  alt="" class="dark-logo"><span></span>
+            <img src="{{asset('vendors/images/logo-icon.png')}}" alt="" class="light-logo"><span>IAIgestion</span>
         </a>
         <div class="close-sidebar" data-toggle="left-sidebar-close">
             <i class="ion-close-round"></i>
@@ -62,7 +62,7 @@
                 </li>
                 
                 <li class="dropdown">
-                    <a href="/bilans" class="dropdown-toggle no-arrow">
+                    <a href="{{route('rechercheform')}}" class="dropdown-toggle no-arrow">
                         <span class="micon icon-copy dw dw-hourglass1"></span><span class="mtext">Bilan</span>
                     </a>
                 </li>
