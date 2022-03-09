@@ -64,15 +64,21 @@
 			<td>{{ $demande->date}}</td>
             <td>
                 <form action="{{ route('demandes.destroy',$demande->id) }}" method="POST">    
-                    <button type="button" class="btn btn-info" data-toggle="modal" 
-					data-target="#modaledit{{$demande->id}}"><a  href="#"><span class="
-					glyphicon glyphicon-pencil text-white"></span></a></button>
+					<button type="button" class="btn btn-info btn-sm" data-toggle="modal" 
+						data-target="#modaledit{{$demande->id}}">
+						<a  href="#">
+							<i class="dw dw-edit-1 text-white"></i>
+						</a>
+				    </button>
    
                     @csrf
                     @method('DELETE')
       
-                    <button type="submit" class="btn btn-warning" onClick='return confirmSubmit()'>
-					<a  href="#"><span class="glyphicon glyphicon-trash text-white"></span></a></button>
+                    <button type="submit" class="btn btn-warning btn-sm" onClick='return confirmSubmit()'>
+						<a  href="#">
+							<i class="dw dw-trash1 text-white"></i>
+						</a>
+				    </button>
                 </form>
             </td>
         </tr>
