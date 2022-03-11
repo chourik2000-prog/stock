@@ -83,42 +83,6 @@
      @include('deskapp.sidebar')
 	<div class="mobile-menu-overlay"></div>
 		<div class="main-container">
-			<!-- iaigestion contenant la date-->
-	<div class="mobile-menu-overlay"></div>
-	    <div class="main-container col-lg-12" id="bar1" >
-			<div class="min-height-10px" >
-				<div class="page-header">
-					<div class="row">
-						<div class="col-md-6 col-sm-12">
-							<nav aria-label="breadcrumb" role="navigation">
-								<ol class="breadcrumb">
-									<h4 class="font-20 weight-500 mb-10 text-capitalize">
-									<div class="weight-600 font-30 text-blue">IAIgestion</div>
-									</h4>
-								</ol>
-							</nav>
-						</div>
-						<div class="col-md-6 col-sm-12 text-right"  >
-							<div class="dropdown">
-								<a class="btn btn-dark dropdown-toggle" href="#" role="button" data-toggle="dropdown">
-								 	2022
-								</a>
-								<div class="dropdown-menu dropdown-menu-right">
-									<a class="dropdown-item text-center" href="">2022</a>
-									<a class="dropdown-item text-center" href="">2023</a>
-									<a class="dropdown-item text-center" href="">2024</a>
-									<a class="dropdown-item text-center" href="">2025</a>
-									<a class="dropdown-item text-center" href="">2026</a>
-									<a class="dropdown-item text-center" href="">2027</a>
-									<a class="dropdown-item text-center" href="">2028</a>
-									<a class="dropdown-item text-center" href="">2029</a>
-									<a class="dropdown-item text-center" href="">2030</a>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
 			@yield('content')
 		</div>
 
