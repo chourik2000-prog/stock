@@ -1,6 +1,5 @@
 
 @extends('deskapp.layout')
- 
  @section('content')
 <!-- basic table  Start -->
 <div class="pd-20 card-box mb-30">
@@ -25,6 +24,7 @@
 						<th scope="col"> <strong>Désignation</strong> </th>
 						<th scope="col"> <strong>Perte</strong> </th>
 						<th scope="col"> <strong>Date</strong> </th>
+						<th scope="col"> <strong>Année académique</strong> </th>
 						<th scope="col"> <strong> Actions</strong> </th>
 					</tr>
 				</thead>
@@ -34,6 +34,7 @@
 				<td>{{ $perte->article->libelle}}</td>
 				<td>{{ $perte->qperdue}}</td>
 				<td>{{ $perte->date}}</td>
+				<td>{{ $perte->annee->libelle}}</td>
 				<td>
 					<form action="{{ route('pertes.destroy',$perte->id) }}" method="POST">    
 						<button type="button" class="btn btn-info btn-sm" data-toggle="modal" 

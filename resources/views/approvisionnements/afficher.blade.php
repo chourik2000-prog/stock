@@ -25,8 +25,9 @@
 						<tr>
 							<th scope="col"> <strong>Désignation</strong> </th>
 							<th scope="col"> <strong>Fournisseur</strong> </th>
-							<th scope="col"> <strong>QEntrant</strong> </th>
+							<th scope="col"> <strong>Entré</strong> </th>
 							<th scope="col"> <strong>Date</strong> </th>
+							<th scope="col"> <strong>Année académique</strong> </th>
 							<th scope="col"> <strong>Actions</strong> </th>
 						</tr>
 					</thead>
@@ -43,6 +44,7 @@
 						<td>{{ $approvisionnement->fournisseur->nom}}</td>
 						<td>{{ $approvisionnement->qentrant}}</td>
 						<td>{{ $approvisionnement->date}}</td>
+						<td>{{ $approvisionnement->annee->libelle}}</td>
            			 <td>
                 		<form action="{{ route('approvisionnements.destroy',$approvisionnement->id) }}" method="POST">    
                     		<button type="button" class="btn btn-info btn-sm" data-toggle="modal" 

@@ -2,7 +2,7 @@
       <div class="modal-dialog" role="document">
           <div class="modal-content">
               <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLabel">Modification d'une catégorie</h5>
+                  <h5 class="modal-title" id="exampleModalLabel">Catégorie de personnel</h5>
                       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                           <span aria-hidden="true">&times;</span>
                       </button>
@@ -14,7 +14,7 @@
                     <div class="row">
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
-                                <strong>Libellé:</strong>
+                                    Catégorie:
                                     <input type="text" name="libelle" value="{{ $categorie->libelle }}" class="form-control" placeholder="désignation">
                                 </div>
                         </div>

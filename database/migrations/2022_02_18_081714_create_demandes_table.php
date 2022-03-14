@@ -19,8 +19,10 @@ class CreateDemandesTable extends Migration
             $table->date('date');
             $table->Integer('id_agent')->unsigned();
             $table->Integer('id_article')->unsigned();
+            $table->Integer('id_annee')->unsigned();
             $table->foreign('id_article')->references('id')->on('articles');
             $table->foreign('id_agent')->references('id')->on('agents');
+            $table->foreign('id_annee')->references('id')->on('annees');
 
             $table->timestamps();
         });

@@ -2,7 +2,7 @@
       <div class="modal-dialog" role="document">
           <div class="modal-content">
               <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLabel">Modification d'un artcle</h5>
+                  <h5 class="modal-title" id="exampleModalLabel">Modifier d'un artcle</h5>
                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                       <span aria-hidden="true">&times;</span>
                   </button>
@@ -14,11 +14,11 @@
                           <div class="row">
                               <div class="col-xs-12 col-sm-12 col-md-12">
                                   <div class="form-group">
-                                      <strong>Désignation:</strong>
+                                      Désignation:
                                       <input type="text" name="libelle" value="{{ $article->libelle }}" class="form-control" placeholder="Le libellé">
                                   </div>
                                   <div class="form-group">
-                                    <strong>Caractéristiques:</strong>
+                                    Caractéristiques:
                                     <input type="text" name="libelle" value="{{ $article->caracteristique }}" class="form-control" placeholder="Le libellé">
                                   </div>
                               </div>

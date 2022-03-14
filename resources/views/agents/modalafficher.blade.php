@@ -2,7 +2,7 @@
       <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Ajouter un article </h5>
+              <h5 class="modal-title" id="exampleModalLabel">Enregistrer un personnel </h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                 </button>
@@ -16,12 +16,12 @@
      <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>Nom:</strong>
-                <input type="text" name="nom" class="form-control" placeholder="Le nom de l'agent" required>
+                Nom:
+                <input type="text" name="nom" class="form-control" placeholder="Le nom" required>
             </div>
             <div class="form-group">
-                <strong>Prenom:</strong>
-                <input type="text" name="prenom" class="form-control" placeholder="Le prenom de l'agent">
+                Prenom:
+                <input type="text" name="prenom" class="form-control" placeholder="Le prenom">
             </div>
               <div class="form-group">
                 <label class="label">Catégorie</label>

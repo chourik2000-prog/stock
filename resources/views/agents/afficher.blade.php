@@ -7,7 +7,7 @@
 			<div class="clearfix mb-20">
 				<div class="pull-left">
 					<h4 class="font-20 weight-500 mb-10">
-						<div class="weight-600 font-30 text-blue">Agents</div>
+						<div class="weight-600 font-30 text-blue">Personnel</div>
 					</h4>
 				</div>		
 					<div class="pull-right">

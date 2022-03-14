@@ -15,4 +15,7 @@ class Perte extends Model
     public function article(){
         return $this->belongsTo(Article::class ,'id_article'); 
     }
+    public function annee(){
+        return $this->belongsTo(Annee::class ,'id_annee'); 
+    }
 }

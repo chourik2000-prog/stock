@@ -19,4 +19,7 @@ class Demande extends Model
     public function agent(){
         return $this->belongsTo(Agent::class ,'id_agent'); 
     }
+    public function annee(){
+        return $this->belongsTo(Annee::class ,'id_annee'); 
+    }
 }

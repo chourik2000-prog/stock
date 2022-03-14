@@ -15,24 +15,34 @@
       @csrf
        <div class="row">
           <div class="col-xs-12 col-sm-12 col-md-12">
-              <div class="form-group">
-                  <label class="label">Désignation</label>
-                      <div class="select">
-                          <select class="form-control" name="id_article">
-                              @foreach($articles as $article)
+            <div class="form-group">
+                <label class="label">Désignation</label>
+                    <div class="select">
+                        <select class="form-control" name="id_article">
+                            @foreach($articles as $article)
                                 <option value="{{ $article->id }}">{{ $article->libelle }}</option>
-                              @endforeach
-                          </select>
-                      </div>
-              </div>
-              <div class="form-group">
-                  <strong>Perte:</strong>
-                  <input type="number" name="qperdue" class="form-control" placeholder="La quantité perdue" required>
-              </div>
-              <div class="form-group">
-                  <strong>Date:</strong>
-                  <input type="date" name="date" class="form-control" placeholder="La date">
-              </div> 
+                            @endforeach
+                        </select>
+                    </div>
+            </div>
+            <div class="form-group">
+                Perte:
+                <input type="number" name="qperdue" class="form-control" placeholder="La quantité perdue" required>
+            </div>
+            <div class="form-group">
+                Date:
+                <input type="date" name="date" class="form-control" placeholder="La date">
+            </div> 
+            <div class="form-group">
+                <label class="label">Année académique</label>
+                    <div class="select">
+                        <select class="form-control" name="id_annee">
+                            @foreach($annees as $annee)
+                                <option value="{{ $annee->id }}">{{ $annee->libelle }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+            </div>
           </div>
         </div> 
         <div class="modal-footer">

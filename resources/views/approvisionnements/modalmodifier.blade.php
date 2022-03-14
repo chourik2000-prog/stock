@@ -34,12 +34,22 @@
                                   </div>
                             </div>
                             <div class="form-group">
-                                <strong>Quantité:</strong>
+                                Quantité:
                                 <input type="number" name="quantite" value="{{ $approvisionnement->quantite }}" class="form-control" placeholder="la quantité reçue">
                             </div>
                             <div class="form-group">
-                                <strong>Date:</strong>
-                                <input type="date" name="date" value="{{ $approvisionnement->date }}" class="form-control" placeholder="date de l'achat">
+                                 Date:
+                                <input type="date" name="date" value="{{ $approvisionnement->date }}" class="form-control" placeholder="date d'achat">
+                            </div>
+                            <div class="form-group">
+                                <label class="label">Année académique</label>
+                                  <div class="select">
+                                      <select class="form-control" name="id_annee">
+                                            @foreach($annees as $annee)
+                                                <option name="libelle" value="{{ $annee->id }}">{{ $fournisseur->libelle }}</option>
+                                            @endforeach
+                                      </select>
+                                  </div>
                             </div>
                         </div>
                     </div>

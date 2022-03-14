@@ -20,8 +20,10 @@ class CreateApprovisionnementsTable extends Migration
             $table->date('date');
             $table->Integer('id_article')->unsigned();
             $table->Integer('id_fournisseur')->unsigned();
+            $table->Integer('id_annee')->unsigned();
             $table->foreign('id_article')->references('id')->on('articles');
             $table->foreign('id_fournisseur')->references('id')->on('fournisseurs');
+            $table->foreign('id_annee')->references('id')->on('annees');
             $table->timestamps();
         });
     }

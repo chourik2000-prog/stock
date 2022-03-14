@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Annee;
 use App\Models\Approvisionnement;
 use App\Models\Article;
 use App\Models\Demande;
@@ -20,10 +21,14 @@ class ApprovisionnementController extends Controller
      */
     public function index()
     { 
+        $annees = Annee::all();
         $articles = Article::all();
         $fournisseurs = Fournisseur::all();
         $approvisionnements = Approvisionnement::all();
-    return view('approvisionnements.afficher',compact('approvisionnements'))->with('fournisseurs', $fournisseurs)->with('articles', $articles);
+        return view('approvisionnements.afficher',compact('approvisionnements'))
+        ->with('fournisseurs', $fournisseurs)
+        ->with('articles', $articles)
+        ->with('annees', $annees);
     }
 
     /**
@@ -33,9 +38,13 @@ class ApprovisionnementController extends Controller
      */
     public function create()
     {
+        $anne = Annee::all();
         $four = Fournisseur::all();
         $cat = Article::all();
-        return view('approvisionnements.create')->with('four', $four)->with('cat', $cat);
+        return view('approvisionnements.create')
+        ->with('four', $four)
+        ->with('cat', $cat)
+        ->with('anne', $anne);
     }
 
     /**
@@ -57,6 +66,7 @@ class ApprovisionnementController extends Controller
         'qentrant' => $request->input('qentrant'),
         'date' => $request->input('date'),
         'qexistant' => $qexistant,
+        'id_annee'  => $request->input('id_annee'),
     ]);
 
     return redirect()->route('approvisionnements.index')

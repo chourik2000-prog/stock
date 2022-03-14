@@ -16,11 +16,11 @@
             <div class="row">
                 <div class="col-xs-12 col-sm-12 col-md-12">
                     <div class="form-group">
-                      <strong>Nom:</strong>
+                        Nom:
                         <input type="text" name="nom" class="form-control" placeholder="nom du fournisseur">
                     </div>
                     <div class="form-group">
-                      <strong>Contact:</strong>
+                      Contact:
                       <input type="numeric" name="contact" class="form-control" placeholder="contact">
                   </div>
                 </div>

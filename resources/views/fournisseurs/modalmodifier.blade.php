@@ -2,7 +2,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Mise à jour </h5>
+                <h5 class="modal-title" id="exampleModalLabel">Modifier </h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -14,11 +14,11 @@
             <div class="row">
                 <div class="col-xs-12 col-sm-12 col-md-12">
                     <div class="form-group">
-                        <strong>Nom:</strong>
+                        Nom:
                         <input type="text" name="nom" value="{{ $fournisseur->nom }}" class="form-control" placeholder="nom du fournisseur">
                     </div>
                     <div class="form-group">
-                        <strong>Contact:</strong>
+                        Contact:
                         <input type="number" name="contact" value="{{ $fournisseur->contact }}" class="form-control" placeholder="numéro téléphonique">
                     </div>
                 </div>

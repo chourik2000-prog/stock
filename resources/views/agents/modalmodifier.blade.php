@@ -2,7 +2,7 @@
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Ajustement d'un approvisionnement</h5>
+            <h5 class="modal-title" id="exampleModalLabel">Enregistrement d'un personnel</h5>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
@@ -14,11 +14,11 @@
                   <div class="row">
                       <div class="col-xs-12 col-sm-12 col-md-12">
                           <div class="form-group">
-                              <strong>Nom:</strong>
+                              Nom:
                               <input type="text" name="nom" value="{{ $agent->nom }}" class="form-control" >
                           </div>
                           <div class="form-group">
-                              <strong>Prenom:</strong>
+                              Prenom:
                               <input type="text" name="prenom" value="{{ $agent->prenom }}" class="form-control" >
                           </div>
                           <div class="form-group">

@@ -2,7 +2,7 @@
       <div class="modal-dialog" role="document">
           <div class="modal-content">
               <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLabel">Enregistrement d'une demande d'article</h5>
+                  <h5 class="modal-title" id="exampleModalLabel">Enregistrer une demande</h5>
                       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                           <span aria-hidden="true">&times;</span>
                       </button>
@@ -23,26 +23,36 @@
                                       </select>
                                   </div>
                           </div>
+                            <div class="form-group">
+                                <label class="label">Désignation</label>
+                                <div class="select">
+                                    <select class="form-control" name="id_article">
+                                        @foreach($articles as $article)
+                                            <option name="libelle" value="{{ $article->id }}">{{ $article->libelle }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
                           <div class="form-group">
-                              <label class="label">Désignation</label>
-                                  <div class="select">
-                                      <select class="form-control" name="id_article">
-                                          @foreach($articles as $article)
-                                              <option name="libelle" value="{{ $article->id }}">{{ $article->libelle }}</option>
-                                          @endforeach
-                                      </select>
-                                  </div>
-                          </div>
-                          <div class="form-group">
-                              <strong>Quantité livrée:</strong>
+                              Quantité livrée:
                               <input type="number" name="qlivree" value="{{ $demande->qlivree }}" class="form-control" placeholder="La quantité sortant">
                           </div>
                           <div class="form-group">
-                              <strong>Date:</strong>
+                              Date:
                               <input type="date" name="date" value="{{ $demande->date }}" class="form-control">
                           </div>
+                          <div class="form-group">
+                            <label class="label">Année académique</label>
+                            <div class="select">
+                                <select class="form-control" name="id_annee">
+                                    @foreach($annees as $annee)
+                                        <option name="libelle" value="{{ $annee->id }}">{{ $annee->libelle }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
                         </div>
                     </div>
+                </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
                         <button type="submit" class="btn btn-primary">Enregistrer</button>  

@@ -17,6 +17,11 @@
                     </a>
                 </li>
                 <li class="dropdown">
+                    <a href="/annees" class="dropdown-toggle no-arrow">
+                        <span class="micon dw dw-calendar1"></span><span class="mtext">Année</span>
+                    </a>
+                </li>
+                <li class="dropdown">
                     <a href="/approvisionnements" class="dropdown-toggle no-arrow">
                         <span class="micon icon-copy dw dw-edit-file"></span><span class="mtext">Approvisionnements</span>
                     </a>
@@ -28,7 +33,7 @@
                 </li>
                 <li>
                     <a href="/demandes" class="dropdown-toggle no-arrow">
-                        <span class="micon dw dw-calendar1"></span><span class="mtext">Demandes</span>
+                        <span class="micon dw dw-diagonal-arrow-3"></span><span class="mtext">Demandes</span>
                     </a>
                 </li>
             

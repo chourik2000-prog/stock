@@ -2,7 +2,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Ajouter un article </h5>
+              <h5 class="modal-title" id="exampleModalLabel">Ajouter une année académique</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -11,18 +11,27 @@
                @if ($errors->any())
             </div>
           @endif  
-              <form action="{{ route('articles.store') }}" method="POST">
+              <form action="{{ route('annees.store') }}" method="POST">
           @csrf
           <div class="row">
               <div class="col-xs-12 col-sm-12 col-md-12">
                   <div class="form-group">
-                      Désignation:
-                      <input type="text" name="libelle" class="form-control" placeholder="Le libellé de l'article">
+                      <strong>Libellé:</strong>
+                      <input type="text" name="libelle" class="form-control" placeholder="Le libellé">
                   </div>
                   <div class="form-group">
-                      Caractéristiques:
-                      <input type="text" name="caracteristique" class="form-control" placeholder="Les caractéristiques">
-                  </div>
+                    <strong>Date de debut:</strong>
+                    <input type="date" name="dateDebut" class="form-control" placeholder="Le libellé">
+                </div>
+                <div class="form-group">
+                    <strong>Date de fin:</strong>
+                    <input type="date" name="dateFin" class="form-control" placeholder="Le libellé">
+                </div>
+               
+                <div class="custom-control custom-radio mb-5">
+                    <input type="radio" id="status" name="status" class="custom-control-input">
+                    <label class="custom-control-label" for="status">Année active</label>
+                </div>
               </div>
           </div>
             <div class="modal-footer">

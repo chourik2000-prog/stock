@@ -20,4 +20,7 @@ class Approvisionnement extends Model
     public function fournisseur(){
         return $this->belongsTo(Fournisseur::class ,'id_fournisseur'); 
     }
+    public function annee(){
+        return $this->belongsTo(Annee::class ,'id_annee'); 
+    }
 }

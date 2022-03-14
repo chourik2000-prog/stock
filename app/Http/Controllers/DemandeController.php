@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\DB;
 use App\Models\Demande;
 use App\Models\Article;
 use App\Models\Agent;
+use App\Models\Annee;
 use Illuminate\Http\Request;
 
 class DemandeController extends Controller
@@ -16,10 +17,14 @@ class DemandeController extends Controller
      */
     public function index()
     {
-     $articles = Article::all();
-     $agents = Agent::all();
-     $demandes = demande::all();
-     return view('demandes.afficher',compact('demandes'))->with('articles', $articles)->with('agents', $agents);
+        $annees = Annee::all();
+        $articles = Article::all();
+        $agents = Agent::all();
+        $demandes = demande::all();
+        return view('demandes.afficher',compact('demandes'))
+        ->with('articles', $articles)
+        ->with('agents', $agents)
+        ->with('annees', $annees);
     }
 
 
@@ -30,8 +35,11 @@ class DemandeController extends Controller
      */
     public function create()
     {
+        $annees = Annee::all();
         $cat = Demande::all();
-        return view('demandes.create')->with('cat', $cat);
+        return view('demandes.create')
+        ->with('cat', $cat)
+        ->with('annees', $annees);
     }
 
     /**
@@ -46,7 +54,8 @@ class DemandeController extends Controller
             'id_agent' => $request->get('id_agent'),
             'id_article' => $request->get('id_article'),
             'qlivree' => $request->get('qlivree'),
-            'date' => $request->get('date')
+            'date' => $request->get('date'),
+            'id_annee'  => $request->get('id_annee')
         ]);
         $data->save();
         return redirect()->route('demandes.index')

@@ -35,12 +35,12 @@
 		</div>
 			<div class="card-box mb-30">
 				<h2 class="h4 pd-20">Listes de fournitures en stock</h2>
-					<table class=" table nowrap">
+					<table class="table nowrap">
 						<thead>
 							<tr>
 								<th>Articles</th>
 								<th>Entré</th>
-								<th>Livrée</th>
+								<th>Livré</th>
 								<th>Perte</th>
 								<th>Stock</th>
 								<th>Alerte</th>
@@ -70,7 +70,6 @@
 										@if ($reste>=10)
 									<td><span class="btn btn-lg btn-success" id="rond"></span> </td>
 										@endif
-
 							</tr> 
 			 				@endforeach 
 						</tbody>

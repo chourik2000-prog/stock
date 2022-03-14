@@ -2,7 +2,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Enregistrement d'une perte</h5>
+              <h5 class="modal-title" id="exampleModalLabel">Enregistrer une perte</h5>
                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                       <span aria-hidden="true">&times;</span>
                   </button>
@@ -23,12 +23,20 @@
                             </select>
                     </div>
                     <div class="form-group">
-                        <strong>Perte:</strong>
+                        Perte:
                         <input type="number" name="perte" value="{{ $perte->qperdue }}" class="form-control" >
                     </div>
                     <div class="form-group">
-                        <strong>Date:</strong>
+                        Date:
                         <input type="date" name="date" value="{{ $perte->date }}" class="form-control" >
+                    </div>
+                    <div class="form-group">
+                        <label class="label">Année académique</label>
+                            <select class="form-control" name="id_annee">
+                                @foreach($annees as $annee)
+                                    <option name="libelle" value="{{ $annee->id }}">{{ $annee->libelle }}</option>
+                                @endforeach
+                            </select>
                     </div> 
                 </div>
               </div>

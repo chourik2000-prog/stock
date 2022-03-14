@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Annee;
 use App\Models\Article;
 use App\Models\Perte;
 use Illuminate\Http\Request;
@@ -15,9 +15,12 @@ class PerteController extends Controller
      */
     public function index()
     {
+        $annees = Annee::all();
         $pertes = Perte::all();
         $articles = Article::latest()->get();
-        return view('pertes.afficher',compact('articles'))->with('pertes', $pertes);
+        return view('pertes.afficher',compact('articles'))
+        ->with('pertes', $pertes)
+        ->with('annees', $annees);
     }
 
     /**
@@ -27,8 +30,11 @@ class PerteController extends Controller
      */
     public function create()
     {
+        $anne = Annee::all();
         $cat = Perte::all();
-        return view('pertes.create')->with('cat', $cat);
+        return view('pertes.create')
+        ->with('cat', $cat)
+        ->with('anne', $anne);
     }
 
     /**
@@ -42,7 +48,8 @@ class PerteController extends Controller
         $data = new Perte([
             'id_article' => $request->get('id_article'),
             'qperdue' => $request->get('qperdue'),
-            'date' => $request->get('date')
+            'date' => $request->get('date'),
+            'id_annee'  => $request->get('id_annee')
         ]);
         $data->save();
         return redirect()->route('pertes.index')
