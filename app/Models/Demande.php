@@ -10,7 +10,7 @@ class Demande extends Model
     use HasFactory;
     protected $table = 'demandes';
     protected $fillable = [
-       'id_agent', 'id_article' ,'qlivree' ,'date'
+       'id_agent', 'id_article' ,'qlivree' ,'date', 'id_annee'
     ];
     public function article(){
         return $this->belongsTo(Article::class ,'id_article'); 

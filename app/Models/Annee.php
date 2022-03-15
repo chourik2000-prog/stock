@@ -11,7 +11,8 @@ class Annee extends Model
 {
         use HasFactory;
         protected $table = 'annees';
-        protected $fillable = ['libelle', 'dateDebut', 'dateFin', 'status'];
+        protected $fillable = ['libelle', 'dateDebut', 'dateFin'];
+        protected $casts = ['status' => 'boolean'];
 
         public function approvisionnements(){
         return $this->hasMany(Agent::class, 'idcat');

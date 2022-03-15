@@ -13,10 +13,8 @@ class AnneeController extends Controller
      */
     public function index()
     {
-        $annees = DB::table('annees')
-        ->select('annees.*')
-        ->get();
-    return view('annees.afficher',compact('annees'));
+        $annees = Annee::all();
+        return view('annees.afficher',compact('annees'))->with('annees', $annees);
     }
 
     /**
@@ -37,15 +35,15 @@ class AnneeController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'libelle' => 'required',
-            'dateDebut' => 'required',
-            'dateFin' => 'required',
-            'status' => 'required',
+        $data = new Annee([
+            'libelle' => $request->get('libelle'),
+            'dateDebut' => $request->get('dateDebut'),
+            'dateFin' => $request->get('dateFin'),
+            'status' => $request->has('status')
         ]);
-        annee::create($request->all());
+        $data->save();
         return redirect()->route('annees.index')
-                        ->with('success','Produit enregistré avec succès.');
+                        ->with('success',"L'article est enregistré avec succès.");
     }
 
     /**
@@ -98,7 +96,7 @@ class AnneeController extends Controller
      * @param  \App\Models\Annee  $annee
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Annee $annee, $id)
+    public function destroy(Annee $annee)
     {
         $annee->delete();
         return redirect()->route('annees.index')

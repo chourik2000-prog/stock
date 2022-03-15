@@ -16,21 +16,21 @@
           <div class="row">
               <div class="col-xs-12 col-sm-12 col-md-12">
                   <div class="form-group">
-                      <strong>Libellé:</strong>
+                      Libellé:
                       <input type="text" name="libelle" class="form-control" placeholder="Le libellé">
                   </div>
                   <div class="form-group">
-                    <strong>Date de debut:</strong>
+                    Date de debut:
                     <input type="date" name="dateDebut" class="form-control" placeholder="Le libellé">
                 </div>
                 <div class="form-group">
-                    <strong>Date de fin:</strong>
+                    Date de fin:
                     <input type="date" name="dateFin" class="form-control" placeholder="Le libellé">
                 </div>
-               
-                <div class="custom-control custom-radio mb-5">
-                    <input type="radio" id="status" name="status" class="custom-control-input">
-                    <label class="custom-control-label" for="status">Année active</label>
+                <div class="form-group">
+                    <input type="checkbox" name="status" class="switch-input" id="checkbox"
+                     value="1" {{ old('status') ? 'checked="checked"' : '' }}/>
+                    <label for="status">Année active</label>
                 </div>
               </div>
           </div>

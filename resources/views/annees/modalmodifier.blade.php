@@ -14,23 +14,21 @@
                         <div class="row">
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
-                                    <strong>Libellé:</strong>
+                                   Libellé:
                                     <input type="text" name="libelle" value="{{ $annee->libelle }}" class="form-control" placeholder="Le libellé">
                                 </div>
                                 <div class="form-group">
-                                    <strong>Date de debut:</strong>
+                                    Date de debut:
                                     <input type="date" name="dateDebut" value="{{ $annee->dateDebut }}" class="form-control" placeholder="La date">
                                 </div>
                                 <div class="form-group">
-                                    <strong>Date de fin:</strong>
+                                    Date de fin:
                                     <input type="date" name="dateFin" value="{{ $annee->dateFin }}" class="form-control" placeholder="La date">
                                 </div>
                                 <div class="form-group">
-                                    <strong>Active:</strong>
-                                    <div class="custom-control custom-checkbox mb-5">
-                                      <input type="checkbox" name="status" class="custom-control-input" id="status">
-                                      <label class="custom-control-label" for="customCheck2">Année active</label>
-                                  </div>
+                                    <input type="checkbox" name="status" class="switch-input" id="checkbox"
+                                     value="1" {{ old('status') ? 'checked="checked"' : '' }}/>
+                                    <label for="status">Année active</label>
                                 </div>
                             </div>
                         </div>

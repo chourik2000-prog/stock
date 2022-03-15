@@ -60,29 +60,28 @@ class BilanController extends Controller
        if($request->id_article) {
 
             $qEntrant = DB::table('approvisionnements')
-                ->where('id_article', $request->id_article)
-                ->sum('qentrant');
+            ->where('id_article', $request->id_article)
+            ->sum('qentrant');
 
             $qLivree = DB::table('demandes')
-                ->where('id_article',$request->id_article)
-                ->sum('qlivree');
+            ->where('id_article',$request->id_article)
+            ->sum('qlivree');
 
             $perte = DB::table('pertes')
             ->where('id_article',$request->id_article)
             ->sum('qperdue');
 
             $restant = $qEntrant - $qLivree - $perte;
-
             
             $plivree = $qEntrant == 0? 0 : round((($qLivree/$qEntrant)*100), 2);
             $pperte = $qEntrant  == 0? 0 : round((($perte/$qEntrant)*100),  2);
             $prestant =$qEntrant == 0? 0 : round((($restant/$qEntrant)*100), 2);
 
             $bilanChart = $chart->pieChart()
-                ->setTitle('Statistiques')
-                ->setSubtitle('Saison 2021.')
-                ->addData([$plivree, $pperte,$prestant])
-                ->setLabels(['Quantité livrée','Qunatité perdue', 'Quantité restante']);
+            ->setTitle('Statistiques')
+            ->setSubtitle('Saison 2021.')
+            ->addData([$plivree, $pperte,$prestant])
+            ->setLabels(['Quantité livrée','Qunatité perdue', 'Quantité restante']);
 
             return view('bilans.bilan', [
                 'chart' => $bilanChart,

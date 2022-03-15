@@ -10,7 +10,7 @@ class Perte extends Model
     use HasFactory;
     protected $table = 'pertes';
     protected $fillable = [
-        'id_article', 'qperdue','date'
+        'id_article', 'qperdue','date', 'id_annee'
     ];
     public function article(){
         return $this->belongsTo(Article::class ,'id_article'); 
