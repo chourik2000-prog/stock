@@ -1,14 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\Agent;
-use Illuminate\Http\Request;
 use App\Models\Annee;
-use App\Models\categorie;
-use Illuminate\Support\Facades\DB;
+use Illuminate\Http\Request;
 
-
-class CategorieController extends Controller
+class LayoutController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,12 +12,9 @@ class CategorieController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {       
+    {
         $annees = Annee::all();
-        $categories = DB::table('categories')
-            ->select('categories.*')
-            ->get();
-        return view('categories.afficher',compact('categories'))->with('annees', $annees);
+        return view('annees',compact('annees'))->with('annees', $annees);
     }
 
     /**
@@ -31,7 +24,7 @@ class CategorieController extends Controller
      */
     public function create()
     {
-        return view('categories.create');
+        //
     }
 
     /**
@@ -42,12 +35,7 @@ class CategorieController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'libelle' => 'required',
-        ]);
-        categorie::create($request->all());
-        return redirect()->route('categories.index')
-                        ->with('success','Produit enregistré avec succès.');
+        //
     }
 
     /**
@@ -58,7 +46,7 @@ class CategorieController extends Controller
      */
     public function show($id)
     {
-        return view('categories.voir',compact('categorie'));
+        //
     }
 
     /**
@@ -69,7 +57,7 @@ class CategorieController extends Controller
      */
     public function edit($id)
     {
-        return view('categories.modifier',compact('categorie'));
+        //
     }
 
     /**
@@ -81,14 +69,7 @@ class CategorieController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $request->validate([
-            'libelle' => 'required',
-        ]);
-
-        DB::table('categories')->where('id',$id)->update(['libelle' => $request->input('libelle')]);
-
-        return redirect()->route('categories.index')
-                        ->with('success','Mise à jour avec succès');
+        //
     }
 
     /**
@@ -99,8 +80,6 @@ class CategorieController extends Controller
      */
     public function destroy($id)
     {
-        DB::table('categories')->where('id',$id)->delete(); 
-        return redirect()->route('categories.index')
-                        ->with('success','suppression avec succès');
+        //
     }
 }

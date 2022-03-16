@@ -3,6 +3,7 @@ use App\Models\Agent;
 use App\Models\Approvisionnement;
 use App\Models\Demande;
 use App\Models\Article;
+use App\Models\Annee;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AgentController; 
 
@@ -24,8 +25,9 @@ Route::get('/stock', function () {
 });
 
 Route::get('/', function () {
+    $annees = Annee::all();
     $accueils = Article::all();
-    return view('accueil',compact('accueils'));
+    return view('accueil',compact('accueils'))->with('annees', $annees);
 });
 
 Route::get('/bilans', 'App\Http\Controllers\BilanController@index');
@@ -44,6 +46,7 @@ Route::resource('accueil', App\Http\Controllers\AccueilController::class);
 Route::resource('pertes', App\Http\Controllers\PerteController::class);
 Route::resource('fournisseurs', App\Http\Controllers\FournisseurController::class);
 Route::resource('annees', App\Http\Controllers\AnneeController::class);
+Route::resource('layouts', App\Http\Controllers\LayoutController::class);
 
 
 

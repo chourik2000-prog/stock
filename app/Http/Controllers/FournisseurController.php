@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Fournisseur;
+use App\Models\Annee;
 use App\Models\Approvisionnement;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -16,10 +17,11 @@ class FournisseurController extends Controller
      */
     public function index()
     {
+        $annees = Annee::all();
         $fournisseurs = DB::table('fournisseurs')
         ->select('fournisseurs.*')
         ->get();
-    return view('fournisseurs.afficher',compact('fournisseurs'));
+    return view('fournisseurs.afficher',compact('fournisseurs'))->with('annees', $annees);
     }
 
     /**

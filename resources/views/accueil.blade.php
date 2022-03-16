@@ -1,38 +1,5 @@
-@extends('deskapp.layoutaccueil')
+@extends('deskapp.layout')
 @section('content')
-	<div class="pd-ltr-100">
-		<div class="card-box pd-20 height-100-p mb-30">
-			<div class="row align-items-center">
-				<div class="col-md-3">
-					<img src={{asset('vendors/images/banner-img.png')}} alt="">
-				</div>
-				<div class="col-md-8">
-					<h4 class="font-20 weight-500 mb-10 text-capitalize">
-						Bienvenue!<div class="weight-600 font-30 text-blue">IAI-TOGO</div>
-					</h4>
-					<p class="font-18 max-width-600">Gestion des fournitures de l'IAI-TOGO.</p>
-				</div>
-			</div>
-			<!--date à selectionner-->
-			<div class="col-md-6 col-lg-12 text-right">
-				<div class="dropdown">
-					<a class="btn btn-dark dropdown-toggle" href="#" role="button" data-toggle="dropdown">
-						 2022
-					</a>
-					<div class="dropdown-menu dropdown-menu-right">
-						<a class="dropdown-item text-center" href="">2022</a>
-						<a class="dropdown-item text-center" href="">2023</a>
-						<a class="dropdown-item text-center" href="">2024</a>
-						<a class="dropdown-item text-center" href="">2025</a>
-						<a class="dropdown-item text-center" href="">2026</a>
-						<a class="dropdown-item text-center" href="">2027</a>
-						<a class="dropdown-item text-center" href="">2028</a>
-						<a class="dropdown-item text-center" href="">2029</a>
-						<a class="dropdown-item text-center" href="">2030</a>
-					</div>
-				</div>
-			</div>
-		</div>
 			<div class="card-box mb-30">
 				<h2 class="h4 pd-20">Listes de fournitures en stock</h2>
 					<table class="table nowrap">
@@ -75,5 +42,4 @@
 						</tbody>
 	  				</table>
 				</div>
-			</div>
  @endsection 

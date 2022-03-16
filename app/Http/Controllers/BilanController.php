@@ -11,6 +11,7 @@ use App\Http\Controllers\DemandeController;
 use Illuminate\Support\Facades\DB;
 use App\Models\Article;
 use App\Models\Perte;
+use App\Models\Annee;
 use App\Models\Approvisionnement;
 use App\Models\Demande;
 use ArielMejiaDev\LarapexCharts\LarapexChart;
@@ -24,11 +25,11 @@ class BilanController extends Controller
      */
     public function index(BilanChart $chart)
     {
+        $annees = Annee::all();
         $bilans = DB::table('articles')
             ->select('articles.*')
             ->get();
-            return view('bilans.bilan', compact('bilans') , ['chart' => $chart->build()]);
-      //  return view('bilans.bilan' ,['chart' => $chart->build()]);
+            return view('bilans.bilan', compact('bilans'), ['chart' => $chart->build()])->with('annees', $annees);
     } 
 
     /**
@@ -36,6 +37,7 @@ class BilanController extends Controller
      */
     public function recherche(Request $request)
     {
+        $annees = Annee::all();
         $bilans = DB::table('articles')->get();
 
         if($request->input('id_article') != null) {
@@ -46,7 +48,7 @@ class BilanController extends Controller
 
         return view('bilans.recherche', [
             "bilans" => $bilans
-        ]);
+        ])->with('annees', $annees);
     }
 
     /**
@@ -57,6 +59,7 @@ class BilanController extends Controller
      */
     public function store(Request $request, LarapexChart $chart) 
     {
+        $annees = Annee::all();
        if($request->id_article) {
 
             $qEntrant = DB::table('approvisionnements')
@@ -86,7 +89,7 @@ class BilanController extends Controller
             return view('bilans.bilan', [
                 'chart' => $bilanChart,
                 'qEntrant' => $qEntrant
-            ]);
+            ])->with('annees', $annees);
        }
 
     }

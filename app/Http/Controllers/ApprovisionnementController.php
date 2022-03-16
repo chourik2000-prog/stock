@@ -56,17 +56,17 @@ class ApprovisionnementController extends Controller
     public function store(Request $request)
     {
     
-     $qentrant = DB::table('approvisionnements')->where('id_article',$request->input('id_article'))->sum('qentrant');
-     $qlivree = DB::table('demandes')->where('id_article',$request->input('id_article'))->sum('qlivree');
-     $perte = DB::table('pertes')->where('id_article',$request->input('id_article'))->sum('qperdue');
-     $qexistant = $qentrant - $qlivree - $perte ; 
-    Approvisionnement::create([
-        'id_article' => $request->input('id_article'),
-        'id_fournisseur' => $request->input('id_fournisseur'),
-        'qentrant' => $request->input('qentrant'),
-        'date' => $request->input('date'),
-        'qexistant' => $qexistant,
-        'id_annee'  => $request->input('id_annee'),
+        $qentrant = DB::table('approvisionnements')->where('id_article',$request->input('id_article'))->sum('qentrant');
+        $qlivree = DB::table('demandes')->where('id_article',$request->input('id_article'))->sum('qlivree');
+        $perte = DB::table('pertes')->where('id_article',$request->input('id_article'))->sum('qperdue');
+        $qexistant = $qentrant - $qlivree - $perte ; 
+        Approvisionnement::create([
+            'id_article' => $request->input('id_article'),
+            'id_fournisseur' => $request->input('id_fournisseur'),
+            'qentrant' => $request->input('qentrant'),
+            'date' => $request->input('date'),
+            'qexistant' => $qexistant,
+            'id_annee'  => $request->input('id_annee'),
     ]);
 
     return redirect()->route('approvisionnements.index')

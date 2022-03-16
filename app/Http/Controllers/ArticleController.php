@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\DB;
 use App\Models\Article;
+use App\Models\Annee;
 use Illuminate\Http\Request;
 
 class ArticleController extends Controller
@@ -14,10 +15,11 @@ class ArticleController extends Controller
      */
     public function index()
     {
+        $annees = Annee::all();
         $articles = DB::table('articles')
             ->select('articles.*')
             ->get();
-        return view('articles.afficher',compact('articles'));
+        return view('articles.afficher',compact('articles'))->with('annees', $annees);
     }
 
     /**

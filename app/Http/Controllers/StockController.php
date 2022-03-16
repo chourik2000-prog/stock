@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\Approvisionnement;
 use App\Models\Article;
 use App\Models\Demande;
+use App\Models\Annee;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -16,8 +17,9 @@ class StockController extends Controller
      */
     public function index()
     {
-     $stocks = Article::all();
-     return view('stocks.afficher',compact('stocks'));
+        $annees = Annee::all();
+        $stocks = Article::all();
+        return view('stocks.afficher',compact('stocks'))->with('annees', $annees);
     
     }
 
