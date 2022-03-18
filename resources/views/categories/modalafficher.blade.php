@@ -17,7 +17,7 @@
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
                                   Libellé:
-                                  <input type="text" name="libelle" class="form-control" placeholder="Le titre du personnel">
+                                  <input type="text" name="libelle" class="form-control" placeholder="Le titre du personnel" required>
                             </div>
                         </div>
                     </div>

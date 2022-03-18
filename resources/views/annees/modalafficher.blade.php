@@ -17,15 +17,15 @@
               <div class="col-xs-12 col-sm-12 col-md-12">
                   <div class="form-group">
                       Libellé:
-                      <input type="text" name="libelle" class="form-control" placeholder="Le libellé">
+                      <input type="text" name="libelle" class="form-control" placeholder="Le libellé" required>
                   </div>
                   <div class="form-group">
                     Date de debut:
-                    <input type="date" name="dateDebut" class="form-control" placeholder="Le libellé">
+                    <input type="date" name="dateDebut" class="form-control" placeholder="Le libellé" required>
                 </div>
                 <div class="form-group">
                     Date de fin:
-                    <input type="date" name="dateFin" class="form-control" placeholder="Le libellé">
+                    <input type="date" name="dateFin" class="form-control" placeholder="Le libellé" required>
                 </div>
                 <div class="form-group">
                     <input type="checkbox" name="status" class="switch-input" id="checkbox"

@@ -42,13 +42,21 @@ class FournisseurController extends Controller
      */
     public function store(Request $request)
     {
-        $data = new Fournisseur([
-            'nom' => $request->get('nom'),
-            'contact' => $request->get('contact')
+        $request->validate([
+            'nom' => 'required',
+            'contact' => 'required',
         ]);
-        $data->save();
+        Fournisseur::create($request->all());
         return redirect()->route('fournisseurs.index')
-                        ->with('success',"L'article est enregistré avec succès.");
+                        ->with('success',"Fournisseur enregistré avec succès.");
+
+        // $data = new Fournisseur([
+        //     'nom' => $request->get('nom'),
+        //     'contact' => $request->get('contact')
+        // ]);
+        // $data->save();
+        // return redirect()->route('fournisseurs.index')
+        //                 ->with('success',"L'article est enregistré avec succès.");
     }
 
     /**

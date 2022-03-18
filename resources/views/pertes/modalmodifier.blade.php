@@ -24,11 +24,11 @@
                     </div>
                     <div class="form-group">
                         Perte:
-                        <input type="number" name="perte" value="{{ $perte->qperdue }}" class="form-control" >
+                        <input type="number" name="perte" value="{{ $perte->qperdue }}" class="form-control" required>
                     </div>
                     <div class="form-group">
                         Date:
-                        <input type="date" name="date" value="{{ $perte->date }}" class="form-control" >
+                        <input type="date" name="date" value="{{ $perte->date }}" class="form-control" required>
                     </div>
                     <div class="form-group">
                         <label class="label">Année académique</label>

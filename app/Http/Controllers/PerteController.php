@@ -45,15 +45,25 @@ class PerteController extends Controller
      */
     public function store(Request $request)
     {
-        $data = new Perte([
-            'id_article' => $request->get('id_article'),
-            'qperdue' => $request->get('qperdue'),
-            'date' => $request->get('date'),
-            'id_annee'  => $request->get('id_annee')
+        $request->validate([
+            'id_article' => 'required',
+            'qperdue' => 'required',
+            'date' => 'required|date',
+            'id_annee' => 'required',
         ]);
-        $data->save();
+        Perte::create($request->all());
         return redirect()->route('pertes.index')
-                        ->with('success',"L'article est enregistré avec succès.");
+                        ->with('success',"Perte enregistré avec succès.");
+
+        // $data = new Perte([
+        //     'id_article' => $request->get('id_article'),
+        //     'qperdue' => $request->get('qperdue'),
+        //     'date' => $request->get('date'),
+        //     'id_annee'  => $request->get('id_annee')
+        // ]);
+        // $data->save();
+        // return redirect()->route('pertes.index')
+        //                 ->with('success',"L'article est enregistré avec succès.");
     }
 
     /**
@@ -88,8 +98,10 @@ class PerteController extends Controller
     public function update(Request $request, Perte $perte)
     {
         $request->validate([
+            'id_article' => 'required',
             'qperdue' => 'required',
-            'date' => 'required',
+            'date' => 'required|date',
+            'id_annee' => 'required',
         ]);
         $perte->update($request->all());
 

@@ -55,22 +55,26 @@ class ApprovisionnementController extends Controller
      */
     public function store(Request $request)
     {
-    
-        $qentrant = DB::table('approvisionnements')->where('id_article',$request->input('id_article'))->sum('qentrant');
-        $qlivree = DB::table('demandes')->where('id_article',$request->input('id_article'))->sum('qlivree');
-        $perte = DB::table('pertes')->where('id_article',$request->input('id_article'))->sum('qperdue');
-        $qexistant = $qentrant - $qlivree - $perte ; 
-        Approvisionnement::create([
-            'id_article' => $request->input('id_article'),
-            'id_fournisseur' => $request->input('id_fournisseur'),
-            'qentrant' => $request->input('qentrant'),
-            'date' => $request->input('date'),
-            'qexistant' => $qexistant,
-            'id_annee'  => $request->input('id_annee'),
-    ]);
-
-    return redirect()->route('approvisionnements.index')
-                    ->with('success',"L'article est enregistré avec succès.");
+        $request->validate([
+            'id_article' => 'required',
+            'id_fournisseur' => 'required',
+            'qentrant' => 'required',
+            'date' => 'required|date',
+            'id_annee' => 'required',
+        ]);
+        Approvisionnement::create($request->all());
+        return redirect()->route('approvisionnements.index')
+                        ->with('success',"L'article est enregistré avec succès.");
+        
+        $dateDebut = DB::table('annees')->select('annees.dateDebut');
+        $dateFin = DB::table('annees')->select('annees.dateFin');
+        $date = $request->input('date');
+        $dateDebut = Carbon::createFromFormat('Y-m-d', $dateDebut);
+        $dateFin = Carbon::createFromFormat('Y-m-d',  $dateFin);
+        $date = Carbon::createFromFormat('Y-m-d',  $date);
+        $check = $date->between($dateDebut,$dateFin);
+        dd($check);
+        
     }
 
     /**
@@ -105,8 +109,11 @@ class ApprovisionnementController extends Controller
     public function update(Request $request, Approvisionnement $approvisionnement)
     {
         $request->validate([
+            'id_article' => 'required',
+            'id_fournisseur' => 'required',
             'qentrant' => 'required',
-            'date' => 'required',
+            'date' => 'required|date',
+            'id_annee' => 'required',
         ]);
         $approvisionnement->update($request->all());
     

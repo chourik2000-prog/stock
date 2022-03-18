@@ -37,11 +37,11 @@
                       </div>
                       <div class="form-group">
                             Quantité:
-                            <input type="number" name="qentrant" class="form-control" placeholder="La quantité de l'article">
+                            <input type="number" name="qentrant" class="form-control" placeholder="La quantité de l'article" required>
                       </div>
                       <div class="form-group">
                             Date:
-                            <input type="date" name="date" class="form-control" placeholder="La date de l'achat">
+                            <input type="date" name="date" class="form-control" placeholder="La date de l'achat" required>
                       </div>
                       <div class="form-group">
                         <label class="label">Année académique</label>

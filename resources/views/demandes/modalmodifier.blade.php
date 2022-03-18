@@ -35,11 +35,11 @@
                             </div>
                           <div class="form-group">
                               Quantité livrée:
-                              <input type="number" name="qlivree" value="{{ $demande->qlivree }}" class="form-control" placeholder="La quantité sortant">
+                              <input type="number" name="qlivree" value="{{ $demande->qlivree }}" class="form-control" placeholder="La quantité sortant" required>
                           </div>
                           <div class="form-group">
                               Date:
-                              <input type="date" name="date" value="{{ $demande->date }}" class="form-control">
+                              <input type="date" name="date" value="{{ $demande->date }}" class="form-control" required>
                           </div>
                           <div class="form-group">
                             <label class="label">Année académique</label>

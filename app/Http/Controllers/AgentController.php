@@ -44,15 +44,14 @@ class AgentController extends Controller
      */
     public function store(Request $request)
     {
-    
-        $data = new Agent([
-            'nom' => $request->get('nom'),
-            'prenom' => $request->get('prenom'),
-            'idcat' => $request->get('idcat')
+        $request->validate([
+            'nom' => 'required',
+            'prenom' => 'required',
+            'idcat' => 'required',
         ]);
-        $data->save();
+        Agent::create($request->all());
         return redirect()->route('agents.index')
-                        ->with('success',"L'article est enregistré avec succès.");
+                        ->with('success',"Personnel enregistré avec succès.");
     }
 
     /**
@@ -89,6 +88,7 @@ class AgentController extends Controller
         $request->validate([
             'nom' => 'required',
             'prenom' => 'required',
+            'idcat' => 'required',
         ]);
         $agent->update($request->all());
 

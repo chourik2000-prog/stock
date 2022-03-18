@@ -15,7 +15,6 @@ class CreateApprovisionnementsTable extends Migration
     {
         Schema::create('approvisionnements', function (Blueprint $table) {
             $table->id();
-            $table->Integer('qexistant');
             $table->integer('qentrant');
             $table->date('date');
             $table->Integer('id_article')->unsigned();

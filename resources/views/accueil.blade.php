@@ -1,12 +1,12 @@
 @extends('deskapp.layout')
 @section('content')
 			<div class="card-box mb-30">
-				<h2 class="h4 pd-20">Listes de fournitures en stock</h2>
+				<h2 class="h4 pd-20">Liste des fournitures en stock</h2>
 					<table class="table nowrap">
 						<thead>
 							<tr>
 								<th>Articles</th>
-								<th>Entré</th>
+								<th>Entrée</th>
 								<th>Livré</th>
 								<th>Perte</th>
 								<th>Stock</th>
@@ -17,16 +17,14 @@
 							@foreach ($accueils as $accueil)
 							<tr>
 								@php
-									$qexistant = Illuminate\Support\Facades\DB::table('approvisionnements')->where('id_article',$accueil->id)->sum('qexistant');
 									$qlivree = Illuminate\Support\Facades\DB::table('demandes')->where('id_article',$accueil->id)->sum('qlivree');
 									$qentrant = Illuminate\Support\Facades\DB::table('approvisionnements')->where('id_article',$accueil->id)->sum('qentrant');
 									$perte = Illuminate\Support\Facades\DB::table('pertes')->where('id_article',$accueil->id)->sum('qperdue');
-									$reste = $qentrant + $qexistant -$qlivree-$perte;
-									$stock = $qentrant + $qexistant
+									$reste = $qentrant  -$qlivree-$perte;
 								@endphp
 							
 									<td>{{ $accueil->libelle}}({{$accueil->caracteristique}})</td>
-									<td>{{ $stock}}</td> 
+									<td>{{ $qentrant}}</td> 
 										@if ($qlivree == null) <td>0</td> @else <td>{{$qlivree}}</td>  @endif 
 									<td>{{ $perte}}</td> 
 									<td>{{$reste}} </td>

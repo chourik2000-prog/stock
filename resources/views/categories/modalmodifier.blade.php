@@ -15,7 +15,7 @@
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
                                     Catégorie:
-                                    <input type="text" name="libelle" value="{{ $categorie->libelle }}" class="form-control" placeholder="désignation">
+                                    <input type="text" name="libelle" value="{{ $categorie->libelle }}" class="form-control" placeholder="désignation" required>
                                 </div>
                         </div>
                     </div>

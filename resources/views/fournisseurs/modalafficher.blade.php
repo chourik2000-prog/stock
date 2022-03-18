@@ -17,11 +17,11 @@
                 <div class="col-xs-12 col-sm-12 col-md-12">
                     <div class="form-group">
                         Nom:
-                        <input type="text" name="nom" class="form-control" placeholder="nom du fournisseur">
+                        <input type="text" name="nom" class="form-control" placeholder="nom du fournisseur" required>
                     </div>
                     <div class="form-group">
                       Contact:
-                      <input type="numeric" name="contact" class="form-control" placeholder="contact">
+                      <input type="numeric" name="contact" class="form-control" placeholder="contact" required>
                   </div>
                 </div>
             </div>

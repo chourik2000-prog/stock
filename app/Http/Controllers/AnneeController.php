@@ -35,15 +35,16 @@ class AnneeController extends Controller
      */
     public function store(Request $request)
     {
-        $data = new Annee([
-            'libelle' => $request->get('libelle'),
-            'dateDebut' => $request->get('dateDebut'),
-            'dateFin' => $request->get('dateFin'),
-            'status' => $request->has('status')
+        $request->validate([
+            'libelle' => 'required',
+            'dateDebut' => 'required|date',
+            'dateFin' => 'required|date|after:dateDebut',
+            'status' => 'required',
+            
         ]);
-        $data->save();
+        Annee::create($request->all());
         return redirect()->route('annees.index')
-                        ->with('success',"L'article est enregistré avec succès.");
+                        ->with('success',"Année enregistré avec succès.");
     }
 
     /**
@@ -79,8 +80,8 @@ class AnneeController extends Controller
     {
         $request->validate([
             'libelle' => 'required',
-            'dateDebut' => 'required',
-            'dateFin' => 'required',
+            'dateDebut' => 'required|date',
+            'dateFin' => 'required|date|after:dateDebut',
             'status' => 'required',
         ]);
 

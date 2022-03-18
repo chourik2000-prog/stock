@@ -43,7 +43,7 @@
 						<td>{{ $approvisionnement->article->libelle}}</td>
 						<td>{{ $approvisionnement->fournisseur->nom}}</td>
 						<td>{{ $approvisionnement->qentrant}}</td>
-						<td>{{ $approvisionnement->date}}</td>
+						<td>{{$approvisionnement->date}}</td>
 						<td>{{ $approvisionnement->annee->libelle}}</td>
            			 <td>
                 		<form action="{{ route('approvisionnements.destroy',$approvisionnement->id) }}" method="POST">    

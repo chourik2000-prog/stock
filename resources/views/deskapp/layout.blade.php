@@ -105,11 +105,13 @@
 								</a>
 								<div class="dropdown-menu dropdown-menu-right">
 									<a class="dropdown-item text-center" href="">
-										@foreach ($annees as $annee)
+										<table class="table">
+											@foreach ($annees as $annee)
 											<tr>
 												<td>{{$annee->libelle}}</td>
 											</tr> 
 			 							@endforeach 
+									</table> 
 									</a>
 								</div>
 							</div>

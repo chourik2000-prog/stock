@@ -21,7 +21,7 @@
             </div>
             <div class="form-group">
                 Prenom:
-                <input type="text" name="prenom" class="form-control" placeholder="Le prenom">
+                <input type="text" name="prenom" class="form-control" placeholder="Le prenom" required>
             </div>
               <div class="form-group">
                 <label class="label">Catégorie</label>

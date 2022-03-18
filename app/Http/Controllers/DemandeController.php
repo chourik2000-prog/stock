@@ -50,16 +50,26 @@ class DemandeController extends Controller
      */
     public function store(Request $request)
     {
-        $data = new Demande([
-            'id_agent' => $request->get('id_agent'),
-            'id_article' => $request->get('id_article'),
-            'qlivree' => $request->get('qlivree'),
-            'date' => $request->get('date'),
-            'id_annee'  => $request->get('id_annee')
+        $request->validate([
+            'id_agent' => 'required',
+            'id_article' => 'required',
+            'qlivree' => 'required',
+            'date' => 'required|date',
+            'id_annee' => 'required',
         ]);
-        $data->save();
+        Demande::create($request->all());
         return redirect()->route('demandes.index')
-                        ->with('success',"L'article est enregistré avec succès.");
+                        ->with('success',"Demande enregistré avec succès.");
+        // $data = new Demande([
+        //     'id_agent' => $request->get('id_agent'),
+        //     'id_article' => $request->get('id_article'),
+        //     'qlivree' => $request->get('qlivree'),
+        //     'date' => $request->get('date'),
+        //     'id_annee'  => $request->get('id_annee')
+        // ]);
+        // $data->save();
+        // return redirect()->route('demandes.index')
+        //                 ->with('success',"L'article est enregistré avec succès.");
     }
 
     /**

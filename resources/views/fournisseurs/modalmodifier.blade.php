@@ -15,11 +15,11 @@
                 <div class="col-xs-12 col-sm-12 col-md-12">
                     <div class="form-group">
                         Nom:
-                        <input type="text" name="nom" value="{{ $fournisseur->nom }}" class="form-control" placeholder="nom du fournisseur">
+                        <input type="text" name="nom" value="{{ $fournisseur->nom }}" class="form-control" placeholder="nom du fournisseur" required>
                     </div>
                     <div class="form-group">
                         Contact:
-                        <input type="number" name="contact" value="{{ $fournisseur->contact }}" class="form-control" placeholder="numéro téléphonique">
+                        <input type="number" name="contact" value="{{ $fournisseur->contact }}" class="form-control" placeholder="numéro téléphonique" required>
                     </div>
                 </div>
             </div>

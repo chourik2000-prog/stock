@@ -17,11 +17,11 @@
               <div class="col-xs-12 col-sm-12 col-md-12">
                   <div class="form-group">
                       Désignation:
-                      <input type="text" name="libelle" class="form-control" placeholder="Le libellé de l'article">
+                      <input type="text" name="libelle" class="form-control" placeholder="Le libellé de l'article" required>
                   </div>
                   <div class="form-group">
                       Caractéristiques:
-                      <input type="text" name="caracteristique" class="form-control" placeholder="Les caractéristiques">
+                      <input type="text" name="caracteristique" class="form-control" placeholder="Les caractéristiques" required>
                   </div>
               </div>
           </div>

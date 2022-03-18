@@ -15,11 +15,11 @@
                               <div class="col-xs-12 col-sm-12 col-md-12">
                                   <div class="form-group">
                                       Désignation:
-                                      <input type="text" name="libelle" value="{{ $article->libelle }}" class="form-control" placeholder="Le libellé">
+                                      <input type="text" name="libelle" value="{{ $article->libelle }}" class="form-control" placeholder="Le libellé" required>
                                   </div>
                                   <div class="form-group">
                                     Caractéristiques:
-                                    <input type="text" name="libelle" value="{{ $article->caracteristique }}" class="form-control" placeholder="Le libellé">
+                                    <input type="text" name="libelle" value="{{ $article->caracteristique }}" class="form-control" placeholder="Le libellé" required>
                                   </div>
                               </div>
                           </div>

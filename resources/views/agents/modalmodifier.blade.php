@@ -15,11 +15,11 @@
                       <div class="col-xs-12 col-sm-12 col-md-12">
                           <div class="form-group">
                               Nom:
-                              <input type="text" name="nom" value="{{ $agent->nom }}" class="form-control" >
+                              <input type="text" name="nom" value="{{ $agent->nom }}" class="form-control"  required>
                           </div>
                           <div class="form-group">
                               Prenom:
-                              <input type="text" name="prenom" value="{{ $agent->prenom }}" class="form-control" >
+                              <input type="text" name="prenom" value="{{ $agent->prenom }}" class="form-control" required>
                           </div>
                           <div class="form-group">
                               <label class="label">Catégorie</label>

@@ -31,7 +31,7 @@
             </div>
             <div class="form-group">
                 Date:
-                <input type="date" name="date" class="form-control" placeholder="La date">
+                <input type="date" name="date" class="form-control" placeholder="La date" required>
             </div> 
             <div class="form-group">
                 <label class="label">Année académique</label>

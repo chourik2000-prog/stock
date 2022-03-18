@@ -18,10 +18,10 @@
 				<thead>
 					<tr>
 						<th scope="col"> <strong> Articles</strong> </th>
-						<th scope="col"> <strong> QEntrée</strong> </th>
-						<th scope="col"> <strong> QLivrée</strong> </th>
+						<th scope="col"> <strong> Entrée</strong> </th>
+						<th scope="col"> <strong> Livré</strong> </th>
 						<th scope="col"> <strong> Perte</strong> </th>
-						<th scope="col"> <strong> QRestant</strong> </th>
+						<th scope="col"> <strong> Restant</strong> </th>
 					</tr>
 				</thead>
 				<tbody>
@@ -31,7 +31,6 @@
 								$entrant = Illuminate\Support\Facades\DB::table('approvisionnements')->where('id_article',$stock->id)->sum('qentrant');
 								$livree = Illuminate\Support\Facades\DB::table('demandes')->where('id_article',$stock->id)->sum('qlivree');
 								$perte = Illuminate\Support\Facades\DB::table('pertes')->where('id_article',$stock->id)->sum('qperdue');
-							
 								$existant = $entrant - $livree  - $perte;
 							@endphp
 						
