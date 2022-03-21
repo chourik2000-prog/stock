@@ -7,61 +7,75 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-                  <div class="modal-body">
-                       @if ($errors->any()) 
-                  </div>
-                        @endif  
-     <form action="{{ route('approvisionnements.store') }}" method="POST">
-          @csrf
-              <div class="row">
-                  <div class="col-xs-12 col-sm-12 col-md-12">
-                      <div class="form-group">
-                        <label class="label">Désignation</label>
-                            <div class="select">
-                                  <select class="form-control" name="id_article">
-                                      @foreach($articles as $article)
-                                      <option value="{{ $article->id }}">{{ $article->libelle }}</option>
-                                  @endforeach
-                                  </select>
+            <div class="modal-body">
+                @if ($errors->any()) 
+            
+                @endif  
+                <form action="{{ route('approvisionnements.store') }}" method="POST">
+                    @csrf
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12 col-md-12">
+                            <div class="form-group">
+                                <label class="label">Désignation</label>
+                                    <div class="select">
+                                        <select class="form-control" name="id_article">
+                                            @foreach($articles as $article)
+                                            <option value="{{ $article->id }}">{{ $article->libelle }}</option>
+                                        @endforeach
+                                        </select>
+                                    </div>
                             </div>
-                      </div>
-                      <div class="form-group">
-                          <label class="label">Fournisseur</label>
-                              <div class="select">
-                                  <select class="form-control" name="id_fournisseur">
-                                      @foreach($fournisseurs as $fournisseur)
-                                          <option value="{{ $fournisseur->id }}">{{ $fournisseur->nom }}</option>
-                                      @endforeach
-                                  </select>
-                              </div>
-                      </div>
-                      <div class="form-group">
-                            Quantité:
-                            <input type="number" name="qentrant" class="form-control" placeholder="La quantité de l'article" required>
-                      </div>
-                      <div class="form-group">
-                            Date:
-                            <input type="date" name="date" class="form-control" placeholder="La date de l'achat" required>
-                      </div>
-                      <div class="form-group">
-                        <label class="label">Année académique</label>
-                            <div class="select">
-                                <select class="form-control" name="id_annee">
-                                    @foreach($annees as $annee)
-                                        <option value="{{ $annee->id }}">{{ $annee->libelle }}</option>
-                                    @endforeach
-                                </select>
+                            <div class="form-group">
+                                <label class="label">Fournisseur</label>
+                                    <div class="select">
+                                        <select class="form-control" name="id_fournisseur">
+                                            @foreach($fournisseurs as $fournisseur)
+                                                <option value="{{ $fournisseur->id }}">{{ $fournisseur->nom }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
                             </div>
+                            <div class="form-group">
+                                   <label for="qentrant"> Quantité:</label>
+                                    <input
+                                        id="qentrant"
+                                        type="number" 
+                                        name="qentrant" 
+                                        class="form-control @error('qentrant') is-invalid @enderror" 
+                                        placeholder="La quantité de l'article" required="required">
+                                        @error('qentrant') <p>Ce champs est incorrect</p>@enderror
+                            </div>
+                            <div class="form-group">
+                                  <label for="date">  Date:</label>
+                                    <input type="date" name="date" 
+                                    class="form-control" id="date" 
+                                    placeholder="La date de l'achat" required="required">
+                                    @include('flash::message')
+                            </div>
+                            <div class="form-group">
+                                <label class="label">Année académique</label>
+                                    <div class="select">
+                                        <select class="form-control" name="id_annee">
+                                            @foreach($annees as $annee)
+                                                <option value="{{ $annee->id }}">{{ $annee->libelle }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                            </div>
+                        </div>
                     </div>
-                  </div>
-              </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-dismiss="modal">Fermer</button> 
-                    <button type="submit" class="btn btn-primary">Enregistrer</button>
-                </div>
-         </div>
-      </form>
+                    
+                    <div class="row"> 
+                        <div class="col-xs-12 col-sm-12 col-md-12">
+                            <button type="submit" class="btn btn-primary">Enregistrer</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Fermer</button>
+            </div>
+        </div>
     </div>
-  </div>
 </div>
    

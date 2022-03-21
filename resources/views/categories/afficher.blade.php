@@ -27,31 +27,32 @@
 							</tr>
 						</thead>
 						<tbody>
-                        @foreach ($categories as $categorie)
-        <tr>
-            <td>{{ $categorie->libelle}}</td>
-            <td>
-                <form action="{{ route('categories.destroy',$categorie->id) }}" method="POST">    
-					<button type="button" class="btn btn-info btn-sm" data-toggle="modal" 
-						data-target="#modaledit{{$categorie->id}}">
-						<a  href="#">
-							<i class=" dw dw-edit-1 text-white"></i>
-						</a>
-					</button>
-                    @csrf
-                    @method('DELETE')
-                    <button type="submit" class="btn btn-warning btn-sm" onClick='return confirmSubmit()'>
-						<a  href="#">
-							<i class="icon-copy dw dw-trash1 text-white"></i>
-						</a>
-					</button>
-                </form>
-            </td>
-        </tr>
-        @include('categories.modalmodifier')
-        @endforeach
-    </table>
-    @include('categories.modalafficher')     
+							@foreach ($categories as $categorie)
+								<tr>
+									<td>{{ $categorie->libelle}}</td>
+									<td>
+										<form action="{{ route('categories.destroy',$categorie->id) }}" method="POST">    
+											<button type="button" class="btn btn-info btn-sm" data-toggle="modal" 
+												data-target="#modaledit{{$categorie->id}}">
+												<a  href="#">
+													<i class=" dw dw-edit-1 text-white"></i>
+												</a>
+											</button>
+											@csrf
+											@method('DELETE')
+											<button type="submit" class="btn btn-warning btn-sm" onClick='return confirmSubmit()'>
+												<a  href="#">
+													<i class="icon-copy dw dw-trash1 text-white"></i>
+												</a>
+											</button>
+										</form>
+									</td>
+								</tr>
+								@include('categories.modalmodifier')
+							@endforeach
+						</tbody>
+					</table>
+    		@include('categories.modalafficher')     
 @endsection
 
 		<script>

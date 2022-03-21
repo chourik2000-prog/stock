@@ -14,8 +14,13 @@
                         <div class="row">
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
-                                   Libellé:
-                                    <input type="text" name="libelle" value="{{ $annee->libelle }}" class="form-control" placeholder="Le libellé" required>
+                                  <label for="libelle"> Libellé:</label>
+                                    <input type="text" 
+                                    name="libelle" id="libelle"
+                                    value="{{ $annee->libelle }}" 
+                                    class="form-control @error('libelle') is-invalid @enderror" 
+                                    placeholder="Le libellé" required="required">
+                                    @error('libelle') <p>Ce champs est incorrect</p>@enderror
                                 </div>
                                 <div class="form-group">
                                     Date de debut:
@@ -32,12 +37,16 @@
                                 </div>
                             </div>
                         </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
-                        <button type="submit" class="btn btn-primary">Enregistrer</button>
-                    </div>
-                </form>
-          </div>
+                        <div class="row"> 
+                            <div class="col-xs-12 col-sm-12 col-md-12">
+                                <button type="submit" class="btn btn-primary">Enregistrer</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Fermer</button>
+            </div>         
       </div>
   </div>
 </div>

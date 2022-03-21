@@ -7,39 +7,51 @@
                   <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-                  <div class="modal-body">
-                       @if ($errors->any())
-                  </div>
-                        @endif  
-<form action="{{ route('agents.store') }}" method="POST">
-    @csrf
-     <div class="row">
-        <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
-                Nom:
-                <input type="text" name="nom" class="form-control" placeholder="Le nom" required>
+            <div class="modal-body">
+                @if ($errors->any())
+                @endif  
+                <form action="{{ route('agents.store') }}" method="POST">
+                    @csrf
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12 col-md-12">
+                            <div class="form-group">
+                                <label for="nom">Nom:</label>
+                                <input type="text" 
+                                name="nom" id="nom"
+                                class="form-control @error('nom') is-invalid @enderror"
+                                placeholder="Le nom" required="required">
+                                @error('nom') <p>Ce champs est incorrect</p>@enderror
+                            </div>
+                            <div class="form-group">
+                                <label for="prenom">Prenom:</label>
+                                <input type="text" 
+                                name="prenom" id="prenom"
+                                class="form-control @error('prenom') is-invalid @enderror" 
+                                placeholder="Le prenom" required="required">
+                                @error('prenom') <p>Ce champs est incorrect</p>@enderror
+                            </div>
+                            <div class="form-group">
+                                <label class="label">Catégorie</label>
+                                <div class="select">
+                                    <select class="form-control" name="idcat">
+                                        @foreach($categories as $categorie)
+                                            <option value="{{ $categorie->id }}">{{ $categorie->libelle }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        </div>
+                        <div class="row"> 
+                            <div class="col-xs-12 col-sm-12 col-md-12">
+                                <button type="submit" class="btn btn-primary">Enregistrer</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Fermer</button> 
             </div>
-            <div class="form-group">
-                Prenom:
-                <input type="text" name="prenom" class="form-control" placeholder="Le prenom" required>
-            </div>
-              <div class="form-group">
-                <label class="label">Catégorie</label>
-                  <div class="select">
-                      <select class="form-control" name="idcat">
-                          @foreach($categories as $categorie)
-                              <option value="{{ $categorie->id }}">{{ $categorie->libelle }}</option>
-                          @endforeach
-                      </select>
-                  </div>
-              </div>
         </div>
-        </div>
-        <div class="modal-footer">
-            <button type="button" class="btn btn-warning" data-dismiss="modal">Fermer</button> 
-            <button type="submit" class="btn btn-info">Enregistrer</button>
-        </div>
-</form>
-</div>
-</div>
+    </div>
 </div>

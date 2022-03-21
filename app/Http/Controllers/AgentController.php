@@ -45,8 +45,8 @@ class AgentController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'nom' => 'required',
-            'prenom' => 'required',
+            'nom' => 'required|max:255',
+            'prenom' => 'required|max:255',
             'idcat' => 'required',
         ]);
         Agent::create($request->all());
@@ -86,8 +86,8 @@ class AgentController extends Controller
     public function update(Request $request, Agent $agent)
     {
         $request->validate([
-            'nom' => 'required',
-            'prenom' => 'required',
+            'nom' => 'required|max:255',
+            'prenom' => 'required|max:255',
             'idcat' => 'required',
         ]);
         $agent->update($request->all());

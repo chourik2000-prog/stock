@@ -43,7 +43,7 @@ class CategorieController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'libelle' => 'required',
+            'libelle' => 'required|max:255',
         ]);
         categorie::create($request->all());
         return redirect()->route('categories.index')
@@ -82,7 +82,7 @@ class CategorieController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'libelle' => 'required',
+            'libelle' => 'required|max:255',
         ]);
 
         DB::table('categories')->where('id',$id)->update(['libelle' => $request->input('libelle')]);

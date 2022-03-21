@@ -9,37 +9,46 @@
             </div>
             <div class="modal-body">
                @if ($errors->any())
+            
+                @endif  
+                <form action="{{ route('annees.store') }}" method="POST">
+                    @csrf
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12 col-md-12">
+                            <div class="form-group">
+                                <label for="libelle">Libellé:</label>
+                                <input type="text" 
+                                name="libelle" id="libelle"
+                                class="form-control @error('libelle') is-invalid @enderror" 
+                                placeholder="Le libellé" 
+                                required="required">
+                                @error('libelle') <p>Ce champs est incorrect</p>@enderror
+                            </div>
+                            <div class="form-group">
+                                Date de debut:
+                                <input type="date" name="dateDebut" class="form-control" placeholder="Le libellé" required>
+                            </div>
+                            <div class="form-group">
+                                Date de fin:
+                                <input type="date" name="dateFin" class="form-control" placeholder="Le libellé" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="checkbox" name="status" class="switch-input" id="checkbox"
+                                value="1" {{ old('status') ? 'checked="checked"' : '' }}/>
+                                <label for="status">Année active</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row"> 
+                        <div class="col-xs-12 col-sm-12 col-md-12">
+                            <button type="submit" class="btn btn-primary">Enregistrer</button>
+                        </div>
+                    </div>
+                </form>
             </div>
-          @endif  
-              <form action="{{ route('annees.store') }}" method="POST">
-          @csrf
-          <div class="row">
-              <div class="col-xs-12 col-sm-12 col-md-12">
-                  <div class="form-group">
-                      Libellé:
-                      <input type="text" name="libelle" class="form-control" placeholder="Le libellé" required>
-                  </div>
-                  <div class="form-group">
-                    Date de debut:
-                    <input type="date" name="dateDebut" class="form-control" placeholder="Le libellé" required>
-                </div>
-                <div class="form-group">
-                    Date de fin:
-                    <input type="date" name="dateFin" class="form-control" placeholder="Le libellé" required>
-                </div>
-                <div class="form-group">
-                    <input type="checkbox" name="status" class="switch-input" id="checkbox"
-                     value="1" {{ old('status') ? 'checked="checked"' : '' }}/>
-                    <label for="status">Année active</label>
-                </div>
-              </div>
-          </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-danger" data-dismiss="modal">Fermer</button>
-                <button type="submit" class="btn btn-primary">Enregistrer</button>
-            </div>
-      </div>
-</form>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-dismiss="modal">Fermer</button>
+        </div>
     </div>
   </div>
 </div>

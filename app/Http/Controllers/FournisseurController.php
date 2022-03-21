@@ -43,7 +43,7 @@ class FournisseurController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'nom' => 'required',
+            'nom' => 'required|max:255',
             'contact' => 'required',
         ]);
         Fournisseur::create($request->all());
@@ -91,7 +91,7 @@ class FournisseurController extends Controller
     public function update(Request $request, Fournisseur $fournisseur)
     {
         $request->validate([
-            'nom' => 'required',
+            'nom' => 'required|max:255',
             'contact' => 'required',
         ]);
         $fournisseur->update($request->all());

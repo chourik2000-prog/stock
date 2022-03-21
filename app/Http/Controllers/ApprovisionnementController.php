@@ -62,19 +62,33 @@ class ApprovisionnementController extends Controller
             'date' => 'required|date',
             'id_annee' => 'required',
         ]);
-        Approvisionnement::create($request->all());
-        return redirect()->route('approvisionnements.index')
-                        ->with('success',"L'article est enregistré avec succès.");
+
         
-        $dateDebut = DB::table('annees')->select('annees.dateDebut');
-        $dateFin = DB::table('annees')->select('annees.dateFin');
+        $annee = DB::table('annees')
+            ->where('id', $request->input('id_annee'))
+            ->first();
+
+        $dateDebut = $annee->dateDebut;
+        $dateFin = $annee->dateFin;
         $date = $request->input('date');
+        
         $dateDebut = Carbon::createFromFormat('Y-m-d', $dateDebut);
         $dateFin = Carbon::createFromFormat('Y-m-d',  $dateFin);
         $date = Carbon::createFromFormat('Y-m-d',  $date);
-        $check = $date->between($dateDebut,$dateFin);
-        dd($check);
-        
+               
+        $check = $date->between($dateDebut, $dateFin);
+        if($check)
+        {
+            Approvisionnement::create($request->all());
+            
+            return redirect()->route('approvisionnements.index')
+                        ->with('success',"L'article est enregistré avec succès.");
+        } else {
+            flash("La date doit être comprise dans l'année académique")->error();
+
+            return redirect()->route('approvisionnements.index');
+        }
+
     }
 
     /**

@@ -36,7 +36,7 @@ class AnneeController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'libelle' => 'required',
+            'libelle' => 'required|max:255',
             'dateDebut' => 'required|date',
             'dateFin' => 'required|date|after:dateDebut',
             'status' => 'required',
@@ -79,10 +79,10 @@ class AnneeController extends Controller
     public function update(Request $request, Annee $annee)
     {
         $request->validate([
-            'libelle' => 'required',
+            'libelle' => 'required|max:255',
             'dateDebut' => 'required|date',
             'dateFin' => 'required|date|after:dateDebut',
-            'status' => 'required',
+            'status' => 'required|boolean',
         ]);
 
         $annee->update($request->all());

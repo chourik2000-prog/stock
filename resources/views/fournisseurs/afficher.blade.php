@@ -11,7 +11,7 @@
 					</h4>
 				</div>
 				<div class="pull-right">
-						<a class="btn btn-success btn-sm text-white" data-toggle="modal" data-target="#exampleModal">+ Ajouter</a>
+					<a class="btn btn-success btn-sm text-white" data-toggle="modal" data-target="#exampleModal">+ Ajouter</a>
 				</div>
 			</div>
 			@if ($message = Session::get('success'))
@@ -28,32 +28,32 @@
 					</tr>
 				</thead>
 				<tbody>
-						@foreach ($fournisseurs as $fournisseur)
-				<tr>
-					<td>{{ $fournisseur->nom}}</td>
-					<td>{{ $fournisseur->contact}}</td>
-					<td>
-						<form action="{{ route('fournisseurs.destroy',$fournisseur->id) }}" method="POST">    
-							<button type="button" class="btn btn-info btn-sm" data-toggle="modal" 
-								data-target="#modaledit{{$fournisseur->id}}">
-								<a  href="#">
-									<i class="dw dw-edit-1 text-white"></i>
-								</a>
-							</button>
-								@csrf
-									@method('DELETE')
-								<button type="submit" class="btn btn-warning btn-sm" onClick='return confirmSubmit()'>
-									<a  href="#">
-										<i class="dw dw-trash1 text-white"></i>
-									</a>
-								</button>
-						</form>
-					</td>
-				</tr>
-@include('fournisseurs.modalmodifier')
-@endforeach
-   					 </table>
-
+					@foreach ($fournisseurs as $fournisseur)
+						<tr>
+							<td>{{ $fournisseur->nom}}</td>
+							<td>{{ $fournisseur->contact}}</td>
+							<td>
+								<form action="{{ route('fournisseurs.destroy',$fournisseur->id) }}" method="POST">    
+									<button type="button" class="btn btn-info btn-sm" data-toggle="modal" 
+										data-target="#modaledit{{$fournisseur->id}}">
+										<a  href="#">
+											<i class="dw dw-edit-1 text-white"></i>
+										</a>
+									</button>
+										@csrf
+											@method('DELETE')
+										<button type="submit" class="btn btn-warning btn-sm" onClick='return confirmSubmit()'>
+											<a  href="#">
+												<i class="dw dw-trash1 text-white"></i>
+											</a>
+										</button>
+								</form>
+							</td>
+						</tr>
+						@include('fournisseurs.modalmodifier')
+					@endforeach
+				</tbody>
+			</table>
 @include('fournisseurs.modalafficher')   
 @endsection
 		<script>

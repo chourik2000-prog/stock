@@ -41,8 +41,8 @@ class ArticleController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'libelle' => 'required',
-            'caracteristique' => 'required',
+            'libelle' => 'required|max:255',
+            'caracteristique' => 'required|max:255',
         ]);
         Article::create($request->all());
         return redirect()->route('articles.index')
@@ -81,8 +81,8 @@ class ArticleController extends Controller
     public function update(Request $request, Article $article)
     {
         $request->validate([
-            'libelle' => 'required',
-            'caracteristique' => 'required',
+            'libelle' => 'required|max:255',
+            'caracteristique' => 'required|max:255',
         ]);
         $article->update($request->all());
     

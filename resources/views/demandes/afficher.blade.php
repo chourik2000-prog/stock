@@ -31,44 +31,45 @@
 							</tr>
 						</thead>
 						<tbody>
-                        @foreach ($demandes as $demande)
-				<tr>
-					<td>{{$demande->agent->nom}}</td>
-					<td>{{ $demande->article->libelle}}</td>
-					<td>{{ $demande->qlivree}}</td>
-					<td>{{ $demande->date}}</td>
-					<td>{{ $demande->annee->libelle}}</td>
-					<td>
-						<form action="{{ route('demandes.destroy',$demande->id) }}" method="POST">    
-								<button type="button" class="btn btn-info btn-sm" data-toggle="modal" 
-									data-target="#modaledit{{$demande->id}}">
-									<a  href="#">
-										<i class="dw dw-edit-1 text-white"></i>
-									</a>
-								</button>
-							@csrf
-							@method('DELETE')
-							<button type="submit" class="btn btn-warning btn-sm" onClick='return confirmSubmit()'>
-								<a href="#">
-									<i class="dw dw-trash1 text-white"></i>
-								</a>
-							</button>
-						</form>
-					</td>
-				</tr>
-@include('demandes.modalmodifier')
-@endforeach
-    		</table>
-@include('demandes.modalafficher')   
-@endsection
-		<script>
-		function confirmSubmit()
-		{
-		var agree=confirm("Êtes-vous sûr de vouloir supprimer?");
-		if (agree)
-		return true ;
-		else
-		return false ;
-		}
-		</script>
+							@foreach ($demandes as $demande)
+								<tr>
+									<td>{{$demande->agent->nom}}</td>
+									<td>{{ $demande->article->libelle}}</td>
+									<td>{{ $demande->qlivree}}</td>
+									<td>{{ $demande->date}}</td>
+									<td>{{ $demande->annee->libelle}}</td>
+									<td>
+										<form action="{{ route('demandes.destroy',$demande->id) }}" method="POST">    
+												<button type="button" class="btn btn-info btn-sm" data-toggle="modal" 
+													data-target="#modaledit{{$demande->id}}">
+													<a  href="#">
+														<i class="dw dw-edit-1 text-white"></i>
+													</a>
+												</button>
+											@csrf
+											@method('DELETE')
+											<button type="submit" class="btn btn-warning btn-sm" onClick='return confirmSubmit()'>
+												<a href="#">
+													<i class="dw dw-trash1 text-white"></i>
+												</a>
+											</button>
+										</form>
+									</td>
+								</tr>
+								@include('demandes.modalmodifier')
+							@endforeach
+						</tbody>
+    				</table>
+				@include('demandes.modalafficher')   
+				@endsection
+<script>
+function confirmSubmit()
+{
+var agree=confirm("Êtes-vous sûr de vouloir supprimer?");
+if (agree)
+return true ;
+else
+return false ;
+}
+</script>
 	

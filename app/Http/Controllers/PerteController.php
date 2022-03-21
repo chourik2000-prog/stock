@@ -54,16 +54,6 @@ class PerteController extends Controller
         Perte::create($request->all());
         return redirect()->route('pertes.index')
                         ->with('success',"Perte enregistré avec succès.");
-
-        // $data = new Perte([
-        //     'id_article' => $request->get('id_article'),
-        //     'qperdue' => $request->get('qperdue'),
-        //     'date' => $request->get('date'),
-        //     'id_annee'  => $request->get('id_annee')
-        // ]);
-        // $data->save();
-        // return redirect()->route('pertes.index')
-        //                 ->with('success',"L'article est enregistré avec succès.");
     }
 
     /**

@@ -9,28 +9,40 @@
             </div>
             <div class="modal-body">
                @if ($errors->any())
-            </div>
-          @endif  
-              <form action="{{ route('articles.store') }}" method="POST">
-          @csrf
-          <div class="row">
-              <div class="col-xs-12 col-sm-12 col-md-12">
-                  <div class="form-group">
-                      Désignation:
-                      <input type="text" name="libelle" class="form-control" placeholder="Le libellé de l'article" required>
-                  </div>
-                  <div class="form-group">
-                      Caractéristiques:
-                      <input type="text" name="caracteristique" class="form-control" placeholder="Les caractéristiques" required>
-                  </div>
-              </div>
-          </div>
+            
+                @endif  
+                    <form action="{{ route('articles.store') }}" method="POST">
+                        @csrf
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-12 col-md-12">
+                                <div class="form-group">
+                                    <label for="libelle">Désignation:</label>
+                                    <input type="text" 
+                                    name="libelle" id="libelle"
+                                    class="form-control @error('libelle') is-invalid @enderror" 
+                                    placeholder="Le libellé de l'article" required="required">
+                                    @error('libelle') <p>Ce champs est incorrect</p>@enderror
+                                </div>
+                                <div class="form-group">
+                                    <label for="caracteristique">Caractéristiques:</label>
+                                    <input type="text" id="caracteristique"
+                                    name="caracteristique" 
+                                    class="form-control @error('caracteristique') is-invalid @enderror" 
+                                    placeholder="Les caractéristiques" required="required">
+                                    @error('caracteristique') <p>Ce champs est incorrect</p>@enderror
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row"> 
+                            <div class="col-xs-12 col-sm-12 col-md-12">
+                                <button type="submit" class="btn btn-primary">Enregistrer</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-danger" data-dismiss="modal">Fermer</button>
-                <button type="submit" class="btn btn-primary">Enregistrer</button>
-            </div>
-      </div>
-</form>
+            </div>              
+        </div>
     </div>
-  </div>
 </div>

@@ -9,25 +9,32 @@
             </div>
             <div class="modal-body">
                 @if ($errors->any())
-            </div>
+
                 @endif  
-          <form action="{{ route('categories.store') }}" method="POST">
-                @csrf
+                <form action="{{ route('categories.store') }}" method="POST">
+                    @csrf
                     <div class="row">
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
-                                  Libellé:
-                                  <input type="text" name="libelle" class="form-control" placeholder="Le titre du personnel" required>
+                                <label for="libelle">Libellé:</label>
+                                <input type="text" 
+                                name="libelle" id="libelle"
+                                class="form-control @error('libelle') is-invalid @enderror" 
+                                placeholder="Le titre du personnel" required="required">
+                                @error('libelle') <p>Ce champs est incorrect</p>@enderror
                             </div>
                         </div>
                     </div>
-          </div>
-                    <div class="modal-footer">
-                          <button type="button" class="btn btn-danger" data-dismiss="modal">Fermer</button> 
-                          <button type="submit" class="btn btn-primary">Enregistrer</button>
+                    <div class="row"> 
+                        <div class="col-xs-12 col-sm-12 col-md-12">
+                            <button type="submit" class="btn btn-primary">Enregistrer</button>
+                        </div>
                     </div>
-          </form>
-      </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Fermer</button> 
+            </div>
+        </div>
     </div>
-  </div>
 </div>

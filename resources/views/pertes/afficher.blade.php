@@ -13,12 +13,12 @@
 			<a class="btn btn-success btn-sm text-white" data-toggle="modal" data-target="#exampleModal"> + Ajouter</a>
 		</div>
 	</div>
-		@if ($message = Session::get('success'))
-			<div class="alert alert-success">
-				<p>{{ $message }}</p>
-			</div>
-		@endif
-		<table class="table">
+			@if ($message = Session::get('success'))
+				<div class="alert alert-success">
+					<p>{{ $message }}</p>
+				</div>
+			@endif
+			<table class="table">
 				<thead>
 					<tr>
 						<th scope="col"> <strong>Désignation</strong> </th>
@@ -29,33 +29,34 @@
 					</tr>
 				</thead>
 				<tbody>
-				@foreach ($pertes as $perte)
-				<tr>
-				<td>{{ $perte->article->libelle}}</td>
-				<td>{{ $perte->qperdue}}</td>
-				<td>{{ $perte->date}}</td>
-				<td>{{ $perte->annee->libelle}}</td>
-				<td>
-					<form action="{{ route('pertes.destroy',$perte->id) }}" method="POST">    
-						<button type="button" class="btn btn-info btn-sm" data-toggle="modal" 
-							data-target="#modaledit{{$perte->id}}">
-							<a  href="#">
-								<i class="dw dw-edit-1 text-white"></i>
-							</a>
-						</button>
-						@csrf
-						@method('DELETE')
-						<button type="submit" class="btn btn-warning btn-sm" onClick='return confirmSubmit()'>
-							<a href="#">
-								<i class="dw dw-trash1 text-white"></i>
-							</a>
-						</button>
-					</form>
-				</td>
-			</tr>
-@include('pertes.modalmodifier')
-@endforeach
-		</table>
+					@foreach ($pertes as $perte)
+						<tr>
+							<td>{{ $perte->article->libelle}}</td>
+							<td>{{ $perte->qperdue}}</td>
+							<td>{{ $perte->date}}</td>
+							<td>{{ $perte->annee->libelle}}</td>
+							<td>
+								<form action="{{ route('pertes.destroy',$perte->id) }}" method="POST">    
+									<button type="button" class="btn btn-info btn-sm" data-toggle="modal" 
+										data-target="#modaledit{{$perte->id}}">
+										<a  href="#">
+											<i class="dw dw-edit-1 text-white"></i>
+										</a>
+									</button>
+									@csrf
+									@method('DELETE')
+									<button type="submit" class="btn btn-warning btn-sm" onClick='return confirmSubmit()'>
+										<a href="#">
+											<i class="dw dw-trash1 text-white"></i>
+										</a>
+									</button>
+								</form>
+							</td>
+						</tr>
+						@include('pertes.modalmodifier')
+					@endforeach
+				</tbody>
+			</table>
 @include('pertes.modalafficher')   
 @endsection
 		<script>
