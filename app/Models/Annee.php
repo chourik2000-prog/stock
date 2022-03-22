@@ -15,12 +15,12 @@ class Annee extends Model
         protected $casts = ['status' => 'boolean'];
 
         public function approvisionnements(){
-        return $this->hasMany(Agent::class, 'idcat');
+        return $this->hasMany(Approvisionnement::class, 'id_annee');
     }
         public function pertes(){
-        return $this->hasMany(Agent::class, 'idcat');
+        return $this->hasMany(Perte::class, 'id_annee');
     }
         public function demandes(){
-        return $this->hasMany(Agent::class, 'idcat');
+        return $this->hasMany(Demande::class, 'id_annee');
     }
 }

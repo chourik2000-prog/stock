@@ -5,6 +5,8 @@ use App\Models\Annee;
 use App\Models\Article;
 use App\Models\Perte;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
 
 class PerteController extends Controller
 {
@@ -17,7 +19,7 @@ class PerteController extends Controller
     {
         $annees = Annee::all();
         $pertes = Perte::all();
-        $articles = Article::latest()->get();
+        $articles = Article::all();
         return view('pertes.afficher',compact('articles'))
         ->with('pertes', $pertes)
         ->with('annees', $annees);
@@ -47,13 +49,35 @@ class PerteController extends Controller
     {
         $request->validate([
             'id_article' => 'required',
-            'qperdue' => 'required',
+            'qperdue' => 'required|numeric|min:0',
             'date' => 'required|date',
             'id_annee' => 'required',
         ]);
-        Perte::create($request->all());
-        return redirect()->route('pertes.index')
+
+        $annee = DB::table('annees')
+            ->where('id', $request->input('id_annee'))
+            ->first();
+
+        $dateDebut = $annee->dateDebut;
+        $dateFin = $annee->dateFin;
+        $date = $request->input('date');
+        
+        $dateDebut = Carbon::createFromFormat('Y-m-d', $dateDebut);
+        $dateFin = Carbon::createFromFormat('Y-m-d',  $dateFin);
+        $date = Carbon::createFromFormat('Y-m-d',  $date);
+            
+        $check = $date->between($dateDebut, $dateFin);
+        if($check)
+        {
+            Perte::create($request->all());
+                return redirect()->route('pertes.index')
                         ->with('success',"Perte enregistré avec succès.");
+        }
+        else {
+            flash("La date doit être comprise dans l'année académique")->error();
+
+            return redirect()->route('approvisionnements.index');
+        }
     }
 
     /**
@@ -89,7 +113,7 @@ class PerteController extends Controller
     {
         $request->validate([
             'id_article' => 'required',
-            'qperdue' => 'required',
+            'qperdue' => 'required|numeric|min:0',
             'date' => 'required|date',
             'id_annee' => 'required',
         ]);

@@ -58,12 +58,11 @@ class ApprovisionnementController extends Controller
         $request->validate([
             'id_article' => 'required',
             'id_fournisseur' => 'required',
-            'qentrant' => 'required',
+            'qentrant' => 'required|numeric|min:0',
             'date' => 'required|date',
             'id_annee' => 'required',
         ]);
 
-        
         $annee = DB::table('annees')
             ->where('id', $request->input('id_annee'))
             ->first();
@@ -75,7 +74,7 @@ class ApprovisionnementController extends Controller
         $dateDebut = Carbon::createFromFormat('Y-m-d', $dateDebut);
         $dateFin = Carbon::createFromFormat('Y-m-d',  $dateFin);
         $date = Carbon::createFromFormat('Y-m-d',  $date);
-               
+            
         $check = $date->between($dateDebut, $dateFin);
         if($check)
         {
@@ -83,7 +82,8 @@ class ApprovisionnementController extends Controller
             
             return redirect()->route('approvisionnements.index')
                         ->with('success',"L'article est enregistré avec succès.");
-        } else {
+        }
+        else {
             flash("La date doit être comprise dans l'année académique")->error();
 
             return redirect()->route('approvisionnements.index');
@@ -125,13 +125,12 @@ class ApprovisionnementController extends Controller
         $request->validate([
             'id_article' => 'required',
             'id_fournisseur' => 'required',
-            'qentrant' => 'required',
+            'qentrant' => 'required|numeric|min:0',
             'date' => 'required|date',
             'id_annee' => 'required',
         ]);
         $approvisionnement->update($request->all());
-    
-        return redirect()->route('approvisionnements.index')
+            return redirect()->route('approvisionnements.index')
                         ->with('success','Mise à jour avec succès');
     }
 

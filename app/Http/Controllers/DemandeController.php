@@ -7,6 +7,8 @@ use App\Models\Article;
 use App\Models\Agent;
 use App\Models\Annee;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
+
 
 class DemandeController extends Controller
 {
@@ -20,11 +22,11 @@ class DemandeController extends Controller
         $annees = Annee::all();
         $articles = Article::all();
         $agents = Agent::all();
-        $demandes = demande::all();
-        return view('demandes.afficher',compact('demandes'))
-        ->with('articles', $articles)
-        ->with('agents', $agents)
-        ->with('annees', $annees);
+        $demandes = Demande::all();
+        return view('demandes.afficher',compact('annees'))
+            ->with('articles', $articles)
+            ->with('agents', $agents)
+            ->with('demandes', $demandes);
     }
 
 
@@ -34,12 +36,16 @@ class DemandeController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {
+    {     
         $annees = Annee::all();
-        $cat = Demande::all();
+        $demandes = Demande::all();
+        $agents = Agent::all();
+        $articles = Article::all();
         return view('demandes.create')
-        ->with('cat', $cat)
-        ->with('annees', $annees);
+            ->with('annees', $annees)
+            ->with('demandes', $demandes)
+            ->with('agents','$agents')
+            ->with('articles', $articles);
     }
 
     /**
@@ -53,23 +59,38 @@ class DemandeController extends Controller
         $request->validate([
             'id_agent' => 'required',
             'id_article' => 'required',
-            'qlivree' => 'required',
+            'qlivree' => 'required|numeric|min:0',
             'date' => 'required|date',
             'id_annee' => 'required',
         ]);
-        Demande::create($request->all());
-        return redirect()->route('demandes.index')
+
+        $annee = DB::table('annees')
+        ->where('id', $request->input('id_annee'))
+        ->first();
+
+        $dateDebut = $annee->dateDebut;
+        $dateFin = $annee->dateFin;
+        $date = $request->input('date');
+        
+        $dateDebut = Carbon::createFromFormat('Y-m-d', $dateDebut);
+        $dateFin = Carbon::createFromFormat('Y-m-d',  $dateFin);
+        $date = Carbon::createFromFormat('Y-m-d',  $date);
+            
+        $check = $date->between($dateDebut, $dateFin);
+        if($check)
+        {
+            Demande::create($request->all());
+                return redirect()->route('demandes.index')
                         ->with('success',"Demande enregistré avec succès.");
-        // $data = new Demande([
-        //     'id_agent' => $request->get('id_agent'),
-        //     'id_article' => $request->get('id_article'),
-        //     'qlivree' => $request->get('qlivree'),
-        //     'date' => $request->get('date'),
-        //     'id_annee'  => $request->get('id_annee')
-        // ]);
-        // $data->save();
-        // return redirect()->route('demandes.index')
-        //                 ->with('success',"L'article est enregistré avec succès.");
+        }
+        else 
+        {
+            flash("La date doit être comprise dans l'année académique")->error();
+                return redirect()->route('approvisionnements.index');
+        }
+
+
+       
     }
 
     /**
@@ -104,8 +125,11 @@ class DemandeController extends Controller
     public function update(Request $request, Demande $demande)
     {
         $request->validate([
-            'qlivree' => 'required',
-            'date' => 'required',
+            'id_agent' => 'required',
+            'id_article' => 'required',
+            'qlivree' => 'required|numeric|min:0',
+            'date' => 'required|date',
+            'id_annee' => 'required',
         ]);
         $demande->update($request->all());
     

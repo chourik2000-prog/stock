@@ -20,8 +20,8 @@
                                     <div class="select">
                                         <select class="form-control" name="id_article">
                                             @foreach($articles as $article)
-                                            <option value="{{ $article->id }}">{{ $article->libelle }}</option>
-                                        @endforeach
+                                                <option value="{{ $article->id }}">{{ $article->libelle }}</option>
+                                            @endforeach
                                         </select>
                                     </div>
                             </div>
@@ -38,12 +38,12 @@
                             <div class="form-group">
                                    <label for="qentrant"> Quantité:</label>
                                     <input
-                                        id="qentrant"
-                                        type="number" 
-                                        name="qentrant" 
-                                        class="form-control @error('qentrant') is-invalid @enderror" 
-                                        placeholder="La quantité de l'article" required="required">
-                                        @error('qentrant') <p>Ce champs est incorrect</p>@enderror
+                                    id="qentrant"
+                                    type="number" 
+                                    name="qentrant" 
+                                    class="form-control @error('qentrant') is-invalid @enderror" 
+                                    placeholder="La quantité de l'article" required="required">
+                                    @error('qentrant') <p>Ce champs est incorrect</p>@enderror
                             </div>
                             <div class="form-group">
                                   <label for="date">  Date:</label>

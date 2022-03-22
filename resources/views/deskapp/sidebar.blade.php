@@ -18,7 +18,7 @@
                 </li>
                 <li class="dropdown">
                     <a href="/annees" class="dropdown-toggle no-arrow">
-                        <span class="micon dw dw-calendar1"></span><span class="mtext">Année</span>
+                        <span class="micon dw dw-calendar1" ></span><span class="mtext">Année</span>
                     </a>
                 </li>
                 <li class="dropdown">
@@ -28,7 +28,7 @@
                 </li>
                 <li> 
                     <a href="/fournisseurs" class="dropdown-toggle no-arrow">
-                        <span class="micon dw dw-user-12"></span><span class="mtext">Fournisseurs</span>
+                        <span class="micon dw dw-user-12" ></span><span class="mtext">Fournisseurs</span>
                     </a>
                 </li>
                 <li>

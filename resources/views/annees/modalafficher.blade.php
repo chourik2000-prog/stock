@@ -33,7 +33,7 @@
                                 <input type="date" name="dateFin" class="form-control" placeholder="Le libellé" required>
                             </div>
                             <div class="form-group">
-                                <input type="checkbox" name="status" class="switch-input" id="checkbox"
+                                <input type="checkbox" name="status" class="switch-input" id="status"
                                 value="1" {{ old('status') ? 'checked="checked"' : '' }}/>
                                 <label for="status">Année active</label>
                             </div>

@@ -39,10 +39,10 @@ class AnneeController extends Controller
             'libelle' => 'required|max:255',
             'dateDebut' => 'required|date',
             'dateFin' => 'required|date|after:dateDebut',
-            'status' => 'required',
-            
         ]);
+       
         Annee::create($request->all());
+        
         return redirect()->route('annees.index')
                         ->with('success',"Année enregistré avec succès.");
     }
@@ -66,7 +66,9 @@ class AnneeController extends Controller
      */
     public function edit(Annee $annee)
     {
-        return view('annees.modifier',compact('annee'));
+        return view('annees.modifier',
+        compact('annee'));
+        
     }
 
     /**

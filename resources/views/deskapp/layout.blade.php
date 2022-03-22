@@ -78,12 +78,11 @@
 			</div>
 		</div>
 	</div>
-
      <!-- sidebar -->
-     @include('deskapp.sidebar')
-	<div class="mobile-menu-overlay"></div>
-		<div class="main-container">
-			<!-- iaigestion contenant la date-->
+@include('deskapp.sidebar')
+<div class="mobile-menu-overlay"></div>
+<div class="main-container">
+	<!-- iaigestion contenant la date-->
 	<div class="mobile-menu-overlay"></div>
 	    <div class="main-container col-lg-12" id="bar1" >
 			<div class="min-height-10px" >
@@ -101,17 +100,17 @@
 						<div class="col-md-6 col-sm-12 text-right"  >
 							<div class="dropdown">
 								<a class="btn btn-dark dropdown-toggle" href="#" role="button" data-toggle="dropdown">
-								 	2022
+								 <label for="">	2022</label>
 								</a>
-								<div class="dropdown-menu dropdown-menu-right">
-									<a class="dropdown-item text-center" href="">
+								<div class=" select dropdown-menu dropdown-menu-right">
+									<a  href="">
 										<table class="table">
 											@foreach ($annees as $annee)
-											<tr>
-												<td>{{$annee->libelle}}</td>
-											</tr> 
-			 							@endforeach 
-									</table> 
+												<tr class="dropdown-item text-center">
+													<td>{{$annee->libelle}}</td>
+												</tr> 
+			 								@endforeach 
+										</table> 
 									</a>
 								</div>
 							</div>
@@ -121,7 +120,6 @@
 			</div>
 			@yield('content')
 		</div>
-
 	<!-- js -->
 	<script src={{asset('vendors/scripts/core.js')}}></script>
 	<script src={{asset('vendors/scripts/script.min.js')}}></script>

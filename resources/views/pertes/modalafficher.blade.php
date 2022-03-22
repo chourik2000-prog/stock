@@ -35,8 +35,10 @@
                             <div class="form-group">
                                <label for="data">Date:</label>
                                 <input type="date" id="data" name="date" 
-                                class="form-control"
+                                class="form-control @error('date') is-invalid @enderror"
                                  required="required">
+                                 @error('date') <p>Ce champs est incorrect</p>@enderror
+                                 @include('flash::message')
                             </div> 
                             <div class="form-group">
                                 <label class="label">Année académique</label>

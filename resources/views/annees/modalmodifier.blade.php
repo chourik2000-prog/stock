@@ -23,16 +23,30 @@
                                     @error('libelle') <p>Ce champs est incorrect</p>@enderror
                                 </div>
                                 <div class="form-group">
-                                    Date de debut:
-                                    <input type="date" name="dateDebut" value="{{ $annee->dateDebut }}" class="form-control" placeholder="La date" required>
+                                    <label for="dateDebut">Date de debut:</label>
+                                    <input type="date" id="dateDebut"
+                                    name="dateDebut" 
+                                    value="{{ $annee->dateDebut }}" 
+                                    class="form-control @error('dateDebut') is-invalid @enderror"
+                                    placeholder="La date" required="required">
+                                    @error('dateDebut') <p>Ce champs est incorrect</p>@enderror
                                 </div>
                                 <div class="form-group">
                                     Date de fin:
-                                    <input type="date" name="dateFin" value="{{ $annee->dateFin }}" class="form-control" placeholder="La date" required>
+                                    <input type="date" id="dateFin"
+                                    name="dateFin" 
+                                    value="{{ $annee->dateFin }}" 
+                                    class="form-control @error('dateFin') is-invalid @enderror"
+                                    placeholder="La date" required="required">
+                                    @error('dateFin') <p>Ce champs est incorrect</p>@enderror
                                 </div>
                                 <div class="form-group">
-                                    <input type="checkbox" name="status" class="switch-input" id="checkbox"
-                                     value="1" {{ old('status') ? 'checked="checked"' : '' }}/>
+                                    <input 
+                                        type="checkbox" 
+                                        name="status" 
+                                        class="switch-input" 
+                                        id="status"
+                                        {{  $annee->status == 1 ? 'checked="checked"' : '' }}/>
                                     <label for="status">Année active</label>
                                 </div>
                             </div>
