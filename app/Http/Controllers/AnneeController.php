@@ -15,6 +15,7 @@ class AnneeController extends Controller
     {
         $annees = Annee::all();
         return view('annees.afficher',compact('annees'))->with('annees', $annees);
+        dd('$annees');
     }
 
     /**
@@ -39,12 +40,23 @@ class AnneeController extends Controller
             'libelle' => 'required|max:255',
             'dateDebut' => 'required|date',
             'dateFin' => 'required|date|after:dateDebut',
+            
         ]);
-       
-        Annee::create($request->all());
-        
-        return redirect()->route('annees.index')
-                        ->with('success',"Année enregistré avec succès.");
+        // $status = $request->has('status');
+        // if($status){
+        //    $status = $request->value('oui');
+        // }else{
+        //     $status = 'non';
+        // }
+            $annees = new Annee; 
+            $annees->libelle = $request->libelle;
+            $annees->dateDebut = $request->dateDebut;
+            $annees->dateFin = $request->dateFin;
+            $annees->status = $request->input('status') ? true : false;
+            $annees->save();
+            
+                return redirect()->route('annees.index')
+                    ->with('success',"Année enregistré avec succès.");
     }
 
     /**
@@ -84,7 +96,6 @@ class AnneeController extends Controller
             'libelle' => 'required|max:255',
             'dateDebut' => 'required|date',
             'dateFin' => 'required|date|after:dateDebut',
-            'status' => 'required|boolean',
         ]);
 
         $annee->update($request->all());

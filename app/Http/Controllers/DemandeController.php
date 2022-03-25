@@ -23,10 +23,10 @@ class DemandeController extends Controller
         $articles = Article::all();
         $agents = Agent::all();
         $demandes = Demande::all();
-        return view('demandes.afficher',compact('annees'))
+        return view('demandes.afficher',compact('demandes'))
             ->with('articles', $articles)
             ->with('agents', $agents)
-            ->with('demandes', $demandes);
+            ->with('annees', $annees);
     }
 
 
@@ -57,11 +57,11 @@ class DemandeController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'id_agent' => 'required',
-            'id_article' => 'required',
+            'id_agent' => 'required|exists:agents,id',
+            'id_article' => 'required|exists:articles,id',
             'qlivree' => 'required|numeric|min:0',
             'date' => 'required|date',
-            'id_annee' => 'required',
+            'id_annee' => 'required|exists:annees,id',
         ]);
 
         $annee = DB::table('annees')
@@ -125,11 +125,11 @@ class DemandeController extends Controller
     public function update(Request $request, Demande $demande)
     {
         $request->validate([
-            'id_agent' => 'required',
-            'id_article' => 'required',
+            'id_agent' => 'required|exists:agents,id',
+            'id_article' => 'required|exists:articles,id',
             'qlivree' => 'required|numeric|min:0',
             'date' => 'required|date',
-            'id_annee' => 'required',
+            'id_annee' => 'required|exists:annees,id',
         ]);
         $demande->update($request->all());
     

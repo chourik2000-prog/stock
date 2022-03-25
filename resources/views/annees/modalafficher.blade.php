@@ -16,27 +16,47 @@
                     <div class="row">
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
-                                <label for="libelle">Libellé:</label>
-                                <input type="text" 
-                                name="libelle" id="libelle"
+                                <label for="lib">Libellé:</label>
+                                <input type="text" name="libelle" id="lib"
                                 class="form-control @error('libelle') is-invalid @enderror" 
                                 placeholder="Le libellé" 
                                 required="required">
                                 @error('libelle') <p>Ce champs est incorrect</p>@enderror
                             </div>
                             <div class="form-group">
-                                Date de debut:
-                                <input type="date" name="dateDebut" class="form-control" placeholder="Le libellé" required>
+                               <label for="date">Date de debut</label>
+                                <input type="date" id="date" name="dateDebut" 
+                                class="form-control @error('dateDebut') is-invalid @enderror" 
+                                placeholder="Le libellé" required="required">
+                                @error('dateDebut') <p>Ce champs est incorrect</p>@enderror
                             </div>
                             <div class="form-group">
-                                Date de fin:
-                                <input type="date" name="dateFin" class="form-control" placeholder="Le libellé" required>
+                                <label for="dat">Date de fin</label>
+                                <input type="date" id="dat" name="dateFin" 
+                                class="form-control @error('dateFin') is-invalid @enderror" 
+                                placeholder="Le libellé" required="required">
+                                @error('dateFin') <p>Ce champs est incorrect</p>@enderror
                             </div>
-                            <div class="form-group">
-                                <input type="checkbox" name="status" class="switch-input" id="status"
-                                value="1" {{ old('status') ? 'checked="checked"' : '' }}/>
-                                <label for="status">Année active</label>
-                            </div>
+
+                           <!-- <div class="onoffswitch-container">
+                                <span class="onoffswitch">
+                                    <input type="checkbox" class="onoffswitch-checkbox" id="status" checked="$annee->status"> 
+                                    <label class="onoffswitch-label" for="status">
+                                        <span class="onoffswitch-inner" data-swchoff-text="non" data-swchon-text="oui"></span>
+                                        <span class="onoffswitch-switch"></span>
+                                    </label>
+                                 </span>
+                                 <span class="onoffswitch-title">Active</span> <br>
+                            </div>-->
+
+                         <div class="form-check">
+                                <input class="form-check-input" name="status" 
+                                    type="checkbox" value="true" id="status" checked="$annee->status">
+                                <label class="form-check-label" for="status" >
+                                 Année active
+                                </label>
+                               
+                            </div> <br>
                         </div>
                     </div>
                     <div class="row"> 

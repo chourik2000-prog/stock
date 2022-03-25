@@ -34,7 +34,12 @@
                             <td>{{ $annee->libelle}}</td>
                             <td>{{ $annee->dateDebut}}</td>
                             <td>{{ $annee->dateFin}}</td>
-                            <td>{{ $annee->status}}</td>
+                            @if ($annee->status == 1)
+                                <td> oui </td>   
+                            @else
+                                <td > non</td>
+                            @endif
+                            
                             <td>
                                 <form action="{{ route('annees.destroy',$annee->id) }}" method="POST">    
                                     <button type="button" class="btn btn-info btn-sm" data-toggle="modal" 

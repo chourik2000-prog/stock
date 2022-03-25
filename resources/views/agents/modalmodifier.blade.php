@@ -34,12 +34,15 @@
                               <div class="form-group">
                                   <label class="label">Catégorie</label>
                                   <div class="select">
-                                      <select class="form-control" name="idcat">
-                                          @foreach($categories as $categorie)
-                                              <option name="libelle" value="{{ $categorie->id }}">{{ $categorie->libelle }}</option>
-                                          @endforeach
+                                      <select 
+                                        class="form-control @error('idcat') is-invalid @enderror" 
+                                        name="idcat" required="required">
+                                        @foreach($categories as $categorie)
+                                            <option name="libelle" value="{{ $categorie->id }}">{{ $categorie->libelle }}</option>
+                                        @endforeach
                                       </select>
                                   </div>
+                                  @error('idcat') <p>Ce champs est incorrect</p>@enderror
                               </div>
                           </div>
                       </div>

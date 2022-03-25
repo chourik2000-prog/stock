@@ -18,22 +18,28 @@
                             <div class="form-group">
                                 <label class="label">Désignation</label>
                                     <div class="select">
-                                        <select class="form-control" name="id_article">
+                                        <select 
+                                        class="form-control @error('id_article') is-invalid @enderror" 
+                                        name="id_article" required="required">
                                             @foreach($articles as $article)
                                                 <option value="{{ $article->id }}">{{ $article->libelle }}</option>
                                             @endforeach
                                         </select>
                                     </div>
+                                    @error('id_article') <p>Ce champs est incorrect</p>@enderror
                             </div>
                             <div class="form-group">
                                 <label class="label">Fournisseur</label>
                                     <div class="select">
-                                        <select class="form-control" name="id_fournisseur">
+                                        <select 
+                                            class="form-control @error('id_fournisseur') is-invalid @enderror" 
+                                            name="id_fournisseur" required="required">
                                             @foreach($fournisseurs as $fournisseur)
                                                 <option value="{{ $fournisseur->id }}">{{ $fournisseur->nom }}</option>
                                             @endforeach
                                         </select>
                                     </div>
+                                    @error('id_fournisseur') <p>Ce champs est incorrect</p>@enderror
                             </div>
                             <div class="form-group">
                                    <label for="qentrant"> Quantité:</label>
@@ -55,12 +61,15 @@
                             <div class="form-group">
                                 <label class="label">Année académique</label>
                                     <div class="select">
-                                        <select class="form-control" name="id_annee">
+                                        <select 
+                                            class="form-control @error('id_annee') is-invalid @enderror"  
+                                            name="id_annee" required="required">
                                             @foreach($annees as $annee)
                                                 <option value="{{ $annee->id }}">{{ $annee->libelle }}</option>
                                             @endforeach
                                         </select>
                                     </div>
+                                    @error('id_annee') <p>Ce champs est incorrect</p>@enderror
                             </div>
                         </div>
                     </div>

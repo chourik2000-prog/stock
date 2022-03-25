@@ -16,11 +16,14 @@
                             <div class="select">   
                                 <div class="form-group">
                                     <label class="label">Désignation</label>
-                                        <select class="form-control" name="id_article">
+                                        <select 
+                                            class="form-control @error('id_article') is-invalid @enderror"  
+                                            name="id_article" required="required">
                                             @foreach($articles as $article)
                                                 <option name="libelle" value="{{ $article->id }}">{{ $article->libelle }}</option>
                                             @endforeach
                                         </select>
+                                        @error('id_article') <p>Ce champs est incorrect</p>@enderror
                                 </div>
                                 <div class="form-group">
                                     <label for="qperdue">Perte:</label>
@@ -39,11 +42,14 @@
                                 </div>
                                 <div class="form-group">
                                     <label class="label">Année académique</label>
-                                        <select class="form-control" name="id_annee">
+                                        <select 
+                                            class="form-control @error('id_annee') is-invalid @enderror" 
+                                            name="id_annee" required="required">
                                             @foreach($annees as $annee)
                                                 <option name="libelle" value="{{ $annee->id }}">{{ $annee->libelle }}</option>
                                             @endforeach
                                         </select>
+                                        @error('id_annee') <p>Ce champs est incorrect</p>@enderror
                                 </div> 
                             </div>
                         </div>

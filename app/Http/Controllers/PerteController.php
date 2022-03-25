@@ -48,10 +48,10 @@ class PerteController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'id_article' => 'required',
+            'id_article' => 'required|exists:articles,id',
             'qperdue' => 'required|numeric|min:0',
             'date' => 'required|date',
-            'id_annee' => 'required',
+            'id_annee' => 'required|exists:annees,id',
         ]);
 
         $annee = DB::table('annees')
@@ -112,10 +112,10 @@ class PerteController extends Controller
     public function update(Request $request, Perte $perte)
     {
         $request->validate([
-            'id_article' => 'required',
+            'id_article' => 'required|exists:articles,id',
             'qperdue' => 'required|numeric|min:0',
             'date' => 'required|date',
-            'id_annee' => 'required',
+            'id_annee' => 'required|exists:annees,id',
         ]);
         $perte->update($request->all());
 

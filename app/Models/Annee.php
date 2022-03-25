@@ -13,6 +13,7 @@ class Annee extends Model
         protected $table = 'annees';
         protected $fillable = ['libelle', 'dateDebut', 'dateFin'];
         protected $casts = ['status' => 'boolean'];
+     
 
         public function approvisionnements(){
         return $this->hasMany(Approvisionnement::class, 'id_annee');

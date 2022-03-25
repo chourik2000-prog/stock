@@ -14,7 +14,7 @@ class AgentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($slug = null)
+    public function index()
     {
         $annees = Annee::all();  
         $categories = Categorie::all();
@@ -47,11 +47,11 @@ class AgentController extends Controller
         $request->validate([
             'nom' => 'required|max:255',
             'prenom' => 'required|max:255',
-            'idcat' => 'required',
+            'idcat' => 'required|exists:categories,id',
         ]);
-        Agent::create($request->all());
-        return redirect()->route('agents.index')
-                        ->with('success',"Personnel enregistré avec succès.");
+                Agent::create($request->all());
+                    return redirect()->route('agents.index')
+                        ->with('success',"Personnel enregistré avec succès.");     
     }
 
     /**
@@ -88,7 +88,7 @@ class AgentController extends Controller
         $request->validate([
             'nom' => 'required|max:255',
             'prenom' => 'required|max:255',
-            'idcat' => 'required',
+            'idcat' => 'required|exists:categories,id',
         ]);
         $agent->update($request->all());
 

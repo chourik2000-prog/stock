@@ -56,11 +56,11 @@ class ApprovisionnementController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'id_article' => 'required',
-            'id_fournisseur' => 'required',
+            'id_article' => 'required|exists:articles,id',
+            'id_fournisseur' => 'required|exists:fournisseurs,id',
             'qentrant' => 'required|numeric|min:0',
             'date' => 'required|date',
-            'id_annee' => 'required',
+            'id_annee' => 'required|exists:annees,id',
         ]);
 
         $annee = DB::table('annees')
@@ -123,11 +123,11 @@ class ApprovisionnementController extends Controller
     public function update(Request $request, Approvisionnement $approvisionnement)
     {
         $request->validate([
-            'id_article' => 'required',
-            'id_fournisseur' => 'required',
+            'id_article' => 'required|exists:articles,id',
+            'id_fournisseur' => 'required|exists:fournisseurs,id',
             'qentrant' => 'required|numeric|min:0',
             'date' => 'required|date',
-            'id_annee' => 'required',
+            'id_annee' => 'required|exists:annees,id',
         ]);
         $approvisionnement->update($request->all());
             return redirect()->route('approvisionnements.index')

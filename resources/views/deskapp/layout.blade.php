@@ -97,22 +97,18 @@
 								</ol>
 							</nav>
 						</div>
-						<div class="col-md-6 col-sm-12 text-right"  >
+						<div class="col-md-3 col-sm-12 ml-auto p-2 bd-highlight">
 							<div class="dropdown">
-								<a class="btn btn-dark dropdown-toggle" href="#" role="button" data-toggle="dropdown">
-								 <label for="">	2022</label>
+								<a href="#">	
+									<div class="select">
+										<select class="form-control btn btn-dark text-white" name="id_annee">
+											@foreach($annees as $annee)
+												<option value="{{ $annee->id }}">{{ $annee->libelle }}</option>
+											@endforeach
+										</select>
+										<br>
+									</div> 
 								</a>
-								<div class=" select dropdown-menu dropdown-menu-right">
-									<a  href="">
-										<table class="table">
-											@foreach ($annees as $annee)
-												<tr class="dropdown-item text-center">
-													<td>{{$annee->libelle}}</td>
-												</tr> 
-			 								@endforeach 
-										</table> 
-									</a>
-								</div>
 							</div>
 						</div>
 					</div>

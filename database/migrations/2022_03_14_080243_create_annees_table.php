@@ -18,7 +18,7 @@ class CreateAnneesTable extends Migration
             $table->string('libelle');
             $table ->date('dateDebut');
             $table ->date('dateFin');
-            $table->boolean('status')->default(1);
+            $table->boolean('status')->nullable()->default(true);
             $table->timestamps();
         });
     }

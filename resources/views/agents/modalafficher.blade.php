@@ -10,6 +10,8 @@
             <div class="modal-body">
                 @if ($errors->any())
                 @endif  
+
+                @include('flash::message')
                 <form action="{{ route('agents.store') }}" method="POST">
                     @csrf
                     <div class="row">
@@ -33,12 +35,15 @@
                             <div class="form-group">
                                 <label class="label">Catégorie</label>
                                 <div class="select">
-                                    <select class="form-control" name="idcat">
+                                    <select 
+                                        class="form-control @error('idcat') is-invalid @enderror" 
+                                        name="idcat" required="required">
                                         @foreach($categories as $categorie)
                                             <option value="{{ $categorie->id }}">{{ $categorie->libelle }}</option>
                                         @endforeach
-                                    </select>
+                                    </select>  
                                 </div>
+                                @error('idcat') <p>Ce champs est incorrect</p>@enderror
                             </div>
                         </div>
                         </div>

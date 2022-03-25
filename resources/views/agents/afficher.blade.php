@@ -10,56 +10,54 @@
 						<div class="weight-600 font-30 text-blue">Personnel</div>
 					</h4>
 				</div>		
-					<div class="pull-right">
-                		<a class="btn btn-success btn-sm " data-toggle="modal" data-target="#exampleModal"> + Ajouter</a>
-					</div>
-			</div>	
-                    @if ($message = Session::get('success'))
-						<div class="alert alert-success">
-							<p>{{ $message }}</p>
-						</div>
-					@endif
-					<table class="table">
-						<thead>
-							<tr>
-								<th scope="col"> <strong>Nom</strong> </th>
-								<th scope="col"> <strong>Prenom</strong> </th>
-								<th scope="col"> <strong>Titre</strong> </th>
-								<th scope="col"> <strong> Actions</strong> </th>
-							</tr>
-						</thead>
-						<tbody>
-							@foreach ($agents as $agent)
-							<tr>
-									<td>{{ $agent->nom}}</td>
-									<td>{{ $agent->prenom}}</td>
-									<td>{{ $agent->categorie->libelle}}</td>
-								<td>
-									<form action="{{ route('agents.destroy',$agent->id) }}" method="POST">    
-										<button type="button" class="btn btn-info btn-sm" data-toggle="modal" 
-											data-target="#modaledit{{$agent->id}}">
-											<a  href="#">
-												<i class="dw dw-edit-1 text-white"></i>
-											</a>
-										</button>
-					
-										@csrf
-										@method('DELETE')
-						
-										<button type="submit" class="btn btn-warning btn-sm" onClick='return confirmSubmit()'>
-											<a  href="#">
-												<i class="dw dw-trash1 text-white"></i>
-											</a>
-										</button>
-									</form>
-								</td>
-							</tr>
-								@include('agents.modalmodifier')
-							@endforeach
-							</tbody>
-						</table>
-					</div>
+				<div class="pull-right">
+					<a class="btn btn-success btn-sm " data-toggle="modal" data-target="#exampleModal"> + Ajouter</a>
 				</div>
+			</div>	
+			@if ($message = Session::get('success'))
+				<div class="alert alert-success">
+					<p>{{ $message }}</p>
+				</div>
+			@endif
+			<table class="table">
+				<thead>
+					<tr>
+						<th scope="col"> <strong>Nom</strong> </th>
+						<th scope="col"> <strong>Prenom</strong> </th>
+						<th scope="col"> <strong>Titre</strong> </th>
+						<th scope="col"> <strong> Actions</strong> </th>
+					</tr>
+				</thead>
+				<tbody>
+					@foreach ($agents as $agent)
+					<tr>
+							<td>{{ $agent->nom}}</td>
+							<td>{{ $agent->prenom}}</td>
+							<td>{{ $agent->categorie->libelle}}</td>
+						<td>
+							<form action="{{ route('agents.destroy',$agent->id) }}" method="POST">    
+								<button type="button" class="btn btn-info btn-sm" data-toggle="modal" 
+									data-target="#modaledit{{$agent->id}}">
+									<a  href="#">
+										<i class="dw dw-edit-1 text-white"></i>
+									</a>
+								</button>
+			
+								@csrf
+								@method('DELETE')
+				
+								<button type="submit" class="btn btn-warning btn-sm" onClick='return confirmSubmit()'>
+									<a  href="#">
+										<i class="dw dw-trash1 text-white"></i>
+									</a>
+								</button>
+							</form>
+						</td>
+					</tr>
+						@include('agents.modalmodifier')
+					@endforeach
+					</tbody>
+				</table>
 			</div>
 @include('agents.modalafficher')     
 @endsection
