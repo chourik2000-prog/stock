@@ -42,21 +42,30 @@ class AnneeController extends Controller
             'dateFin' => 'required|date|after:dateDebut',
             
         ]);
-        // $status = $request->has('status');
-        // if($status){
-        //    $status = $request->value('oui');
-        // }else{
-        //     $status = 'non';
-        // }
-            $annees = new Annee; 
-            $annees->libelle = $request->libelle;
-            $annees->dateDebut = $request->dateDebut;
-            $annees->dateFin = $request->dateFin;
-            $annees->status = $request->input('status') ? true : false;
-            $annees->save();
             
-                return redirect()->route('annees.index')
-                    ->with('success',"Année enregistré avec succès.");
+        $annees = new Annee; 
+        $annees->libelle = $request->libelle;
+        $annees->dateDebut = $request->dateDebut;
+        $annees->dateFin = $request->dateFin;
+        $annees->status = $request->input('status') ? true : false;
+        
+            $stat = $request->input('status');
+                if($stat == true)
+                    {
+                        $annee = Annee::where('status', true)->first();
+                            if($annee)
+                                {
+                                    $annee->status = !$annee->status;
+                                    $annee->update();
+                                    $annees->save();
+                                        return redirect()->route('annees.index')
+                                        ->with('success',"Année enregistré avec succès.");
+                                }
+                    }
+        $annees->save();
+            return redirect()->route('annees.index')
+                ->with('success',"Année enregistré avec succès.");
+        
     }
 
     /**

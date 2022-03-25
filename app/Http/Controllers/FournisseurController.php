@@ -91,7 +91,7 @@ class FournisseurController extends Controller
     public function update(Request $request, Fournisseur $fournisseur)
     {
         $request->validate([
-            'nom' => 'required|max:255',
+            'nom' => 'required|max:100',
             'contact' => 'required|min:8',
         ]);
         $fournisseur->update($request->all());

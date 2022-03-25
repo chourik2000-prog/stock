@@ -62,16 +62,16 @@ class BilanController extends Controller
         $annees = Annee::all();
        if($request->id_article) {
 
-            $qEntrant = DB::table('approvisionnements')
-            ->where('id_article', $request->id_article)
+            $qEntrant = Approvisionnement::
+            where('id_article', $request->id_article)
             ->sum('qentrant');
 
-            $qLivree = DB::table('demandes')
-            ->where('id_article',$request->id_article)
+            $qLivree = Demande::
+            where('id_article',$request->id_article)
             ->sum('qlivree');
 
-            $perte = DB::table('pertes')
-            ->where('id_article',$request->id_article)
+            $perte = Perte::
+            where('id_article',$request->id_article)
             ->sum('qperdue');
 
             $restant = $qEntrant - $qLivree - $perte;
