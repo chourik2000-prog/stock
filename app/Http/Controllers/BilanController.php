@@ -46,9 +46,9 @@ class BilanController extends Controller
            ]);
         }
 
-        return view('bilans.recherche', [
-            "bilans" => $bilans
-        ])->with('annees', $annees);
+        return view('bilans.recherche',
+         ["bilans" => $bilans])
+            ->with('annees', $annees);
     }
 
     /**

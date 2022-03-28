@@ -19,8 +19,8 @@ class ApprovisionnementController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    { 
+    public function index(Request $request)
+    {
         $annees = Annee::all();
         $articles = Article::all();
         $fournisseurs = Fournisseur::all();
@@ -47,6 +47,23 @@ class ApprovisionnementController extends Controller
         ->with('anne', $anne);
     }
 
+
+    public function recherche(Request $request)
+    {
+        $annees = DB::table('annees')->get();
+
+        if($request->input('id_annee') != null) {
+            $anne = Approvisionnement::where('id_annee', '=',
+            $request->id_annee);
+         dd($anne);
+            return redirect()->route('approvisionnements.index', [
+                'id_annee' => $request->input('id_annee')
+            ])->with('anne',$anne);
+        }
+
+        return view('approvisionnements.recherche')
+        ->with('annees',$annees);
+    }
     /**
      * Store a newly created resource in storage.
      *

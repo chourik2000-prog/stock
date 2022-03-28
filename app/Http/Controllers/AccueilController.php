@@ -17,6 +17,8 @@ class AccueilController extends Controller
     public function index()
     {
         $annees = Annee::all();
+        
+        
         $accueils = Article::all();
         return view('accueil',compact('accueils'))->with('annees', $annees);
 

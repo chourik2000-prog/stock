@@ -3,16 +3,16 @@
 @section('content')
 <!-- basic table  Start -->
    <div class="pd-20 card-box mb-30">
-       <div class="clearfix mb-20">
-           <div class="pull-left">
-               <h4 class="font-20 weight-500 mb-10">
-                   <div class="weight-600 font-30 text-blue">Années</div>
-               </h4>
-           </div>			
-           <div class="pull-right">
-               <a class="btn btn-success btn-sm text-white" data-toggle="modal" data-target="#exampleModal"> + Ajouter</a>
-           </div>
-       </div>
+        <div class="clearfix mb-20">
+            <div class="pull-left">
+                <h4 class="font-20 weight-500 mb-10">
+                    <div class="weight-600 font-30 text-blue">Années</div>
+                </h4>
+            </div>			
+            <div class="pull-right">
+                <a class="btn btn-success btn-sm text-white" data-toggle="modal" data-target="#exampleModal"> + Ajouter</a>
+            </div>
+        </div>
            @if ($message = Session::get('success'))
                <div class="alert alert-success">
                    <p>{{ $message }}</p>
@@ -21,16 +21,18 @@
                <table class="table">
                    <thead>
                        <tr>
-                           <th scope="col"> <strong>Libellé</strong> </th>
-                           <th scope="col"> <strong>Date de debut</strong> </th>
-                           <th scope="col"> <strong>Date de fin</strong> </th>
-                           <th scope="col"> <strong>Active</strong> </th>
-                           <th scope="col"> <strong>Actions</strong> </th>
+                            <th scope="col"> <strong>Id</strong> </th>
+                            <th scope="col"> <strong>Libellé</strong> </th>
+                            <th scope="col"> <strong>Date de debut</strong> </th>
+                            <th scope="col"> <strong>Date de fin</strong> </th>
+                            <th scope="col"> <strong>Active</strong> </th>
+                            <th scope="col"> <strong>Actions</strong> </th>
                        </tr>
                    </thead>
                    <tbody>
                        @foreach ($annees as $annee)
                         <tr>
+                            <td id="id{{$annee->id}}">{{ $annee->id}}</td>
                             <td>{{ $annee->libelle}}</td>
                             <td>{{ $annee->dateDebut}}</td>
                             <td>{{ $annee->dateFin}}</td>

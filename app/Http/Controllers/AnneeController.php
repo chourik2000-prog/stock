@@ -68,6 +68,13 @@ class AnneeController extends Controller
         
     }
 
+    public function date(Request $request , $id)
+    {
+        $annees = Annee::all();
+            return  redirect()->route('datean');
+           
+    }
+
     /**
      * Display the specified resource.
      *
@@ -105,6 +112,7 @@ class AnneeController extends Controller
             'libelle' => 'required|max:255',
             'dateDebut' => 'required|date',
             'dateFin' => 'required|date|after:dateDebut',
+            
         ]);
 
         $annee->update($request->all());

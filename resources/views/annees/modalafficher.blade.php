@@ -37,18 +37,6 @@
                                 placeholder="Le libellé" required="required">
                                 @error('dateFin') <p>Ce champs est incorrect</p>@enderror
                             </div>
-
-                           <!-- <div class="onoffswitch-container">
-                                <span class="onoffswitch">
-                                    <input type="checkbox" class="onoffswitch-checkbox" id="status" checked="$annee->status"> 
-                                    <label class="onoffswitch-label" for="status">
-                                        <span class="onoffswitch-inner" data-swchoff-text="non" data-swchon-text="oui"></span>
-                                        <span class="onoffswitch-switch"></span>
-                                    </label>
-                                 </span>
-                                 <span class="onoffswitch-title">Active</span> <br>
-                            </div>-->
-
                          <div class="form-check">
                                 <input class="form-check-input" name="status" 
                                     type="checkbox" value="true" id="status" checked="$annee->status">

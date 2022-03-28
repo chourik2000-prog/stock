@@ -29,18 +29,39 @@ Route::get('/', function () {
     $accueils = Article::all();
     return view('accueil',compact('accueils'))->with('annees', $annees);
 });
-
+/**
+ * bilans.
+ */
 Route::get('/bilans', 'App\Http\Controllers\BilanController@index');
 Route::get('/bilans/store/{id_article}', 'App\Http\Controllers\BilanController@store')->name('bilanChart');
 Route::get('/bilans/recherche', 'App\Http\Controllers\BilanController@recherche')->name('rechercheform');
 Route::post('/bilans/recherche', 'App\Http\Controllers\BilanController@recherche');
+
+// Route::get('/annees/date', 'App\Http\Controllers\AnneeController@date');
+// Route::get('/annees/store/{id}', 'App\Http\Controllers\AnneeController@store')->name('datean');
+
+/**
+ * date.
+ */
+/**
+ * approv.
+ */
+
+Route::get('/approvisionnements/recherche', 'App\Http\Controllers\ApprovisionnementController@recherche')
+    ->name('approv.rech');
+Route::post('/approvisionnements/recherche', 'App\Http\Controllers\ApprovisionnementController@recherche');
+Route::resource('approvisionnements', App\Http\Controllers\ApprovisionnementController::class);
+
+
+
+
 
 Route::get('/categories', 'App\Http\Controllers\CategorieController@index');
 Route::resource('categories', App\Http\Controllers\CategorieController::class);
 Route::resource('demandes', App\Http\Controllers\DemandeController::class);
 Route::resource('articles', App\Http\Controllers\ArticleController::class);
 Route::resource('agents', App\Http\Controllers\AgentController::class);
-Route::resource('approvisionnements', App\Http\Controllers\ApprovisionnementController::class);
+
 Route::resource('stocks', App\Http\Controllers\StockController::class);
 Route::resource('accueil', App\Http\Controllers\AccueilController::class);
 Route::resource('pertes', App\Http\Controllers\PerteController::class);

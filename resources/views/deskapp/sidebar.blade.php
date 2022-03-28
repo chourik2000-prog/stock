@@ -22,7 +22,7 @@
                     </a>
                 </li>
                 <li class="dropdown">
-                    <a href="/approvisionnements" class="dropdown-toggle no-arrow">
+                    <a href="{{route('approv.rech')}}" class="dropdown-toggle no-arrow">
                         <span class="micon icon-copy dw dw-edit-file"></span><span class="mtext">Approvisionnements</span>
                     </a>
                 </li>
