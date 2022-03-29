@@ -18,9 +18,10 @@ class CategorieController extends Controller
     public function index()
     {       
         $annees = Annee::all();
-        $categories = DB::table('categories')
-            ->select('categories.*')
-            ->get();
+        $categories = categorie::simplePaginate(6);
+        // $categories = DB::table('categories')
+        //     ->select('categories.*')
+        //     ->get();
         return view('categories.afficher',compact('categories'))->with('annees', $annees);
     }
 

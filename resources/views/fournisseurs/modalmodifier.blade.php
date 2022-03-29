@@ -14,17 +14,17 @@
                         <div class="row">
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
-                                   <label for="nom">Nom:</label>
+                                   <label for="name">Nom:</label>
                                     <input type="text" 
-                                    name="nom" id="nom"
+                                    name="nom" id="name"
                                     value="{{ $fournisseur->nom }}" 
                                     class="form-control @error('nom') is-invalid @enderror"
                                     placeholder="nom du fournisseur" required="required">
                                 </div>
                                 <div class="form-group">
-                                    <label for="contact">Contact:</label>
+                                    <label for="conta">Contact:</label>
                                     <input type="number" 
-                                    name="contact" id="contact"
+                                    name="contact" id="conta"
                                     value="{{ $fournisseur->contact }}" 
                                     class="form-control @error('contact') is-invalid @enderror"
                                     placeholder="numéro téléphonique" required="required">

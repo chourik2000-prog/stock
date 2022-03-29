@@ -22,7 +22,7 @@ class DemandeController extends Controller
         $annees = Annee::all();
         $articles = Article::all();
         $agents = Agent::all();
-        $demandes = Demande::all();
+        $demandes = Demande::simplePaginate(6);;
         return view('demandes.afficher',compact('demandes'))
             ->with('articles', $articles)
             ->with('agents', $agents)
@@ -48,6 +48,21 @@ class DemandeController extends Controller
             ->with('articles', $articles);
     }
 
+    public function recherche(Request $request)
+    {
+        $annees = DB::table('annees')->get();
+
+        if($request->input('id_annee') != null) {
+            $demandes = Demande::where('id_annee', '=',
+            $request->input('id_annee'))->get();
+            return redirect()->route('demandes.index', [
+                'id_annee' => $request->input('id_annee')
+            ])->with('annees',$annees);
+        }
+
+        return view('demandes.recherche')
+        ->with('annees',$annees);
+    }
     /**
      * Store a newly created resource in storage.
      *

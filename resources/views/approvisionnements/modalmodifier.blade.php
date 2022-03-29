@@ -14,9 +14,9 @@
                     <div class="row">
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
-                                <label class="label">Désignation</label>
+                                <label class="label" for="design">Désignation</label>
                                     <div class="select">
-                                        <select 
+                                        <select id="design"
                                         class="form-control @error('id_article') is-invalid @enderror" 
                                         name="id_article" required="required">
                                             @foreach($articles as $article)
@@ -27,9 +27,9 @@
                                     @error('id_article') <p>Ce champs est incorrect</p>@enderror
                             </div>
                             <div class="form-group">
-                                <label class="label">Fournisseur</label>
+                                <label class="label" for="fourn">Fournisseur</label>
                                   <div class="select">
-                                      <select 
+                                      <select id="fourn"
                                       class="form-control @error('id_fournisseur') is-invalid @enderror"  
                                       name="id_fournisseur" required="required">
                                             @foreach($fournisseurs as $fournisseur)
@@ -53,9 +53,9 @@
                                 <input type="date" name="date" value="{{ $approvisionnement->date }}" class="form-control" placeholder="date d'achat" required>
                             </div>
                             <div class="form-group">
-                                <label class="label">Année académique</label>
+                                <label class="label" for="an">Année académique</label>
                                   <div class="select">
-                                      <select 
+                                      <select id="an"
                                       class="form-control @error('id_annee') is-invalid @enderror"  
                                       name="id_annee" required="required">
                                             @foreach($annees as $annee)

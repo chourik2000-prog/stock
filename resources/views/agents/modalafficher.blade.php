@@ -33,9 +33,9 @@
                                 @error('prenom') <p>Ce champs est incorrect</p>@enderror
                             </div>
                             <div class="form-group">
-                                <label class="label">Catégorie</label>
+                                <label class="label" for="cat">Catégorie</label>
                                 <div class="select">
-                                    <select 
+                                    <select id="cat"
                                         class="form-control @error('idcat') is-invalid @enderror" 
                                         name="idcat" required="required">
                                         @foreach($categories as $categorie)

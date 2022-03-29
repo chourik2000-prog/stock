@@ -1,7 +1,15 @@
 @extends('deskapp.layout')
 @section('content')
-			<div class="card-box mb-30">
-				<h2 class="h4 pd-20">Liste des fournitures en stock</h2>
+		<h2 class="h4 ">Liste des fournitures en stock</h2>
+			<div class="card-box mb-30 pd-20">
+				<div class="clearfix mb-20">
+					<div class="pull-left">
+						<a href={{route('accueil.rech')}} class="btn btn-primary">
+							<i class="icon-copy dw dw-left-arrow1"></i>
+							Voir pour une autre année
+						</a>
+					</div>	
+				</div>
 					<table class="table nowrap">
 						<thead>
 							<tr>

@@ -85,35 +85,7 @@
 <div class="main-container">
 	<div class="mobile-menu-overlay"></div>
 	    <div class="main-container col-lg-12" id="bar1" >
-			<div class="min-height-10px">
-				<div class="page-header">
-					<div class="row">
-					<!--<div class="col-md-6 col-sm-12">
-							<nav aria-label="breadcrumb" role="navigation">
-								<ol class="breadcrumb">
-									<h4 class="font-20 weight-500 mb-10 text-capitalize">
-										<div class="weight-600 font-30 text-blue">IAIgestion</div>
-									</h4>
-								</ol>
-							</nav>
-						</div>-->
-						<!--<div class="col-md-6 col-sm-12 text-right">
-							<div class="dropdown">
-								<a class="btn btn-dark dropdown-toggle" href="#" role="button" data-toggle="dropdown">
-									<label for="libelle">Mars 2022</label>
-								</a>
-								<div class="dropdown-menu dropdown-menu-right">
-									@foreach($annees as $annee)
-										<a class="dropdown-item" href="{{$annee->id}}" id="libelle" value="{{ $annee->id }}">
-											{{ $annee->libelle }}
-										</a>
-									@endforeach
-								</div>
-							</div>
-						</div>-->
-					</div>
-				</div>
-			</div>
+			
 			@yield('content')
 		</div>
 	</div>

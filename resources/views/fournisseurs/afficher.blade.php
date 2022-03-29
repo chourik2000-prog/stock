@@ -54,6 +54,9 @@
 					@endforeach
 				</tbody>
 			</table>
+			<div class="d-flex justify-content-center">
+				{!! $fournisseurs->links() !!}
+			</div>
 @include('fournisseurs.modalafficher')   
 @endsection
 		<script>

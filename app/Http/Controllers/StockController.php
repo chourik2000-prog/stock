@@ -23,6 +23,22 @@ class StockController extends Controller
     
     }
 
+
+    public function recherche(Request $request)
+    {
+        $annees = DB::table('annees')->get();
+
+        if($request->input('id_annee') != null) {
+            $anne = Approvisionnement::where('id_annee', '=',
+            $request->input('id_annee'))->get();
+            return redirect()->route('stocks.index', [
+                'id_annee' => $request->input('id_annee')
+            ])->with('annees',$annees);
+        }
+
+        return view('stocks.recherche')
+        ->with('annees',$annees);
+    }
     /**
      * Show the form for creating a new resource.
      *

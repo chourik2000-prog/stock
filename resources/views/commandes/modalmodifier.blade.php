@@ -1,22 +1,22 @@
-<div class="modal fade" id="modaledit{{$perte->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="modaledit{{$commande->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Enregistrer une perte</h5>
+              <h5 class="modal-title" id="exampleModalLabel">Enregistrer un bon de commande</h5>
                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                       <span aria-hidden="true">&times;</span>
                   </button>
             </div>
             <div class="modal-body">
-                <form action="{{ route('pertes.update',$perte->id) }}" method="POST">
+                <form action="{{ route('commandes.update',$commande->id) }}" method="POST">
                     @csrf
                     @method('PUT')
                     <div class="row">
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="select">   
                                 <div class="form-group">
-                                    <label class="label" for="ida">Désignation</label>
-                                        <select id="ida"
+                                    <label class="label" for="design">Désignation</label>
+                                        <select id="design"
                                             class="form-control @error('id_article') is-invalid @enderror"  
                                             name="id_article" required="required">
                                             @foreach($articles as $article)
@@ -26,23 +26,16 @@
                                         @error('id_article') <p>Ce champs est incorrect</p>@enderror
                                 </div>
                                 <div class="form-group">
-                                    <label for="qperdue">Perte:</label>
-                                    <input type="number" id="qperdue"
-                                    name="qperdue" value="{{ $perte->qperdue }}" 
-                                    class="form-control @error('qperdue') is-invalid @enderror"
+                                    <label for="quant">Quantité:</label>
+                                    <input type="number" id="quant"
+                                    name="quantite" value="{{ $commande->quantite }}" 
+                                    class="form-control @error('quantite') is-invalid @enderror"
                                     required="required">
-                                    @error('qperdue') <p>Ce champs est incorrect</p>@enderror
+                                    @error('quantite') <p>Ce champs est incorrect</p>@enderror
                                 </div>
                                 <div class="form-group">
-                                  <label for="date">Date:</label>
-                                    <input type="date" name="date" id="date"
-                                     value="{{ $perte->date }}" 
-                                     class="form-control" 
-                                     required="required">
-                                </div>
-                                <div class="form-group">
-                                    <label class="label" for="ida">Année académique</label>
-                                        <select class="ida"
+                                    <label class="label" for="an">Année académique</label>
+                                        <select id="an"
                                             class="form-control @error('id_annee') is-invalid @enderror" 
                                             name="id_annee" required="required">
                                             @foreach($annees as $annee)

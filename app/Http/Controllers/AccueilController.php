@@ -16,14 +16,27 @@ class AccueilController extends Controller
      */
     public function index()
     {
-        $annees = Annee::all();
-        
-        
+        $annees = Annee::all();   
         $accueils = Article::all();
-        return view('accueil',compact('accueils'))->with('annees', $annees);
+        return view('accueils.accueil',compact('accueils'))->with('annees', $annees);
 
     }
 
+    public function recherche(Request $request)
+    {
+        $annees = DB::table('annees')->get();
+
+        if($request->input('id_annee') != null) {
+            $commandes = Approvisionnement::where('id_annee', '=',
+            $request->input('id_annee'))->get();
+            return redirect()->route('accueils.index', [
+                'id_annee' => $request->input('id_annee')
+            ])->with('annees',$annees);
+        }
+
+        return view('accueils.recherche')
+        ->with('annees',$annees);
+    }
     /**
      * Show the form for creating a new resource.
      *

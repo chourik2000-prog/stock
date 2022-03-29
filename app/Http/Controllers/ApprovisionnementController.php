@@ -24,7 +24,7 @@ class ApprovisionnementController extends Controller
         $annees = Annee::all();
         $articles = Article::all();
         $fournisseurs = Fournisseur::all();
-        $approvisionnements = Approvisionnement::all();
+        $approvisionnements = Approvisionnement::simplePaginate(6);
         return view('approvisionnements.afficher',compact('approvisionnements'))
         ->with('fournisseurs', $fournisseurs)
         ->with('articles', $articles)
@@ -51,16 +51,16 @@ class ApprovisionnementController extends Controller
     public function recherche(Request $request)
     {
         $annees = DB::table('annees')->get();
-
-        if($request->input('id_annee') != null) {
-            $anne = Approvisionnement::where('id_annee', '=',
-            $request->id_annee);
-         dd($anne);
+    
+        if($request->input('id_annee')!=null) {
+            $appro = Approvisionnement::where('id_annee', '=',
+            $request->input('id_annee'))->get();
+            dd($appro);
             return redirect()->route('approvisionnements.index', [
                 'id_annee' => $request->input('id_annee')
-            ])->with('anne',$anne);
+            ])->with('appro',$appro);
         }
-
+ 
         return view('approvisionnements.recherche')
         ->with('annees',$annees);
     }

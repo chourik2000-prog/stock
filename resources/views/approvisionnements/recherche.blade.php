@@ -18,9 +18,9 @@
                         <div class="row">
                             <div class="col-lg-7 col-sm-10 col-md-7">
                                 <div class="form-group">
-                                        <label class="label">Année</label>
+                                        <label class="label" for="appro">Année</label>
                                         <div class="select">
-                                            <select class="form-control" name="id_annee">
+                                            <select id="appro" class="form-control" name="id_annee">
                                                 @foreach($annees as $annee)
                                                     <option value="{{ $annee->id }}">{{ $annee->dateDebut }} {{ $annee->dateFin }}</option>
                                                 @endforeach
@@ -29,7 +29,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row">
+                        <div class="row text-center">
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <button type="submit" class="btn btn-primary">
                                     <i class="icon-copy dw dw-analytics-6"></i>

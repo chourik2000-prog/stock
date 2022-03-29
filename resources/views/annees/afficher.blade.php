@@ -63,6 +63,9 @@
 @include('annees.modalmodifier')
 @endforeach
    </table>
+   <div class="d-flex justify-content-center">
+        {!! $annees->links() !!}
+    </div>
    @include('annees.modalafficher')   
 @endsection
        <script>

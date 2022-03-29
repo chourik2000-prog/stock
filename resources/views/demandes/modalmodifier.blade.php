@@ -14,9 +14,9 @@
                             <div class="row">
                                 <div class="col-xs-12 col-sm-12 col-md-12">
                                     <div class="form-group">
-                                        <label class="label">Demandeur</label>
+                                        <label class="label" for="deman">Demandeur</label>
                                             <div class="select">
-                                                <select 
+                                                <select id="deman"
                                                 class="form-control @error('id_agent') is-invalid @enderror"  
                                                 name="id_agent" required="required">
                                                 @foreach($agents as $agent)
@@ -27,9 +27,9 @@
                                         @error('id_agent') <p>Ce champs est incorrect</p>@enderror
                                     </div>
                                     <div class="form-group">
-                                        <label class="label">Désignation</label>
+                                        <label class="label" for="design">Désignation</label>
                                         <div class="select">
-                                            <select 
+                                            <select id="design"
                                             class="form-control @error('id_article') is-invalid @enderror"  
                                             name="id_article" required="required">
                                                 @foreach($articles as $article)
@@ -53,9 +53,9 @@
                                         <input type="date" name="date" id="date" value="{{ $demande->date }}" class="form-control" required>
                                     </div>
                                     <div class="form-group">
-                                        <label class="label">Année académique</label>
+                                        <label class="label" for="ann">Année académique</label>
                                         <div class="select">
-                                            <select 
+                                            <select id="ann"
                                             class="form-control @error('id_annee') is-invalid @enderror" 
                                             name="id_annee" required="required">
                                                 @foreach($annees as $annee)

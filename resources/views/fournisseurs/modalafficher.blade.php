@@ -24,8 +24,8 @@
                                         @error('nom') <p>Ce champs est incorrect</p>@enderror
                                     </div>
                                     <div class="form-group">
-                                      <label for="contact">Contact</label>
-                                      <input type="numeric" id="contact"
+                                      <label for="conta">Contact</label>
+                                      <input type="numeric" id="conta"
                                       name="contact" 
                                       class="form-control @error('contact') is-invalid @enderror"
                                       placeholder="contact" required="required">

@@ -2,12 +2,18 @@
 @extends('deskapp.layout')
  @section('content')
 <!-- basic table  Start -->
+<div class="col-md-6 col-sm-12">
+	<h4 class="font-20 weight-500 mb-10 text-capitalize">
+		<div class="weight-600 font-30 text-blue">Pertes</div>
+	</h4>
+</div>
 <div class="pd-20 card-box mb-30">
 	<div class="clearfix mb-20">
 		<div class="pull-left">
-			<h4 class="font-20 weight-500 mb-10">
-				<div class="weight-600 font-30 text-blue">Pertes</div>
-			</h4>
+			<a href={{route('perte.rech')}} class="btn btn-primary">
+				<i class="icon-copy dw dw-left-arrow1"></i>
+				Voir pour une autre année
+			</a>
 		</div>
 		<div class="pull-right">
 			<a class="btn btn-success btn-sm text-white" data-toggle="modal" data-target="#exampleModal"> + Ajouter</a>
@@ -57,6 +63,9 @@
 					@endforeach
 				</tbody>
 			</table>
+			<div class="d-flex justify-content-center">
+				{!! $pertes->links() !!}
+			</div>
 @include('pertes.modalafficher')   
 @endsection
 		<script>

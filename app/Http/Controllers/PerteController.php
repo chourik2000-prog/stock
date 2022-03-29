@@ -18,7 +18,7 @@ class PerteController extends Controller
     public function index()
     {
         $annees = Annee::all();
-        $pertes = Perte::all();
+        $pertes = Perte::simplePaginate(6);
         $articles = Article::all();
         return view('pertes.afficher',compact('articles'))
         ->with('pertes', $pertes)
@@ -39,6 +39,21 @@ class PerteController extends Controller
         ->with('anne', $anne);
     }
 
+    public function recherche(Request $request)
+    {
+        $annees = DB::table('annees')->get();
+
+        if($request->input('id_annee') != null) {
+            $perte = Perte::where('id_annee', '=',
+            $request->input('id_annee'))->get();
+            return redirect()->route('pertes.index', [
+                'id_annee' => $request->input('id_annee')
+            ])->with('annees',$annees);
+        }
+
+        return view('pertes.recherche')
+        ->with('annees',$annees);
+    }
     /**
      * Store a newly created resource in storage.
      *

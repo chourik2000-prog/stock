@@ -12,13 +12,18 @@
         <div class="sidebar-menu">
             <ul id="accordion-menu">
                 <li class="dropdown">
-                    <a href="/" class="dropdown-toggle no-arrow">
+                    <a href="{{route('accueil.rech')}}" class="dropdown-toggle no-arrow">
                         <span class="micon dw dw-house-1"></span><span class="mtext">Accueil</span>
                     </a>
                 </li>
                 <li class="dropdown">
                     <a href="/annees" class="dropdown-toggle no-arrow">
                         <span class="micon dw dw-calendar1" ></span><span class="mtext">Année</span>
+                    </a>
+                </li>
+                <li class="dropdown">
+                    <a href="{{route('comm.rech')}}" class="dropdown-toggle no-arrow">
+                        <span class="micon icon-copy dw dw-edit-file"></span><span class="mtext">Commandes</span>
                     </a>
                 </li>
                 <li class="dropdown">
@@ -32,13 +37,13 @@
                     </a>
                 </li>
                 <li>
-                    <a href="/demandes" class="dropdown-toggle no-arrow">
+                    <a href="{{route('demande.rech')}}" class="dropdown-toggle no-arrow">
                         <span class="micon dw dw-diagonal-arrow-3"></span><span class="mtext">Demandes</span>
                     </a>
                 </li>
             
                 <li class="dropdown">
-                    <a href="/stocks" class="dropdown-toggle no-arrow">
+                    <a href="{{route('stock.rech')}}" class="dropdown-toggle no-arrow">
                         <span class="micon icon-copy dw dw-pagoda"></span><span class="mtext">Stocks</span>
                     </a>
                 </li>
@@ -56,7 +61,7 @@
                 </li>
                 
                 <li class="dropdown">
-                    <a href="/pertes" class="dropdown-toggle no-arrow">
+                    <a href="{{route('perte.rech')}}" class="dropdown-toggle no-arrow">
                         <span class="micon dw dw-delete-3"></span><span class="mtext">Pertes</span>
                     </a>
                 </li>

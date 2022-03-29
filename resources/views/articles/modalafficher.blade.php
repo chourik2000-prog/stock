@@ -16,16 +16,16 @@
                         <div class="row">
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
-                                    <label for="libelle">Désignation:</label>
+                                    <label for="lib">Désignation:</label>
                                     <input type="text" 
-                                    name="libelle" id="libelle"
+                                    name="libelle" id="lib"
                                     class="form-control @error('libelle') is-invalid @enderror" 
                                     placeholder="Le libellé de l'article" required="required">
                                     @error('libelle') <p>Ce champs est incorrect</p>@enderror
                                 </div>
                                 <div class="form-group">
-                                    <label for="caracteristique">Caractéristiques:</label>
-                                    <input type="text" id="caracteristique"
+                                    <label for="caracte">Caractéristiques:</label>
+                                    <input type="text" id="caracte"
                                     name="caracteristique" 
                                     class="form-control @error('caracteristique') is-invalid @enderror" 
                                     placeholder="Les caractéristiques" required="required">

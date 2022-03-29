@@ -16,9 +16,7 @@ class ArticleController extends Controller
     public function index()
     {
         $annees = Annee::all();
-        $articles = DB::table('articles')
-            ->select('articles.*')
-            ->get();
+        $articles = Article::simplePaginate(6);
         return view('articles.afficher',compact('articles'))->with('annees', $annees);
     }
 

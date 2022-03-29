@@ -27,7 +27,7 @@ Route::get('/stock', function () {
 Route::get('/', function () {
     $annees = Annee::all();
     $accueils = Article::all();
-    return view('accueil',compact('accueils'))->with('annees', $annees);
+    return view('accueils.accueil',compact('accueils'))->with('annees', $annees);
 });
 /**
  * bilans.
@@ -37,12 +37,6 @@ Route::get('/bilans/store/{id_article}', 'App\Http\Controllers\BilanController@s
 Route::get('/bilans/recherche', 'App\Http\Controllers\BilanController@recherche')->name('rechercheform');
 Route::post('/bilans/recherche', 'App\Http\Controllers\BilanController@recherche');
 
-// Route::get('/annees/date', 'App\Http\Controllers\AnneeController@date');
-// Route::get('/annees/store/{id}', 'App\Http\Controllers\AnneeController@store')->name('datean');
-
-/**
- * date.
- */
 /**
  * approv.
  */
@@ -51,22 +45,57 @@ Route::get('/approvisionnements/recherche', 'App\Http\Controllers\Approvisionnem
     ->name('approv.rech');
 Route::post('/approvisionnements/recherche', 'App\Http\Controllers\ApprovisionnementController@recherche');
 Route::resource('approvisionnements', App\Http\Controllers\ApprovisionnementController::class);
-
-
-
-
-
+/**
+ * commandes.
+ */
+Route::get('/commandes/recherche', 'App\Http\Controllers\CommandeController@recherche')
+    ->name('comm.rech');
+Route::post('/commandes/recherche', 'App\Http\Controllers\CommandeController@recherche');
+Route::resource('commandes', App\Http\Controllers\CommandeController::class);
+/**
+ * commandes.
+ */
+Route::get('/demandes/recherche', 'App\Http\Controllers\DemandeController@recherche')
+    ->name('demande.rech');
+Route::post('/demandes/recherche', 'App\Http\Controllers\DemandeController@recherche');
+Route::resource('demandes', App\Http\Controllers\DemandeController::class);
+/**
+ * pertes.
+ */
+Route::get('/pertes/recherche', 'App\Http\Controllers\PerteController@recherche')
+    ->name('perte.rech');
+Route::post('/pertes/recherche', 'App\Http\Controllers\PerteController@recherche');
+Route::resource('pertes', App\Http\Controllers\PerteController::class);
+/**
+ * categories.
+ */
 Route::get('/categories', 'App\Http\Controllers\CategorieController@index');
 Route::resource('categories', App\Http\Controllers\CategorieController::class);
-Route::resource('demandes', App\Http\Controllers\DemandeController::class);
+/**
+ * annees.
+ */
+// Route::get('/annees/date', 'App\Http\Controllers\AnneeController@date');
+// Route::get('/annees/store/{id}', 'App\Http\Controllers\AnneeController@store')->name('datean');
+Route::resource('annees', App\Http\Controllers\AnneeController::class);
+/**
+ * stocks.
+ */
+Route::get('/stocks/recherche', 'App\Http\Controllers\StockController@recherche')
+    ->name('stock.rech');
+Route::post('/stocks/recherche', 'App\Http\Controllers\StockController@recherche');
+Route::resource('stocks', App\Http\Controllers\StockController::class);
+/**
+ * accueil.
+ */
+Route::get('/accueils/recherche', 'App\Http\Controllers\AccueilController@recherche')
+    ->name('accueil.rech');
+Route::post('/accueils/recherche', 'App\Http\Controllers\AccueilController@recherche');
+Route::resource('accueils', App\Http\Controllers\AccueilController::class);
+
+
 Route::resource('articles', App\Http\Controllers\ArticleController::class);
 Route::resource('agents', App\Http\Controllers\AgentController::class);
-
-Route::resource('stocks', App\Http\Controllers\StockController::class);
-Route::resource('accueil', App\Http\Controllers\AccueilController::class);
-Route::resource('pertes', App\Http\Controllers\PerteController::class);
 Route::resource('fournisseurs', App\Http\Controllers\FournisseurController::class);
-Route::resource('annees', App\Http\Controllers\AnneeController::class);
 Route::resource('layouts', App\Http\Controllers\LayoutController::class);
 
 

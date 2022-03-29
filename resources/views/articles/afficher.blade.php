@@ -52,6 +52,9 @@
 							@include('articles.modalmodifier')
 						@endforeach
     			</table>
+				<div class="d-flex justify-content-center">
+					{!! $articles->links() !!}
+				</div>
     @include('articles.modalafficher')   
 @endsection
 		<script>
