@@ -13,7 +13,7 @@ class AnneeController extends Controller
      */
     public function index()
     {
-        $annees = Annee::simplePaginate(6);
+        $annees = Annee::all();
         return view('annees.afficher',compact('annees'))->with('annees', $annees);
         dd('$annees');
     }

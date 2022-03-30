@@ -24,7 +24,7 @@ class ApprovisionnementController extends Controller
         $annees = Annee::all();
         $articles = Article::all();
         $fournisseurs = Fournisseur::all();
-        $approvisionnements = Approvisionnement::simplePaginate(6);
+        $approvisionnements = Approvisionnement::all();
         return view('approvisionnements.afficher',compact('approvisionnements'))
         ->with('fournisseurs', $fournisseurs)
         ->with('articles', $articles)

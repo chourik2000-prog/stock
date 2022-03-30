@@ -26,7 +26,7 @@
 					<p>{{ $message }}</p>
 				</div>
 			@endif
-				<table class="table">
+				<table class="table" id="myTable">
 					<thead>
 						<tr>
 							<th scope="col"> <strong>Désignation</strong> </th>

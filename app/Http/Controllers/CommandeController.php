@@ -19,7 +19,7 @@ class CommandeController extends Controller
     {
         $annees = Annee::all();
         $articles = Article::all();
-        $commandes = Commande::simplePaginate(6);;
+        $commandes = Commande::all();
         return view('commandes.afficher',compact('commandes'))
         ->with('commandes', $commandes)
         ->with('articles', $articles)

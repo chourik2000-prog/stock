@@ -19,7 +19,7 @@
 					<p>{{ $message }}</p>
 				</div>
 			@endif
-			<table class="table">
+			<table class="table" id="myTable">
 				<thead>
 					<tr>
 						<th scope="col"> <strong> Nom</strong> </th>
@@ -54,9 +54,6 @@
 					@endforeach
 				</tbody>
 			</table>
-			<div class="d-flex justify-content-center">
-				{!! $fournisseurs->links() !!}
-			</div>
 @include('fournisseurs.modalafficher')   
 @endsection
 		<script>

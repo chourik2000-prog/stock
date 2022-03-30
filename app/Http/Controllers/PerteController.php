@@ -18,7 +18,7 @@ class PerteController extends Controller
     public function index()
     {
         $annees = Annee::all();
-        $pertes = Perte::simplePaginate(6);
+        $pertes = Perte::all();
         $articles = Article::all();
         return view('pertes.afficher',compact('articles'))
         ->with('pertes', $pertes)

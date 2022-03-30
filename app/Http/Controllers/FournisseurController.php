@@ -18,7 +18,7 @@ class FournisseurController extends Controller
     public function index()
     {
         $annees = Annee::all();
-        $fournisseurs = Fournisseur::simplePaginate(6);
+        $fournisseurs = Fournisseur::all();
     return view('fournisseurs.afficher',compact('fournisseurs'))->with('annees', $annees);
     }
 

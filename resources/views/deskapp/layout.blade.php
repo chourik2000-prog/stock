@@ -10,7 +10,8 @@
 	<link rel="apple-touch-icon" sizes="180x180" href={{asset('vendors/images/apple-touch-icon.png')}}>
 	<link rel="icon" type="image/png" sizes="32x32" href={{asset('vendors/images/favicon-32x32.png')}}>
 	<link rel="icon" type="image/png" sizes="16x16" href={{asset('vendors/images/favicon-16x16.png')}}>
-
+	<link rel="stylesheet" type="text/css" href={{asset("vendors/DataTables/datatables.css")}}>
+	
 	<!-- Mobile Specific Metas -->
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -99,5 +100,12 @@
 	<script src={{asset('src/plugins/datatables/js/dataTables.bootstrap4.min.js')}}></script>
 	<script src={{asset('src/plugins/datatables/js/dataTables.responsive.min.js')}}></script>
 	<script src={{asset('src/plugins/datatables/js/responsive.bootstrap4.min.js')}}></script>
+	<script type="text/javascript" charset="utf8" src={{asset("vendors/DataTables/datatables.js")}}></script>
+
+	<script>
+		$(document).ready( function () {
+    	$('#myTable').DataTable();
+		} );
+	</script>
 </body>
 </html>

@@ -22,7 +22,20 @@
                                         <div class="select">
                                             <select id="bilan" class="form-control" name="id_article">
                                                 @foreach($bilans as $bilan)
-                                                    <option value="{{ $bilan->id }}">{{ $bilan->libelle }}</option>
+                                                @php
+                                                $dateDebut = $annee->dateDebut;
+                                                $dateFin = $annee->dateFin;
+                                                   $monthd =  \Carbon\Carbon::createFromFormat('Y-m-d',$dateDebut)->locale('fr_FR')
+                                                   ->isoformat('MMMM');
+                                                   $yeard =  \Carbon\Carbon::createFromFormat('Y-m-d',$dateDebut)->year;
+
+                                                   $monthf =  \Carbon\Carbon::createFromFormat('Y-m-d',$dateFin)->locale('fr_FR')
+                                                   ->isoformat('MMMM');
+                                                   $yearf =  \Carbon\Carbon::createFromFormat('Y-m-d',$dateFin)->year;
+                                                @endphp
+                                                <option value="{{ $annee->id }}">
+                                                    {{ucwords($monthd)}} {{$yeard}} - {{ucwords($monthf)}} {{$yearf}}
+                                                </option>
                                                 @endforeach
                                             </select>
                                         </div>

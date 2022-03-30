@@ -18,7 +18,7 @@ class CategorieController extends Controller
     public function index()
     {       
         $annees = Annee::all();
-        $categories = categorie::simplePaginate(6);
+        $categories = categorie::all();
         // $categories = DB::table('categories')
         //     ->select('categories.*')
         //     ->get();

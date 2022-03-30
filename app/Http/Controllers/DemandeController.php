@@ -22,7 +22,7 @@ class DemandeController extends Controller
         $annees = Annee::all();
         $articles = Article::all();
         $agents = Agent::all();
-        $demandes = Demande::simplePaginate(6);;
+        $demandes = Demande::all();
         return view('demandes.afficher',compact('demandes'))
             ->with('articles', $articles)
             ->with('agents', $agents)

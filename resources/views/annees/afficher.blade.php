@@ -18,7 +18,7 @@
                    <p>{{ $message }}</p>
                </div>
            @endif
-               <table class="table">
+               <table class="table" id="myTable">
                    <thead>
                        <tr>
                             <th scope="col"> <strong>Id</strong> </th>
@@ -63,9 +63,6 @@
 @include('annees.modalmodifier')
 @endforeach
    </table>
-   <div class="d-flex justify-content-center">
-        {!! $annees->links() !!}
-    </div>
    @include('annees.modalafficher')   
 @endsection
        <script>

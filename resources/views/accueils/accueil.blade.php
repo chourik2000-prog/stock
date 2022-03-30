@@ -10,7 +10,7 @@
 						</a>
 					</div>	
 				</div>
-					<table class="table nowrap">
+					<table class="table nowrap" id="myTable">
 						<thead>
 							<tr>
 								<th>Articles</th>
@@ -25,10 +25,19 @@
 							@foreach ($accueils as $accueil)
 							<tr>
 								@php
-									$qlivree = Illuminate\Support\Facades\DB::table('demandes')->where('id_article',$accueil->id)->sum('qlivree');
-									$qentrant = Illuminate\Support\Facades\DB::table('approvisionnements')->where('id_article',$accueil->id)->sum('qentrant');
-									$perte = Illuminate\Support\Facades\DB::table('pertes')->where('id_article',$accueil->id)->sum('qperdue');
-									$reste = $qentrant  -$qlivree-$perte;
+									$qlivree = Illuminate\Support\Facades\DB::table('demandes')
+									->where('id_article',$accueil->id)
+									->sum('qlivree');
+
+									$qentrant = Illuminate\Support\Facades\DB::table('approvisionnements')
+									->where('id_article',$accueil->id)
+									->sum('qentrant');
+
+									$perte = Illuminate\Support\Facades\DB::table('pertes')
+									->where('id_article',$accueil->id)
+									->sum('qperdue');
+
+									$reste = $qentrant - $qlivree - $perte;
 								@endphp
 							
 									<td>{{ $accueil->libelle}}({{$accueil->caracteristique}})</td>

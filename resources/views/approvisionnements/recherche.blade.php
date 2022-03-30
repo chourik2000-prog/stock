@@ -22,7 +22,20 @@
                                         <div class="select">
                                             <select id="appro" class="form-control" name="id_annee">
                                                 @foreach($annees as $annee)
-                                                    <option value="{{ $annee->id }}">{{ $annee->dateDebut }} {{ $annee->dateFin }}</option>
+                                                    @php
+                                                        $dateDebut = $annee->dateDebut;
+                                                        $dateFin = $annee->dateFin;
+                                                        $monthd =  \Carbon\Carbon::createFromFormat('Y-m-d',$dateDebut)->locale('fr_FR')
+                                                        ->isoformat('MMMM');
+                                                        $yeard =  \Carbon\Carbon::createFromFormat('Y-m-d',$dateDebut)->year;
+
+                                                        $monthf =  \Carbon\Carbon::createFromFormat('Y-m-d',$dateFin)->locale('fr_FR')
+                                                        ->isoformat('MMMM');
+                                                        $yearf =  \Carbon\Carbon::createFromFormat('Y-m-d',$dateFin)->year;
+                                                    @endphp
+                                                    <option value="{{ $annee->id }}">
+                                                        {{ucwords($monthd)}} {{$yeard}} - {{ucwords($monthf)}} {{$yearf}}
+                                                    </option>
                                                 @endforeach
                                             </select>
                                         </div>

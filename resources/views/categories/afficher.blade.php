@@ -19,7 +19,7 @@
             			<p>{{ $message }}</p>
         			</div>
     			@endif
-					<table class="table">
+					<table class="table" id="myTable">
 						<thead>
 							<tr>
 								<th scope="col"> <strong> Libellé</strong> </th>
@@ -52,9 +52,7 @@
 							@endforeach
 						</tbody>
 					</table>
-					<div class="d-flex justify-content-center">
-						{!! $categories->links() !!}
-					</div>
+					
     		@include('categories.modalafficher')     
 @endsection
 

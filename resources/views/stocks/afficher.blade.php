@@ -20,7 +20,7 @@
 				<a href="{{route('stock.rech')}}" class="btn btn-success btn-sm text-white">Approvisionnement</a>
 			</div>
 		</div>			
-			<table class="table">
+			<table class="table" id="myTable">
 				<thead>
 					<tr>
 						<th scope="col"> <strong> Articles</strong> </th>

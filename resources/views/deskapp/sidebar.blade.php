@@ -23,7 +23,7 @@
                 </li>
                 <li class="dropdown">
                     <a href="{{route('comm.rech')}}" class="dropdown-toggle no-arrow">
-                        <span class="micon icon-copy dw dw-edit-file"></span><span class="mtext">Commandes</span>
+                        <span class="micon icon-copy dw dw-edit-1"></span><span class="mtext">Commandes</span>
                     </a>
                 </li>
                 <li class="dropdown">

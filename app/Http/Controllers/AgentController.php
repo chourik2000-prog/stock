@@ -18,7 +18,7 @@ class AgentController extends Controller
     {
         $annees = Annee::all();  
         $categories = Categorie::all();
-        $agents = Agent::simplePaginate(6);
+        $agents = Agent::all();
         return view('agents.afficher',compact('agents'))
         ->with('categories', $categories)
         ->with('annees', $annees);
