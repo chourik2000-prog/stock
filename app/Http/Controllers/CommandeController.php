@@ -62,15 +62,16 @@ class CommandeController extends Controller
     public function recherche(Request $request)
     {
         $annees = DB::table('annees')->get();
-
-        if($request->input('id_annee') != null) {
-            $commandes = Commande::where('id_annee', '=',
-            $request->input('id_annee'))->get();
-            return redirect()->route('commandes.index', [
-                'id_annee' => $request->input('id_annee')
-            ])->with('commandes',$commandes);
+        $articles = Article::all();
+        $commandes = Commande::query();
+        if($request->id_annee) {
+            $commandes = $commandes->whereIdAnnee($request->id_annee);
+            $commandes = $commandes->get();
+            return view('commandes.afficher')
+            ->with('commandes',$commandes)
+            ->with('articles',$articles)
+            ->with('annees',$annees);
         }
-
         return view('commandes.recherche')
         ->with('annees',$annees);
     }

@@ -72,9 +72,7 @@
 					@include('approvisionnements.modalmodifier')
 					@endforeach
 				</table>
-				<div class="d-flex justify-content-center">
-					{!! $approvisionnements->links() !!}
-				</div>
+				
 @include('approvisionnements.modalafficher') 
 @endsection
 		<script>

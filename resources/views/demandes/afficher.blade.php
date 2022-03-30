@@ -66,9 +66,7 @@
 							@endforeach
 						</tbody>
     				</table>
-					<div class="d-flex justify-content-center">
-						{!! $demandes->links() !!}
-					</div>
+					
 				@include('demandes.modalafficher')   
 				@endsection
 <script>

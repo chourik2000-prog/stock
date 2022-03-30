@@ -61,9 +61,6 @@
                    @endforeach
                 </tbody>
             </table>
-            <div class="d-flex justify-content-center">
-                {!! $commandes->links() !!}
-            </div>
     </div>
 @include('commandes.modalafficher')   
 @endsection

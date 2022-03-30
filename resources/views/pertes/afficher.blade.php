@@ -63,9 +63,6 @@
 					@endforeach
 				</tbody>
 			</table>
-			<div class="d-flex justify-content-center">
-				{!! $pertes->links() !!}
-			</div>
 @include('pertes.modalafficher')   
 @endsection
 		<script>

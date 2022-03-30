@@ -42,15 +42,16 @@ class PerteController extends Controller
     public function recherche(Request $request)
     {
         $annees = DB::table('annees')->get();
-
-        if($request->input('id_annee') != null) {
-            $perte = Perte::where('id_annee', '=',
-            $request->input('id_annee'))->get();
-            return redirect()->route('pertes.index', [
-                'id_annee' => $request->input('id_annee')
-            ])->with('annees',$annees);
+        $articles = Article::all();
+        $pertes = Perte::query();
+        if($request->id_annee) {
+            $pertes = $pertes->whereIdAnnee($request->id_annee);
+            $pertes = $pertes->get();
+            return view('pertes.afficher')
+            ->with('pertes',$pertes)
+            ->with('articles',$articles)
+            ->with('annees',$annees);
         }
-
         return view('pertes.recherche')
         ->with('annees',$annees);
     }

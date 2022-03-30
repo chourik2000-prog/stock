@@ -51,13 +51,17 @@ class DemandeController extends Controller
     public function recherche(Request $request)
     {
         $annees = DB::table('annees')->get();
-
-        if($request->input('id_annee') != null) {
-            $demandes = Demande::where('id_annee', '=',
-            $request->input('id_annee'))->get();
-            return redirect()->route('demandes.index', [
-                'id_annee' => $request->input('id_annee')
-            ])->with('annees',$annees);
+        $articles = Article::all();
+        $agents = Agent::all();
+        $demandes = Demande::query();
+        if($request->id_annee) {
+            $demandes = $demandes->whereIdAnnee($request->id_annee);
+            $demandes = $demandes->get();
+            return view('demandes.afficher')
+            ->with('demandes',$demandes)
+            ->with('articles',$articles)
+            ->with('agents',$agents)
+            ->with('annees',$annees);
         }
 
         return view('demandes.recherche')
