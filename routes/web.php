@@ -29,7 +29,7 @@ Route::get('/', function () {
     $homes = Article::all();
     return view('home',compact('homes'))->with('annees', $annees);
 });
-Route::get('home', 'App\Http\Controllers\HomeController@store')
+Route::get('home', 'App\Http\Controllers\HomeController@index')
     ->name('home');
 /**
  * bilans.

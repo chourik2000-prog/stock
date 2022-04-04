@@ -91,7 +91,7 @@
      <!-- sidebar -->
 @include('deskapp.sidebar')
 <div class="mobile-menu-overlay"></div>
-<div class="main-container">
+<div class="main-container col-10 ml-5 mt-2">
 	<div class="mobile-menu-overlay"></div>
 		@yield('content')
 	</div>

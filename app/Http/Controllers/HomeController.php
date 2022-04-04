@@ -18,14 +18,14 @@ class HomeController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function index(Request $request)
     {
         // chercher l'année active , qui a pour status = 1
         $anneeActive = Annee::where('status', 1)
-        ->get([ 'id' ]);
+        ->value('id');
 
         $anneeA = Annee::where('status', 1)
-        ->get(['libelle']);
+        ->value('libelle');
 
         // total des cmdes de l'anneeActive
         $totalCmdes = Commande::where('id_annee', $anneeActive)
