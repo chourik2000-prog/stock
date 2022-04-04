@@ -1,6 +1,6 @@
 <div class="left-side-bar">
     <div class="brand-logo">
-        <a href="/accueil">
+        <a href="{{route('home')}}">
             <img src="{{asset('vendors/images/logo-icon.png')}}"  alt="" class="dark-logo"><span></span>
             <img src="{{asset('vendors/images/logo-icon.png')}}" alt="" class="light-logo"><span>IAIgestion</span>
         </a>
@@ -12,8 +12,13 @@
         <div class="sidebar-menu">
             <ul id="accordion-menu">
                 <li class="dropdown">
-                    <a href="{{route('accueil.rech')}}" class="dropdown-toggle no-arrow">
+                    <a href="{{route('home')}}" class="dropdown-toggle no-arrow">
                         <span class="micon dw dw-house-1"></span><span class="mtext">Accueil</span>
+                    </a>
+                </li>
+                <li class="dropdown">
+                    <a href="{{route('accueil.rech')}}" class="dropdown-toggle no-arrow">
+                        <span class="micon dw dw-reload"></span><span class="mtext">statistiques</span>
                     </a>
                 </li>
                 <li class="dropdown">

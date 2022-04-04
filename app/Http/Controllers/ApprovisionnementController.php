@@ -50,22 +50,24 @@ class ApprovisionnementController extends Controller
 
     public function recherche(Request $request)
     {
-        $annees = DB::table('annees')->get();
+        $annees = Annee::all();
         $articles = Article::all();
         $fournisseurs = Fournisseur::all();
-        $approvisionnements = Approvisionnement::query();
+
         if($request->id_annee) {
-            $approvisionnement = $approvisionnements->whereIdAnnee($request->id_annee);
-            $approvisionnement = $approvisionnement->get();
+           $approvisionnements = Approvisionnement::where('id_annee', $request->id_annee)
+                ->get();
+
             return view('approvisionnements.afficher')
-            ->with('approvisionnements',$approvisionnement)
-            ->with('articles',$articles)
-            ->with('fournisseurs',$fournisseurs)
-            ->with('annees',$annees);
+                ->with('approvisionnements', $approvisionnements)
+                ->with('articles', $articles)
+                ->with('fournisseurs', $fournisseurs)
+                ->with('annees', $annees);
+
         }
  
         return view('approvisionnements.recherche')
-        ->with('annees',$annees);
+            ->with('annees',$annees);
     }
     /**
      * Store a newly created resource in storage.

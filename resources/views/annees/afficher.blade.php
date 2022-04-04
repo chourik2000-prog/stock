@@ -21,7 +21,6 @@
                <table class="table" id="myTable">
                    <thead>
                        <tr>
-                            <th scope="col"> <strong>Id</strong> </th>
                             <th scope="col"> <strong>Libellé</strong> </th>
                             <th scope="col"> <strong>Date de debut</strong> </th>
                             <th scope="col"> <strong>Date de fin</strong> </th>
@@ -32,7 +31,6 @@
                    <tbody>
                        @foreach ($annees as $annee)
                         <tr>
-                            <td id="id{{$annee->id}}">{{ $annee->id}}</td>
                             <td>{{ $annee->libelle}}</td>
                             <td>{{ $annee->dateDebut}}</td>
                             <td>{{ $annee->dateFin}}</td>

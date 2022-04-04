@@ -26,7 +26,7 @@
 					<p>{{ $message }}</p>
 				</div>
 			@endif
-				<table class="table" id="myTable">
+				<table class="table" id="datatable">
 					<thead>
 						<tr>
 							<th scope="col"> <strong>Désignation</strong> </th>
@@ -40,16 +40,10 @@
 					<tbody>
 						@foreach ($approvisionnements as $approvisionnement)
         		<tr>
-						@php
-						$entrant = Illuminate\Support\Facades\DB::table('approvisionnements')->where('id_article',$approvisionnement->id)->sum('qentrant');
-						$livree = Illuminate\Support\Facades\DB::table('demandes')->where('id_article',$approvisionnement->id)->sum('qlivree');
-						$perte = Illuminate\Support\Facades\DB::table('pertes')->where('id_article',$approvisionnement->id)->sum('qperdue');
-						$existant = $entrant - $livree - $perte;
-						@endphp
 						<td>{{ $approvisionnement->article->libelle}}</td>
 						<td>{{ $approvisionnement->fournisseur->nom}}</td>
 						<td>{{ $approvisionnement->qentrant}}</td>
-						<td>{{$approvisionnement->date}}</td>
+						<td>{{ $approvisionnement->date}}</td>
 						<td>{{ $approvisionnement->annee->libelle}}</td>
            			 <td>
                 		<form action="{{ route('approvisionnements.destroy',$approvisionnement->id) }}" method="POST">    
@@ -75,6 +69,17 @@
 				
 @include('approvisionnements.modalafficher') 
 @endsection
+@push('stylesheet')
+	<link rel="stylesheet" href={{asset('src/plugins/datatables/css/dataTables.bootstrap4.min.css')}}>
+	<link rel="stylesheet" href={{asset('src/plugins/datatables/css/responsive.bootstrap4.min.css')}}>
+@endpush
+
+
+@push('javascripts')
+	<script src={{asset("vendors/DataTables/jquery.dataTables.min.js")}}></script>
+	<script src={{asset("vendors/DataTables/dataTables.bootstrap4.min.js")}}></script>
+	<script src={{asset("src/scripts/datatable.js")}}></script>
+@endpush
 		<script>
 			function confirmSubmit()
 		{

@@ -5,6 +5,8 @@ use App\Models\Approvisionnement;
 use App\Models\Article;
 use App\Models\Demande;
 use App\Models\Annee;
+use App\Models\Commande;
+use App\Models\Perte;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -26,16 +28,23 @@ class StockController extends Controller
 
     public function recherche(Request $request)
     {
-        $annees = DB::table('annees')->get();
+        $annees = Annee::all();
+        $stocks = Article::all();
+        $commandes = Commande::all();
+        $approvisionnements = Approvisionnement::all();
 
-        if($request->input('id_annee') != null) {
-            $anne = Approvisionnement::where('id_annee', '=',
-            $request->input('id_annee'))->get();
-            return redirect()->route('stocks.index', [
-                'id_annee' => $request->input('id_annee')
-            ])->with('annees',$annees);
+        if($request->id_annee) {
+            $approvisionnements = Approvisionnement::where('id_annee', $request->id_annee)
+                ->get();
+            $commandes = Commande::where('id_annee', $request->id_annee)
+                ->get();
+
+            return view('stocks.afficher')
+                ->with('stocks', $stocks)
+                ->with('approvisionnements', $approvisionnements)
+                ->with('commandes',$commandes)
+                ->with('annees', $annees);
         }
-
         return view('stocks.recherche')
         ->with('annees',$annees);
     }

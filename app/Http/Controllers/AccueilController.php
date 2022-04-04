@@ -5,6 +5,7 @@ use App\Models\Approvisionnement;
 use App\Models\Article;
 use App\Models\Annee;
 use App\Models\Demande;
+use App\Models\Perte;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 class AccueilController extends Controller
@@ -25,15 +26,26 @@ class AccueilController extends Controller
     public function recherche(Request $request)
     {
         $annees = DB::table('annees')->get();
+        $accueils = Article::all();
 
-        if($request->input('id_annee') != null) {
-            $commandes = Approvisionnement::where('id_annee', '=',
-            $request->input('id_annee'))->get();
-            return redirect()->route('accueils.index', [
-                'id_annee' => $request->input('id_annee')
-            ])->with('annees',$annees);
+        if($request->id_annee) {
+            $approvisionnements = Approvisionnement::where('id_annee', $request->id_annee)
+                ->get();
+
+            $demandes = Demande::where('id_annee', $request->id_annee)
+                ->get();
+
+            $pertes = Perte::where('id_annee', $request->id_annee)
+                ->get();
+
+            return view('accueils.accueil')
+                ->with('approvisionnements', $approvisionnements)
+                ->with('accueils', $accueils)
+                ->with('demandes', $demandes)
+                ->with('pertes', $pertes)
+                ->with('annees', $annees);
+
         }
-
         return view('accueils.recherche')
         ->with('annees',$annees);
     }
@@ -55,7 +67,7 @@ class AccueilController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
     }
 
     /**

@@ -41,16 +41,18 @@ class PerteController extends Controller
 
     public function recherche(Request $request)
     {
-        $annees = DB::table('annees')->get();
+        $annees = Annee::all();
         $articles = Article::all();
-        $pertes = Perte::query();
+
         if($request->id_annee) {
-            $pertes = $pertes->whereIdAnnee($request->id_annee);
-            $pertes = $pertes->get();
+           $pertes = Perte::where('id_annee', $request->id_annee)
+                ->get();
+
             return view('pertes.afficher')
-            ->with('pertes',$pertes)
-            ->with('articles',$articles)
-            ->with('annees',$annees);
+                ->with('pertes', $pertes)
+                ->with('articles', $articles)
+                ->with('annees', $annees);
+
         }
         return view('pertes.recherche')
         ->with('annees',$annees);

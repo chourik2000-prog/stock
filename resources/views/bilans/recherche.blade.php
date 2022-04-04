@@ -8,7 +8,7 @@
                 <div class="clearfix mb-20">
                     <div class="pull-left">
                         <h4 class="font-20 weight-500 mb-10">
-                            Choisir l'article pour voir la quantité
+                            Choisir l'année et l'article pour voir les statistiques
                         </h4>
                     </div>
                 </div>
@@ -18,10 +18,10 @@
                         <div class="row">
                             <div class="col-lg-7 col-sm-10 col-md-7">
                                 <div class="form-group">
-                                        <label class="label" for="bilan">Désignation</label>
+                                        <label class="label" for="bilan"><strong>Année</strong></label>
                                         <div class="select">
                                             <select id="bilan" class="form-control" name="id_article">
-                                                @foreach($bilans as $bilan)
+                                                @foreach($annees as $annee)
                                                 @php
                                                 $dateDebut = $annee->dateDebut;
                                                 $dateFin = $annee->dateFin;
@@ -40,6 +40,18 @@
                                             </select>
                                         </div>
                                 </div>
+                                <div class="form-group">
+                                    <label class="label" for="bilan"><strong>Désignation</strong></label>
+                                    <div class="select">
+                                        <select id="bilan" class="form-control" name="id_article">
+                                            @foreach($bilans as $bilan)
+                                                <option value="{{$bilan->id}}">
+                                                    {{ $bilan->libelle }}
+                                                </option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                            </div>
                             </div>
                         </div>
                         <div class="row text-center">

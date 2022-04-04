@@ -4,8 +4,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\Demande;
-use App\Models\Perte;
+use App\Models\Article;
+use App\Models\Fournisseur;
+use App\Models\Annee;
 
 class Approvisionnement extends Model
 {
@@ -14,13 +15,13 @@ class Approvisionnement extends Model
     protected $fillable = [
         'id_article', 'id_fournisseur','qentrant','date', 'id_annee'
     ];
-    public function article(){
+    public function article() {
         return $this->belongsTo(Article::class ,'id_article'); 
     }
-    public function fournisseur(){
+    public function fournisseur() {
         return $this->belongsTo(Fournisseur::class ,'id_fournisseur'); 
     }
-    public function annee(){
+    public function annee() {
         return $this->belongsTo(Annee::class ,'id_annee'); 
     }
 }

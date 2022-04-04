@@ -10,7 +10,7 @@
 	<link rel="apple-touch-icon" sizes="180x180" href={{asset('vendors/images/apple-touch-icon.png')}}>
 	<link rel="icon" type="image/png" sizes="32x32" href={{asset('vendors/images/favicon-32x32.png')}}>
 	<link rel="icon" type="image/png" sizes="16x16" href={{asset('vendors/images/favicon-16x16.png')}}>
-	<link rel="stylesheet" type="text/css" href={{asset("vendors/DataTables/datatables.css")}}>
+	<link rel="stylesheet" type="text/css" href={{asset("vendors/DataTables/dataTables.bootstrap4.min.css")}}>
 	
 	<!-- Mobile Specific Metas -->
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -20,10 +20,18 @@
 	<!-- CSS -->
 	<link rel="stylesheet" type="text/css" href={{asset('vendors/styles/core.css')}}>
 	<link rel="stylesheet" type="text/css" href={{asset('vendors/styles/icon-font.min.css')}}>
-	<link rel="stylesheet" type="text/css" href={{asset('src/plugins/datatables/css/dataTables.bootstrap4.min.css')}}>
-	<link rel="stylesheet" type="text/css" href={{asset('src/plugins/datatables/css/responsive.bootstrap4.min.css')}}>
 	<link rel="stylesheet" type="text/css" href={{asset('vendors/styles/style.css')}}>
-    <style>
+	
+	@stack('stylesheets')
+    
+	<style>
+		#cards{
+			margin-bottom: 2%;
+			margin-top: 3%;
+			margin-right: 5%;
+			margin-left: 5%;
+			width: 23%
+		}
         #bar1{
             height: -1500px; 
             width: 300%;
@@ -85,27 +93,15 @@
 <div class="mobile-menu-overlay"></div>
 <div class="main-container">
 	<div class="mobile-menu-overlay"></div>
-	    <div class="main-container col-lg-12" id="bar1" >
-			
-			@yield('content')
-		</div>
+		@yield('content')
 	</div>
+
 	<!-- js -->
 	<script src={{asset('vendors/scripts/core.js')}}></script>
 	<script src={{asset('vendors/scripts/script.min.js')}}></script>
 	<script src={{asset('vendors/scripts/process.js')}}></script>
 	<script src={{asset('vendors/scripts/layout-settings.js')}}></script>
 	<script src={{asset('src/plugins/apexcharts/apexcharts.min.js')}}></script>
-	<script src={{asset('src/plugins/datatables/js/jquery.dataTables.min.js')}}></script>
-	<script src={{asset('src/plugins/datatables/js/dataTables.bootstrap4.min.js')}}></script>
-	<script src={{asset('src/plugins/datatables/js/dataTables.responsive.min.js')}}></script>
-	<script src={{asset('src/plugins/datatables/js/responsive.bootstrap4.min.js')}}></script>
-	<script type="text/javascript" charset="utf8" src={{asset("vendors/DataTables/datatables.js")}}></script>
-
-	<script>
-		$(document).ready( function () {
-    	$('#myTable').DataTable();
-		} );
-	</script>
+	@stack('javascripts')
 </body>
 </html>

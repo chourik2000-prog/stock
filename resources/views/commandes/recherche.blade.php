@@ -8,7 +8,7 @@
                 <div class="clearfix mb-20">
                     <div class="pull-left">
                         <h4 class="font-20 weight-500 mb-10">
-                            Choisir l'année
+                            Choisir l'année pour voir la liste des commandes
                         </h4>
                     </div>
                 </div>

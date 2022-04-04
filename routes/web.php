@@ -26,9 +26,11 @@ Route::get('/stock', function () {
 
 Route::get('/', function () {
     $annees = Annee::all();
-    $accueils = Article::all();
-    return view('accueils.accueil',compact('accueils'))->with('annees', $annees);
+    $homes = Article::all();
+    return view('home',compact('homes'))->with('annees', $annees);
 });
+Route::get('home', 'App\Http\Controllers\HomeController@store')
+    ->name('home');
 /**
  * bilans.
  */

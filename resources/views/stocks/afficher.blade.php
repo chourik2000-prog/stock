@@ -20,7 +20,7 @@
 				<a href="{{route('stock.rech')}}" class="btn btn-success btn-sm text-white">Approvisionnement</a>
 			</div>
 		</div>			
-			<table class="table" id="myTable">
+			<table class="table" id="datatable">
 				<thead>
 					<tr>
 						<th scope="col"> <strong> Articles</strong> </th>
@@ -34,10 +34,15 @@
 					@foreach ($stocks as $stock) 
 						<tr>
 							@php
-								$commande = Illuminate\Support\Facades\DB::table('commandes')->where('id_article',$stock->id)->sum('quantite');
-								$entrant = Illuminate\Support\Facades\DB::table('approvisionnements')->where('id_article',$stock->id)->sum('qentrant');
-								$livree = Illuminate\Support\Facades\DB::table('demandes')->where('id_article',$stock->id)->sum('qlivree');
-								$perte = Illuminate\Support\Facades\DB::table('pertes')->where('id_article',$stock->id)->sum('qperdue');
+								$commande = Illuminate\Support\Facades\DB::table('commandes')
+								->where('id_article',$stock->id)
+								->where('id_annee',$stock->id_annee)
+								->sum('quantite');
+
+								$entrant = Illuminate\Support\Facades\DB::table('approvisionnements')
+								->where('id_article',$stock->id)
+								->where('id_annee',$stock->id_annee)
+								->sum('qentrant');
 								$controle = $commande - $entrant;
 							@endphp
 						
@@ -54,3 +59,14 @@
 				</tbody>
     		</table>     
 @endsection
+@push('stylesheet')
+	<link rel="stylesheet" href={{asset('src/plugins/datatables/css/dataTables.bootstrap4.min.css')}}>
+	<link rel="stylesheet" href={{asset('src/plugins/datatables/css/responsive.bootstrap4.min.css')}}>
+@endpush
+
+
+@push('javascripts')
+	<script src={{asset("vendors/DataTables/jquery.dataTables.min.js")}}></script>
+	<script src={{asset("vendors/DataTables/dataTables.bootstrap4.min.js")}}></script>
+	<script src={{asset("src/scripts/datatable.js")}}></script>
+@endpush

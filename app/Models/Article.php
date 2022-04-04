@@ -14,7 +14,7 @@ class Article extends Model
         'libelle', 'caracteristique'
     ];
     
-    public function approvisionnements(){
+    public function approvisionnements (){
         return $this->hasMany(Approvisionnement::class, 'id_article');
     }
 
