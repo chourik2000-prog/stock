@@ -31,6 +31,9 @@ Route::get('/', function () {
 });
 Route::get('home', 'App\Http\Controllers\HomeController@index')
     ->name('home');
+
+// header 
+Route::get('deskapp/header', 'App\Http\Controllers\TerminerController@index');
 /**
  * bilans.
  */

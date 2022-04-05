@@ -9,6 +9,7 @@ use App\Models\Demande;
 use App\Models\Perte;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
 
 class HomeController extends Controller
 {
@@ -24,8 +25,20 @@ class HomeController extends Controller
         $anneeActive = Annee::where('status', 1)
         ->value('id');
 
-        $anneeA = Annee::where('status', 1)
-        ->value('libelle');
+        // format mois annee
+        $dateDebut = Annee::where('status', 1)
+        ->value('dateDebut');
+
+        $dateFin = Annee::where('status', 1)
+        ->value('dateFin');
+        
+        $monthd = Carbon::createFromFormat('Y-m-d',$dateDebut)->locale('fr_FR')
+        ->isoformat('MMMM');
+        $yeard = Carbon::createFromFormat('Y-m-d',$dateDebut)->year;
+
+        $monthf = Carbon::createFromFormat('Y-m-d',$dateFin)->locale('fr_FR')
+        ->isoformat('MMMM');
+        $yearf = Carbon::createFromFormat('Y-m-d',$dateFin)->year;
 
         // total des cmdes de l'anneeActive
         $totalCmdes = Commande::where('id_annee', $anneeActive)
@@ -41,15 +54,19 @@ class HomeController extends Controller
         ->sum('qperdue');
 
         $totalCmdn = $totalCmdes - $totalAppro;
-
+        $stock = $totalAppro - $totalDemd - $totalPerte;
 
         return view('home',compact('totalCmdes'))
-        ->with('totalCmdes',$totalCmdes)
-        ->with('totalAppro',$totalAppro)
-        ->with('totalDemd',$totalDemd)
-        ->with('totalPerte',$totalPerte)
-        ->with('totalCmdn',$totalCmdn)
-        ->with('anneeActive',$anneeActive)
-        ->with('anneeA',$anneeA);
+        ->with('totalCmdes', $totalCmdes)
+        ->with('totalAppro', $totalAppro)
+        ->with('totalDemd', $totalDemd)
+        ->with('totalPerte', $totalPerte)
+        ->with('totalCmdn', $totalCmdn)
+        ->with('anneeActive', $anneeActive)
+        ->with('stock', $stock)
+        ->with('monthd', $monthd)
+        ->with('yeard',$yeard)
+        ->with('monthf',$monthf)
+        ->with('yearf',$yearf);
     }
 }

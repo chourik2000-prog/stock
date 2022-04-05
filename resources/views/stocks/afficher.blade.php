@@ -33,27 +33,14 @@
 				<tbody>
 					@foreach ($stocks as $stock) 
 						<tr>
-							@php
-								$commande = Illuminate\Support\Facades\DB::table('commandes')
-								->where('id_article',$stock->id)
-								->where('id_annee',$stock->id_annee)
-								->sum('quantite');
-
-								$entrant = Illuminate\Support\Facades\DB::table('approvisionnements')
-								->where('id_article',$stock->id)
-								->where('id_annee',$stock->id_annee)
-								->sum('qentrant');
-								$controle = $commande - $entrant;
-							@endphp
-						
-								<td>{{ $stock->libelle}}({{$stock->caracteristique}})</td>
-								<td>{{$commande}} </td>
-								<td>{{$entrant}} </td>
-								<td>{{$controle}} </td>
-								@if ($controle == 0)
-								<td><span class="btn btn-lg btn-succes" id="rond"></span> </td> @endif
-								@if ($controle != 0)
-								<td><span class="btn btn-lg btn-danger" id="rond"></span> </td> @endif		   		
+							<td>{{ $stock->libelle}}({{$stock->caracteristique }})</td>
+							<td>{{ $totalCmdes }} </td>
+							<td>{{ $totalAppro }} </td>
+							<td>{{ $diff }} </td>
+							@if ($diff == 0)
+							<td><span class="btn btn-lg btn-succes" id="rond"></span> </td> @endif
+							@if ($diff != 0)
+							<td><span class="btn btn-lg btn-danger" id="rond"></span> </td> @endif		   		
 						</tr>	  
 					@endforeach 
 				</tbody>

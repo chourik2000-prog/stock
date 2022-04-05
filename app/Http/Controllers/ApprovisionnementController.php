@@ -50,6 +50,7 @@ class ApprovisionnementController extends Controller
 
     public function recherche(Request $request)
     {
+        // afficher les données de l'année choisie 
         $annees = Annee::all();
         $articles = Article::all();
         $fournisseurs = Fournisseur::all();

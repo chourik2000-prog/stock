@@ -5,7 +5,7 @@
    <!-- basic table  Start -->
 <div class="col-md-10 col-sm-12">
     <div class="weight-600 font-30">
-        Les statistiques de l'année:{{$anneeA}}
+      <h4>Les statistiques de l'année: {{ucwords($monthd)}} {{$yeard}} - {{ucwords($monthf)}} {{$yearf}}</h4> 
     </div>
 </div>
 <br>
@@ -18,7 +18,7 @@
                         <h5>Commandes totales</h5>
                     </div>
                     <div class="card-body">
-                        <h2 class="text-center"> {{$totalCmdes}}</h2>
+                        <h3 class="text-center"> {{$totalCmdes}}</h3>
                     </div>  
                 </div>
             </div>
@@ -28,7 +28,7 @@
                        <h5>Approvisionnement total</h5>
                     </div>
                     <div class="card-body">
-                        <h2 class="text-center">{{$totalAppro}}</h2>
+                        <h3 class="text-center">{{$totalAppro}}</h3>
                     </div>
                 </div>
             </div>
@@ -38,7 +38,7 @@
                         <h5>Demandes totales</h5>
                     </div>
                     <div class="card-body">
-                        <h2 class="text-center">{{$totalDemd}}</h2>
+                        <h3 class="text-center">{{$totalDemd}}</h3>
                     </div>
                 </div>
             </div>
@@ -48,7 +48,7 @@
                         <h5>Pertes totales</h5>
                     </div>
                     <div class="card-body">
-                        <h2 class="text-center">{{$totalPerte}}</h2>
+                        <h3 class="text-center">{{$totalPerte}}</h3>
                     </div>
                 </div>
             </div>
@@ -58,7 +58,7 @@
                         <h5>Commandes non livrées</h5>
                     </div>
                     <div class="card-body">
-                        <h2 class="text-center">{{$totalCmdn}}</h2>
+                        <h3 class="text-center">{{$totalCmdn}}</h3>
                     </div>
                 </div>
             </div>
@@ -68,7 +68,7 @@
                         <h5>Article en stock</h5>
                     </div>
                     <div class="card-body">
-                        <h2 class="text-center">{{$totalCmdn}}</h2>
+                        <h2 class="text-center">{{$stock}}</h2>
                     </div>
                 </div>
             </div>
