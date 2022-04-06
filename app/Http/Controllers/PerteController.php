@@ -89,7 +89,7 @@ class PerteController extends Controller
         {
             Perte::create($request->all());
                 return redirect()->route('pertes.index')
-                        ->with('success',"Perte enregistré avec succès.");
+                        ->with('success',"Perte enregistrée avec succès.");
         }
         else {
             flash("La date doit être comprise dans l'année académique")->error();

@@ -14,15 +14,6 @@
                         <div class="row">
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
-                                  <label for="libelle"> Libellé:</label>
-                                    <input type="text" 
-                                    name="libelle" id="libelle"
-                                    value="{{ $annee->libelle }}" 
-                                    class="form-control @error('libelle') is-invalid @enderror" 
-                                    placeholder="Le libellé" required="required">
-                                    @error('libelle') <p>Ce champs est incorrect</p>@enderror
-                                </div>
-                                <div class="form-group">
                                     <label for="dateDebut">Date de debut:</label>
                                     <input type="date" id="dateDebut"
                                     name="dateDebut" 

@@ -56,13 +56,14 @@
 			</table>
 @include('fournisseurs.modalafficher')   
 @endsection
-		<script>
-			function confirmSubmit()
-		{
+
+<script>
+	function confirmSubmit()
+	{
 		var agree=confirm("Êtes-vous sûr de vouloir supprimer?");
 		if (agree)
 		return true ;
 		else
 		return false ;
-		}
-		</script>
+	}
+</script>

@@ -20,19 +20,47 @@ class AccueilController extends Controller
     public function recherche(Request $request)
     {
         $annees = DB::table('annees')->get();
-        $accueils = Article::all();
+        
+        // recupérer tous les articles
+        $articles =  Article::all();
 
-        $an = $request->id_annee;
- 
-        if($an) 
+        if($request->id_annee) 
         {
-            $totalAppro = Approvisionnement::where('id_annee',$an)
+            // selectionner les articles qui ont pour id_annee,id_annee que l'utilisateur choisi
+            $anApps = Approvisionnement::where('id_annee',$request->id_annee);
+            $anDemds = Demande::where('id_annee',$request->id_annee);
+            $anPertes = Perte::where('id_annee',$request->id_annee);
+
+            // faire le calcul pour chaque article avec une boucle foreach
+            foreach($anApps as $anApp)
+                    
+
+            /*
+                donnees = [
+                    [
+                       totalAppro => 0,
+                       totalDemd => 0,
+                       totalPerte => 0,
+                       stock => 0,
+                       pourcentage => 20
+                    ],
+                    [
+                       totalAppro => 0,
+                       totalDemd => 0,
+                       totalPerte => 0,
+                       stock => 0,
+                       pourcentage => 90
+                    ]
+                ]
+            */
+
+            $totalAppro = Approvisionnement::where('id_annee', $request->id_annee)
                 ->sum('qentrant');
             
-            $totalDemd = Demande::where('id_annee',$an)
+            $totalDemd = Demande::where('id_annee', $request->id_annee)
                 ->sum('qlivree');
 
-            $totalPerte = Perte::where('id_annee',$an)
+            $totalPerte = Perte::where('id_annee', $request->id_annee)
                 ->sum('qperdue');
 
             $stock = $totalAppro - $totalDemd - $totalPerte;
@@ -42,7 +70,7 @@ class AccueilController extends Controller
                 ->with('totalDemd',  $totalDemd)
                 ->with('totalPerte', $totalPerte)
                 ->with('stock', $stock)
-                ->with('accueils',$accueils);
+                ->with('articles',$articles);
 
         }
         return view('accueils.recherche')

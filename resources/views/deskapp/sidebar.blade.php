@@ -2,7 +2,7 @@
     <div class="brand-logo">
         <a href="{{route('home')}}">
             <img src="{{asset('vendors/images/logo-icon.png')}}"  alt="" class="dark-logo"><span></span>
-            <img src="{{asset('vendors/images/logo-icon.png')}}" alt="" class="light-logo"><span>IAIgestion</span>
+            <img src="{{asset('vendors/images/logo-icon.png')}}" alt="" class="light-logo"><span>IAI-TOGO</span>
         </a>
         <div class="close-sidebar" data-toggle="left-sidebar-close">
             <i class="ion-close-round"></i>

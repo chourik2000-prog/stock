@@ -43,7 +43,10 @@
 									<td>{{ $demande->article->libelle}}</td>
 									<td>{{ $demande->qlivree}}</td>
 									<td>{{ $demande->date}}</td>
-									<td>{{ $demande->annee->libelle}}</td>
+									<td>
+										{{ $demande->annee->dateDebut}} au
+										{{ $demande->annee->dateFin}}
+									</td>
 									<td>
 										<form action="{{ route('demandes.destroy',$demande->id) }}" method="POST">    
 												<button type="button" class="btn btn-info btn-sm" data-toggle="modal" 
@@ -81,13 +84,13 @@
 	<script src={{asset("src/scripts/datatable.js")}}></script>
 @endpush
 <script>
-function confirmSubmit()
-{
-var agree=confirm("Êtes-vous sûr de vouloir supprimer?");
-if (agree)
-return true ;
-else
-return false ;
-}
+	function confirmSubmit()
+	{
+		var agree=confirm("Êtes-vous sûr de vouloir supprimer?");
+		if (agree)
+		return true ;
+		else
+		return false ;
+	}
 </script>
 	

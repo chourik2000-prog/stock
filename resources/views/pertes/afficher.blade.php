@@ -40,7 +40,10 @@
 							<td>{{ $perte->article->libelle}}</td>
 							<td>{{ $perte->qperdue}}</td>
 							<td>{{ $perte->date}}</td>
-							<td>{{ $perte->annee->libelle}}</td>
+							<td>
+								{{ $perte->annee->dateDebut}} au
+								{{ $perte->annee->dateFin}}
+							</td>
 							<td>
 								<form action="{{ route('pertes.destroy',$perte->id) }}" method="POST">    
 									<button type="button" class="btn btn-info btn-sm" data-toggle="modal" 
@@ -76,13 +79,14 @@
 	<script src={{asset("vendors/DataTables/dataTables.bootstrap4.min.js")}}></script>
 	<script src={{asset("src/scripts/datatable.js")}}></script>
 @endpush
-		<script>
-			function confirmSubmit()
-		{
+
+<script>
+	function confirmSubmit()
+	{
 		var agree=confirm("Êtes-vous sûr de vouloir supprimer?");
 		if (agree)
 		return true ;
 		else
 		return false ;
-		}
-		</script>
+	}
+</script>

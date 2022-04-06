@@ -65,7 +65,9 @@
                                             class="form-control @error('id_annee') is-invalid @enderror"  
                                             name="id_annee" required="required">
                                             @foreach($annees as $annee)
-                                                <option value="{{ $annee->id }}">{{ $annee->libelle }}</option>
+                                                <option value="{{ $annee->id }}">
+                                                    {{ $annee->dateDebut }} au {{ $annee->dateFin }}
+                                                </option>
                                             @endforeach
                                         </select>
                                     </div>

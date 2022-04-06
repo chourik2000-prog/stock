@@ -48,7 +48,7 @@ class CategorieController extends Controller
         ]);
         categorie::create($request->all());
         return redirect()->route('categories.index')
-                        ->with('success','Catégorie enregistré avec succès.');
+                        ->with('success','Catégorie enregistrée avec succès.');
     }
 
     /**

@@ -12,10 +12,9 @@ class AnneeController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
+    { 
         $annees = Annee::all();
         return view('annees.afficher',compact('annees'))->with('annees', $annees);
-        dd('$annees');
     }
 
     /**
@@ -37,14 +36,12 @@ class AnneeController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'libelle' => 'required|max:255',
             'dateDebut' => 'required|date',
             'dateFin' => 'required|date|after:dateDebut',
             
         ]);
             
         $annees = new Annee; 
-        $annees->libelle = $request->libelle;
         $annees->dateDebut = $request->dateDebut;
         $annees->dateFin = $request->dateFin;
         $annees->status = $request->input('status') ? true : false;
@@ -109,7 +106,6 @@ class AnneeController extends Controller
     public function update(Request $request, Annee $annee)
     {
         $request->validate([
-            'libelle' => 'required|max:255',
             'dateDebut' => 'required|date',
             'dateFin' => 'required|date|after:dateDebut',
             

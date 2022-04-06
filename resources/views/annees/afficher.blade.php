@@ -21,7 +21,6 @@
                <table class="table" id="myTable">
                    <thead>
                        <tr>
-                            <th scope="col"> <strong>Libellé</strong> </th>
                             <th scope="col"> <strong>Date de debut</strong> </th>
                             <th scope="col"> <strong>Date de fin</strong> </th>
                             <th scope="col"> <strong>Active</strong> </th>
@@ -31,7 +30,6 @@
                    <tbody>
                        @foreach ($annees as $annee)
                         <tr>
-                            <td>{{ $annee->libelle}}</td>
                             <td>{{ $annee->dateDebut}}</td>
                             <td>{{ $annee->dateFin}}</td>
                             @if ($annee->status == 1)
@@ -63,13 +61,14 @@
    </table>
    @include('annees.modalafficher')   
 @endsection
-       <script>
-           function confirmSubmit()
-       {
-       var agree=confirm("Êtes-vous sûr de vouloir supprimer?");
-       if (agree)
-       return true ;
-       else
-       return false ;
-       }
-       </script>
+
+<script>
+    function confirmSubmit()
+    {
+        var agree=confirm("Êtes-vous sûr de vouloir supprimer?");
+        if (agree)
+        return true ;
+        else
+        return false ;
+    }
+</script>

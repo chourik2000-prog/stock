@@ -67,13 +67,13 @@
 	<script src={{asset("src/scripts/datatable.js")}}></script>
 @endpush
 
-		<script>
-			function confirmSubmit()
-		{
+<script>
+	function confirmSubmit()
+	{
 		var agree=confirm("Êtes-vous sûr de vouloir supprimer?");
 		if (agree)
 		return true ;
 		else
 		return false ;
-		}
-		</script>
+	}
+</script>

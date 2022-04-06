@@ -15,7 +15,9 @@ class TerminerController extends Controller
      */
     public function index()
     {
+        // recupération de l'année active
         $anneeActive = Annee::where('status', 1);
+
         // format mois annee
         $dateDebut = Annee::where('status', 1)
         ->value('dateDebut');
@@ -31,81 +33,18 @@ class TerminerController extends Controller
         ->isoformat('MMMM');
         $yearf = Carbon::createFromFormat('Y-m-d',$dateFin)->year;
 
-        if($anneeActive == null){
+        if($anneeActive == null)
+        {
             flash("Aucune année n'est active")->error();
             return redirect()->route('annees.index');
         }
 
-        return view('deskapp/header')
+        return view('deskapp/header',compact($anneeActive))
         ->with('monthd', $monthd)
         ->with('yeard',$yeard)
         ->with('monthf',$monthf)
-        ->with('yearf',$yearf);
+        ->with('yearf',$yearf)
+        ->with('anneeActive',$anneeActive);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
 }

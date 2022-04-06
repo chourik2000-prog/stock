@@ -101,7 +101,7 @@ class DemandeController extends Controller
         {
             Demande::create($request->all());
                 return redirect()->route('demandes.index')
-                        ->with('success',"Demande enregistré avec succès.");
+                        ->with('success',"Demande enregistrée avec succès.");
         }
         else 
         {

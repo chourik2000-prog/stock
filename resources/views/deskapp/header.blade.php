@@ -1,9 +1,8 @@
 <div class="header">
     <div class="header-left">
-        <a href="" >
+        <a href="" > 
             <h4 class="text-white">
                 Année en cours:
-                {{ucwords($monthd)}} {{$yeard}} - {{ucwords($monthf)}} {{$yearf}}
                 @include('flash::message')
             </h4>
         </a>
@@ -16,7 +15,7 @@
                         <!-- a revoir l'icone-->
                          <img src={{asset('vendors/images/logo-icon.png')}} alt="">
                     </span>
-                    <span class="user-name">iaigestion</span>
+                    <span class="user-name">IAI-TOGO</span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
                     <a class="dropdown-item" href="/deskapp/profil.blade.php"><i class="dw dw-user1"></i> Profil</a>

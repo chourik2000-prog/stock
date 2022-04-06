@@ -25,7 +25,7 @@
                                   <div class="form-group">
                                     <label for="caracteristique">Caractéristiques:</label>
                                     <input type="text" 
-                                    name="libelle" id="caracteristique"
+                                    name="caracteristique" id="caracteristique"
                                     value="{{ $article->caracteristique }}" 
                                     class="form-control @error('caracteristique') is-invalid @enderror" 
                                     placeholder="Le libellé" required="required">
