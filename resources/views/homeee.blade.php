@@ -5,7 +5,8 @@
    <!-- basic table  Start -->
 <div class="col-md-10 col-sm-12">
     <div class="weight-600 font-30">
-      <h4>Les statistiques de l'année: {{ucwords($monthd)}} {{$yeard}} - {{ucwords($monthf)}} {{$yearf}}</h4> 
+      <h4>Les statistiques de l'année: 
+          {{ucwords($monthd)}} {{$yeard}} - {{ucwords($monthf)}} {{$yearf}}</h4> 
     </div>
 </div>
 <br>

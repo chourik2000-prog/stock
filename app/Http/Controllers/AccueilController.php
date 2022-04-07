@@ -19,62 +19,66 @@ class AccueilController extends Controller
 
     public function recherche(Request $request)
     {
-        $annees = DB::table('annees')->get();
+        $annees = Annee::all();
         
         // recupérer tous les articles
-        $articles =  Article::all();
+        $articles =  Article::all();  
 
         if($request->id_annee) 
         {
-            // selectionner les articles qui ont pour id_annee,id_annee que l'utilisateur choisi
-            $anApps = Approvisionnement::where('id_annee',$request->id_annee);
-            $anDemds = Demande::where('id_annee',$request->id_annee);
-            $anPertes = Perte::where('id_annee',$request->id_annee);
+            $tableau = [];
 
-            // faire le calcul pour chaque article avec une boucle foreach
-            foreach($anApps as $anApp)
-                    
-
-            /*
-                donnees = [
-                    [
-                       totalAppro => 0,
-                       totalDemd => 0,
-                       totalPerte => 0,
-                       stock => 0,
-                       pourcentage => 20
-                    ],
-                    [
-                       totalAppro => 0,
-                       totalDemd => 0,
-                       totalPerte => 0,
-                       stock => 0,
-                       pourcentage => 90
-                    ]
-                ]
-            */
-
-            $totalAppro = Approvisionnement::where('id_annee', $request->id_annee)
-                ->sum('qentrant');
+            foreach($articles as $article)
+            {
+                $si = 0;
+                $entree = 0;
+                $livree = 0;
+                $perdue = 0;
             
-            $totalDemd = Demande::where('id_annee', $request->id_annee)
-                ->sum('qlivree');
+            // selectionner les articles qui ont pour id_annee,id_annee que l'utilisateur choisi
+                $approvisionnements = Approvisionnement::whereIdArticle($article->id)
+                ->where('id_annee',$request->id_annee)
+                ->get();
+                
+                $demandes = Demande::whereIdArticle($article->id)
+                ->where('id_annee',$request->id_annee)
+                ->get();
 
-            $totalPerte = Perte::where('id_annee', $request->id_annee)
-                ->sum('qperdue');
+                $pertes = Perte::whereIdArticle($article->id)
+                ->where('id_annee',$request->id_annee)
+                ->get();
+            }
+            // parcourir les aprovisionnement et faire la somme 
+            foreach($approvisionnements as $approvisionnement)
+            {
+                $entree += $approvisionnement->qentrant;
+            }  
+            
+            foreach($demandes as $demande)
+            {
+                $livree += $demande->qlivree;
+            }   
 
-            $stock = $totalAppro - $totalDemd - $totalPerte;
+            foreach($pertes as $perte)
+            {
+                $perdue += $perte->qperdue;
+            }   
 
+            $stocktotal = $si + $entree;
+            $stockfinal = $stocktotal - $livree - $perdue;
+
+            $tableau = ['$entree', '$livree', '$perdue', '$stocktotal', '$stockfinal'];
             return view('accueils.accueil')
-                ->with('totalAppro', $totalAppro)
-                ->with('totalDemd',  $totalDemd)
-                ->with('totalPerte', $totalPerte)
-                ->with('stock', $stock)
+                ->with('stocktotal', $stocktotal)
+                ->with('stockfinal', $stockfinal)
+                ->with('si', $si)
+                ->with('entree', $entree)
+                ->with('livree', $livree)
+                ->with('perdue', $perdue)
                 ->with('articles',$articles);
 
         }
         return view('accueils.recherche')
         ->with('annees',$annees);
     }
-    
 }

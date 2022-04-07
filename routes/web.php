@@ -29,8 +29,8 @@ Route::get('/', function () {
     $homes = Article::all();
     return view('home',compact('homes'))->with('annees', $annees);
 });
-Route::get('home', 'App\Http\Controllers\HomeController@index')
-    ->name('home');
+Route::get('homeee', 'App\Http\Controllers\GestaccueilController@index')
+    ->name('homeee');
 
 // header 
 Route::get('deskapp/header', 'App\Http\Controllers\TerminerController@index');
@@ -106,3 +106,7 @@ Route::resource('layouts', App\Http\Controllers\LayoutController::class);
 
 
 
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
