@@ -19,14 +19,18 @@ class AccueilController extends Controller
 
     public function recherche(Request $request)
     {
-        $annees = Annee::all();
+        $annees = DB::table('annees')->get();
         
         // recupérer tous les articles
-        $articles =  Article::all();  
+         $articles =  Article::all();  
+        // $articles=DB::table('approvisionnements')
+        //     ->leftJoin('articles', 'articles.id', '=', 'approvisionnements.id_article')	
+        //     ->select('approvisionnements.*','articles.*')
+        //     ->get();
 
         if($request->id_annee) 
         {
-            $tableau = [];
+            $articlestocks = [];
 
             foreach($articles as $article)
             {
@@ -34,50 +38,64 @@ class AccueilController extends Controller
                 $entree = 0;
                 $livree = 0;
                 $perdue = 0;
-            
-            // selectionner les articles qui ont pour id_annee,id_annee que l'utilisateur choisi
+                $stocktotal =0;
+                $stockfinal = 0;
+
                 $approvisionnements = Approvisionnement::whereIdArticle($article->id)
                 ->where('id_annee',$request->id_annee)
                 ->get();
-                
+
+                foreach($approvisionnements as $approvisionnement)
+                {
+                    $entree += $approvisionnement->qentrant;
+                }  
+
                 $demandes = Demande::whereIdArticle($article->id)
                 ->where('id_annee',$request->id_annee)
                 ->get();
+              
+                foreach($demandes as $demande)
+                {
+                    $livree += $demande->qlivree;
+                }   
 
                 $pertes = Perte::whereIdArticle($article->id)
                 ->where('id_annee',$request->id_annee)
                 ->get();
+                
+                foreach($pertes as $perte)
+                {
+                    $perdue += $perte->qperdue;
+                }   
+    
+                $stocktotal = $si + $entree;
+                $stockfinal = $stocktotal - $livree - $perdue;
+            
+            // selectionner les articles qui ont pour id_annee,id_annee que l'utilisateur choisi
+               
+
+                array_push
+                ($articlestocks, 
+                    [
+                        "article" => $article->libelle , 
+                        "si" => $si,
+                        "entree" => $entree,
+                        "stocktotal" => $stocktotal,
+                        "livree" => $livree,
+                        "perdue" => $perdue,
+                        "stockfinal" => $stockfinal,
+
+                    ]
+                );
             }
             // parcourir les aprovisionnement et faire la somme 
-            foreach($approvisionnements as $approvisionnement)
-            {
-                $entree += $approvisionnement->qentrant;
-            }  
-            
-            foreach($demandes as $demande)
-            {
-                $livree += $demande->qlivree;
-            }   
+           
 
-            foreach($pertes as $perte)
-            {
-                $perdue += $perte->qperdue;
-            }   
-
-            $stocktotal = $si + $entree;
-            $stockfinal = $stocktotal - $livree - $perdue;
-
-            $tableau = ['$entree', '$livree', '$perdue', '$stocktotal', '$stockfinal'];
             return view('accueils.accueil')
-                ->with('stocktotal', $stocktotal)
-                ->with('stockfinal', $stockfinal)
-                ->with('si', $si)
-                ->with('entree', $entree)
-                ->with('livree', $livree)
-                ->with('perdue', $perdue)
-                ->with('articles',$articles);
+        ->with('articlestocks', $articlestocks);
 
         }
+       
         return view('accueils.recherche')
         ->with('annees',$annees);
     }

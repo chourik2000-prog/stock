@@ -31,23 +31,23 @@
 				</tr>
 			</thead>
 			<tbody>
-				@foreach ($articles as $article)
+				@foreach ($articlestocks as $articlestock)
 					<tr>
-						<td>{{ $article->libelle}}({{$article->caracteristique}})</td>
-						<td>{{ $si}}</td> 
-						<td>{{ $entree}}</td>
-						<td>{{$stocktotal}}</td>
-						<td>{{$livree}}</td>
-						<td>{{ $perdue}}</td> 
-						<td>{{$stockfinal}} </td>
+						<td>{{ $articlestock["article"] }}</td>
+						<td>{{ $articlestock["si"] }}</td> 
+						<td>{{ $articlestock["entree"] }}</td>
+						<td>{{ $articlestock["stocktotal"] }}</td>
+						<td>{{ $articlestock["livree"] }}</td>
+						<td>{{ $articlestock["perdue"] }}</td> 
+						<td>{{ $articlestock["stockfinal"] }} </td>
 
-						@if ($stockfinal == 0)
+						@if ($articlestock["stockfinal"] == 0)
 						<td><span class="btn btn-lg btn-danger" id="rond"></span></td> @endif
 
-						@if ($stockfinal < 10 & $stockfinal >0)
+						@if ($articlestock["stockfinal"] < 10 & $articlestock["stockfinal"] >0)
 						<td><span class="btn btn-lg btn-warning" id="rond"></span></td> @endif
 
-						@if ($stockfinal>=10)
+						@if ($articlestock["stockfinal"]>=10)
 						<td><span class="btn btn-lg btn-success" id="rond"></span></td>
 						@endif
 					</tr> 

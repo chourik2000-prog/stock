@@ -27,8 +27,9 @@ Route::get('/stock', function () {
 Route::get('/', function () {
     $annees = Annee::all();
     $homes = Article::all();
-    return view('home',compact('homes'))->with('annees', $annees);
+    return view('homeeee',compact('homes'))->with('annees', $annees);
 });
+// ->middleware('auth');
 Route::get('homeee', 'App\Http\Controllers\GestaccueilController@index')
     ->name('homeee');
 
