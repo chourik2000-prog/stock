@@ -29,6 +29,7 @@ class Annee extends Model
         return $this->hasMany(Demande::class, 'id_annee');
     }
 
+    
     public function getAnneeDebut()
     {
         return Carbon::createFromFormat('y-m-d',$this->dateDebut);

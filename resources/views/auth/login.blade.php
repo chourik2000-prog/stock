@@ -1,16 +1,13 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="row page-header header-filter">
     <div class="container">
         <div class="row">
-            <div class="col-md-6 col-lg-6 ml-auto mr-auto">
-                <img src="vendors/images/banner-img.png" alt="">
-            </div>
             <div class="container col-lg-6">
-                <div class="row justify-content-center">
+                <div class="login-box bg-white box-shadow" id="loginbox">
                     <div class="col-lg-11">
-                        <div class="card">
+                        <div class="loader-logo"><img src="{{asset('vendors/images/logo-icon.png')}}" alt=""><h3> IAI-TOGO gestion de stock</h3></div>
+                        <div>
                             <div class="card-header">{{ __("Saisir votre adresse mail et mot de passe ") }}</div>
 
                             <div class="card-body">
@@ -20,7 +17,7 @@
                                     <div class="row mb-3">
                                         <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email') }}</label>
 
-                                        <div class="col-md-6">
+                                        <div class="col-md-8">
                                             <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
 
                                             @error('email')
@@ -34,7 +31,7 @@
                                     <div class="row mb-3">
                                         <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Mot de passe') }}</label>
 
-                                        <div class="col-md-6">
+                                        <div class="col-md-8">
                                             <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
 
                                             @error('password')
@@ -59,8 +56,8 @@
 
                                     <div class="row mb-0">
                                         <div class="col-md-8 offset-md-4">
-                                            <button type="submit" class="btn btn-primary">
-                                                {{ __('Login') }}
+                                            <button type="submit" class="btn btn-info">
+                                                {{ __('Connexion') }}
                                             </button>
 
                                             @if (Route::has('password.request'))

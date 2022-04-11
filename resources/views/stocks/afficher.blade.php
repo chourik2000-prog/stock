@@ -31,17 +31,17 @@
 					</tr>
 				</thead>
 				<tbody>
-					@foreach ($stocks as $stock) 
-						<tr>
-							<td>{{ $stock->libelle}}({{$stock->caracteristique }})</td>
-							<td>{{ $totalCmdes }} </td>
-							<td>{{ $totalAppro }} </td>
-							<td>{{ $diff }} </td>
-							@if ($diff == 0)
-							<td><span class="btn btn-lg btn-succes" id="rond"></span> </td> @endif
-							@if ($diff != 0)
-							<td><span class="btn btn-lg btn-danger" id="rond"></span> </td> @endif		   		
-						</tr>	  
+					@foreach ($articlestocks as $articlestock)
+					<tr>
+						<td>{{ $articlestock["article"] }}</td>
+						<td>{{ $articlestock["cmd"] }}</td> 
+						<td>{{ $articlestock["entree"] }}</td>
+						<td>{{ $articlestock["diff"] }}</td>
+						@if ($articlestock["diff"] == 0)
+						<td><span class="btn btn-lg btn-succes" id="rond"></span> </td> @endif
+						@if ($articlestock["diff"] != 0)
+						<td><span class="btn btn-lg btn-danger" id="rond"></span> </td> @endif		   		
+					</tr>	  
 					@endforeach 
 				</tbody>
     		</table>     

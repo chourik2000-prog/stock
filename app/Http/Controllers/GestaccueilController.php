@@ -55,7 +55,7 @@ class GestaccueilController extends Controller
         $totalCmdn = $totalCmdes - $totalAppro;
         $stock = $totalAppro - $totalDemd - $totalPerte;
 
-        return view('homeee',compact('totalCmdes'))
+        return view('home',compact('totalCmdes'))
         ->with('totalCmdes', $totalCmdes)
         ->with('totalAppro', $totalAppro)
         ->with('totalDemd', $totalDemd)

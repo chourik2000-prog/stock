@@ -12,7 +12,7 @@
         <div class="sidebar-menu">
             <ul id="accordion-menu">
                 <li class="dropdown">
-                    <a href="{{route('homeee')}}" class="dropdown-toggle no-arrow">
+                    <a href="{{route('home')}}" class="dropdown-toggle no-arrow">
                         <span class="micon dw dw-house-1"></span><span class="mtext">Accueil</span>
                     </a>
                 </li>

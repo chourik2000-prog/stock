@@ -23,17 +23,15 @@ class AccueilController extends Controller
         
         // recupérer tous les articles
          $articles =  Article::all();  
-        // $articles=DB::table('approvisionnements')
-        //     ->leftJoin('articles', 'articles.id', '=', 'approvisionnements.id_article')	
-        //     ->select('approvisionnements.*','articles.*')
-        //     ->get();
 
         if($request->id_annee) 
         {
+            // déclaration d'un tableau vide
             $articlestocks = [];
 
             foreach($articles as $article)
             {
+                // initialisation des valeurs 
                 $si = 0;
                 $entree = 0;
                 $livree = 0;
@@ -41,10 +39,12 @@ class AccueilController extends Controller
                 $stocktotal =0;
                 $stockfinal = 0;
 
+                // recupération des articles qui sont dans approvisionnements et qui sont dans l'année choisie
                 $approvisionnements = Approvisionnement::whereIdArticle($article->id)
                 ->where('id_annee',$request->id_annee)
                 ->get();
 
+                // parcourir les aprovisionnement et faire la somme 
                 foreach($approvisionnements as $approvisionnement)
                 {
                     $entree += $approvisionnement->qentrant;
@@ -70,10 +70,8 @@ class AccueilController extends Controller
     
                 $stocktotal = $si + $entree;
                 $stockfinal = $stocktotal - $livree - $perdue;
-            
-            // selectionner les articles qui ont pour id_annee,id_annee que l'utilisateur choisi
                
-
+                // remplissage du tableau
                 array_push
                 ($articlestocks, 
                     [
@@ -88,9 +86,7 @@ class AccueilController extends Controller
                     ]
                 );
             }
-            // parcourir les aprovisionnement et faire la somme 
            
-
             return view('accueils.accueil')
         ->with('articlestocks', $articlestocks);
 
@@ -99,4 +95,5 @@ class AccueilController extends Controller
         return view('accueils.recherche')
         ->with('annees',$annees);
     }
+
 }

@@ -15,25 +15,61 @@ class StockController extends Controller
     public function recherche(Request $request)
     {
         $annees = DB::table('annees')->get();
-        $stocks = Article::all();
+        
+        // recupérer tous les articles
+         $articles =  Article::all();  
 
-        $an = $request->id_annee;
+        if($request->id_annee) 
+        {
+            // déclaration d'un tableau vide
+            $articlestocks = [];
 
-        if($an) {
-            $totalCmdes = Commande::where('id_annee', $an)
-                ->sum('quantite');
+            foreach($articles as $article)
+            {
+                // initialisation des valeurs 
+                $cmd = 0;
+                $entree = 0;
+                $diff =0;
 
-            $totalAppro = Approvisionnement::where('id_annee',$an)
-                ->sum('qentrant');
+                // recupération des articles qui sont dans approvisionnements et qui sont dans l'année choisie
+                $approvisionnements = Approvisionnement::whereIdArticle($article->id)
+                ->where('id_annee',$request->id_annee)
+                ->get();
 
-            $diff = $totalCmdes - $totalAppro;
+                // parcourir les aprovisionnement et faire la somme 
+                foreach($approvisionnements as $approvisionnement)
+                {
+                    $entree += $approvisionnement->qentrant;
+                }  
 
+                $commandes = Commande::whereIdArticle($article->id)
+                ->where('id_annee',$request->id_annee)
+                ->get();
+              
+                foreach($commandes as $commande)
+                {
+                    $cmd += $commande->quantite;
+                }   
+    
+                $diff = $cmd - $entree;
+               
+                // remplissage du tableau
+                array_push
+                ($articlestocks, 
+                    [
+                        "article" => $article->libelle , 
+                        "cmd" => $cmd,
+                        "entree" => $entree,
+                        "diff" => $diff,
+
+                    ]
+                );
+            }
+           
             return view('stocks.afficher')
-                ->with('totalCmdes', $totalCmdes)
-                ->with('totalAppro', $totalAppro)
-                ->with('diff', $diff)
-                ->with('stocks', $stocks)
-                ->with('annees', $annees);
+        ->with('articlestocks', $articlestocks);
+
+        // 
         }
         return view('stocks.recherche')
         ->with('annees',$annees);
