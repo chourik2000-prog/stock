@@ -5,7 +5,7 @@ use App\Models\Demande;
 use App\Models\Article;
 use App\Models\Annee;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\AgentController; 
+use App\Http\Controllers\Auth\LoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,14 +18,24 @@ use App\Http\Controllers\AgentController;
 |
 */
 
+// Route::group(['namespace' => 'App\Http\Controllers'], function()
+// { 
+//     Route::get('admin', 'Admin\LoginController@showLoginForm')->name('admin.login');
+//     Route::post('admin', 'Admin\LoginController@login');
+//     Route::get('/articles/afficher','ArticleController@index');
+//     Route::resource('articles', ArticleController::class);
+// });
+
 Auth::routes([
     'register' => false,
     'reset' => false,
     'verify' => false
 ]);
 
+
 Route::group(['namespace' => 'App\Http\Controllers'], function()
 { 
+  
     Route::group(['middleware' => ['auth']], function() {
 
         Route::get('/logout', 'Auth\LogoutController@logout')->name('auth.logout');
@@ -75,13 +85,6 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
         Route::resource('pertes', PerteController::class);
 
         /**
-         * categories.
-         */
-
-        Route::get('/categories', 'CategorieController@index');
-        Route::resource('categories', CategorieController::class);
-
-        /**
          * annees.
          */
 
@@ -98,14 +101,23 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
         /**
          * accueil.
          */
-        
+
         Route::get('/accueils/recherche', 'AccueilController@recherche')->name('accueil.rech');
         Route::post('/accueils/recherche', 'AccueilController@recherche');
         Route::resource('accueils', AccueilController::class);
-
-        Route::resource('articles', ArticleController::class);
-        Route::resource('agents', AgentController::class);
-        Route::resource('fournisseurs', FournisseurController::class);
         Route::resource('layouts', LayoutController::class);
+
+                /**
+             * categories.
+             */
+            Route::get('/categories', 'CategorieController@index');
+            Route::resource('categories', CategorieController::class);
+
+            Route::resource('articles', ArticleController::class);
+            Route::resource('agents', AgentController::class);
+            Route::resource('fournisseurs', FournisseurController::class);
+            // Route::resource('users', UserController::class);
+        
     });
+    Route::resource('users', UserController::class);
 });

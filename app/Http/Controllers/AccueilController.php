@@ -72,19 +72,21 @@ class AccueilController extends Controller
                 $stockfinal = $stocktotal - $livree - $perdue;
                
                 // remplissage du tableau
-                array_push
-                ($articlestocks, 
-                    [
-                        "article" => $article->libelle , 
-                        "si" => $si,
-                        "entree" => $entree,
-                        "stocktotal" => $stocktotal,
-                        "livree" => $livree,
-                        "perdue" => $perdue,
-                        "stockfinal" => $stockfinal,
+                if($entree>0){
+                    array_push
+                    ($articlestocks, 
+                        [
+                            "article" => $article->libelle , 
+                            "si" => $si,
+                            "entree" => $entree,
+                            "stocktotal" => $stocktotal,
+                            "livree" => $livree,
+                            "perdue" => $perdue,
+                            "stockfinal" => $stockfinal,
 
-                    ]
-                );
+                        ]
+                    );
+                }
             }
            
             return view('accueils.accueil')

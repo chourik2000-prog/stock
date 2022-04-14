@@ -54,16 +54,18 @@ class StockController extends Controller
                 $diff = $cmd - $entree;
                
                 // remplissage du tableau
-                array_push
-                ($articlestocks, 
-                    [
-                        "article" => $article->libelle , 
-                        "cmd" => $cmd,
-                        "entree" => $entree,
-                        "diff" => $diff,
+                if($entree>0){
+                    array_push
+                        ($articlestocks, 
+                            [
+                                "article" => $article->libelle , 
+                                "cmd" => $cmd,
+                                "entree" => $entree,
+                                "diff" => $diff,
 
-                    ]
-                );
+                            ]
+                        );
+                }
             }
            
             return view('stocks.afficher')

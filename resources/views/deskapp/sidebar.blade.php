@@ -81,6 +81,12 @@
                         <span class="micon icon-copy dw dw-hourglass1"></span><span class="mtext">Bilan</span>
                     </a>
                 </li>
+
+                <li class="dropdown">
+                    <a href="/users" class="dropdown-toggle no-arrow">
+                        <span class="micon icon-copy dw dw-add-user"></span><span class="mtext">Utilisateus</span>
+                    </a>
+                </li>
             </ul>
         </div>
     </div>

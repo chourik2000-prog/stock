@@ -8,9 +8,9 @@
                     <div class="col-lg-12">
                         <div class="loader-logo"><img src="{{asset('vendors/images/logo-icon.png')}}" alt=""><h3> IAI-TOGO gestion de stock</h3></div>
                         <div>
-                            <div class="card-header">{{ __("Saisir votre nom d'utilisateur et le mot de passe ") }}</div>
+                            <div class="card-header">{{ __("Saisir votre nom d'utilisateur et le mot de passe Admin") }}</div>
                             <div class="card-body">
-                                <form class="form" method="POST" action="{{ route('login') }}">
+                                <form class="form" method="POST" action="{{ route('admin.login') }}">
                                     @csrf
                                     <div class="row mb-3">
                                         <label for="name" class="col-md-6 col-form-label text-md-end">{{ __("Nom d'utilisateur") }}</label>
@@ -49,7 +49,6 @@
                                             <button type="submit" class="btn btn-primary btn-lg">
                                                 {{ __('Connexion') }}
                                             </button>
-
                                             @if (Route::has('password.request'))
                                                 <a class="btn btn-link" href="{{ route('password.request') }}">
                                                     {{ __('Mot de passe oublié?') }}
