@@ -36,14 +36,14 @@ Auth::routes([
 Route::group(['namespace' => 'App\Http\Controllers'], function()
 { 
   
-    Route::group(['middleware' => ['auth']], function() {
+    Route::group(['middleware' => ['auth','role']], function() {
 
         Route::get('/logout', 'Auth\LogoutController@logout')->name('auth.logout');
        
         Route::get('home', 'GestaccueilController@index')->name('home');
 
         // header 
-        Route::get('deskapp/header', 'TerminerController@index');
+        // Route::get('deskapp/header', 'helpers@index');
         /**
          * bilans.
          */
@@ -116,8 +116,7 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
             Route::resource('articles', ArticleController::class);
             Route::resource('agents', AgentController::class);
             Route::resource('fournisseurs', FournisseurController::class);
-            // Route::resource('users', UserController::class);
+            Route::resource('users', UserController::class);
         
-    });
-    Route::resource('users', UserController::class);
+    });   
 });

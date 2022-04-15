@@ -17,7 +17,9 @@
         "laravel/framework": "^8.0",
         "laravel/tinker": "^2.0",
         "laravel/ui": "^3.4",
-        "nesbot/carbon": "^2.57"
+        "laravelcollective/html": "^6.3",
+        "nesbot/carbon": "^2.57",
+        "spatie/laravel-permission": "^5.5"
     },
     "require-dev": {
         "facade/ignition": "^2.3.6",
@@ -37,6 +39,7 @@
         }
     },
     "autoload": {
+        "files": ["app/helpers.php"],
         "psr-4": {
             "App\\": "app/",
             "Database\\Factories\\": "database/factories/",

@@ -11,7 +11,9 @@ class Fournisseur extends Model
     protected $table = 'fournisseurs';
     protected $fillable = ['nom','contact'];
 
-    public function approvisionnements(){
-    return $this->hasMany(Approvisionnement::class, 'id_fournisseur');
-}
+    public function approvisionnements()
+    {
+        return $this->hasMany(Approvisionnement::class, 'id_fournisseur');
+    }
+
 }

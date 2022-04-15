@@ -1,12 +1,6 @@
 <div class="header">
     <div class="header-left">
-        <a href="" > 
-            <h4 class="text-white">
-                Année en cours:
-                {{ucwords($monthd)}} {{$yeard}} - {{ucwords($monthf)}} {{$yearf}}
-                @include('flash::message')
-            </h4>
-        </a>
+        
     </div>
     <div class="header-right">
         <div class="user-info-dropdown">
