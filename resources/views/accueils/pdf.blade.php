@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <HTml>
     <HEAd>
-        <meta charset="utf8">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
         <title>pdf</title>
         <link rel="stylesheet" type="text/css" href={{asset('vendors/styles/core.css')}}>
 	<link rel="stylesheet" type="text/css" href={{asset('vendors/styles/icon-font.min.css')}}>
@@ -62,7 +62,7 @@
                         <th>Alerte</th>
                     </tr>
                 </THead>
-                <tbody>
+                {{-- <tbody>
                     @foreach ($articlestocks as $articlestock)
                         <tr>
                             <td>{{ $articlestock["article"] }}</td>
@@ -84,7 +84,7 @@
                             @endif
                         </tr> 
                     @endforeach
-                </tbody>
+                </tbody> --}}
             </table> 
         </div>
     </body>

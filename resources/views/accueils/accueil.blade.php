@@ -11,7 +11,7 @@
 			</div>	
 		
 			<div class="pull-right">
-				<a href={{route('accueil.pdf')}} class="btn btn-success">
+				<a href={{route('download.pdf')}} class="btn btn-success">
 					<i class="icon-copy dw dw-file-3"></i>
 					Sortir le PDF
 				</a>

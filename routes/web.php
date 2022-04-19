@@ -100,13 +100,13 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
         /**
          * accueil.
          */
-        // Route::get('/accueils/pdf', 'PdfController@recherche')->name('accueil.pdf');
+        Route::get('/accueils/pdf', 'PdfController@recherche')->name('accueil.pdf');
+        Route::post('/accueils/pdf', 'PdfController@recherche');
         Route::get('/accueils/pdf', 'PdfController@downloadPDF')->name('download.pdf');
-        Route::post('/accueils/pdf', 'PdfController@downloadPDF');
     
         Route::get('/accueils/recherche', 'AccueilController@recherche')->name('accueil.rech');
         Route::post('/accueils/recherche', 'AccueilController@recherche');
-
+        
         Route::resource('layouts', LayoutController::class);
 
                 /**

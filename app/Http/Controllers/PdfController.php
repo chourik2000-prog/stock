@@ -16,14 +16,15 @@ class PdfController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function downloadPDF(Request $request)
+    public function recherche(Request $request)
     {
         $annees = DB::table('annees')->get();
         
         // recupérer tous les articles
          $articles =  Article::all();  
-         if($request->id_annee) 
-         {
+
+        if($request->id_annee) 
+        {
             // déclaration d'un tableau vide
             $articlestocks = [];
 
@@ -86,9 +87,20 @@ class PdfController extends Controller
                     );
                 }
             }
-            $pdf = PDF::loadView('accueils.pdf',compact('$articlestocks'))
-            ->with('articlestocks',$articlestocks);
-            return $pdf->download('accueils.pdf');
-         }
-    }      
+           
+            return view('accueils.pdf')
+        ->with('articlestocks', $articlestocks);
+
+        }   
+    }
+
+    public function downloadPDF()
+    {
+        $pdf = PDF::loadView('accueils.pdf');
+
+        // download pdf file
+        return $pdf->download('accueils.pdf');
+    }
+   
+
 }

@@ -44,7 +44,7 @@ class AccueilController extends Controller
                 ->where('id_annee',$request->id_annee)
                 ->get();
 
-                // parcourir les aprovisionnement et faire la somme 
+                // parcourir les approvisionnement et faire la somme 
                 foreach($approvisionnements as $approvisionnement)
                 {
                     $entree += $approvisionnement->qentrant;
@@ -92,8 +92,7 @@ class AccueilController extends Controller
             return view('accueils.accueil')
         ->with('articlestocks', $articlestocks);
 
-        }
-       
+        } 
         return view('accueils.recherche')
         ->with('annees',$annees);
     }
