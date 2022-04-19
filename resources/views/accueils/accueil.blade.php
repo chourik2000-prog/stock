@@ -1,4 +1,4 @@
-@extends('deskapp.layout')
+@extends('deskapp.lay')
 @section('content')
 <h2 class="h4 ">Liste des fournitures en stock</h2>
 	<div class="card-box mb-30 pd-20">
@@ -11,7 +11,7 @@
 			</div>	
 		
 			<div class="pull-right">
-				<a href={{route('accueil.rech')}} class="btn btn-success">
+				<a href={{route('accueil.pdf')}} class="btn btn-success">
 					<i class="icon-copy dw dw-file-3"></i>
 					Sortir le PDF
 				</a>

@@ -1,5 +1,5 @@
 
-@extends('deskapp.layout')
+@extends('deskapp.lay')
  @section('content')
 <!-- basic table  Start -->
 <div class="col-md-6 col-sm-12">

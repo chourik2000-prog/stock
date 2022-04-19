@@ -1,5 +1,5 @@
 
-@extends('deskapp.layout')
+@extends('deskapp.lay')
  
  @section('content')
 	<!-- basic table  Start -->
@@ -38,7 +38,7 @@
 						<td>{{ $articlestock["entree"] }}</td>
 						<td>{{ $articlestock["diff"] }}</td>
 						@if ($articlestock["diff"] == 0)
-						<td><span class="btn btn-lg btn-succes" id="rond"></span> </td> @endif
+						<td><span class="btn btn-lg btn-success" id="rond"></span> </td> @endif
 						@if ($articlestock["diff"] != 0)
 						<td><span class="btn btn-lg btn-danger" id="rond"></span> </td> @endif		   		
 					</tr>	  
