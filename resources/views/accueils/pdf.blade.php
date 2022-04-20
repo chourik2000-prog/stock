@@ -3,10 +3,6 @@
     <HEAd>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
         <title>pdf</title>
-        <link rel="stylesheet" type="text/css" href={{asset('vendors/styles/core.css')}}>
-	<link rel="stylesheet" type="text/css" href={{asset('vendors/styles/icon-font.min.css')}}>
-	<link rel="stylesheet" type="text/css" href={{asset('vendors/styles/style.css')}}>
-        <link rel="stylesheet" type="text/css" href={{asset("vendors/DataTables/dataTables.bootstrap4.min.css")}}>
         <style>
             table{
             border-collapse: collapse;
@@ -42,13 +38,7 @@
         <div>
             <div id="img">
                 <img src="{{asset('vendors/images/logo-icon.png')}}" alt="" class="light-logo"><span>IAI-TOGO Gestion de stock</span>
-            </div>
-            <div class="pull-right" id="btn">
-				<a href={{route('download.pdf')}} class="btn btn-info">
-					<i class="icon-copy dw dw-file-3"></i>
-					Télécharger le PDF
-				</a>
-			</div>	
+            </div>	
             <table>  
                 <THead>
                     <tr class="ligne1">
@@ -62,16 +52,16 @@
                         <th>Alerte</th>
                     </tr>
                 </THead>
-                {{-- <tbody>
+                <tbody>
                     @foreach ($articlestocks as $articlestock)
                         <tr>
-                            <td>{{ $articlestock["article"] }}</td>
-                            <td>{{ $articlestock["si"] }}</td> 
-                            <td>{{ $articlestock["entree"] }}</td>
-                            <td>{{ $articlestock["stocktotal"] }}</td>
-                            <td>{{ $articlestock["livree"] }}</td>
-                            <td>{{ $articlestock["perdue"] }}</td> 
-                            <td>{{ $articlestock["stockfinal"] }} </td>
+                            <td> {{ $articlestock["article"] }} </td>
+                            <td> {{ $articlestock["si"] }} </td> 
+                            <td> {{ $articlestock["entree"] }} </td>
+                            <td> {{ $articlestock["stocktotal"] }} </td>
+                            <td> {{ $articlestock["livree"] }} </td>
+                            <td> {{ $articlestock["perdue"] }} </td> 
+                            <td> {{ $articlestock["stockfinal"] }} </td>
 
                             @if ($articlestock["stockfinal"] == 0)
                             <td><span class="btn btn-lg btn-danger" id="rond"></span></td> @endif
@@ -84,7 +74,7 @@
                             @endif
                         </tr> 
                     @endforeach
-                </tbody> --}}
+                </tbody>
             </table> 
         </div>
     </body>
