@@ -7,6 +7,7 @@ use App\Models\Annee;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\LoginController;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,13 +19,6 @@ use App\Http\Controllers\Auth\LoginController;
 |
 */
 
-// Route::group(['namespace' => 'App\Http\Controllers'], function()
-// { 
-//     Route::get('admin', 'Admin\LoginController@showLoginForm')->name('admin.login');
-//     Route::post('admin', 'Admin\LoginController@login');
-//     Route::get('/articles/afficher','ArticleController@index');
-//     Route::resource('articles', ArticleController::class);
-// });
 
 Auth::routes([
     'register' => false,
@@ -100,9 +94,8 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
         /**
          * accueil.
          */
-        // Route::get('/accueils/pdf', 'PdfController@recherche')->name('accueil.pdf');
-        // Route::post('/accueils/pdf', 'PdfController@recherche');
-        //  Route::get('/accueils/pdf', 'PdfController')->name('download.pdf');
+        Route::get('/pdfs/pdf', 'PdfController@index')->name('pdfs.pdf');
+        Route::post('/pdfs/recherche', 'PdfController@index');
     
         Route::get('/accueils/recherche', 'AccueilController@recherche')->name('accueil.rech');
         Route::post('/accueils/recherche', 'AccueilController@recherche');
