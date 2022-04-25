@@ -84,7 +84,7 @@
 
                 <li class="dropdown">
                     <a href="{{route('pdfs.pdf')}}" class="dropdown-toggle no-arrow">
-                        <span class="micon icon-copy dw dw-hourglass1"></span><span class="mtext">PDF</span>
+                        <span class="micon icon-copy dw dw-open-book-1"></span><span class="mtext">PDF</span>
                     </a>
                 </li>
 

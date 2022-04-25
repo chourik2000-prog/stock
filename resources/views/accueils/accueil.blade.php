@@ -11,10 +11,7 @@
 			</div>	
 		
 			<div class="pull-right">
-				<a href={{route('accueil.pdf')}} class="btn btn-success">
-					<i class="icon-copy dw dw-file-3"></i>
-					Sortir le PDF
-				</a>
+				<a href="{{route('approv.rech')}}" class="btn btn-success btn-sm text-white">Approvisionnement</a>
 			</div>
 		</div>
 		<table class="table nowrap" id="myTable">

@@ -100,7 +100,7 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
         Route::get('/accueils/recherche', 'AccueilController@recherche')->name('accueil.rech');
         Route::post('/accueils/recherche', 'AccueilController@recherche');
         
-        Route::resource('layouts', LayoutController::class);
+        // Route::resource('layouts', LayoutController::class);
 
                 /**
              * categories.

@@ -16,6 +16,5 @@ class LayoutController extends Controller
         $annees = Annee::all();
         return view('annees',compact('annees'))->with('annees', $annees);
     }
-
-   
+  
 }

@@ -17,7 +17,7 @@
 				</a>
 			</div>
 			<div class="pull-right">
-				<a href="{{route('stock.rech')}}" class="btn btn-success btn-sm text-white">Approvisionnement</a>
+				<a href="{{route('approv.rech')}}" class="btn btn-success btn-sm text-white">Approvisionnement</a>
 			</div>
 		</div>			
 			<table class="table" id="datatable">

@@ -39,7 +39,6 @@ class BilanController extends Controller
     {
         $annees = Annee::all();
         $bilans = DB::table('articles')->get();
-
         if($request->input('id_article') != null) {
            return  redirect()->route('bilanChart', [
             'id_article' => $request->input('id_article')
