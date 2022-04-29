@@ -43,7 +43,7 @@
                 </li>
                 <li>
                     <a href="{{route('demande.rech')}}" class="dropdown-toggle no-arrow">
-                        <span class="micon dw dw-diagonal-arrow-3"></span><span class="mtext">Bésoins</span>
+                        <span class="micon dw dw-diagonal-arrow-3"></span><span class="mtext">Besoins</span>
                     </a>
                 </li>
             
@@ -90,7 +90,7 @@
 
                 <li class="dropdown">
                     <a href="/users" class="dropdown-toggle no-arrow">
-                        <span class="micon icon-copy dw dw-add-user"></span><span class="mtext">Utilisateus</span>
+                        <span class="micon icon-copy dw dw-add-user"></span><span class="mtext">Utilisateurs</span>
                     </a>
                 </li>
             </ul>

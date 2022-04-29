@@ -16,14 +16,16 @@
                             <div class="select">   
                                 <div class="form-group">
                                     <label class="label" for="ida">Désignation</label>
-                                        <select id="ida"
-                                            class="form-control @error('id_article') is-invalid @enderror"  
-                                            name="id_article" required="required">
-                                            @foreach($articles as $article)
-                                                <option name="libelle" value="{{ $article->id }}">{{ $article->libelle }}</option>
-                                            @endforeach
-                                        </select>
-                                        @error('id_article') <p>Ce champs est incorrect</p>@enderror
+                                    <select id="ida"
+                                        class="form-control @error('id_article') is-invalid @enderror"  
+                                        name="id_article" required="required">
+                                        @foreach($articles as $article)
+                                            <option name="libelle" value="{{$article->id }}">
+                                                {{ $article->libelle }}
+                                            </option>
+                                        @endforeach
+                                    </select>
+                                    @error('id_article') <p>Ce champs est incorrect</p>@enderror
                                 </div>
                                 <div class="form-group">
                                     <label for="qperdue">Perte:</label>
@@ -41,18 +43,20 @@
                                      required="required">
                                 </div>
                                 <div class="form-group">
-                                    <label class="label" for="ida">Année académique</label>
-                                        <select class="ida"
-                                            class="form-control @error('id_annee') is-invalid @enderror" 
-                                            name="id_annee" required="required">
+                                    <label class="label" for="ann">Année académique</label>
+                                    <div class="select">
+                                        <select id="ann"
+                                        class="form-control @error('id_annee') is-invalid @enderror" 
+                                        name="id_annee" required="required">
                                             @foreach($annees as $annee)
                                                 <option name="libelle" value="{{ $annee->id }}">
                                                     {{ $annee->dateDebut }} au {{ $annee->dateFin }}
                                                 </option>
                                             @endforeach
                                         </select>
-                                        @error('id_annee') <p>Ce champs est incorrect</p>@enderror
-                                </div> 
+                                    </div>
+                                    @error('id_annee') <p>Ce champs est incorrect</p>@enderror
+                                </div>
                             </div>
                         </div>
                     </div>

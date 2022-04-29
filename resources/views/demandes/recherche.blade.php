@@ -8,7 +8,7 @@
                 <div class="clearfix mb-20">
                     <div class="pull-left">
                         <h4 class="font-20 weight-500 mb-10">
-                            Choisir l'année pour voir la liste des bésoins
+                            Choisir l'année pour voir la liste des besoins
                         </h4>
                     </div>
                 </div>
@@ -46,7 +46,7 @@
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <button type="submit" class="btn btn-primary">
                                     <i class="icon-copy dw dw-analytics-6"></i>
-                                      Voir les bésoins
+                                      Voir les besoins
                                 </button>
                             </div> 
                         </div>
