@@ -15,7 +15,7 @@ class AddRoleNullToUsers extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             $table
-                ->bigInteger('id_role')
+                ->bigInteger('id_role', false, true)
                 ->nullable()
                 ->change();
         });
