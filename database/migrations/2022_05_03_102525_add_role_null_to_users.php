@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddIdRoleToUsers extends Migration
+class AddRoleNullToUsers extends Migration
 {
     /**
      * Run the migrations.
@@ -14,13 +14,12 @@ class AddIdRoleToUsers extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-
-            $table->foreignId('id_role')
-                ->constrained('roles')
-                ->onUpdate('cascade')
-                ->onDelete('cascade');
-            
+            $table
+                ->bigInteger('id_role')
+                ->nullable()
+                ->change();
         });
+    
     }
 
     /**
