@@ -24,10 +24,6 @@ set('branch', 'feat/deploy');
 set('ssh_multiplexing', false);
 
 // Tasks
-task('success', function() {
-
-});
-
 desc('Deploiement');
 task('deploy', [
     'deploy:prepare',
@@ -43,5 +39,4 @@ task('deploy', [
     'deploy:publish'
 ]);
 
-after('deploy', 'success');
 after('deploy:failed', 'deploy:unlock');
