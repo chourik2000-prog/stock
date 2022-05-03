@@ -17,8 +17,10 @@ class CreateAgentsTable extends Migration
             $table->id();
             $table->string('nom');
             $table->string('prenom');
-            $table->integer('idcat')->unsigned();
-            $table->foreign('idcat')->references('id')->on('categories');
+            $table->foreignId('idcat')
+            ->constrained('categories')
+            ->onUpdate('cascade')
+            ->onDelete('cascade');
             $table->timestamps();
         });
     }
