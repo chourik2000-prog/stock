@@ -20,7 +20,7 @@ host('localhost')
     ->set('deploy_path', '/var/www/stock');
 
 
-set('branch', 'feat/deploy');
+set('branch', 'fix/migrations');
 set('ssh_multiplexing', false);
 
 // Tasks
