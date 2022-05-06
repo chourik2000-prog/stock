@@ -22,8 +22,10 @@ class PdfController extends Controller
     {
         $annees = DB::table('annees')->get();
         
-        // recupérer tous les articles
-         $articles =  Article::all();  
+        // recupérer tous les articles et les classer par ordre alphabétique
+        $articles = DB::table('articles')
+                ->orderBy('libelle', 'asc')
+                ->get();
 
          if($request->id_annee) 
          {

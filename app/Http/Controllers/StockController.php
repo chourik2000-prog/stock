@@ -17,7 +17,9 @@ class StockController extends Controller
         $annees = DB::table('annees')->get();
         
         // recupérer tous les articles
-         $articles =  Article::all();  
+        $articles = DB::table('articles')
+        ->orderBy('libelle', 'asc')
+        ->get(); 
 
         if($request->id_annee) 
         {

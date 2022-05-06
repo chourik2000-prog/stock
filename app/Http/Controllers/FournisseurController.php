@@ -18,7 +18,10 @@ class FournisseurController extends Controller
     public function index()
     {
         $annees = Annee::all();
-        $fournisseurs = Fournisseur::all();
+        $fournisseurs = DB::table('fournisseurs')
+                ->orderBy('nom', 'asc')
+                ->get();
+        // $fournisseurs = Fournisseur::all();
     return view('fournisseurs.afficher',compact('fournisseurs'))->with('annees', $annees);
     }
 
