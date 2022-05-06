@@ -13,7 +13,7 @@
                     <span class="user-name">IAI-TOGO</span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
-                    <a class="dropdown-item" href="/deskapp/profil.blade.php"><i class="dw dw-user1"></i> Profil</a>
+                    {{-- <a class="dropdown-item" href="/deskapp/profil.blade.php"><i class="dw dw-user1"></i> Profil</a> --}}
                     <a class="dropdown-item" href="{{route('auth.logout')}}">
                         <i class="dw dw-logout"></i>
                         Déconnexion
