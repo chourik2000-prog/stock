@@ -16,10 +16,17 @@ class CreateCommandesTable extends Migration
         Schema::create('commandes', function (Blueprint $table) {
             $table->id();
             $table->integer('quantite');
-            $table->Integer('id_article')->unsigned();
-            $table->Integer('id_annee')->unsigned();
-            $table->foreign('id_article')->references('id')->on('articles');
-            $table->foreign('id_annee')->references('id')->on('annees');
+           
+            $table->foreignId('id_article')
+            ->constrained('articles')
+            ->onUpdate('cascade')
+            ->onDelete('cascade');
+
+            $table->foreignId('id_annee')
+            ->constrained('annees')
+            ->onUpdate('cascade')
+            ->onDelete('cascade');
+
             $table->timestamps();
         });
     }

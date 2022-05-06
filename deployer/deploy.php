@@ -9,7 +9,20 @@ set('repository', 'git@github.com:chourik2000-prog/stock.git');
 
 add('shared_files', []);
 add('shared_dirs', []);
-add('writable_dirs', []);
+add('writable_dirs', [
+    'app',
+    'bootstrap/cache',
+    'storage',
+    'storage/app',
+    'storage/app/public',
+    'storage/framework',
+    'storage/framework/cache',
+    'storage/framework/sessions',
+    'storage/framework/views',
+    'storage/logs',
+]);
+
+add('copy_dirs', ['vendor']);
 
 // Hosts
 
@@ -18,6 +31,7 @@ host('localhost')
     ->set('remote_user', 'deployer')
     ->set('port', '2325')
     ->set('identity_file', '~/.ssh/deployer')
+<<<<<<< HEAD
     ->set('deploy_path', '/var/www/iaigestion')
     ->set('writable_mode', 'chmod')
     ->set('writable_chmod_mode', '0775')
@@ -38,7 +52,14 @@ host('localhost')
 
 
 set('branch', 'master');
+=======
+    ->set('deploy_path', '/var/www/iaigestion');
+
+
+set('branch', 'fix/migrations');
+>>>>>>> 2e5bd1420849c929eb05ecc669dfa7ba3b284dbc
 set('ssh_multiplexing', false);
+set('keep_releases', 4);
 
 // Tasks
 desc('mettre les dossiers de larapex en écriture');
