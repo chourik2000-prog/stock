@@ -34,7 +34,7 @@ host('localhost')
     ->set('deploy_path', '/var/www/iaigestion')
     ->set('writable_mode', 'chmod')
     ->set('writable_chmod_mode', '0775')
-    // ->set('writable_use_sudo', 'true')
+    ->set('writable_recursive', 'true')
     ->set('writable_dirs', [
         'bootstrap/cache',
         'storage',
