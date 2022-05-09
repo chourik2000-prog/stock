@@ -40,23 +40,6 @@
                                             </select>
                                         </div>
                                     </div>
-                                    <div class="form-group">
-                                        <label class="label" for="mois">Mois</label>
-                                        <div class="select">
-                                            <select id="mois" class="form-control" name="id_annee">
-                                                @foreach($annees as $annee)
-                                                    @php
-                                                        $dateDebut = $annee->dateDebut;
-                                                        $dateFin = $annee->dateFin;
-                                                        
-                                                    @endphp
-                                                    <option value="{{ $annee->id }}">
-                                                        {{ucwords($monthd)}} {{$yeard}}
-                                                    </option>
-                                                @endforeach
-                                            </select>
-                                        </div>
-                                    </div>
                                 </div>
                             </div>
                             <div class="row text-center">

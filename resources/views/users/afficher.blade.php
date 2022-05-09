@@ -35,7 +35,6 @@
                <tr>
                        <td>{{ $user->name}}</td>
                        <td>{{ $user->password}}</td>
-                       <td>{{ $user->role->name}}</td>
                    <td>
                        <form action="{{ route('users.destroy',$user->id) }}" method="POST">    
                            {{-- <button type="button" class="btn btn-info btn-sm" data-toggle="modal" 
