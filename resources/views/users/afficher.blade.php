@@ -26,7 +26,6 @@
                <tr>
                    <th scope="col"> <strong>Nom</strong> </th>
                    <th scope="col"> <strong>Mot de passe</strong> </th>
-                   <th scope="col"> <strong>Role</strong> </th>
                    <th scope="col"> <strong> Actions</strong> </th>
                </tr>
            </thead>
