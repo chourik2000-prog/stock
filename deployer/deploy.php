@@ -31,7 +31,6 @@ host('localhost')
     ->set('remote_user', 'deployer')
     ->set('port', '2325')
     ->set('identity_file', '~/.ssh/deployer')
-<<<<<<< HEAD
     ->set('deploy_path', '/var/www/iaigestion')
     ->set('writable_mode', 'chmod')
     ->set('writable_chmod_mode', '0775')
@@ -52,12 +51,7 @@ host('localhost')
 
 
 set('branch', 'master');
-=======
-    ->set('deploy_path', '/var/www/iaigestion');
 
-
-set('branch', 'fix/migrations');
->>>>>>> 2e5bd1420849c929eb05ecc669dfa7ba3b284dbc
 set('ssh_multiplexing', false);
 set('keep_releases', 4);
 
