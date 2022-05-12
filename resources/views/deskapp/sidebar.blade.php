@@ -89,6 +89,18 @@
                 </li>
 
                 <li class="dropdown">
+                    <a href="{{route('consoagent.rech')}}" class="dropdown-toggle no-arrow">
+                        <span class="micon icon-copy dw dw-user-13"></span><span class="mtext">Conso par agent</span>
+                    </a>
+                </li>
+
+                {{-- <li class="dropdown">
+                    <a href="{{route('consocategorie.rech')}}" class="dropdown-toggle no-arrow">
+                        <span class="micon icon-copy dw dw-chat-2"></span><span class="mtext">Conso par catégorie</span>
+                    </a>
+                </li> --}}
+
+                <li class="dropdown">
                     <a href="/users" class="dropdown-toggle no-arrow">
                         <span class="micon icon-copy dw dw-add-user"></span><span class="mtext">Utilisateurs</span>
                     </a>
