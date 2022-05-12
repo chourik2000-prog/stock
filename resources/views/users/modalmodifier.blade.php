@@ -40,7 +40,7 @@
                                 required="required">
                                 @error('password') <p>Ce champs est incorrect</p>@enderror
                             </div>
-                            <div class="form-group">
+                            {{-- <div class="form-group">
                                 <label class="label" for="cat">Role</label>
                                 <div class="select">
                                     <select id="id_role"
@@ -52,7 +52,7 @@
                                     </select>
                                 </div>
                                 @error('idcat') <p>Ce champs est incorrect</p>@enderror
-                            </div>
+                            </div> --}}
                         </div>
                     </div>
                     <div class="row"> 
