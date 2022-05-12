@@ -24,7 +24,7 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <style>
         body{
-            background-color: rgb(241, 226, 226);
+            background-color: rgba(245, 244, 244, 0.87);
         }
         #loginbox{
             border-radius: 30px;
