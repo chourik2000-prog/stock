@@ -27,14 +27,36 @@ add('copy_dirs', ['vendor']);
 // Hosts
 
 host('localhost')
-//    ->set('hostname', '127.0.0.1')
+    ->set('hostname', '127.0.0.1')
     ->set('remote_user', 'deployer')
     ->set('port', '2325')
     ->set('identity_file', '~/.ssh/deployer')
     ->set('deploy_path', '/var/www/iaigestion')
     ->set('writable_mode', 'chmod')
     ->set('writable_chmod_mode', '0775')
-    // ->set('writable_use_sudo', 'true')
+    ->set('writable_dirs', [
+        'bootstrap/cache',
+        'storage',
+        'storage/app',
+        'storage/app/public',
+        'storage/framework',
+        'storage/framework/cache',
+        'storage/framework/sessions',
+        'storage/framework/views',
+        'storage/logs',
+        'app/Console',
+        'stubs',
+    ]);
+
+host('iaiGestionProd')
+    ->set('hostname', '10.0.0.32')
+    ->set('remote_user', 'deployer')
+    ->set('port', '22')
+    ->set('identity_file', '~/.ssh/id_keydepl')
+    ->set('deploy_path', '/var/www/iaigestion')
+    ->set('writable_mode', 'chmod')
+    ->set('StrictHostKeyChecking', 'no')
+    ->set('writable_chmod_mode', '0775')
     ->set('writable_dirs', [
         'bootstrap/cache',
         'storage',

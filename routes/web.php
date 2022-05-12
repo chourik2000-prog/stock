@@ -100,18 +100,24 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
         Route::get('/accueils/recherche', 'AccueilController@recherche')->name('accueil.rech');
         Route::post('/accueils/recherche', 'AccueilController@recherche');
         
-        // Route::resource('layouts', LayoutController::class);
+        // les statistiques par agent
+        Route::get('/conso_agents/recherche', 'ConsoAgentController@recherche')->name('consoagent.rech');
+        Route::post('/conso_agents/recherche', 'ConsoAgentController@recherche');
 
-                /**
-             * categories.
-             */
-            Route::get('/categories', 'CategorieController@index');
-            Route::resource('categories', CategorieController::class);
+        // les statistiques par catégorie
+        Route::get('/conso_categories/recherche', 'ConsoCategorieController@recherche')->name('consocategorie.rech');
+        Route::post('/conso_categories/recherche', 'ConsoCategorieController@recherche');
 
-            Route::resource('articles', ArticleController::class);
-            Route::resource('agents', AgentController::class);
-            Route::resource('fournisseurs', FournisseurController::class);
-            Route::resource('users', UserController::class);
+            /**
+         * categories.
+         */
+        Route::get('/categories', 'CategorieController@index');
+        Route::resource('categories', CategorieController::class);
+
+        Route::resource('articles', ArticleController::class);
+        Route::resource('agents', AgentController::class);
+        Route::resource('fournisseurs', FournisseurController::class);
+        Route::resource('users', UserController::class);
         
     });   
 });

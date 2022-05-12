@@ -77,6 +77,4 @@ class GestaccueilController extends Controller
         }
         
     }
-
-   
 }
