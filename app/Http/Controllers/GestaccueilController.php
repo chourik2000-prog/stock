@@ -23,23 +23,17 @@ class GestaccueilController extends Controller
         // chercher l'année active , qui a pour status = 1
         $anneeActive = Annee::where('status', 1)
         ->value('id');
-
         if($anneeActive)
         {
             // format mois annee
             $dateDebut = Annee::where('status', 1)
             ->value('dateDebut');
-
             $dateFin = Annee::where('status', 1)
             ->value('dateFin');
             
             $monthd = Carbon::createFromFormat('Y-m-d',$dateDebut)->locale('fr_FR')
             ->isoformat('MMMM');
             $yeard = Carbon::createFromFormat('Y-m-d',$dateDebut)->year;
-
-            $monthf = Carbon::createFromFormat('Y-m-d',$dateFin)->locale('fr_FR')
-            ->isoformat('MMMM');
-            $yearf = Carbon::createFromFormat('Y-m-d',$dateFin)->year;
 
             // total des cmdes de l'anneeActive
             $totalCmdes = Commande::where('id_annee', $anneeActive)
@@ -70,12 +64,11 @@ class GestaccueilController extends Controller
             ->with('monthf',$monthf)
             ->with('yearf',$yearf);
         }
+        //au cas où il n'y a pas d'année en cours
         else
         {
             $annees = Annee::all();
             return view('annees.afficher',compact('annees'))->with('annees', $annees);
         }
-    }
-
-   
+    } 
 }

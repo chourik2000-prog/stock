@@ -15,7 +15,6 @@ class CreateAnneesTable extends Migration
     {
         Schema::create('annees', function (Blueprint $table) {
             $table->id();
-            $table->string('libelle');
             $table ->date('dateDebut');
             $table ->date('dateFin');
             $table->boolean('status')->nullable()->default(true);
