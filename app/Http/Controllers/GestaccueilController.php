@@ -24,50 +24,57 @@ class GestaccueilController extends Controller
         $anneeActive = Annee::where('status', 1)
         ->value('id');
 
-        // format mois annee
-        $dateDebut = Annee::where('status', 1)
-        ->value('dateDebut');
+        if($anneeActive)
+        {
+            // format mois annee
+            $dateDebut = Annee::where('status', 1)
+            ->value('dateDebut');
 
-        $dateFin = Annee::where('status', 1)
-        ->value('dateFin');
+            $dateFin = Annee::where('status', 1)
+            ->value('dateFin');
+            
+            $monthd = Carbon::createFromFormat('Y-m-d',$dateDebut)->locale('fr_FR')
+            ->isoformat('MMMM');
+            $yeard = Carbon::createFromFormat('Y-m-d',$dateDebut)->year;
+
+            $monthf = Carbon::createFromFormat('Y-m-d',$dateFin)->locale('fr_FR')
+            ->isoformat('MMMM');
+            $yearf = Carbon::createFromFormat('Y-m-d',$dateFin)->year;
+
+            // total des cmdes de l'anneeActive
+            $totalCmdes = Commande::where('id_annee', $anneeActive)
+            ->sum('quantite');
         
-        $monthd = Carbon::createFromFormat('Y-m-d',$dateDebut)->locale('fr_FR')
-        ->isoformat('MMMM');
-        $yeard = Carbon::createFromFormat('Y-m-d',$dateDebut)->year;
+            $totalAppro = Approvisionnement::where('id_annee',$anneeActive)
+            ->sum('qentrant');
 
-        $monthf = Carbon::createFromFormat('Y-m-d',$dateFin)->locale('fr_FR')
-        ->isoformat('MMMM');
-        $yearf = Carbon::createFromFormat('Y-m-d',$dateFin)->year;
+            $totalDemd = Demande::where('id_annee',$anneeActive)
+            ->sum('qlivree');
+            
+            $totalPerte = Perte::where('id_annee',$anneeActive)
+            ->sum('qperdue');
 
-        // total des cmdes de l'anneeActive
-        $totalCmdes = Commande::where('id_annee', $anneeActive)
-        ->sum('quantite');
-    
-        $totalAppro = Approvisionnement::where('id_annee',$anneeActive)
-        ->sum('qentrant');
+            $totalCmdn = $totalCmdes - $totalAppro;
+            $stock = $totalAppro - $totalDemd - $totalPerte;
 
-        $totalDemd = Demande::where('id_annee',$anneeActive)
-        ->sum('qlivree');
-        
-        $totalPerte = Perte::where('id_annee',$anneeActive)
-        ->sum('qperdue');
-
-        $totalCmdn = $totalCmdes - $totalAppro;
-        $stock = $totalAppro - $totalDemd - $totalPerte;
-
-        return view('home',compact('totalCmdes'))
-        ->with('totalCmdes', $totalCmdes)
-        ->with('totalAppro', $totalAppro)
-        ->with('totalDemd', $totalDemd)
-        ->with('totalPerte', $totalPerte)
-        ->with('totalCmdn', $totalCmdn)
-        ->with('anneeActive', $anneeActive)
-        ->with('stock', $stock)
-        ->with('monthd', $monthd)
-        ->with('yeard',$yeard)
-        ->with('monthf',$monthf)
-        ->with('yearf',$yearf);
-    
+            return view('home',compact('totalCmdes'))
+            ->with('totalCmdes', $totalCmdes)
+            ->with('totalAppro', $totalAppro)
+            ->with('totalDemd', $totalDemd)
+            ->with('totalPerte', $totalPerte)
+            ->with('totalCmdn', $totalCmdn)
+            ->with('anneeActive', $anneeActive)
+            ->with('stock', $stock)
+            ->with('monthd', $monthd)
+            ->with('yeard',$yeard)
+            ->with('monthf',$monthf)
+            ->with('yearf',$yearf);
+        }
+        else
+        {
+            $annees = Annee::all();
+            return view('annees.afficher',compact('annees'))->with('annees', $annees);
+        }
     }
 
    
