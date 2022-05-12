@@ -6,16 +6,22 @@
             <div class="container col-lg-5">
                 <div class="login-box bg-white box-shadow" id="loginbox">
                     <div class="col-lg-12">
-                        <div class="loader-logo"><img src="{{asset('vendors/images/logo-icon.png')}}" alt=""><h3> IAI-TOGO gestion de stock</h3></div>
+                        <div class="loader-logo text-center">
+                            <img src="{{asset('vendors/images/iai.jpg')}}" alt="">
+                            <h3>IAI-TOGO</h3>
+                            <h5> IAI-TOGO gestion de stock</h5>
+                        </div>
                         <div>
-                            <div class="card-header">{{ __("Saisir votre nom d'utilisateur et le mot de passe ") }}</div>
+                            <div class="card-header text-center">{{ __("Identifiez-vous") }}</div>
                             <div class="card-body">
                                 <form class="form" method="POST" action="{{ route('login') }}">
                                     @csrf
                                     <div class="row mb-3">
                                         <label for="name" class="col-md-6 col-form-label text-md-end">{{ __("Nom d'utilisateur") }}</label>
                                         <div class="col-md-8">
-                                            <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                                            <input id="name" type="text" class="form-control
+                                             @error('name') is-invalid @enderror" 
+                                             name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
                                             @error('name')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
@@ -34,7 +40,7 @@
                                             @enderror
                                         </div>
                                     </div>
-                                    <div class="row mb-3">
+                                    {{-- <div class="row mb-3">
                                         <div class="col-md-6">
                                             <div class="form-check">
                                                 <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
@@ -43,7 +49,7 @@
                                                 </label>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> --}}
                                     <div class="row mb-0">
                                         <div class="col-md-8 offset-md-4">
                                             <button type="submit" class="btn btn-primary btn-lg">
