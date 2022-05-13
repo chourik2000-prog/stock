@@ -1,6 +1,3 @@
-@error('name')
-    <div class="error">{{ $message }}</div>
-@enderror
 
 @extends('layouts.app')
 
