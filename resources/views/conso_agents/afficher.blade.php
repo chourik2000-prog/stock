@@ -26,11 +26,11 @@
                    </tr>
                </thead>
                <tbody>
-                   @foreach ($demandes as $demande)
-                   <tr>
-                    <td>{{ $demande->article->libelle}}</td>
-                    <td>{{ $demande->livree}}</td> 
-                    <td>{{ $demande->date}}</td>	
+                @foreach ($articlestocks as $articlestock)
+                <tr>
+                    <td>{{ $articlestock["article"] }}</td>
+                    <td>{{ $articlestock["livree"] }}</td>	
+                    <td>{{ $articlestock["date"] }}</td>
                    </tr>	  
                    @endforeach 
                </tbody>
