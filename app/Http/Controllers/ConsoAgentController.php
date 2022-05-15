@@ -47,7 +47,6 @@ class ConsoAgentController extends Controller
                             "article" => $article->libelle , 
                             "livree" => $livree,
                             "date" => $date,
-
                         ]
                     );
             } 

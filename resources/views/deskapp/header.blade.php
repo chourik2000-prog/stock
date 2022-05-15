@@ -1,11 +1,11 @@
 <div class="header">
     <div class="header-left">
         <a href="" > 
-            <h4 class="text-white">
+            <h6 class="text-white">
                 Année en cours:
                 {{ucwords($monthd)}} {{$yeard}} - {{ucwords($monthf)}} {{$yearf}}
                 @include('flash::message')
-            </h4>
+            </h6>
         </a>
     </div>
     <div class="header-right">
@@ -14,7 +14,7 @@
                 <a class="dropdown-toggle" href="#" role="button" data-toggle="dropdown">
                     <span class="user-icon">
                         <!-- a revoir l'icone-->
-                         <img src={{asset('vendors/images/logo-icon.png')}} alt="">
+                        <img src={{asset('vendors/images/logo-icon.png')}} alt="">
                     </span>
                     <span class="user-name">IAI-TOGO</span>
                 </a>
