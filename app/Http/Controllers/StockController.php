@@ -73,8 +73,8 @@ class StockController extends Controller
             return view('stocks.afficher')
         ->with('articlestocks', $articlestocks);
 
-        // 
         }
+
         return view('stocks.recherche')
         ->with('annees',$annees);
     }

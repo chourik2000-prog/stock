@@ -64,7 +64,8 @@ class CommandeController extends Controller
         $annees = Annee::all();
         $articles = Article::all();
 
-        if($request->id_annee) {
+        if($request->id_annee) 
+        {
            $commandes = Commande::where('id_annee', $request->id_annee)
                 ->get();
 
@@ -73,8 +74,10 @@ class CommandeController extends Controller
                 ->with('articles', $articles)
                 ->with('annees', $annees);
         }
+
         return view('commandes.recherche')
         ->with('annees',$annees);
+
     }
     /**
      * Display the specified resource.

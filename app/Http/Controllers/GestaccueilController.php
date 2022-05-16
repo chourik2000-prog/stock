@@ -72,8 +72,7 @@ class GestaccueilController extends Controller
         }
         else
         {
-            $annees = Annee::all();
-            return view('annees.afficher',compact('annees'))->with('annees', $annees);
+            return view('msg');
         }
         
     }

@@ -55,7 +55,8 @@ class ApprovisionnementController extends Controller
         $articles = Article::all();
         $fournisseurs = Fournisseur::all();
 
-        if($request->id_annee) {
+        if($request->id_annee) 
+        {
            $approvisionnements = Approvisionnement::where('id_annee', $request->id_annee)
                 ->get();
 
@@ -106,12 +107,12 @@ class ApprovisionnementController extends Controller
             return redirect()->route('approvisionnements.index')
                         ->with('success',"L'article est enregistré avec succès.");
         }
-        else {
+        else
+        {
             flash("La date doit être comprise dans l'année académique")->error();
 
             return redirect()->route('approvisionnements.index');
         }
-
     }
 
     /**
