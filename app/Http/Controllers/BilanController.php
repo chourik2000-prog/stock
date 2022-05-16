@@ -39,7 +39,8 @@ class BilanController extends Controller
     {
         $annees = Annee::all();
         $bilans = DB::table('articles')->get();
-        if($request->input('id_article') != null) {
+        if($request->input('id_article') != null) 
+        {
            return  redirect()->route('bilanChart', [
             'id_article' => $request->input('id_article')
            ]);
@@ -59,8 +60,8 @@ class BilanController extends Controller
     public function store(Request $request, LarapexChart $chart) 
     {
         $annees = Annee::all();
-       if($request->id_article) {
-
+       if($request->id_article) 
+       {
             $qEntrant = Approvisionnement::
             where('id_article', $request->id_article)
             ->sum('qentrant');
@@ -93,48 +94,5 @@ class BilanController extends Controller
 
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
+   
 }

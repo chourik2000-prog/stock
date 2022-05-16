@@ -24,8 +24,8 @@ class ConsoAgentController extends Controller
         {
            if($request->id_agent)
            {
-            $articlestocks = [];
-            $demandeurs = Agent::find($request->input('id_agent'));
+                $articlestocks = [];
+                $demandeurs = Agent::find($request->input('id_agent'));
             
             foreach($articles as $article)
             {
@@ -56,6 +56,7 @@ class ConsoAgentController extends Controller
                 ->with('articlestocks', $articlestocks);
             }
         }
+
         return view('conso_agents.recherche')
             ->with('annees',$annees)
             ->with('agents',$agents);

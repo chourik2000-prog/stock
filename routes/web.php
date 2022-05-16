@@ -35,6 +35,8 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
         Route::get('/logout', 'Auth\LogoutController@logout')->name('auth.logout');
        
         Route::get('home', 'GestaccueilController@index')->name('home');
+        Route::get('msg', 'MsgController@msg');
+
 
         // header 
         // Route::get('deskapp/header', 'helpers@index');
@@ -81,8 +83,8 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
         /**
          * annees.
          */
-
         Route::resource('annees', AnneeController::class);
+        
 
         /**
          * stocks.

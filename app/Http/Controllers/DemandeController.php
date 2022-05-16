@@ -54,7 +54,8 @@ class DemandeController extends Controller
         $articles = Article::all();
         $agents = Agent::all();
 
-        if($request->id_annee) {
+        if($request->id_annee) 
+        {
            $demandes = Demande::where('id_annee', $request->id_annee)
                 ->get();
 

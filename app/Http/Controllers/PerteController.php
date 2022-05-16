@@ -44,7 +44,8 @@ class PerteController extends Controller
         $annees = Annee::all();
         $articles = Article::all();
 
-        if($request->id_annee) {
+        if($request->id_annee) 
+        {
            $pertes = Perte::where('id_annee', $request->id_annee)
                 ->get();
 
@@ -94,7 +95,7 @@ class PerteController extends Controller
         else {
             flash("La date doit être comprise dans l'année académique")->error();
 
-            return redirect()->route('approvisionnements.index');
+            return redirect()->route('pertes.index');
         }
     }
 
