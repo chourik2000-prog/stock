@@ -33,7 +33,8 @@ class ConsoAgentController extends Controller
                 $date = 0;
 
                 $demandes = Demande::whereIdArticle($article->id)
-                ->where('id_agent',$request->id_agent and 'id_annee',$request->id_annee)
+                ->where('id_agent',$request->id_agent)
+                ->where('id_annee',$request->id_annee)
                 ->get();
 
                 foreach($demandes as $demande)
@@ -41,14 +42,17 @@ class ConsoAgentController extends Controller
                     $livree += $demande->qlivree;
                     $date = $demande->date;
                 } 
-                array_push
-                    ($articlestocks, 
-                        [
-                            "article" => $article->libelle , 
-                            "livree" => $livree,
-                            "date" => $date,
-                        ]
-                    );
+                if($livree>0)
+                {
+                    array_push
+                        ($articlestocks, 
+                            [
+                                "article" => $article->libelle , 
+                                "livree" => $livree,
+                                "date" => $date,
+                            ]
+                        );
+                }
             } 
 
             return view('conso_agents.afficher')
