@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\Categorie;
+use App\Models\Catego;
 use App\Models\Annee;
 use App\Models\Agent;
 use Illuminate\Http\Request;
@@ -17,7 +17,7 @@ class AgentController extends Controller
     public function index()
     {
         $annees = Annee::all();  
-        $categories = Categorie::all();
+        $categories = Catego::all();
         $agents = Agent::all();
         return view('agents.afficher',compact('agents'))
         ->with('categories', $categories)
@@ -31,8 +31,11 @@ class AgentController extends Controller
      */
     public function create()
     {
-        $cat = Categorie::all();
-        return view('agents.create')->with('cat', $cat);
+        $agents = Agent::all();
+        $cat = Catego::all();
+        return view('agents.create')
+        ->with('cat', $cat)
+        ->with('agents',$agents);
       
     }
 

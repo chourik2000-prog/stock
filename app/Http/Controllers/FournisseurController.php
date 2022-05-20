@@ -51,13 +51,6 @@ class FournisseurController extends Controller
         return redirect()->route('fournisseurs.index')
                         ->with('success',"Fournisseur enregistré avec succès.");
 
-        // $data = new Fournisseur([
-        //     'nom' => $request->get('nom'),
-        //     'contact' => $request->get('contact')
-        // ]);
-        // $data->save();
-        // return redirect()->route('fournisseurs.index')
-        //                 ->with('success',"L'article est enregistré avec succès.");
     }
 
     /**

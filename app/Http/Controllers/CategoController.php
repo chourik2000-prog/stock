@@ -2,13 +2,11 @@
 
 namespace App\Http\Controllers;
 use App\Models\Agent;
+use App\Models\Catego;
 use Illuminate\Http\Request;
-use App\Models\Annee;
-use App\Models\categorie;
 use Illuminate\Support\Facades\DB;
 
-
-class CategorieController extends Controller
+class CategoController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,13 +14,11 @@ class CategorieController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {       
-        $annees = Annee::all();
+    {
         $categories = DB::table('categories')
                 ->orderBy('libelle', 'asc')
                 ->get();
-        // $categories = categorie::all();
-        return view('categories.afficher',compact('categories'))->with('annees', $annees);
+        return view('categories.afficher',compact('categories'));
     }
 
     /**
@@ -46,62 +42,61 @@ class CategorieController extends Controller
         $request->validate([
             'libelle' => 'required|max:255',
         ]);
-        categorie::create($request->all());
-        return redirect()->route('categories.index')
+        Catego::create($request->all());
+        return redirect()->route('categos.index')
                         ->with('success','Catégorie enregistrée avec succès.');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Catego  $catego
      * @return \Illuminate\Http\Response
      */
-    public function show(Categorie $categorie)
+    public function show(Catego $catego)
     {
-        return view('categories.afficher',compact('categorie'));
+        return view('categories.voir',compact('catego'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Catego  $catego
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Catego $catego)
     {
-        return view('categories.modifier',compact('categorie'));
+        return view('categories.modifier',compact('catego'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Models\Catego  $catego
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Catego $catego)
     {
         $request->validate([
             'libelle' => 'required|max:255',
         ]);
-
-        DB::table('categories')->where('id',$id)->update(['libelle' => $request->input('libelle')]);
-
-        return redirect()->route('categories.index')
+        $catego->update($request->all());
+    
+        return redirect()->route('categos.index')
                         ->with('success','Mise à jour avec succès');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Models\Catego  $catego
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Catego $catego)
     {
-        DB::table('categories')->where('id',$id)->delete(); 
-        return redirect()->route('categories.index')
+        $catego->delete();
+        return redirect()->route('categos.index')
                         ->with('success','suppression avec succès');
     }
 }

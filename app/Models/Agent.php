@@ -1,7 +1,8 @@
 <?php
 
 namespace App\Models;
-
+use App\Models\Demande;
+use App\Models\Catego;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -13,7 +14,7 @@ class Agent extends Model
     protected $fillable = ['nom' ,'prenom', 'idcat'];
 
     public function categorie(){
-        return $this->belongsTo(Categorie::class ,'idcat'); 
+        return $this->belongsTo(Catego::class ,'idcat'); 
     }
     public function demandes(){
         return $this->hasMany(Demande::class, 'id_agent');
