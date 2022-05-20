@@ -40,13 +40,13 @@
 											<i class="dw dw-edit-1 text-white"></i>
 										</a>
 									</button>
-										@csrf
-											@method('DELETE')
-										<button type="submit" class="btn btn-warning btn-sm" onClick='return confirmSubmit()'>
-											<a  href="#">
-												<i class="dw dw-trash1 text-white"></i>
-											</a>
-										</button>
+									@csrf
+									@method('DELETE')
+									<button type="submit" class="btn btn-warning btn-sm" onClick='return confirmSubmit()'>
+										<a  href="#">
+											<i class="dw dw-trash1 text-white"></i>
+										</a>
+									</button>
 								</form>
 							</td>
 						</tr>

@@ -6,7 +6,7 @@ use App\Models\Article;
 use App\Models\Annee;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\LoginController;
-
+use App\Http\Controllers\CategoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,12 +37,8 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
         Route::get('home', 'GestaccueilController@index')->name('home');
         Route::get('msg', 'MsgController@msg');
 
-
-        // header 
-        // Route::get('deskapp/header', 'helpers@index');
-        /**
-         * bilans.
-         */
+        //   bilans.
+         
         Route::get('/bilans', 'BilanController@index');
         Route::get('/bilans/store/{id_article}', 'BilanController@store')->name('bilanChart');
         Route::get('/bilans/recherche', 'BilanController@recherche')->name('rechercheform');
@@ -113,8 +109,9 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
             /**
          * categories.
          */
-        Route::get('/categories', 'CategorieController@index');
-        Route::resource('categories', CategorieController::class);
+        // Route::get('/categories', 'CategoController@index');
+        // Route::resource('categories', CategoController::class);
+        
 
         Route::resource('articles', ArticleController::class);
         Route::resource('agents', AgentController::class);
@@ -123,3 +120,4 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
         
     });   
 });
+Route::resource('categos',CategoController::class);

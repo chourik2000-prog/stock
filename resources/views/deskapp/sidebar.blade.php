@@ -127,7 +127,7 @@
                     </li>
                 @endif
                     <li class="dropdown">
-                        <a href="/categories" class="dropdown-toggle no-arrow" >
+                        <a href="/categos" class="dropdown-toggle no-arrow" >
                             <span class="micon dw dw-library"></span><span class="mtext">Catégories</span>
                         </a>
                     </li>
