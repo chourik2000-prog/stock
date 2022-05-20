@@ -59,7 +59,10 @@ class CategorieController extends Controller
      */
     public function show($id)
     {
-        return view('categories.voir',compact('categorie'));
+        $categories = DB::table('categories')
+                ->orderBy('libelle', 'asc')
+                ->get();
+        return view('categories.afficher',compact('categories'));
     }
 
     /**
