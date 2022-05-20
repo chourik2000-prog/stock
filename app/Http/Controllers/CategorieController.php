@@ -17,12 +17,12 @@ class CategorieController extends Controller
      */
     public function index()
     {       
-        // $annees = Annee::all();
-        // $categories = DB::table('categories')
-        //         ->orderBy('libelle', 'asc')
-        //         ->get();
-        $categories = categorie::all();
-        return view('categories.afficher',compact('categories'));
+        $annees = Annee::all();
+        $categories = DB::table('categories')
+                ->orderBy('libelle', 'asc')
+                ->get();
+        // $categories = categorie::all();
+        return view('categories.afficher',compact('categories'))->with('annees', $annees);
     }
 
     /**
@@ -57,12 +57,9 @@ class CategorieController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Categorie $categorie)
     {
-        $categories = DB::table('categories')
-                ->orderBy('libelle', 'asc')
-                ->get();
-        return view('categories.afficher',compact('categories'));
+        return view('categories.afficher',compact('categorie'));
     }
 
     /**
