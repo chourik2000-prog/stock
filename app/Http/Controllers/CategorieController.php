@@ -17,12 +17,12 @@ class CategorieController extends Controller
      */
     public function index()
     {       
-        $annees = Annee::all();
-        $categories = DB::table('categories')
-                ->orderBy('libelle', 'asc')
-                ->get();
-        // $categories = categorie::all();
-        return view('categories.afficher',compact('categories'))->with('annees', $annees);
+        // $annees = Annee::all();
+        // $categories = DB::table('categories')
+        //         ->orderBy('libelle', 'asc')
+        //         ->get();
+        $categories = categorie::all();
+        return view('categories.afficher',compact('categories'));
     }
 
     /**
