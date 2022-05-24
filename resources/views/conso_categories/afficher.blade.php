@@ -20,13 +20,13 @@
         </div>			
             <table class="table" id="datatable">
                 <thead>
-                        <tr>
-                            <th scope="col"> <strong> Nom</strong> </th>
-                            <th scope="col"> <strong> Prenom</strong> </th>
-                            <th scope="col"> <strong> Articles</strong> </th>
-                            <th scope="col"> <strong> Quantité</strong> </th>
-                            <th scope="col"> <strong> Date</strong> </th>
-                        </tr>
+                    <tr>
+                        <th scope="col"> <strong> Nom</strong> </th>
+                        <th scope="col"> <strong> Prenom</strong> </th>
+                        <th scope="col"> <strong> Articles</strong> </th>
+                        <th scope="col"> <strong> Quantité</strong> </th>
+                        <th scope="col"> <strong> Date</strong> </th>
+                    </tr>
                 </thead>
                 <tbody>
                     @foreach ($articlestocks as $articlestock)

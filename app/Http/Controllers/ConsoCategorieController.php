@@ -53,6 +53,7 @@ class ConsoCategorieController extends Controller
                             ->join('categories', 'agents.idcat','categories.id')
                             ->select('agents.nom','agents.prenom','demandes.qlivree','demandes.date')
                             ->where('categories.id', $request->idcat)
+                            ->where('demandes.id_annee',$request->id_annee)
                             ->where('demandes.id_article',$article->id)
                             ->get();
                             
