@@ -174,11 +174,11 @@
                     </li>
                 @endif
 
-                {{-- <li class="dropdown">
-                    <a href="{{route('consocategorie.rech')}}" class="dropdown-toggle no-arrow" id="a" onClick='return confirm()'>
+                <li class="dropdown">
+                    <a href="{{route('consocategorie.rech')}}" class="dropdown-toggle no-arrow" id="a">
                         <span class="micon icon-copy dw dw-chat-2"></span><span class="mtext">Conso par catégorie</span>
                     </a>
-                </li> --}}
+                </li>
 
                 <li class="dropdown">
                     <a href="/users" class="dropdown-toggle no-arrow">
