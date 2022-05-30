@@ -11,6 +11,7 @@ use App\Models\Fournisseur;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
+use Dompdf\Dompdf;
 
 class ApprovisionnementController extends Controller
 {
@@ -53,6 +54,7 @@ class ApprovisionnementController extends Controller
         // afficher les données de l'année choisie 
         $annees = Annee::all();
         $articles = Article::all();
+        $an  = $request->id_annee;
         $fournisseurs = Fournisseur::all();
 
         if($request->id_annee) 
@@ -64,12 +66,38 @@ class ApprovisionnementController extends Controller
                 ->with('approvisionnements', $approvisionnements)
                 ->with('articles', $articles)
                 ->with('fournisseurs', $fournisseurs)
+                ->with('an', $an)
                 ->with('annees', $annees);
 
         }
  
         return view('approvisionnements.recherche')
             ->with('annees',$annees);
+    }
+
+    // fonction du pdf
+    public function pdf()
+    {
+        $an = (substr(\URL::full(),45));
+
+        $approvisionnements = Approvisionnement::where('id_annee', $an)
+            ->get();
+
+        // instantiate and use the dompdf class
+        $dompdf = new Dompdf();
+        $dompdf->loadHtml(view('approvisionnements.pdf',compact('approvisionnements')));
+
+        // (Optional) Setup the paper size and orientation
+        $dompdf->setPaper('A4', 'landscape');
+        $html ='<img src="logo-icon.png" alt="">';
+
+        // Render the HTML as PDF
+        $dompdf->render();
+
+        // Output the generated PDF to Browser
+        $dompdf->stream('approvisionnements.pdf', ['Attachment' => false]);
+        return view('approvisionnements.pdf')
+            ->with('approvisionnements', $approvisionnements);
     }
     /**
      * Store a newly created resource in storage.

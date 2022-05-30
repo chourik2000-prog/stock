@@ -8,6 +8,7 @@ use App\Models\Agent;
 use App\Models\Annee;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
+use Dompdf\Dompdf;
 
 
 class DemandeController extends Controller
@@ -53,7 +54,7 @@ class DemandeController extends Controller
         $annees = Annee::all();
         $articles = Article::all();
         $agents = Agent::all();
-
+        $an  = $request->id_annee;
         if($request->id_annee) 
         {
            $demandes = Demande::where('id_annee', $request->id_annee)
@@ -63,11 +64,37 @@ class DemandeController extends Controller
                 ->with('demandes', $demandes)
                 ->with('articles', $articles)
                 ->with('agents', $agents)
+                ->with('an',$an)
                 ->with('annees', $annees);
         }
 
         return view('demandes.recherche')
         ->with('annees',$annees);
+    }
+
+    // fonction du pdf
+    public function pdf()
+    {
+        $an = (substr(\URL::full(),35));
+
+        $demandes = Demande::where('id_annee', $an)
+            ->get();
+
+        // instantiate and use the dompdf class
+        $dompdf = new Dompdf();
+        $dompdf->loadHtml(view('demandes.pdf',compact('demandes')));
+
+        // (Optional) Setup the paper size and orientation
+        $dompdf->setPaper('A4', 'landscape');
+        $html ='<img src="logo-icon.png" alt="">';
+
+        // Render the HTML as PDF
+        $dompdf->render();
+
+        // Output the generated PDF to Browser
+        $dompdf->stream('demandes.pdf', ['Attachment' => false]);
+        return view('demandes.pdf')
+            ->with('demandes', $demandes);
     }
     /**
      * Store a newly created resource in storage.

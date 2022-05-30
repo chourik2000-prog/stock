@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\Annee;
 use App\Models\Article;
+use Dompdf\Dompdf;
 
 class CommandeController extends Controller
 {
@@ -64,6 +65,8 @@ class CommandeController extends Controller
         $annees = Annee::all();
         $articles = Article::all();
 
+        $an  = $request->id_annee;
+
         if($request->id_annee) 
         {
            $commandes = Commande::where('id_annee', $request->id_annee)
@@ -72,13 +75,40 @@ class CommandeController extends Controller
             return view('commandes.afficher')
                 ->with('commandes', $commandes)
                 ->with('articles', $articles)
-                ->with('annees', $annees);
+                ->with('annees', $annees)
+                ->with('an', $an);
         }
 
         return view('commandes.recherche')
         ->with('annees',$annees);
 
     }
+
+    // fonction du pdf
+    public function pdf()
+    {
+        $an = (substr(\URL::full(),36));
+
+        $commandes = Commande::where('id_annee', $an)
+            ->get();
+
+        // instantiate and use the dompdf class
+        $dompdf = new Dompdf();
+        $dompdf->loadHtml(view('commandes.pdf',compact('commandes')));
+
+        // (Optional) Setup the paper size and orientation
+        $dompdf->setPaper('A4', 'landscape');
+        $html ='<img src="logo-icon.png" alt="">';
+
+        // Render the HTML as PDF
+        $dompdf->render();
+
+        // Output the generated PDF to Browser
+        $dompdf->stream('commandes.pdf', ['Attachment' => false]);
+        return view('commandes.pdf')
+            ->with('commandes', $commandes);
+    }
+
     /**
      * Display the specified resource.
      *

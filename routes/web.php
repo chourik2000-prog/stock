@@ -50,6 +50,7 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
 
         Route::get('/approvisionnements/recherche', 'ApprovisionnementController@recherche')->name('approv.rech');
         Route::post('/approvisionnements/recherche', 'ApprovisionnementController@recherche');
+        Route::get('/approvisionnements/pdf', 'ApprovisionnementController@pdf')->name('appro.pdf');
         Route::resource('approvisionnements', ApprovisionnementController::class);
 
         /**
@@ -58,14 +59,16 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
 
         Route::get('/commandes/recherche', 'CommandeController@recherche')->name('comm.rech');
         Route::post('/commandes/recherche', 'CommandeController@recherche');
+        Route::get('/commandes/pdf', 'CommandeController@pdf')->name('comm.pdf');
         Route::resource('commandes', CommandeController::class);
 
         /**
-         * commandes.
+         * demandes.
          */
 
         Route::get('/demandes/recherche', 'DemandeController@recherche')->name('demande.rech');
         Route::post('/demandes/recherche', 'DemandeController@recherche');
+        Route::get('/demandes/pdf', 'DemandeController@pdf')->name('dem.pdf');
         Route::resource('demandes', DemandeController::class);
 
         /**
