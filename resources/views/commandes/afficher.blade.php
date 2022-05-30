@@ -22,7 +22,7 @@
             </a>
         </div>
 
-        <div class="pull-right">
+        <div class="pull-right" id="ajouter">
            <a class="btn btn-success btn-sm text-white" data-toggle="modal" data-target="#exampleModal"> + Ajouter</a>
         </div>
     </div>

@@ -22,7 +22,7 @@
 					   PDF
 					</a>
 				</div>		
-				<div class="pull-right">
+				<div class="pull-right" id="ajouter">
                 	<a class="btn btn-success btn-sm text-white" data-toggle="modal" data-target="#exampleModal"> + Ajouter</a>
 				</div>
 			</div>	
@@ -38,7 +38,6 @@
 								<th scope="col"> <strong>Désignation</strong> </th>
                                 <th scope="col"> <strong>Livré</strong> </th>
                                 <th scope="col"> <strong>Date</strong> </th>
-								<th scope="col"> <strong>Année académique</strong> </th>
 								<th scope="col"> <strong>Actions</strong> </th>
 							</tr>
 						</thead>
@@ -49,10 +48,6 @@
 									<td>{{ $demande->article->libelle}}</td>
 									<td>{{ $demande->qlivree}}</td>
 									<td>{{ $demande->date}}</td>
-									<td>
-										{{ $demande->annee->dateDebut}} au
-										{{ $demande->annee->dateFin}}
-									</td>
 									<td>
 										<form action="{{ route('demandes.destroy',$demande->id) }}" method="POST">    
 												<button type="button" class="btn btn-info btn-sm" data-toggle="modal" 
