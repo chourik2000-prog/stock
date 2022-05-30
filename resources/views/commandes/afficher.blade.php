@@ -16,7 +16,7 @@
             </a>
         </div>
         <div class="text-center">
-            <a href={{route('comm.pdf',$an)}} class="btn btn-danger">
+            <a href={{route('comm.pdf', $an)}} class="btn btn-danger">
                 <i class="micon icon-copy dw dw-open-book-1"></i>
                PDF
             </a>
