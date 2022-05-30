@@ -16,14 +16,16 @@ class CommandeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
+        $an  = $request->id_annee;
         $annees = Annee::all();
         $articles = Article::all();
         $commandes = Commande::all();
         return view('commandes.afficher',compact('commandes'))
         ->with('commandes', $commandes)
         ->with('articles', $articles)
+        ->with('an', $an)
         ->with('annees', $annees);
     }
 
@@ -56,7 +58,7 @@ class CommandeController extends Controller
         ]);
         Commande::create($request->all());
         return redirect()->route('commandes.index')
-                ->with('success',"Bon enregistré avec succès.");
+            ->with('success',"Bon enregistré avec succès.");
     }
 
 
@@ -80,7 +82,8 @@ class CommandeController extends Controller
         }
 
         return view('commandes.recherche')
-        ->with('annees',$annees);
+            ->with('annees',$annees)
+            ->with('an', $an);
 
     }
 
@@ -88,17 +91,16 @@ class CommandeController extends Controller
     public function pdf()
     {
         $an = (substr(\URL::full(),36));
-
         $commandes = Commande::where('id_annee', $an)
             ->get();
 
         // instantiate and use the dompdf class
         $dompdf = new Dompdf();
-        $dompdf->loadHtml(view('commandes.pdf',compact('commandes')));
+        $dompdf->loadHtml(view('commandes.pdf',compact('commandes'))
+            ->with('an', $an));
 
         // (Optional) Setup the paper size and orientation
         $dompdf->setPaper('A4', 'landscape');
-        $html ='<img src="logo-icon.png" alt="">';
 
         // Render the HTML as PDF
         $dompdf->render();
@@ -106,6 +108,7 @@ class CommandeController extends Controller
         // Output the generated PDF to Browser
         $dompdf->stream('commandes.pdf', ['Attachment' => false]);
         return view('commandes.pdf')
+            ->with('an', $an)
             ->with('commandes', $commandes);
     }
 
