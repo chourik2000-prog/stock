@@ -18,8 +18,9 @@ class DemandeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
+        $an  = $request->id_annee;
         $annees = Annee::all();
         $articles = Article::all();
         $agents = Agent::all();
@@ -27,6 +28,7 @@ class DemandeController extends Controller
         return view('demandes.afficher',compact('demandes'))
             ->with('articles', $articles)
             ->with('agents', $agents)
+            ->with('an', $an)
             ->with('annees', $annees);
     }
 
@@ -52,9 +54,13 @@ class DemandeController extends Controller
     public function recherche(Request $request)
     {
         $annees = Annee::all();
+
         $articles = Article::all();
+
         $agents = Agent::all();
+
         $an  = $request->id_annee;
+
         if($request->id_annee) 
         {
            $demandes = Demande::where('id_annee', $request->id_annee)
@@ -86,7 +92,6 @@ class DemandeController extends Controller
 
         // (Optional) Setup the paper size and orientation
         $dompdf->setPaper('A4', 'landscape');
-        $html ='<img src="logo-icon.png" alt="">';
 
         // Render the HTML as PDF
         $dompdf->render();
