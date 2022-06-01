@@ -49,14 +49,18 @@
         <table class="tableau-style">
             <thead>
                 <tr>
-                    <th>Article</th>
-                    <th>Quantité</th>
-                    <th>Date</th>
+                    <th scope="col"> <strong> Nom</strong> </th>
+                    <th scope="col"> <strong> Prenom</strong> </th>
+                    <th scope="col"> <strong> Articles</strong> </th>
+                    <th scope="col"> <strong> Quantité</strong> </th>
+                    <th scope="col"> <strong> Date</strong> </th>
                 </tr>
             </thead>
             <tbody>
                 @foreach ($articlestocks as $articlestock)
                     <tr>
+                        <td>{{ $articlestock["nom"] }}</td>
+                        <td>{{ $articlestock["prenom"] }}</td>
                         <td>{{ $articlestock["article"] }}</td>
                         <td>{{ $articlestock["livree"] }}</td>	
                         <td>{{ $articlestock["date"] }}</td>

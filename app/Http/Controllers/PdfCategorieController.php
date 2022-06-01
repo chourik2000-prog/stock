@@ -8,13 +8,19 @@ use App\Models\Article;
 use App\Models\Demande;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
+use Dompdf\Dompdf;
+
 use Illuminate\Http\Request;
 
-class ConsoCategorieController extends Controller
+class PdfCategorieController extends Controller
 {
-    public function recherche(Request $request)
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index(Request $request)
     {
-        
         $annees = DB::table('annees')->get();
         $categories = DB::table('categories')->get();
         
@@ -66,8 +72,21 @@ class ConsoCategorieController extends Controller
                                 );
                         }
                     }
-                return view('conso_categories.afficher')
-                        ->with('cat',$cat)
+                    $dompdf = new Dompdf();
+                    $dompdf->loadHtml(view('conso_categories.pdf',compact('articlestocks')));
+        
+                    // (Optional) Setup the paper size and orientation
+                    $dompdf->setPaper('A4', 'landscape');
+                    $html ='<img src="logo-icon.png" alt="">';
+        
+        
+                    // Render the HTML as PDF
+                    $dompdf->render();
+        
+        
+                    // Output the generated PDF to Browser
+                    $dompdf->stream('conso_categories.pdf', ['Attachment' => false]);
+                    return view('conso_categories.pdf')
                         ->with('articlestocks', $articlestocks);
             }
         }

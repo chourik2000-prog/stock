@@ -5,7 +5,7 @@
    <!-- basic table  Start -->
     <div class="col-md-6 col-sm-12">
         <h4 class="font-20 weight-500 mb-10 ">
-           <div class="text-blue">Liste des besoins de l'agent:<td>{{$demandeurs->nom}} {{$demandeurs->prenom}}</td></div>
+           <div>Liste des besoins de l'agent:<td>{{$demandeurs->nom}} {{$demandeurs->prenom}}</td></div>
         </h4>
     </div>
      <div class="pd-20 card-box mb-30">

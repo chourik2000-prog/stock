@@ -110,6 +110,7 @@ class CommandeController extends Controller
         return view('commandes.pdf')
             ->with('an', $an)
             ->with('commandes', $commandes);
+            exit();
     }
 
     /**

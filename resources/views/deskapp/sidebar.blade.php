@@ -34,12 +34,6 @@
                     </li>
                 @endif
 
-                <li class="dropdown">
-                    <a href="/annees" class="dropdown-toggle no-arrow">
-                        <span class="micon dw dw-calendar1" ></span><span class="mtext">Année</span>
-                    </a>
-                </li>
-
                 @if ($annees == null)
                     <li class="dropdown">
                         <a href="{{route('comm.rech')}}" class="dropdown-toggle no-arrow" onclick="return false;">
@@ -68,11 +62,6 @@
                     </li>
                 @endif
 
-                <li> 
-                    <a href="/fournisseurs" class="dropdown-toggle no-arrow">
-                        <span class="micon dw dw-user-12" ></span><span class="mtext">Fournisseurs</span>
-                    </a>
-                </li>
                 @if ($annees == null)
                     <li>
                         <a href="{{route('demande.rech')}}" class="dropdown-toggle no-arrow" onclick="return false;">
@@ -87,6 +76,12 @@
                     </a>
                 </li>
                 @endif
+                
+                <li class="dropdown">
+                    <a href="/annees" class="dropdown-toggle no-arrow">
+                        <span class="micon dw dw-calendar1" ></span><span class="mtext">Année</span>
+                    </a>
+                </li>
             
                 @if ($annees == null)
                     <li class="dropdown">
@@ -113,6 +108,11 @@
                     <span class="micon icon-copy dw dw-add-user"></span><span class="mtext">Agents</span>
                     </a>
                 </li>
+                <li> 
+                    <a href="/fournisseurs" class="dropdown-toggle no-arrow">
+                        <span class="micon dw dw-user-12" ></span><span class="mtext">Fournisseurs</span>
+                    </a>
+                </li>
                 @if ($annees == null)
                     <li class="dropdown">
                         <a href="{{route('perte.rech')}}" class="dropdown-toggle no-arrow" onclick="return false;">
@@ -131,34 +131,6 @@
                             <span class="micon dw dw-library"></span><span class="mtext">Catégories</span>
                         </a>
                     </li>
-                
-                @if ($annees == null)
-                    <li class="dropdown">
-                        <a href="{{route('rechercheform')}}" class="dropdown-toggle no-arrow" onclick="return false;">
-                            <span class="micon icon-copy dw dw-hourglass1"></span><span class="mtext">Bilan</span>
-                        </a>
-                    </li>
-                @else
-                    <li class="dropdown">
-                        <a href="{{route('rechercheform')}}" class="dropdown-toggle no-arrow">
-                            <span class="micon icon-copy dw dw-hourglass1"></span><span class="mtext">Bilan</span>
-                        </a>
-                    </li>
-                @endif
-
-                @if ($annees == null)
-                    <li class="dropdown">
-                        <a href="{{route('pdfs.pdf')}}" class="dropdown-toggle no-arrow" onclick="return false;">
-                            <span class="micon icon-copy dw dw-open-book-1"></span><span class="mtext">PDF</span>
-                        </a>
-                    </li>
-                @else
-                    <li class="dropdown">
-                        <a href="{{route('pdfs.pdf')}}" class="dropdown-toggle no-arrow">
-                            <span class="micon icon-copy dw dw-open-book-1"></span><span class="mtext">PDF</span>
-                        </a>
-                    </li>
-                @endif
 
                 @if ($annees == null)
                     <li class="dropdown">
@@ -179,6 +151,43 @@
                         <span class="micon icon-copy dw dw-chat-2"></span><span class="mtext">Conso par catégorie</span>
                     </a>
                 </li>
+                @if ($annees == null)
+                <li class="dropdown">
+                    <a href="{{route('pdfs.pdf')}}" class="dropdown-toggle no-arrow" onclick="return false;">
+                        <span class="micon icon-copy dw dw-open-book-1"></span><span class="mtext">PDF</span>
+                    </a>
+                </li>
+                @else
+                    <li class="dropdown">
+                        <a href="{{route('pdfs.pdf')}}" class="dropdown-toggle no-arrow">
+                            <span class="micon icon-copy dw dw-open-book-1"></span><span class="mtext">PDF</span>
+                        </a>
+                    </li>
+                @endif
+                <li class="dropdown">
+                    <a href="{{route('consoAgent.pdf')}}" class="dropdown-toggle no-arrow">
+                        <span class="micon icon-copy dw dw-open-book-1"></span><span class="mtext">PDF Agent</span>
+                    </a>
+                </li>
+                <li class="dropdown">
+                    <a href="{{route('consoCategorie.pdf')}}" class="dropdown-toggle no-arrow">
+                        <span class="micon icon-copy dw dw-open-book-1"></span><span class="mtext">PDF Categorie</span>
+                    </a>
+                </li>
+
+                @if ($annees == null)
+                <li class="dropdown">
+                    <a href="{{route('rechercheform')}}" class="dropdown-toggle no-arrow" onclick="return false;">
+                        <span class="micon icon-copy dw dw-hourglass1"></span><span class="mtext">Bilan</span>
+                    </a>
+                </li>
+                @else
+                    <li class="dropdown">
+                        <a href="{{route('rechercheform')}}" class="dropdown-toggle no-arrow">
+                            <span class="micon icon-copy dw dw-hourglass1"></span><span class="mtext">Bilan</span>
+                        </a>
+                    </li>
+                @endif
 
                 <li class="dropdown">
                     <a href="/users" class="dropdown-toggle no-arrow">
