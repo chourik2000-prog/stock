@@ -107,10 +107,11 @@ class CommandeController extends Controller
 
         // Output the generated PDF to Browser
         $dompdf->stream('commandes.pdf', ['Attachment' => false]);
-        return view('commandes.pdf')
-            ->with('an', $an)
-            ->with('commandes', $commandes);
-            exit();
+        exit();
+        // return view('commandes.pdf')
+        //     ->with('an', $an)
+        //     ->with('commandes', $commandes);
+            
     }
 
     /**
