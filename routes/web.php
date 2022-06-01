@@ -104,10 +104,16 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
         // les statistiques par agent
         Route::get('/conso_agents/recherche', 'ConsoAgentController@recherche')->name('consoagent.rech');
         Route::post('/conso_agents/recherche', 'ConsoAgentController@recherche');
+        // pdf du statistique par agent
+        Route::get('/conso_agents/pdf', 'PdfAgentController@index')->name('consoAgent.pdf');
+        Route::post('/conso_agents/recherche', 'PdfAgentController@index');
 
         // les statistiques par catégorie
         Route::get('/conso_categories/recherche', 'ConsoCategorieController@recherche')->name('consocategorie.rech');
         Route::post('/conso_categories/recherche', 'ConsoCategorieController@recherche');
+        // pdf du statistique par catégorie
+        Route::get('/conso_categories/pdf', 'PdfCategorieController@index')->name('consoCategorie.pdf');
+        Route::post('/conso_categories/recherche', 'PdfCategorieController@index');
 
             /**
          * categories.

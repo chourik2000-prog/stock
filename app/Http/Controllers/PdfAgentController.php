@@ -1,16 +1,23 @@
 <?php
 
 namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
 use App\Models\Annee;
 use App\Models\Agent;
 use App\Models\Demande;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
-use Illuminate\Http\Request;
+use Dompdf\Dompdf;
 
-class ConsoAgentController extends Controller
+class PdfAgentController extends Controller
 {
-    public function recherche(Request $request)
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index(Request $request)
     {
         $annees = DB::table('annees')->get();
         $agents = DB::table('agents')->get();
@@ -54,8 +61,21 @@ class ConsoAgentController extends Controller
                     }
                 } 
 
-                return view('conso_agents.afficher')
-                    ->with('demandeurs',$demandeurs)
+                $dompdf = new Dompdf();
+                $dompdf->loadHtml(view('conso_agents.pdf',compact('articlestocks')));
+
+                // (Optional) Setup the paper size and orientation
+                $dompdf->setPaper('A4', 'landscape');
+                $html ='<img src="logo-icon.png" alt="">';
+
+
+                // Render the HTML as PDF
+                $dompdf->render();
+
+
+                // Output the generated PDF to Browser
+                $dompdf->stream('pdfs.pdf', ['Attachment' => false]);
+                return view('conso_agents.pdf')
                     ->with('articlestocks', $articlestocks);
             }
         }
@@ -64,4 +84,5 @@ class ConsoAgentController extends Controller
             ->with('annees',$annees)
             ->with('agents',$agents);
     }
+  
 }

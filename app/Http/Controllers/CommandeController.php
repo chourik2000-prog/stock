@@ -100,7 +100,7 @@ class CommandeController extends Controller
             ->with('an', $an));
 
         // (Optional) Setup the paper size and orientation
-        $dompdf->setPaper('A4', 'landscape');
+        $dompdf->setPaper('A3', 'landscape');
 
         // Render the HTML as PDF
         $dompdf->render();
@@ -110,6 +110,7 @@ class CommandeController extends Controller
         return view('commandes.pdf')
             ->with('an', $an)
             ->with('commandes', $commandes);
+            exit();
     }
 
     /**
