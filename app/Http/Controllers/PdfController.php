@@ -106,8 +106,9 @@ class PdfController extends Controller
 
             // Output the generated PDF to Browser
             $dompdf->stream('pdfs.pdf', ['Attachment' => false]);
-            return view('pdfs.pdf')
-                ->with('articlestocks', $articlestocks);
+            exit();
+            // return view('pdfs.pdf')
+            //     ->with('articlestocks', $articlestocks);
         } 
         return view('pdfs.recherche')
         ->with('annees',$annees);

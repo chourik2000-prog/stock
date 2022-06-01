@@ -75,8 +75,9 @@ class PdfAgentController extends Controller
 
                 // Output the generated PDF to Browser
                 $dompdf->stream('pdfs.pdf', ['Attachment' => false]);
-                return view('conso_agents.pdf')
-                    ->with('articlestocks', $articlestocks);
+                exit();
+                // return view('conso_agents.pdf')
+                //     ->with('articlestocks', $articlestocks);
             }
         }
 

@@ -98,8 +98,9 @@ class DemandeController extends Controller
 
         // Output the generated PDF to Browser
         $dompdf->stream('demandes.pdf', ['Attachment' => false]);
-        return view('demandes.pdf')
-            ->with('demandes', $demandes);
+        exit();
+        // return view('demandes.pdf')
+        //     ->with('demandes', $demandes);
     }
     /**
      * Store a newly created resource in storage.
