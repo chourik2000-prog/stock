@@ -97,8 +97,9 @@ class ApprovisionnementController extends Controller
 
         // Output the generated PDF to Browser
         $dompdf->stream('approvisionnements.pdf', ['Attachment' => false]);
-        return view('approvisionnements.pdf')
-            ->with('approvisionnements', $approvisionnements);
+        exit();
+        // return view('approvisionnements.pdf')
+        //     ->with('approvisionnements', $approvisionnements);
     }
     /**
      * Store a newly created resource in storage.

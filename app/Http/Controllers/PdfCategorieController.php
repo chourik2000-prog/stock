@@ -86,8 +86,9 @@ class PdfCategorieController extends Controller
         
                     // Output the generated PDF to Browser
                     $dompdf->stream('conso_categories.pdf', ['Attachment' => false]);
-                    return view('conso_categories.pdf')
-                        ->with('articlestocks', $articlestocks);
+                    exit();
+                    // return view('conso_categories.pdf')
+                    //     ->with('articlestocks', $articlestocks);
             }
         }
         return view('conso_categories.recherche')
