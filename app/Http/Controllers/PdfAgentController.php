@@ -62,7 +62,8 @@ class PdfAgentController extends Controller
                 } 
 
                 $dompdf = new Dompdf();
-                $dompdf->loadHtml(view('conso_agents.pdf',compact('articlestocks')));
+                $dompdf->loadHtml(view('conso_agents.pdf',compact('articlestocks'))
+                ->with('demandeurs',$demandeurs));
 
                 // (Optional) Setup the paper size and orientation
                 $dompdf->setPaper('A4', 'landscape');

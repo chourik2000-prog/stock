@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\DB;
 use App\Models\Annee;
 use App\Models\Article;
 use Dompdf\Dompdf;
+use Dompdf\Options;
 
 class CommandeController extends Controller
 {
@@ -96,15 +97,15 @@ class CommandeController extends Controller
 
         // instantiate and use the dompdf class
         $dompdf = new Dompdf();
+        
         $dompdf->loadHtml(view('commandes.pdf',compact('commandes'))
             ->with('an', $an));
 
         // (Optional) Setup the paper size and orientation
-        $dompdf->setPaper('A3', 'landscape');
+        $dompdf->setPaper('A4', 'landscape');
 
         // Render the HTML as PDF
         $dompdf->render();
-
         // Output the generated PDF to Browser
         $dompdf->stream('commandes.pdf', ['Attachment' => false]);
         exit();

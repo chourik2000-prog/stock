@@ -46,11 +46,19 @@
 
     </head>
     <body>
-        <div class="row text-center">
-            <header >
-                {{-- <img src={{asset('vendors/images/logo.jpg')}} width="5%" height="5%"/> --}}
-            </header>
+        <div>
+           <div style="text-align: center">
+                <img src="data:image/png;base64,{{ base64_encode(file_get_contents(public_path('vendors/images/iai.jpg'))) }}">
+                <h4><strong>Institut Africain d'Informatique</strong> <br>
+                    Etablissement Inter-Etats d'Enseignement Supérieur <br>
+                    Représentation du TOGO(IAI-TOGO) <br>
+                    07 BP 12456 Lomé 07,  TOGO Tel:(+228) 22 20 47 00 <br>
+                    E-mail: iaitogo@iai-togo.tg
+                </h4>
+            </div>
+            <hr>
         </div>
+        <H3 style="text-align: center">Liste des commandes de l'année en cours</H3>
         <table class="tableau-style">
             <thead>
                 <tr>
