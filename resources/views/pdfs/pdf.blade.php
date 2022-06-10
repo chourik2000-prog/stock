@@ -35,20 +35,40 @@
         tbody tr:last-of-type{
             border-bottom: 3px solid midnightblue;
         }
-        .image{
-            border-collapse: collapse;
-            min-width: 400px;
-            width: 900px;
-            margin: 20px auto;
-            margin-top: 2px;
+        .hr {
+            border: none;
+            border-top: 3px double #333;
+            color: #333;
+            overflow: visible;
+            text-align: center;
+            height: 5px;
+            width: 500px;
+        }
+
+        hr:after {
+            background: #fff;
+            content: '§';
+            padding: 0 4px;
+            position: relative;
+            top: -13px;
         }
         </style>
 
     </head>
     <body>
-        {{-- <div class="image">
-            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADcAAAA3CAYAAACo29JGAAAABHNCSVQICAgIfAhkiAAAA3hJREFUaEPtmr9vUlEUx7/3FfvTWAKDSR2sifFHGluI0cFFqnYwsRb/gtLBpCZNBHRwszUxcQL+AKOYtIOTdHLQRoiDcRHo1kQjTm2t0Jc4+JN7zC28irThvft49GHyGOH8+pxz7rnnAQzBpRAYHqPVL0ISqYtTrXZTa5/h2hLtmUPio0iNpffKnwNnWaadylmWSjhtaVkunba0LJVOW1qXSqctrculMy0ty6XTlpal0oJpecwFXOoG/J36Ua2uA99+NJbr6PiN3q7XODl2Qd9gY4nmzty5LmCqz3gMRuA0a92dqxi+PGDc+E5J83BeBXjglvMtAycs9/VmMDQWkHPyV9o83HgPcLVHzq8snGjR01f2yTmxAu72AeC4S86vLJywfnaCyTlx4HTy5VSuLkFOW9YlxDlzux8h81eBc+bsP3MFAIel75L/onLBV4MAD0nD3e8P4WCHXFL2fFpKU1UVNrJpMJyXUnfgKuk68eErAm9KmJ4vJMFosPIuUxkhxzjlhtX4ol5iTe9taFHlbswXMP5yDYfWGz/3EZHKwJKc8zm/mlB3A20buDP5TczFV3Sh6iEEpMJYZLgYS9Z/1hZwEy/WcC+2otdlDT8nQtJXiv3z+5/tcFaAadT1gLbCiVZ8eGe5qYrtUCZERkqxxNb4MW35SzYFYEJKv+4qeD75FgOfv0uZMCLMy/yIX00UzMMVs2EQ4kacbcvUwImpOL3wSUrdsDDRk5FSPGQebjPrRpkKAOs37LQGrlVV02IR1TMPJ6xsZn0oU9owYBVOXNBPZ94ZzokpQUKkObgKoBscIXAEdYPYKB7Fz1/7Zx69776+8LFLV74pAVpsHs5EAHlPJAnGJk2oSqhQxh44b0S0stzSLYGliTpwJpLWUCXvjaQAJndHSgZBhLw9lfNEZ8FwVzJeSXGbztyy91aQQM8ko5UTt+QqkHO5LZ3zRFXGYHwBkPTjKnO/LW0p4sx7IgkwdlMyZoPilBkpxgO2wWXdYTdTlEIrqqeU+egpNZG2DU6UYNkbDREs/iNrdWkW9m2Fq7anZduKGP++Usxn6yVef3CsWMcEGHEeqP2yyPbKaaB5TzQMJvl8qCnXtGJt4toGTgSVdYcHFYXNGl+qKaOUaVYMj93GaFvBaQFWIJUgGIl/Mri1JXtrpWKkgljKxXl6SE3kGt0NfwB4ZdvCFbo/ZgAAAABJRU5ErkJggg==" alt=""/><h3> IAI-TOGO gestion de stock</h3>
-        </div> --}}
+        <div>
+            <div style="text-align: center">
+                 <img src="data:image/png;base64,{{ base64_encode(file_get_contents(public_path('vendors/images/iai.jpg'))) }}">
+                 <h4><strong>Institut Africain d'Informatique</strong> <br>
+                     Etablissement Inter-Etats d'Enseignement Supérieur <br>
+                     Représentation du TOGO(IAI-TOGO) <br>
+                     07 BP 12456 Lomé 07,  TOGO Tel:(+228) 22 20 47 00 <br>
+                     E-mail: iaitogo@iai-togo.tg
+                 </h4>
+             </div>
+             <hr>
+         </div>
+         <H3 style="text-align: center">Statistiques de l'année en cours</H3>
         <table class="tableau-style">
             <thead>
                 <tr>

@@ -35,17 +35,40 @@
         tbody tr:last-of-type{
             border-bottom: 3px solid midnightblue;
         }
-        .image{
-            border-collapse: collapse;
-            min-width: 400px;
-            width: 900px;
-            margin: 20px auto;
-            margin-top: 2px;
+        hr {
+            border: none;
+            border-top: 3px double #333;
+            color: #333;
+            overflow: visible;
+            text-align: center;
+            height: 5px;
+            width: 500px;
+        }
+
+        hr:after {
+            background: #fff;
+            content: '§';
+            padding: 0 4px;
+            position: relative;
+            top: -13px;
         }
         </style>
 
     </head>
     <body>
+        <div>
+            <div style="text-align: center">
+                 <img src="data:image/png;base64,{{ base64_encode(file_get_contents(public_path('vendors/images/iai.jpg'))) }}">
+                 <h4><strong>Institut Africain d'Informatique</strong> <br>
+                     Etablissement Inter-Etats d'Enseignement Supérieur <br>
+                     Représentation du TOGO(IAI-TOGO) <br>
+                     07 BP 12456 Lomé 07,  TOGO Tel:(+228) 22 20 47 00 <br>
+                     E-mail: iaitogo@iai-togo.tg
+                 </h4>
+             </div>
+             <hr>
+         </div>
+         <H3 style="text-align: center">Liste des consommation de la {{$cat->libelle}} </H3>
         <table class="tableau-style">
             <thead>
                 <tr>

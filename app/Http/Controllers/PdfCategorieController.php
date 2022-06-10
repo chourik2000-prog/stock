@@ -73,7 +73,8 @@ class PdfCategorieController extends Controller
                         }
                     }
                     $dompdf = new Dompdf();
-                    $dompdf->loadHtml(view('conso_categories.pdf',compact('articlestocks')));
+                    $dompdf->loadHtml(view('conso_categories.pdf',compact('articlestocks'))
+                        ->with('cat',$cat));
         
                     // (Optional) Setup the paper size and orientation
                     $dompdf->setPaper('A4', 'landscape');

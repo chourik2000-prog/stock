@@ -42,6 +42,7 @@
             overflow: visible;
             text-align: center;
             height: 5px;
+            width: 500px;
         }
 
         hr:after {
