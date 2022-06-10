@@ -15,6 +15,22 @@
             margin: 20px auto;
             border: 1px solid #ddd;
         }
+        hr {
+            border: none;
+            border-top: 3px double #333;
+            color: #333;
+            overflow: visible;
+            text-align: center;
+            height: 5px;
+        }
+
+        hr:after {
+            background: #fff;
+            content: '§';
+            padding: 0 4px;
+            position: relative;
+            top: -13px;
+        }
         thead tr{
             background-color: midnightblue;
             color: #fff;
@@ -34,13 +50,6 @@
         }
         tbody tr:last-of-type{
             border-bottom: 3px solid midnightblue;
-        }
-        .image{
-            border-collapse: collapse;
-            min-width: 400px;
-            width: 900px;
-            margin: 20px auto;
-            margin-top: 2px;
         }
         </style>
 
