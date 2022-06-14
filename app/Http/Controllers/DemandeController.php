@@ -8,6 +8,7 @@ use App\Models\Agent;
 use App\Models\Annee;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
+use Auth;
 use Dompdf\Dompdf;
 
 
@@ -53,6 +54,7 @@ class DemandeController extends Controller
 
     public function recherche(Request $request)
     {
+        $user = Auth::user()->id;
         $annees = Annee::all();
 
         $articles = Article::all();
@@ -71,7 +73,8 @@ class DemandeController extends Controller
                 ->with('articles', $articles)
                 ->with('agents', $agents)
                 ->with('an',$an)
-                ->with('annees', $annees);
+                ->with('annees', $annees)
+                ->with('user',$user);
         }
 
         return view('demandes.recherche')

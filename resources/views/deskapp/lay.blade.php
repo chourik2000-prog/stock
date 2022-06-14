@@ -32,6 +32,12 @@
 			margin-left: 5%;
 			width: 23%
 		}
+		#disabled {
+        pointer-events: none;
+        cursor: default;
+        text-decoration: none;
+        color: #000000;
+      }
         #bar1{
             height: -1500px; 
             width: 300%;

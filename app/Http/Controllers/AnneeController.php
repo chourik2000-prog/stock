@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\Annee;
 use Illuminate\Http\Request;
+use Auth;
 use Illuminate\Support\Facades\DB;
 class AnneeController extends Controller
 {
@@ -13,8 +14,11 @@ class AnneeController extends Controller
      */
     public function index()
     { 
+        $user = Auth::user()->id;
         $annees = Annee::all();
-        return view('annees.afficher',compact('annees'))->with('annees', $annees);
+        return view('annees.afficher',compact('annees'))
+            ->with('annees', $annees)
+            ->with('user',$user);
     }
 
     /**

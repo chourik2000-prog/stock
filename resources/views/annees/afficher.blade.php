@@ -8,10 +8,16 @@
                 <h4 class="font-20 weight-500 mb-10">
                     <div class="weight-600 font-30 text-blue">Années</div>
                 </h4>
-            </div>			
-            <div class="pull-right">
-                <a class="btn btn-success btn-sm text-white" data-toggle="modal" data-target="#exampleModal"> + Ajouter</a>
             </div>
+            @if($user == 2)			
+                <div class="pull-right">
+                    <a class="btn btn-success btn-sm text-white" data-toggle="modal" id="disabled" data-target="#exampleModal"> + Ajouter</a>
+                </div>
+            @else
+                <div class="pull-right">
+                    <a class="btn btn-success btn-sm text-white" data-toggle="modal" data-target="#exampleModal"> + Ajouter</a>
+                </div>
+            @endif
         </div>
            @if ($message = Session::get('success'))
                <div class="alert alert-success">
@@ -37,24 +43,43 @@
                             @else
                                 <td > non</td>
                             @endif
-                            
-                            <td>
-                                <form action="{{ route('annees.destroy',$annee->id) }}" method="POST">    
-                                    <button type="button" class="btn btn-info btn-sm" data-toggle="modal" 
-                                        data-target="#modaledit{{$annee->id}}">
-                                        <a  href="#">
-                                            <i class="dw dw-edit-1 text-white"></i>
-                                        </a>
-                                    </button>
-                                    @csrf
-                                    @method('DELETE')
-                                    <button type="submit" class="btn btn-warning btn-sm" onClick='return confirmSubmit()'>
-                                        <a  href="#">
-                                            <i class="icon-copy dw dw-trash1 text-white"></i>
-                                        </a>
-                                    </button>
-                                </form>
-                            </td>
+                            @if($user == 2)
+                                <td>
+                                    <form action="{{ route('annees.destroy',$annee->id) }}" method="POST">    
+                                        <button type="button" id="disabled" class="btn btn-info btn-sm" data-toggle="modal" 
+                                            data-target="#modaledit{{$annee->id}}">
+                                            <a  href="#">
+                                                <i class="dw dw-edit-1 text-white"></i>
+                                            </a>
+                                        </button>
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" id="disabled" class="btn btn-warning btn-sm" onClick='return confirmSubmit()'>
+                                            <a  href="#">
+                                                <i class="icon-copy dw dw-trash1 text-white"></i>
+                                            </a>
+                                        </button>
+                                    </form>
+                                </td>
+                            @else
+                                <td>
+                                    <form action="{{ route('annees.destroy',$annee->id) }}" method="POST">    
+                                        <button type="button" class="btn btn-info btn-sm" data-toggle="modal" 
+                                            data-target="#modaledit{{$annee->id}}">
+                                            <a  href="#">
+                                                <i class="dw dw-edit-1 text-white"></i>
+                                            </a>
+                                        </button>
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn btn-warning btn-sm" onClick='return confirmSubmit()'>
+                                            <a  href="#">
+                                                <i class="icon-copy dw dw-trash1 text-white"></i>
+                                            </a>
+                                        </button>
+                                    </form>
+                                </td>
+                            @endif
                         </tr>
 @include('annees.modalmodifier')
 @endforeach

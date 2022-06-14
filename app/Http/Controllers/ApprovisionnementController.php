@@ -12,6 +12,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
 use Dompdf\Dompdf;
+use Auth;
 
 class ApprovisionnementController extends Controller
 {
@@ -53,6 +54,7 @@ class ApprovisionnementController extends Controller
 
     public function recherche(Request $request)
     {
+        $user = Auth::user()->id;
         // afficher les données de l'année choisie 
         $annees = Annee::all();
         $articles = Article::all();
@@ -69,7 +71,8 @@ class ApprovisionnementController extends Controller
                 ->with('articles', $articles)
                 ->with('fournisseurs', $fournisseurs)
                 ->with('an', $an)
-                ->with('annees', $annees);
+                ->with('annees', $annees)
+                ->with('user',$user);
 
         }
  

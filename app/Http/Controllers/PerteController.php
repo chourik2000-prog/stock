@@ -7,6 +7,7 @@ use App\Models\Perte;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
+use Auth;
 
 class PerteController extends Controller
 {
@@ -41,6 +42,7 @@ class PerteController extends Controller
 
     public function recherche(Request $request)
     {
+        $user = Auth::user()->id;
         $annees = Annee::all();
         $articles = Article::all();
 
@@ -52,7 +54,8 @@ class PerteController extends Controller
             return view('pertes.afficher')
                 ->with('pertes', $pertes)
                 ->with('articles', $articles)
-                ->with('annees', $annees);
+                ->with('annees', $annees)
+                ->with('user',$user);
 
         }
         return view('pertes.recherche')

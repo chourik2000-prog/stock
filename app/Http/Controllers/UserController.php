@@ -8,6 +8,8 @@ use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use RegistersUsers;
+use Auth;
+use Session;
 
 class UserController extends Controller
 {
@@ -19,9 +21,11 @@ class UserController extends Controller
      */
     public function index()
     {  
+        $utilisateur = Auth::user()->id;
         $users = User::all();
         return view('users.afficher',compact('users'))
-        ->with('users', $users);
+        ->with('users', $users)
+        ->with('utilisateur',$utilisateur);
     }
 
     /**

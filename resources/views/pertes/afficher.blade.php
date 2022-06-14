@@ -15,9 +15,15 @@
 				Voir pour une autre année
 			</a>
 		</div>
-		<div class="pull-right">
-			<a class="btn btn-success btn-sm text-white" data-toggle="modal" data-target="#exampleModal"> + Ajouter</a>
-		</div>
+		@if($user == 2)
+			<div class="pull-right">
+				<a class="btn btn-success btn-sm text-white" id="disabled" data-toggle="modal" data-target="#exampleModal"> + Ajouter</a>
+			</div>
+		@else
+			<div class="pull-right">
+				<a class="btn btn-success btn-sm text-white" data-toggle="modal" data-target="#exampleModal"> + Ajouter</a>
+			</div>
+		@endif
 	</div>
 			@if ($message = Session::get('success'))
 				<div class="alert alert-success">
@@ -44,23 +50,43 @@
 								{{ $perte->annee->dateDebut}} au
 								{{ $perte->annee->dateFin}}
 							</td>
-							<td>
-								<form action="{{ route('pertes.destroy',$perte->id) }}" method="POST">    
-									<button type="button" class="btn btn-info btn-sm" data-toggle="modal" 
-										data-target="#modaledit{{$perte->id}}">
-										<a  href="#">
-											<i class="dw dw-edit-1 text-white"></i>
-										</a>
-									</button>
-									@csrf
-									@method('DELETE')
-									<button type="submit" class="btn btn-warning btn-sm" onClick='return confirmSubmit()'>
-										<a href="#">
-											<i class="dw dw-trash1 text-white"></i>
-										</a>
-									</button>
-								</form>
-							</td>
+							@if($user == 2)
+								<td>
+									<form action="{{ route('pertes.destroy',$perte->id) }}" method="POST">    
+										<button type="button" id="disabled" class="btn btn-info btn-sm" data-toggle="modal" 
+											data-target="#modaledit{{$perte->id}}">
+											<a  href="#">
+												<i class="dw dw-edit-1 text-white"></i>
+											</a>
+										</button>
+										@csrf
+										@method('DELETE')
+										<button type="submit" id="disabled" class="btn btn-warning btn-sm" onClick='return confirmSubmit()'>
+											<a href="#">
+												<i class="dw dw-trash1 text-white"></i>
+											</a>
+										</button>
+									</form>
+								</td>
+							@else
+								<td>
+									<form action="{{ route('pertes.destroy',$perte->id) }}" method="POST">    
+										<button type="button" class="btn btn-info btn-sm" data-toggle="modal" 
+											data-target="#modaledit{{$perte->id}}">
+											<a  href="#">
+												<i class="dw dw-edit-1 text-white"></i>
+											</a>
+										</button>
+										@csrf
+										@method('DELETE')
+										<button type="submit" class="btn btn-warning btn-sm" onClick='return confirmSubmit()'>
+											<a href="#">
+												<i class="dw dw-trash1 text-white"></i>
+											</a>
+										</button>
+									</form>
+								</td>
+							@endif
 						</tr>
 						@include('pertes.modalmodifier')
 					@endforeach

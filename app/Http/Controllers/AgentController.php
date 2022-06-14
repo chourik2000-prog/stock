@@ -6,6 +6,7 @@ use App\Models\Annee;
 use App\Models\Agent;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Auth;
 
 class AgentController extends Controller
 {
@@ -16,12 +17,14 @@ class AgentController extends Controller
      */
     public function index()
     {
+        $user = Auth::user()->id;
         $annees = Annee::all();  
         $categories = Catego::all();
         $agents = Agent::all();
         return view('agents.afficher',compact('agents'))
         ->with('categories', $categories)
-        ->with('annees', $annees);
+        ->with('annees', $annees)
+        ->with('user',$user);
     }
 
     /**

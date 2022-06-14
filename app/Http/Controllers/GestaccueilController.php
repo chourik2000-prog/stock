@@ -5,11 +5,13 @@ use App\Models\Annee;
 use App\Models\Approvisionnement;
 use App\Models\Commande;
 use App\Models\Demande;
+use Auth;
 use App\Models\Perte;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
 
 use Illuminate\Http\Request;
+use Session;
 
 class GestaccueilController extends Controller
 {
@@ -20,6 +22,9 @@ class GestaccueilController extends Controller
      */
     public function index(Request $request)
     {
+        $user = Auth::user()->id;
+        Session::put('name', $user);
+
         // chercher l'année active , qui a pour status = 1
         $anneeActive = Annee::where('status', 1)
         ->value('id');

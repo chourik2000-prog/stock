@@ -5,6 +5,8 @@ use App\Models\Agent;
 use App\Models\Catego;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Auth;
+
 
 class CategoController extends Controller
 {
@@ -15,10 +17,11 @@ class CategoController extends Controller
      */
     public function index()
     {
+        $user = Auth::user()->id;
         $categories = DB::table('categories')
                 ->orderBy('libelle', 'asc')
                 ->get();
-        return view('categories.afficher',compact('categories'));
+        return view('categories.afficher',compact('categories'))->with('user', $user);
     }
 
     /**

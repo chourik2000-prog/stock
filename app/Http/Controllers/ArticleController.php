@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\DB;
 use App\Models\Article;
 use App\Models\Annee;
+use Auth;
 use Illuminate\Http\Request;
+use Session;
 
 class ArticleController extends Controller
 {
@@ -15,9 +17,14 @@ class ArticleController extends Controller
      */
     public function index()
     {
+        // $user = Auth::user()->id;
+        // Session::put('articles', $user);  
+        $user = Auth::user()->id;
         $annees = Annee::all();
         $articles = Article::all();
-        return view('articles.afficher',compact('articles'))->with('annees', $annees);
+        return view('articles.afficher',compact('articles'))
+            ->with('annees', $annees)
+            ->with('user',$user);
     }
 
     /**

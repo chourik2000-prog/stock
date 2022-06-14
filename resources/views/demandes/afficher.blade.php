@@ -21,10 +21,16 @@
 						<i class="micon icon-copy dw dw-open-book-1"></i>
 					   PDF
 					</a>
-				</div>		
-				<div class="pull-right" id="ajouter">
-                	<a class="btn btn-success btn-sm text-white" data-toggle="modal" data-target="#exampleModal"> + Ajouter</a>
 				</div>
+				@if($user == 2)		
+					<div class="pull-right" id="ajouter">
+						<a class="btn btn-success btn-sm text-white" id="disabled" data-toggle="modal" data-target="#exampleModal"> + Ajouter</a>
+					</div>
+				@else
+					<div class="pull-right" id="ajouter">
+						<a class="btn btn-success btn-sm text-white" data-toggle="modal" data-target="#exampleModal"> + Ajouter</a>
+					</div>
+				@endif
 			</div>	
 				@if ($message = Session::get('success'))
 					<div class="alert alert-success">
@@ -48,23 +54,44 @@
 									<td>{{ $demande->article->libelle}}</td>
 									<td>{{ $demande->qlivree}}</td>
 									<td>{{ $demande->date}}</td>
-									<td>
-										<form action="{{ route('demandes.destroy',$demande->id) }}" method="POST">    
-												<button type="button" class="btn btn-info btn-sm" data-toggle="modal" 
-													data-target="#modaledit{{$demande->id}}">
-													<a  href="#">
-														<i class="dw dw-edit-1 text-white"></i>
+
+									@if($user == 2)
+										<td>
+											<form action="{{ route('demandes.destroy',$demande->id) }}" method="POST">    
+													<button type="button" id="disabled" class="btn btn-info btn-sm" data-toggle="modal" 
+														data-target="#modaledit{{$demande->id}}">
+														<a  href="#">
+															<i class="dw dw-edit-1 text-white"></i>
+														</a>
+													</button>
+												@csrf
+												@method('DELETE')
+												<button type="submit" id="disabled" class="btn btn-warning btn-sm" onClick='return confirmSubmit()'>
+													<a href="#">
+														<i class="dw dw-trash1 text-white"></i>
 													</a>
 												</button>
-											@csrf
-											@method('DELETE')
-											<button type="submit" class="btn btn-warning btn-sm" onClick='return confirmSubmit()'>
-												<a href="#">
-													<i class="dw dw-trash1 text-white"></i>
-												</a>
-											</button>
-										</form>
-									</td>
+											</form>
+										</td>
+									@else
+										<td>
+											<form action="{{ route('demandes.destroy',$demande->id) }}" method="POST">    
+													<button type="button" class="btn btn-info btn-sm" data-toggle="modal" 
+														data-target="#modaledit{{$demande->id}}">
+														<a  href="#">
+															<i class="dw dw-edit-1 text-white"></i>
+														</a>
+													</button>
+												@csrf
+												@method('DELETE')
+												<button type="submit" class="btn btn-warning btn-sm" onClick='return confirmSubmit()'>
+													<a href="#">
+														<i class="dw dw-trash1 text-white"></i>
+													</a>
+												</button>
+											</form>
+										</td>
+									@endif
 								</tr>
 								@include('demandes.modalmodifier')
 							@endforeach

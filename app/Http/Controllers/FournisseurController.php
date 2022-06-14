@@ -7,6 +7,7 @@ use App\Models\Annee;
 use App\Models\Approvisionnement;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Auth;
 
 class FournisseurController extends Controller
 {
@@ -17,12 +18,14 @@ class FournisseurController extends Controller
      */
     public function index()
     {
+        $user = Auth::user()->id;
         $annees = Annee::all();
         $fournisseurs = DB::table('fournisseurs')
                 ->orderBy('nom', 'asc')
                 ->get();
-        // $fournisseurs = Fournisseur::all();
-    return view('fournisseurs.afficher',compact('fournisseurs'))->with('annees', $annees);
+    return view('fournisseurs.afficher',compact('fournisseurs'))
+        ->with('annees', $annees)
+        ->with('user', $user);
     }
 
     /**

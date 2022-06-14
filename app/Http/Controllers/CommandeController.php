@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\DB;
 use App\Models\Annee;
 use App\Models\Article;
 use Dompdf\Dompdf;
+use Auth;
 use Dompdf\Options;
 
 class CommandeController extends Controller
@@ -65,6 +66,7 @@ class CommandeController extends Controller
 
     public function recherche(Request $request)
     {
+        $user = Auth::user()->id;
         $annees = Annee::all();
         $articles = Article::all();
 
@@ -79,7 +81,8 @@ class CommandeController extends Controller
                 ->with('commandes', $commandes)
                 ->with('articles', $articles)
                 ->with('annees', $annees)
-                ->with('an', $an);
+                ->with('an', $an)
+                ->with('user',$user);
         }
 
         return view('commandes.recherche')
