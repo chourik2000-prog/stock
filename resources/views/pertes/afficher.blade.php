@@ -15,7 +15,7 @@
 				Voir pour une autre année
 			</a>
 		</div>
-		@if($user == 2)
+		@if($user != 1)
 			<div class="pull-right">
 				<a class="btn btn-success btn-sm text-white" id="disabled" data-toggle="modal" data-target="#exampleModal"> + Ajouter</a>
 			</div>
@@ -50,7 +50,7 @@
 								{{ $perte->annee->dateDebut}} au
 								{{ $perte->annee->dateFin}}
 							</td>
-							@if($user == 2)
+							@if($user != 1)
 								<td>
 									<form action="{{ route('pertes.destroy',$perte->id) }}" method="POST">    
 										<button type="button" id="disabled" class="btn btn-info btn-sm" data-toggle="modal" 

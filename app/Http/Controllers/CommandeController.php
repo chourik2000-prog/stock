@@ -66,7 +66,7 @@ class CommandeController extends Controller
 
     public function recherche(Request $request)
     {
-        $user = Auth::user()->id;
+        $user = Auth::user()->id_role;
         $annees = Annee::all();
         $articles = Article::all();
 

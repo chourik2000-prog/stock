@@ -21,7 +21,7 @@ class UserController extends Controller
      */
     public function index()
     {  
-        $utilisateur = Auth::user()->id;
+        $utilisateur = Auth::user()->id_role;
         $users = User::all();
         return view('users.afficher',compact('users'))
         ->with('users', $users)

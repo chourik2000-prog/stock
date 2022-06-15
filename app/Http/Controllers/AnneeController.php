@@ -14,7 +14,7 @@ class AnneeController extends Controller
      */
     public function index()
     { 
-        $user = Auth::user()->id;
+        $user = Auth::user()->id_role;
         $annees = Annee::all();
         return view('annees.afficher',compact('annees'))
             ->with('annees', $annees)

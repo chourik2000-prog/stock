@@ -16,10 +16,8 @@ class ArticleController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        // $user = Auth::user()->id;
-        // Session::put('articles', $user);  
-        $user = Auth::user()->id;
+    { 
+        $user = Auth::user()->id_role;
         $annees = Annee::all();
         $articles = Article::all();
         return view('articles.afficher',compact('articles'))

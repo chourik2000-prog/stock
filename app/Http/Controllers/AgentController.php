@@ -17,7 +17,8 @@ class AgentController extends Controller
      */
     public function index()
     {
-        $user = Auth::user()->id;
+        $user = Auth::user()->id_role;
+        
         $annees = Annee::all();  
         $categories = Catego::all();
         $agents = Agent::all();

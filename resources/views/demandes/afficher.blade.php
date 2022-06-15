@@ -22,7 +22,7 @@
 					   PDF
 					</a>
 				</div>
-				@if($user == 2)		
+				@if($user != 1)		
 					<div class="pull-right" id="ajouter">
 						<a class="btn btn-success btn-sm text-white" id="disabled" data-toggle="modal" data-target="#exampleModal"> + Ajouter</a>
 					</div>
@@ -55,7 +55,7 @@
 									<td>{{ $demande->qlivree}}</td>
 									<td>{{ $demande->date}}</td>
 
-									@if($user == 2)
+									@if($user != 1)
 										<td>
 											<form action="{{ route('demandes.destroy',$demande->id) }}" method="POST">    
 													<button type="button" id="disabled" class="btn btn-info btn-sm" data-toggle="modal" 

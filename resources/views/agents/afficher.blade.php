@@ -10,15 +10,15 @@
 					<div class="weight-600 font-30 text-blue">Personnel</div>
 				</h4>
 			</div>	
-			@if($user == 2)	
+			@if($user == 1)	
 				<div class="pull-right">
-					<a class="btn btn-success btn-sm text-white" id="disabled" data-toggle="modal" data-target="#exampleModal">
+					<a class="btn btn-success btn-sm text-white"  data-toggle="modal" data-target="#exampleModal">
 						+ Ajouter
 					</a>
 				</div>
 			@else
 				<div class="pull-right">
-					<a class="btn btn-success btn-sm text-white" data-toggle="modal" data-target="#exampleModal">
+					<a class="btn btn-success btn-sm text-white" id="disabled" data-toggle="modal" data-target="#exampleModal">
 						+ Ajouter
 					</a>
 				</div>
@@ -44,27 +44,7 @@
 					<td>{{ $agent->nom}}</td>
 					<td>{{ $agent->prenom}}</td>
 					<td>{{ $agent->categorie->libelle}}</td>
-					@if($user == 2)
-						<td>
-							<form action="{{ route('agents.destroy',$agent->id) }}" method="POST">    
-								<button type="button" id="disabled" class="btn btn-info btn-sm" data-toggle="modal" 
-									data-target="#modaledit{{$agent->id}}">
-									<a  href="#">
-										<i class="dw dw-edit-1 text-white"></i>
-									</a>
-								</button>
-			
-								@csrf
-								@method('DELETE')
-				
-								<button type="submit" id="disabled" class="btn btn-warning btn-sm" onClick='return confirmSubmit()'>
-									<a  href="#">
-										<i class="dw dw-trash1 text-white"></i>
-									</a>
-								</button>
-							</form>
-						</td>
-					@else
+					@if($user == 1)
 						<td>
 							<form action="{{ route('agents.destroy',$agent->id) }}" method="POST">    
 								<button type="button" class="btn btn-info btn-sm" data-toggle="modal" 
@@ -78,6 +58,26 @@
 								@method('DELETE')
 				
 								<button type="submit" class="btn btn-warning btn-sm" onClick='return confirmSubmit()'>
+									<a  href="#">
+										<i class="dw dw-trash1 text-white"></i>
+									</a>
+								</button>
+							</form>
+						</td>
+					@else
+						<td>
+							<form action="{{ route('agents.destroy',$agent->id) }}" method="POST">    
+								<button type="button" id="disabled" class="btn btn-info btn-sm" data-toggle="modal" 
+									data-target="#modaledit{{$agent->id}}">
+									<a  href="#">
+										<i class="dw dw-edit-1 text-white"></i>
+									</a>
+								</button>
+			
+								@csrf
+								@method('DELETE')
+				
+								<button type="submit" id="disabled" class="btn btn-warning btn-sm" onClick='return confirmSubmit()'>
 									<a  href="#">
 										<i class="dw dw-trash1 text-white"></i>
 									</a>

@@ -18,7 +18,7 @@ class FournisseurController extends Controller
      */
     public function index()
     {
-        $user = Auth::user()->id;
+        $user = Auth::user()->id_role;
         $annees = Annee::all();
         $fournisseurs = DB::table('fournisseurs')
                 ->orderBy('nom', 'asc')

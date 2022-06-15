@@ -9,7 +9,7 @@
                     <div class="weight-600 font-30 text-blue">Années</div>
                 </h4>
             </div>
-            @if($user == 2)			
+            @if($user != 1)			
                 <div class="pull-right">
                     <a class="btn btn-success btn-sm text-white" data-toggle="modal" id="disabled" data-target="#exampleModal"> + Ajouter</a>
                 </div>
@@ -43,7 +43,7 @@
                             @else
                                 <td > non</td>
                             @endif
-                            @if($user == 2)
+                            @if($user != 1)
                                 <td>
                                     <form action="{{ route('annees.destroy',$annee->id) }}" method="POST">    
                                         <button type="button" id="disabled" class="btn btn-info btn-sm" data-toggle="modal" 
