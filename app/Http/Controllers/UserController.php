@@ -21,11 +21,13 @@ class UserController extends Controller
      */
     public function index()
     {  
-        $utilisateur = Auth::user()->id_role;
+        // $utilisateur = Auth::user()->id_role;
         $users = User::all();
+        $roles = Role::all();
         return view('users.afficher',compact('users'))
         ->with('users', $users)
-        ->with('utilisateur',$utilisateur);
+        ->with('roles',$roles);
+        // ->with('utilisateur',$utilisateur);
     }
 
     /**
@@ -35,7 +37,8 @@ class UserController extends Controller
      */
     public function create(array $data)
     {
-        return view('users.create');
+        $role = Role::all();
+        return view('users.create')->with('role', $role);
     }
 
     protected function validator(array $user)
@@ -44,6 +47,8 @@ class UserController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'id_role' => ['required|exists:roles,id'],
+            
         ]);
     }
 
@@ -59,6 +64,7 @@ class UserController extends Controller
         $user->name = request('name');
         $user->email = request('email');
         $user->password = bcrypt(request('password'));
+        $user->id_role = request('id_role');
         $user->save();
 
         return redirect()->route('users.index')

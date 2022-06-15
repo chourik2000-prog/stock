@@ -10,19 +10,19 @@
                     <div class="weight-600 font-30 text-blue">Utilisateurs</div>
                 </h4>
             </div>
-            @if($utilisateur == 2)		
+            {{-- @if($utilisateur == 2)		
                 <div class="pull-right">
                     <a class="btn btn-success btn-sm text-white" id="disabled" data-toggle="modal" data-target="#exampleModal">
                         + Ajouter
                     </a>
                 </div>
-            @else
+            @else --}}
                 <div class="pull-right">
                     <a class="btn btn-success btn-sm text-white" data-toggle="modal" data-target="#exampleModal">
                         + Ajouter
                     </a>
                 </div>
-            @endif
+            {{-- @endif --}}
         </div>	
         @if ($message = Session::get('success'))
             <div class="alert alert-success">
@@ -34,6 +34,7 @@
                 <tr>
                    <th scope="col"> <strong>Nom</strong> </th>
                    <th scope="col"> <strong>Mot de passe</strong> </th>
+                   <th scope="col"> <strong>Role</strong> </th>
                    <th scope="col"> <strong> Actions</strong> </th>
                 </tr>
             </thead>
@@ -42,7 +43,10 @@
                 <tr>
                     <td>{{ $user->name}}</td>
                     <td>{{ $user->password}}</td>
-                    @if($utilisateur == 2)
+                    @if ($user->role)
+                    <td>{{ $user->role->name}}</td>
+                    @endif
+                    {{-- @if($utilisateur == 2)
                         <td>
                             <form action="{{ route('users.destroy',$user->id) }}" method="POST">    
                             @csrf
@@ -54,7 +58,7 @@
                                 </button>
                             </form>
                         </td>
-                    @else
+                    @else --}}
                         <td>
                             <form action="{{ route('users.destroy',$user->id) }}" method="POST">    
                             @csrf
@@ -66,9 +70,8 @@
                                 </button>
                             </form>
                         </td>
-                    @endif
+                    {{-- @endif --}}
                 </tr>
-                   @include('users.modalmodifier')
                @endforeach
                </tbody>
            </table>
