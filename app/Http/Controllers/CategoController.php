@@ -17,7 +17,7 @@ class CategoController extends Controller
      */
     public function index()
     {
-        $user = Auth::user()->id_role;
+        $user = Auth::user()->role->name;
         $categories = DB::table('categories')
                 ->orderBy('libelle', 'asc')
                 ->get();

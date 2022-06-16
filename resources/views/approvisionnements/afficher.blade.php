@@ -21,7 +21,7 @@
 				   PDF
 				</a>
 			</div>	
-			@if($user != 1)
+			@if($user != "admin")
 				<div class="pull-right" id="ajouter">
 					<a class="btn btn-success btn-sm text-white" id="disabled" data-toggle="modal" data-target="#exampleModal">
 						+ Ajouter
@@ -62,7 +62,7 @@
 								{{ $approvisionnement->annee->dateDebut}} au 
 								{{ $approvisionnement->annee->dateFin}}
 							</td>
-							@if($user != 1)
+							@if($user != "admin")
 								<td>
 									<form action="{{ route('approvisionnements.destroy',$approvisionnement->id) }}" method="POST">    
 										<button type="button" id="disabled" class="btn btn-info btn-sm" data-toggle="modal" 

@@ -54,7 +54,7 @@ class ApprovisionnementController extends Controller
 
     public function recherche(Request $request)
     {
-        $user = Auth::user()->id_role;
+        $user = Auth::user()->role->name;
         // afficher les données de l'année choisie 
         $annees = Annee::all();
         $articles = Article::all();

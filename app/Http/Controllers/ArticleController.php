@@ -17,7 +17,7 @@ class ArticleController extends Controller
      */
     public function index()
     { 
-        $user = Auth::user()->id_role;
+        $user = Auth::user()->role->name;
         $annees = Annee::all();
         $articles = Article::all();
         return view('articles.afficher',compact('articles'))

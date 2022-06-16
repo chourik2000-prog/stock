@@ -54,7 +54,7 @@ class DemandeController extends Controller
 
     public function recherche(Request $request)
     {
-        $user = Auth::user()->id_role;
+        $user = Auth::user()->role->name;
         $annees = Annee::all();
 
         $articles = Article::all();

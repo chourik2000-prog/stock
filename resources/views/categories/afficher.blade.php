@@ -10,7 +10,7 @@
 					   <div class="weight-600 font-30 text-blue">Catégorie</div>
 				   </h4>
 			   </div>
-			   @if($user != 1)
+			   @if($user != "admin")
 					<div class="pull-right">
 						<a class="btn btn-success btn-sm text-white" id="disabled" data-toggle="modal" data-target="#exampleModal">+ Ajouter</a>
 					</div>
@@ -36,7 +36,7 @@
 				   @foreach ($categories as $categorie)
 					   	<tr>
 							<td>{{ $categorie->libelle}}</td>
-							@if($user != 1)
+							@if($user != "admin")
 								<td>
 									<form action="{{ route('categos.destroy',$categorie->id) }}" method="POST">    
 										<button type="button" id="disabled" class="btn btn-info btn-sm" data-toggle="modal" 

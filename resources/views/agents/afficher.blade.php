@@ -10,7 +10,7 @@
 					<div class="weight-600 font-30 text-blue">Personnel</div>
 				</h4>
 			</div>	
-			@if($user == 1)	
+			@if($user == "admin")	
 				<div class="pull-right">
 					<a class="btn btn-success btn-sm text-white"  data-toggle="modal" data-target="#exampleModal">
 						+ Ajouter
@@ -44,7 +44,7 @@
 					<td>{{ $agent->nom}}</td>
 					<td>{{ $agent->prenom}}</td>
 					<td>{{ $agent->categorie->libelle}}</td>
-					@if($user == 1)
+					@if($user == "admin")
 						<td>
 							<form action="{{ route('agents.destroy',$agent->id) }}" method="POST">    
 								<button type="button" class="btn btn-info btn-sm" data-toggle="modal" 
