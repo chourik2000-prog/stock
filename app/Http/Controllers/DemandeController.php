@@ -21,6 +21,7 @@ class DemandeController extends Controller
      */
     public function index(Request $request)
     {
+        $user = Auth::user()->role->name;
         $an  = $request->id_annee;
         $annees = Annee::all();
         $articles = Article::all();
@@ -30,7 +31,8 @@ class DemandeController extends Controller
             ->with('articles', $articles)
             ->with('agents', $agents)
             ->with('an', $an)
-            ->with('annees', $annees);
+            ->with('annees', $annees)
+            ->with('user',$user);
     }
 
 

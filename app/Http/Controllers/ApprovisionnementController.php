@@ -23,6 +23,7 @@ class ApprovisionnementController extends Controller
      */
     public function index(Request $request)
     {
+        $user = Auth::user()->role->name;
         $an  = $request->id_annee;
         $annees = Annee::all();
         $articles = Article::all();
@@ -32,7 +33,8 @@ class ApprovisionnementController extends Controller
         ->with('fournisseurs', $fournisseurs)
         ->with('articles', $articles)
         ->with('an', $an)
-        ->with('annees', $annees);
+        ->with('annees', $annees)
+        ->with('user',$user);
     }
 
     /**

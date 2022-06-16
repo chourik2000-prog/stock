@@ -20,6 +20,7 @@ class CommandeController extends Controller
      */
     public function index(Request $request)
     {
+        $user = Auth::user()->role->name;
         $an  = $request->id_annee;
         $annees = Annee::all();
         $articles = Article::all();
@@ -28,7 +29,8 @@ class CommandeController extends Controller
         ->with('commandes', $commandes)
         ->with('articles', $articles)
         ->with('an', $an)
-        ->with('annees', $annees);
+        ->with('annees', $annees)
+        ->with('user',$user);
     }
 
     /**

@@ -18,12 +18,14 @@ class PerteController extends Controller
      */
     public function index()
     {
+        $user = Auth::user()->role->name;
         $annees = Annee::all();
         $pertes = Perte::all();
         $articles = Article::all();
         return view('pertes.afficher',compact('articles'))
         ->with('pertes', $pertes)
-        ->with('annees', $annees);
+        ->with('annees', $annees)
+        ->with('user',$user);
     }
 
     /**
