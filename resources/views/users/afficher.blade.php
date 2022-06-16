@@ -10,19 +10,19 @@
                     <div class="weight-600 font-30 text-blue">Utilisateurs</div>
                 </h4>
             </div>
-            {{-- @if($utilisateur == 2)		
+            @if($utilisateur != "admin")		
                 <div class="pull-right">
                     <a class="btn btn-success btn-sm text-white" id="disabled" data-toggle="modal" data-target="#exampleModal">
                         + Ajouter
                     </a>
                 </div>
-            @else --}}
+            @else
                 <div class="pull-right">
                     <a class="btn btn-success btn-sm text-white" data-toggle="modal" data-target="#exampleModal">
                         + Ajouter
                     </a>
                 </div>
-            {{-- @endif --}}
+            @endif
         </div>	
         @if ($message = Session::get('success'))
             <div class="alert alert-success">
@@ -46,7 +46,7 @@
                     @if ($user->role)
                     <td>{{ $user->role->name}}</td>
                     @endif
-                    {{-- @if($utilisateur == 2)
+                    @if($utilisateur != "admin")
                         <td>
                             <form action="{{ route('users.destroy',$user->id) }}" method="POST">    
                             @csrf
@@ -58,7 +58,7 @@
                                 </button>
                             </form>
                         </td>
-                    @else --}}
+                    @else
                         <td>
                             <form action="{{ route('users.destroy',$user->id) }}" method="POST">    
                             @csrf
@@ -70,7 +70,7 @@
                                 </button>
                             </form>
                         </td>
-                    {{-- @endif --}}
+                    @endif
                 </tr>
                @endforeach
                </tbody>

@@ -21,13 +21,13 @@ class UserController extends Controller
      */
     public function index()
     {  
-        // $utilisateur = Auth::user()->role->name;
+        $utilisateur = Auth::user()->role->name;
         $users = User::all();
         $roles = Role::all();
         return view('users.afficher',compact('users'))
         ->with('users', $users)
-        ->with('roles',$roles);
-        // ->with('utilisateur',$utilisateur);
+        ->with('roles',$roles)
+        ->with('utilisateur',$utilisateur);
     }
 
     /**
