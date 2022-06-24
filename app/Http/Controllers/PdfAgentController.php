@@ -9,6 +9,7 @@ use App\Models\Demande;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
 use Dompdf\Dompdf;
+use Dompdf\Options;
 
 class PdfAgentController extends Controller
 {
@@ -21,6 +22,7 @@ class PdfAgentController extends Controller
     {
         $annees = DB::table('annees')->get();
         $agents = DB::table('agents')->get();
+        
         // recupérer tous les articles
         $articles = DB::table('articles')
             ->orderBy('libelle', 'asc')
@@ -61,24 +63,24 @@ class PdfAgentController extends Controller
                     }
                 } 
 
-                $dompdf = new Dompdf();
+                 // instantiate and use options
+                $options = new Options();
+                $options->set('defaultFont', 'Helvetica');
+
+                $dompdf = new Dompdf($options);
                 $dompdf->loadHtml(view('conso_agents.pdf',compact('articlestocks'))
                 ->with('demandeurs',$demandeurs));
 
                 // (Optional) Setup the paper size and orientation
-                $dompdf->setPaper('A4', 'landscape');
-                $html ='<img src="logo-icon.png" alt="">';
-
+                $dompdf->setPaper('A4', 'portrait');
 
                 // Render the HTML as PDF
                 $dompdf->render();
 
-
                 // Output the generated PDF to Browser
                 $dompdf->stream('pdfs.pdf', ['Attachment' => false]);
                 exit();
-                // return view('conso_agents.pdf')
-                //     ->with('articlestocks', $articlestocks);
+
             }
         }
 

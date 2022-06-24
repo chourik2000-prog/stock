@@ -9,19 +9,16 @@
         .tableau-style{
             border-collapse: collapse;
             min-width: 400px;
-            width: 900px;
+            width: 700px;
             box-shadow: 0 5px 50px rgba(0,0,0, 0.15);
             cursor: pointer;
             margin: 20px auto;
             border: 1px solid #ddd;
         }
         thead tr{
-            background-color: midnightblue;
+            background-color: black;
             color: #fff;
 
-        }
-        tr{
-            padding: 15px 15px;
         }
         td{
             padding: 8px 10px;
@@ -33,7 +30,7 @@
             background-color: #aca7a7;
         }
         tbody tr:last-of-type{
-            border-bottom: 3px solid midnightblue;
+            border-bottom: 3px solid black;
         }
         hr {
             border: none;
@@ -52,14 +49,20 @@
             position: relative;
             top: -13px;
         }
+        header{
+            margin-top: -7%;
+        }
+        #titre{
+            margin-top: -0%;
+        }
         </style>
 
     </head>
     <body>
-        <div>
+        <header>
            <div style="text-align: center">
                 <img src="data:image/png;base64,{{ base64_encode(file_get_contents(public_path('vendors/images/iai.jpg'))) }}">
-                <h4><strong>Institut Africain d'Informatique</strong> <br>
+                <h4 id="titre"><strong>Institut Africain d'Informatique</strong> <br>
                     Etablissement Inter-Etats d'Enseignement Supérieur <br>
                     Représentation du TOGO(IAI-TOGO) <br>
                     07 BP 12456 Lomé 07,  TOGO Tel:(+228) 22 20 47 00 <br>
@@ -67,8 +70,8 @@
                 </h4>
             </div>
             <hr>
-        </div>
-        <H3 style="text-align: center">Liste des commandes de l'année en cours</H3>
+        </header>
+        <h2 style="text-align: center">Liste des commandes de l'année en cours</h2>
         <table class="tableau-style">
             <thead>
                 <tr>

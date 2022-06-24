@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
 use Dompdf\Dompdf;
 use Auth;
+use Dompdf\Options;
 
 class ApprovisionnementController extends Controller
 {
@@ -90,12 +91,15 @@ class ApprovisionnementController extends Controller
         $approvisionnements = Approvisionnement::where('id_annee', $an)
             ->get();
 
+             // instantiate and use options
+        $options = new Options();
+        $options->set('defaultFont', 'Helvetica');
         // instantiate and use the dompdf class
-        $dompdf = new Dompdf();
+        $dompdf = new Dompdf($options);
         $dompdf->loadHtml(view('approvisionnements.pdf',compact('approvisionnements')));
 
         // (Optional) Setup the paper size and orientation
-        $dompdf->setPaper('A4', 'landscape');
+        $dompdf->setPaper('A4', 'portrait');
 
         // Render the HTML as PDF
         $dompdf->render();

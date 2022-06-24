@@ -8,7 +8,7 @@ use App\Models\Demande;
 use App\Models\Perte;
 use Illuminate\Support\Facades\DB;
 use Dompdf\Dompdf;
-
+use Dompdf\Options;
 use Illuminate\Http\Request;
 
 class PdfController extends Controller
@@ -91,14 +91,16 @@ class PdfController extends Controller
                     );
                 }
             }
+            // instantiate and use options
+            $options = new Options();
+            $options->set('defaultFont', 'Helvetica');
+
             // instantiate and use the dompdf class
-            $dompdf = new Dompdf();
+            $dompdf = new Dompdf($options);
             $dompdf->loadHtml(view('pdfs.pdf',compact('articlestocks')));
 
             // (Optional) Setup the paper size and orientation
-            $dompdf->setPaper('A4', 'landscape');
-            $html ='<img src="logo-icon.png" alt="">';
-
+            $dompdf->setPaper('A4', 'portrait');
 
             // Render the HTML as PDF
             $dompdf->render();

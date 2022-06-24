@@ -9,7 +9,7 @@
         .tableau-style{
             border-collapse: collapse;
             min-width: 400px;
-            width: 900px;
+            width: 700px;
             box-shadow: 0 5px 50px rgba(0,0,0, 0.15);
             cursor: pointer;
             margin: 20px auto;
@@ -22,8 +22,8 @@
             overflow: visible;
             text-align: center;
             height: 5px;
+            width: 500px;
         }
-
         hr:after {
             background: #fff;
             content: '§';
@@ -32,12 +32,9 @@
             top: -13px;
         }
         thead tr{
-            background-color: midnightblue;
+            background-color: black;
             color: #fff;
 
-        }
-        tr{
-            padding: 15px 15px;
         }
         td{
             padding: 8px 10px;
@@ -49,16 +46,22 @@
             background-color: #aca7a7;
         }
         tbody tr:last-of-type{
-            border-bottom: 3px solid midnightblue;
+            border-bottom: 3px solid black;
+        }
+        header{
+            margin-top: -7%;
+        }
+        #titre{
+            margin-top: -0%;
         }
         </style>
 
     </head>
     <body>
-        <div>
+        <header>
             <div style="text-align: center">
                  <img src="data:image/png;base64,{{ base64_encode(file_get_contents(public_path('vendors/images/iai.jpg'))) }}">
-                 <h4><strong>Institut Africain d'Informatique</strong> <br>
+                 <h4 id="titre"><strong>Institut Africain d'Informatique</strong> <br>
                      Etablissement Inter-Etats d'Enseignement Supérieur <br>
                      Représentation du TOGO(IAI-TOGO) <br>
                      07 BP 12456 Lomé 07,  TOGO Tel:(+228) 22 20 47 00 <br>
@@ -66,8 +69,8 @@
                  </h4>
              </div>
              <hr>
-         </div>
-         <H3 style="text-align: center">Liste de cosommation de l'agent {{$demandeurs->nom}} {{$demandeurs->prenom}}</H3>
+        </header>
+         <h3 style="text-align: center">Liste de consommation du personnel {{$demandeurs->nom}} {{$demandeurs->prenom}}</h3>
         <table class="tableau-style">
             <thead>
                 <tr>

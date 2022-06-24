@@ -9,7 +9,7 @@ use App\Models\Demande;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
 use Dompdf\Dompdf;
-
+use Dompdf\Options;
 use Illuminate\Http\Request;
 
 class PdfCategorieController extends Controller
@@ -72,12 +72,16 @@ class PdfCategorieController extends Controller
                                 );
                         }
                     }
-                    $dompdf = new Dompdf();
+                    // instantiate and use options
+                    $options = new Options();
+                    $options->set('defaultFont', 'Helvetica');
+
+                    $dompdf = new Dompdf($options);
                     $dompdf->loadHtml(view('conso_categories.pdf',compact('articlestocks'))
                         ->with('cat',$cat));
         
                     // (Optional) Setup the paper size and orientation
-                    $dompdf->setPaper('A4', 'landscape');
+                    $dompdf->setPaper('A4', 'portrait');
             
                     // Render the HTML as PDF
                     $dompdf->render();
