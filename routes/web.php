@@ -101,16 +101,18 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
         Route::get('/accueils/recherche', 'AccueilController@recherche')->name('accueil.rech');
         Route::post('/accueils/recherche', 'AccueilController@recherche');
         
-        // les statistiques par agent
-        Route::get('/conso_agents/recherche', 'ConsoAgentController@recherche')->name('consoagent.rech');
-        Route::post('/conso_agents/recherche', 'ConsoAgentController@recherche');
+        // les statistiques par agent (en commentaire dans sidebar)
+        // Route::get('/conso_agents/recherche', 'ConsoAgentController@recherche')->name('consoagent.rech');
+        // Route::post('/conso_agents/recherche', 'ConsoAgentController@recherche');
+        
         // pdf du statistique par agent
         Route::get('/conso_agents/pdf', 'PdfAgentController@index')->name('consoAgent.pdf');
         Route::post('/conso_agents/recherche', 'PdfAgentController@index');
 
         // les statistiques par catégorie
-        Route::get('/conso_categories/recherche', 'ConsoCategorieController@recherche')->name('consocategorie.rech');
-        Route::post('/conso_categories/recherche', 'ConsoCategorieController@recherche');
+        // Route::get('/conso_categories/recherche', 'ConsoCategorieController@recherche')->name('consocategorie.rech');
+        // Route::post('/conso_categories/recherche', 'ConsoCategorieController@recherche');
+
         // pdf du statistique par catégorie
         Route::get('/conso_categories/pdf', 'PdfCategorieController@index')->name('consoCategorie.pdf');
         Route::post('/conso_categories/recherche', 'PdfCategorieController@index');

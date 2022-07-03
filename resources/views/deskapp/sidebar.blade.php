@@ -132,8 +132,8 @@
                         </a>
                     </li>
 
-                @if ($annees == null)
-                    <li class="dropdown">
+                {{-- @if ($annees == null)
+                    <li class="dropdown"> 
                         <a href="{{route('consoagent.rech')}}" class="dropdown-toggle no-arrow" onclick="return false;">
                             <span class="micon icon-copy dw dw-user-13"></span><span class="mtext">Conso par agent</span>
                         </a>
@@ -144,13 +144,13 @@
                             <span class="micon icon-copy dw dw-user-13"></span><span class="mtext">Conso par agent</span>
                         </a>
                     </li>
-                @endif
+                @endif --}}
 
-                <li class="dropdown">
+                {{-- <li class="dropdown">
                     <a href="{{route('consocategorie.rech')}}" class="dropdown-toggle no-arrow" id="a">
                         <span class="micon icon-copy dw dw-chat-2"></span><span class="mtext">Conso par catégorie</span>
                     </a>
-                </li>
+                </li> --}}
                 @if ($annees == null)
                 <li class="dropdown">
                     <a href="{{route('pdfs.pdf')}}" class="dropdown-toggle no-arrow" onclick="return false;">
@@ -166,12 +166,12 @@
                 @endif
                 <li class="dropdown">
                     <a href="{{route('consoAgent.pdf')}}" class="dropdown-toggle no-arrow">
-                        <span class="micon icon-copy dw dw-open-book-1"></span><span class="mtext">PDF Agent</span>
+                        <span class="micon icon-copy dw dw-open-book-1"></span><span class="mtext">Conso Agent</span>
                     </a>
                 </li>
                 <li class="dropdown">
                     <a href="{{route('consoCategorie.pdf')}}" class="dropdown-toggle no-arrow">
-                        <span class="micon icon-copy dw dw-open-book-1"></span><span class="mtext">PDF Categorie</span>
+                        <span class="micon icon-copy dw dw-open-book-1"></span><span class="mtext">Conso Categorie</span>
                     </a>
                 </li>
 

@@ -103,7 +103,7 @@ class CommandeController extends Controller
         // instantiate and use options
         $options = new Options();
         $options->set('defaultFont', 'Helvetica');
-
+        
         // instantiate and use the dompdf class
         $dompdf = new Dompdf($options);
         

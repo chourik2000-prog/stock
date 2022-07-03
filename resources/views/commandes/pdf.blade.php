@@ -3,6 +3,10 @@
     <head>
         <title>Téléchargement du PDF</title>
     <style>
+        @page{
+            margin-top: 45px; /* create space for header */
+            margin-bottom: 7px; /* create space for footer */
+        }
         td {
             text-align: center;
         }
@@ -14,6 +18,11 @@
             cursor: pointer;
             margin: 20px auto;
             border: 1px solid #ddd;
+            margin-top: -2%
+        }
+        .entete{
+            text-align: center;
+            margin-top: -0.5%;
         }
         thead tr{
             background-color: black;
@@ -48,19 +57,45 @@
             padding: 0 4px;
             position: relative;
             top: -13px;
+           
+        }
+        hr{
+            margin-top: -2%;
         }
         header{
             margin-top: -7%;
+            text-align: center;
         }
         #titre{
             margin-top: -0%;
+        }
+        .page{  
+            margin-left: 43%;
+            float: left;
+        }
+        .time{
+            margin-left: 0%;  
+            float: left;
+        }
+        .promo{
+            margin-left: 72%;
+            float: left;
+        }
+        footer{
+           width: 100%;
+           margin-top: 116%;
+           float: left;
+        }
+        .page:after { 
+            /* counter-increment: page; */
+            content: counter(page); 
         }
         </style>
 
     </head>
     <body>
         <header>
-           <div style="text-align: center">
+            <div>
                 <img src="data:image/png;base64,{{ base64_encode(file_get_contents(public_path('vendors/images/iai.jpg'))) }}">
                 <h4 id="titre"><strong>Institut Africain d'Informatique</strong> <br>
                     Etablissement Inter-Etats d'Enseignement Supérieur <br>
@@ -71,7 +106,12 @@
             </div>
             <hr>
         </header>
-        <h2 style="text-align: center">Liste des commandes de l'année en cours</h2>
+        <h2 class="entete">Liste des commandes de l'année en cours</h2>
+        <footer>
+            <div class="time" id="current_date"><?php echo date("d/m/y");?></div>
+            <div class="promo">Généré par Mdme PASSAI</div>
+            <div class="page">Page </div>
+        </footer>
         <table class="tableau-style">
             <thead>
                 <tr>
