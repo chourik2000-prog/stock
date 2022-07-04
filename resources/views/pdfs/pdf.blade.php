@@ -30,7 +30,7 @@
     </head>
     <body>
         <h4 id="titre"><strong>IAI-TOGO</strong> <br>  
-        <h2 class="entete">Statistiques de l'année en cours</h2>
+        <h2 class="entete">Fiche de stock de l'année en cours</h2>
         <table class="tableau">
             <thead>
                 <tr>
