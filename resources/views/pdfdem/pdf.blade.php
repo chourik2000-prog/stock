@@ -26,7 +26,7 @@
                 text-align: center;
             }
             .time{
-            text-align: right;
+            text-align:right;
             }
         </style>
 

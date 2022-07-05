@@ -5,7 +5,7 @@
     <style>
        .tableau{
         min-width: 200px;
-        width: 500px;
+        width: 700px;
         border-collapse:collapse;
         margin: auto;
         }
