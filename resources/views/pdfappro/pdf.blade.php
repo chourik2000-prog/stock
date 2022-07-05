@@ -25,6 +25,9 @@
             .entete{
                 text-align: center;
             }
+            .time{
+            text-align: right;
+            }
         </style>
     </head>
     <body>
@@ -50,5 +53,8 @@
                 @endforeach
             </tbody>
         </table>
+        <footer>
+            <div class="time"><?php echo date("d/m/y");?></div>
+        </footer>
     </body>
 </html>

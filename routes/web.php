@@ -56,10 +56,11 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
         /**
          * commandes.
          */
+        Route::get('/pdfcmd/recherche', 'PdfcmdController@pdf')->name('comm.pdf');
+        Route::post('/pdfcmd/recherche', 'PdfcmdController@pdf');
 
         Route::get('/commandes/recherche', 'CommandeController@recherche')->name('comm.rech');
         Route::post('/commandes/recherche', 'CommandeController@recherche');
-        Route::get('/commandes/pdf', 'CommandeController@pdf')->name('comm.pdf');
         Route::resource('commandes', CommandeController::class);
 
         /**

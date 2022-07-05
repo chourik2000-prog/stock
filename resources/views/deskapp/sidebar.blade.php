@@ -170,6 +170,11 @@
                     </a>
                 </li>
                 <li class="dropdown">
+                    <a href="{{route('comm.pdf')}}" class="dropdown-toggle no-arrow">
+                        <span class="micon icon-copy dw dw-open-book-1"></span><span class="mtext">Pdf Cmd</span>
+                    </a>
+                </li>
+                <li class="dropdown">
                     <a href="{{route('consoAgent.pdf')}}" class="dropdown-toggle no-arrow">
                         <span class="micon icon-copy dw dw-open-book-1"></span><span class="mtext">Conso Agent</span>
                     </a>
