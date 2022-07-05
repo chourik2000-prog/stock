@@ -61,7 +61,6 @@ class ApprovisionnementController extends Controller
         // afficher les données de l'année choisie 
         $annees = Annee::all();
         $articles = Article::all();
-        $an  = $request->id_annee;
         $fournisseurs = Fournisseur::all();
 
         if($request->id_annee) 
@@ -73,7 +72,6 @@ class ApprovisionnementController extends Controller
                 ->with('approvisionnements', $approvisionnements)
                 ->with('articles', $articles)
                 ->with('fournisseurs', $fournisseurs)
-                ->with('an', $an)
                 ->with('annees', $annees)
                 ->with('user',$user);
 
@@ -83,33 +81,6 @@ class ApprovisionnementController extends Controller
             ->with('annees',$annees);
     }
 
-    // fonction du pdf
-    public function pdf()
-    {
-        $an = (substr(\URL::full(),45));
-
-        $approvisionnements = Approvisionnement::where('id_annee', $an)
-            ->get();
-
-             // instantiate and use options
-        $options = new Options();
-        $options->set('defaultFont', 'Helvetica');
-        // instantiate and use the dompdf class
-        $dompdf = new Dompdf($options);
-        $dompdf->loadHtml(view('approvisionnements.pdf',compact('approvisionnements')));
-
-        // (Optional) Setup the paper size and orientation
-        $dompdf->setPaper('A4', 'portrait');
-
-        // Render the HTML as PDF
-        $dompdf->render();
-
-        // Output the generated PDF to Browser
-        $dompdf->stream('approvisionnements.pdf', ['Attachment' => false]);
-        exit();
-        // return view('approvisionnements.pdf')
-        //     ->with('approvisionnements', $approvisionnements);
-    }
     /**
      * Store a newly created resource in storage.
      *

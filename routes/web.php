@@ -47,12 +47,12 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
         /**
          * approv.
          */
+        Route::get('/pdfappro/recherche', 'PdfapprovController@index')->name('provi.pdf');
+        Route::post('/pdfappro/pdf', 'PdfapprovController@index');
 
         Route::get('/approvisionnements/recherche', 'ApprovisionnementController@recherche')->name('approv.rech');
         Route::post('/approvisionnements/recherche', 'ApprovisionnementController@recherche');
-        Route::get('/approvisionnements/pdf', 'ApprovisionnementController@pdf')->name('appro.pdf');
         Route::resource('approvisionnements', ApprovisionnementController::class);
-
         /**
          * commandes.
          */

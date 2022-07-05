@@ -2,31 +2,30 @@
 <html>
     <head>
         <title>Téléchargement du PDF</title>
-    <style>
-        .tableau{
-            min-width: 400px;
-            width: 700px;
-            border-collapse:collapse;
-        }
-        thead th{
-            border: 3px solid black;
-            text-align: left;
-        }
-        td th{
-            padding: 8px 10px;
-        }
-        tbody  td {
-            border: 3px solid black;
-        }
-        #titre{
-            margin-top: -5%;
-            text-align: center;
-        }
-        .entete{
-            text-align: center;
-        }
+        <style>
+            .tableau{
+                min-width: 400px;
+                width: 700px;
+                border-collapse:collapse;
+            }
+            thead th{
+                border: 1px solid black;
+                text-align: left;
+            }
+            td th{
+                padding: 4px 5px;
+            }
+            tbody  td {
+                border: 1px solid black;
+            }
+            #titre{
+                margin-top: -5%;
+                text-align: center;
+            }
+            .entete{
+                text-align: center;
+            }
         </style>
-
     </head>
     <body>
         <h2 id="titre"><strong>IAI-TOGO</strong></h2>
@@ -48,7 +47,7 @@
                         <td>{{ $approvisionnement->qentrant}}</td>
                         <td>{{ $approvisionnement->date}}</td>
                     </tr> 
-                    @endforeach
+                @endforeach
             </tbody>
         </table>
     </body>
