@@ -56,6 +56,8 @@
                     @endforeach
             </tbody>
         </table>
+        <br>
+        <br>
         <footer>
             <div class="time"><?php echo date("d/m/y");?></div>
         </footer>
