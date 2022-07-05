@@ -63,8 +63,6 @@ class DemandeController extends Controller
 
         $agents = Agent::all();
 
-        $an  = $request->id_annee;
-
         if($request->id_annee) 
         {
            $demandes = Demande::where('id_annee', $request->id_annee)
@@ -74,7 +72,6 @@ class DemandeController extends Controller
                 ->with('demandes', $demandes)
                 ->with('articles', $articles)
                 ->with('agents', $agents)
-                ->with('an',$an)
                 ->with('annees', $annees)
                 ->with('user',$user);
         }
@@ -83,32 +80,6 @@ class DemandeController extends Controller
         ->with('annees',$annees);
     }
 
-    // fonction du pdf
-    public function pdf()
-    {
-        $an = (substr(\URL::full(),35));
-
-        $demandes = Demande::where('id_annee', $an)
-            ->get();
-
-        // instantiate and use options
-        $options = new Options();
-        $options->set('defaultFont', 'Helvetica');
-
-        // instantiate and use the dompdf class
-        $dompdf = new Dompdf($options);
-        $dompdf->loadHtml(view('demandes.pdf',compact('demandes')));
-
-        // (Optional) Setup the paper size and orientation
-        $dompdf->setPaper('A4', 'portrait');
-
-        // Render the HTML as PDF
-        $dompdf->render();
-
-        // Output the generated PDF to Browser
-        $dompdf->stream('demandes.pdf', ['Attachment' => false]);
-        exit();
-    }
     /**
      * Store a newly created resource in storage.
      *

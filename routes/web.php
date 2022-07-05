@@ -66,10 +66,11 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
         /**
          * demandes.
          */
+        Route::get('/pdfdem/recherche', 'PdfdemController@pdf')->name('dem.pdf');
+        Route::post('/pdfdem/recherche', 'PdfdemController@pdf');
 
         Route::get('/demandes/recherche', 'DemandeController@recherche')->name('demande.rech');
         Route::post('/demandes/recherche', 'DemandeController@recherche');
-        Route::get('/demandes/pdf', 'DemandeController@pdf')->name('dem.pdf');
         Route::resource('demandes', DemandeController::class);
 
         /**
