@@ -72,8 +72,6 @@ class CommandeController extends Controller
         $annees = Annee::all();
         $articles = Article::all();
 
-        $an  = $request->id_annee;
-
         if($request->id_annee) 
         {
            $commandes = Commande::where('id_annee', $request->id_annee)
@@ -83,45 +81,12 @@ class CommandeController extends Controller
                 ->with('commandes', $commandes)
                 ->with('articles', $articles)
                 ->with('annees', $annees)
-                ->with('an', $an)
                 ->with('user',$user);
         }
 
         return view('commandes.recherche')
-            ->with('annees',$annees)
-            ->with('an', $an);
+            ->with('annees',$annees);
 
-    }
-
-    // fonction du pdf
-    public function pdf()
-    {
-        $an = (substr(\URL::full(),36));
-        $commandes = Commande::where('id_annee', $an)
-            ->get();
-
-        // instantiate and use options
-        $options = new Options();
-        $options->set('defaultFont', 'Helvetica');
-        
-        // instantiate and use the dompdf class
-        $dompdf = new Dompdf($options);
-        
-        $dompdf->loadHtml(view('commandes.pdf',compact('commandes'))
-            ->with('an', $an));
-
-        // (Optional) Setup the paper size and orientation
-        $dompdf->setPaper('A4', 'portrait');
-
-        // Render the HTML as PDF
-        $dompdf->render();
-        // Output the generated PDF to Browser
-        $dompdf->stream('commandes.pdf', ['Attachment' => false]);
-        exit();
-        // return view('commandes.pdf')
-        //     ->with('an', $an)
-        //     ->with('commandes', $commandes);
-            
     }
 
     /**
