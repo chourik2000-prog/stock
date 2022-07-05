@@ -181,16 +181,16 @@
                 </li>
                 <li class="dropdown">
                     <a href="{{route('consoAgent.pdf')}}" class="dropdown-toggle no-arrow">
-                        <span class="micon icon-copy dw dw-open-book-1"></span><span class="mtext">Conso Agent</span>
+                        <span class="micon icon-copy dw dw-open-book-1"></span><span class="mtext">Pdf Agent</span>
                     </a>
                 </li>
                 <li class="dropdown">
                     <a href="{{route('consoCategorie.pdf')}}" class="dropdown-toggle no-arrow">
-                        <span class="micon icon-copy dw dw-open-book-1"></span><span class="mtext">Conso Categorie</span>
+                        <span class="micon icon-copy dw dw-open-book-1"></span><span class="mtext">Pdf Categorie</span>
                     </a>
                 </li>
 
-                @if ($annees == null)
+                {{-- @if ($annees == null)
                 <li class="dropdown">
                     <a href="{{route('rechercheform')}}" class="dropdown-toggle no-arrow" onclick="return false;">
                         <span class="micon icon-copy dw dw-hourglass1"></span><span class="mtext">Bilan</span>
@@ -202,7 +202,7 @@
                             <span class="micon icon-copy dw dw-hourglass1"></span><span class="mtext">Bilan</span>
                         </a>
                     </li>
-                @endif
+                @endif --}}
 
                 <li class="dropdown">
                     <a href="/users" class="dropdown-toggle no-arrow">
