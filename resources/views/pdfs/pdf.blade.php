@@ -9,14 +9,14 @@
             border-collapse:collapse;
         }
         thead th{
-            border: 3px solid black;
+            border: 2px solid black;
             text-align: left;
         }
         td th{
-            padding: 8px 10px;
+            padding: 4px 5px;
         }
         tbody  td {
-            border: 3px solid black;
+            border: 2px solid black;
         }
         #titre{
             margin-top: -5%;

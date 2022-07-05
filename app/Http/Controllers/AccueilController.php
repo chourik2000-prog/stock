@@ -71,7 +71,7 @@ class AccueilController extends Controller
                 }   
     
                 $stocktotal = $si + $entree;
-                $stockfinal = $stocktotal - $livree - $perdue;
+                $stockfinal = $stocktotal - ($livree + $perdue);
                
                 // remplissage du tableau
                 if($entree>0){
