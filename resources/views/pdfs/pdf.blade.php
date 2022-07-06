@@ -17,6 +17,7 @@
         }
         tbody  td {
             border: 2px solid black;
+            text-transform: uppercase;
         }
         #titre{
             margin-top: -5%;
