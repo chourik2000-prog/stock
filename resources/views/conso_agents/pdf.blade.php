@@ -3,15 +3,12 @@
     <head>
         <title>Téléchargement du PDF</title>
     <style>
-       @page{
-            margin-top: 45px; /* create space for header */
-            margin-bottom: 7px; /* create space for footer */
-        }
         .tableau{
         margin-top: 7%;
         min-width: 200px;
         width: 700px;
         border-collapse:collapse;
+        position: fixed;
         }
         thead th{
             border: 1px solid black;
