@@ -3,6 +3,7 @@
     <head>
         <title>Téléchargement du PDF</title>
         <style>
+            /* @page { margin: -5% -5%; } */
             .tableau{
                 min-width: 400px;
                 width: 700px;
@@ -22,6 +23,7 @@
             #titre{
                 margin-top: -5%;
                 text-align: center;
+                position: fixed;
             }
             .entete{
                 text-align: center;
