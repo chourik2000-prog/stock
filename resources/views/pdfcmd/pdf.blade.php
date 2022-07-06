@@ -8,7 +8,6 @@
         min-width: 200px;
         width: 700px;
         border-collapse:collapse;
-        position: fixed;
         }
         thead th{
             border: 1px solid black;
