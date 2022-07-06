@@ -4,6 +4,7 @@
         <title>Téléchargement du PDF</title>
     <style>
       .tableau{
+            margin-top: 6%;
             min-width: 400px;
             width: 700px;
             border-collapse:collapse;
@@ -21,17 +22,18 @@
         }
         #titre{
             margin-top: -5%;
-            text-align: center;
+            position: fixed;
         }
         .entete{
-            text-align: center;
+            margin-top: 0.2%;
+            position: fixed;
         }
         </style>
 
     </head>
     <body>
-        <h4 id="titre"><strong>IAI-TOGO</strong> <br>  
-        <h2 class="entete">Fiche de stock de l'année en cours</h2>
+        <h3 id="titre"><strong>IAI-TOGO</strong></h3> 
+        <h3 class="entete">Fiche de stock de l'année en cours</h3>
         <table class="tableau">
             <thead>
                 <tr>

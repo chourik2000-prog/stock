@@ -7,10 +7,10 @@
             margin-top: 45px; /* create space for header */}
             
         .tableau{
+        margin-top: 7%;
         min-width: 200px;
         width: 700px;
         border-collapse:collapse;
-        margin: auto;
         }
         thead th{
             border: 1px solid black;
@@ -25,14 +25,16 @@
         }
         #titre{
             margin-top: -5%;
-            text-align: left;
+            position: fixed;
         }
         #titre2{
             margin-top: -5%;
-            text-align: right;
+            margin-left: 65%;
+            position: fixed;
         }
         .entete{
-            text-align: center;
+            margin-top: 0.7%;
+            position: fixed;
         }
         .time{
             text-align: right;
