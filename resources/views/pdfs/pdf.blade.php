@@ -4,7 +4,7 @@
         <title>Téléchargement du PDF</title>
     <style>
       .tableau{
-            margin-top: 6%;
+            margin-top: 3%;
             min-width: 400px;
             width: 700px;
             border-collapse:collapse;
@@ -26,6 +26,9 @@
         }
         .entete{
             margin-top: 0.2%;
+        }
+        .time{
+            text-align: right;
         }
         </style>
 
@@ -59,5 +62,10 @@
                     @endforeach
             </tbody>
         </table>
+        <br>
+        <br>
+        <footer>
+            <div class="time" id="current_date"><?php echo date("d/m/y");?></div>
+        </footer>
     </body>
 </html>

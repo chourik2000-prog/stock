@@ -31,7 +31,6 @@
         }
         .entete{
             margin-top: 0.7%;
-            position: fixed;
         }
         .time{
             text-align: right;
