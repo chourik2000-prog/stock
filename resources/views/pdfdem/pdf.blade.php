@@ -8,34 +8,34 @@
                 min-width: 400px;
                 width: 700px;
                 border-collapse:collapse;
-            }
-            thead th{
-                border: 1px solid black;
-                text-align: left;
-            }
-            td th{
-                padding: 4px 5px;
-            }
-            tbody  td {
-                border: 1px solid black;
-                text-transform: uppercase;
-            }
-            #titre{
-                margin-top: -5%;
-                position: fixed;
-            }
-            .entete{
-                margin-top: 0.7%;
-            }
-            .time{
-            text-align:right;
-            }
-        </style>
+        }
+        thead th{
+            border: 1px solid black;
+            text-align: left;
+        }
+        td th{
+            padding: 4px 5px;
+        }
+        tbody  td {
+            border: 1px solid black;
+            text-transform: uppercase;
+        }
+        #titre{
+            margin-top: -5%;
+            position: fixed;
+        }
+        .entete{
+            margin-top: 0.7%;
+        }
+        .time{
+        text-align:right;
+        }
+    </style>
 
     </head>
     <body>
         <div>
-            <h2 id="titre"><strong>IAI-TOGO</strong></h2>
+            <h3 id="titre"><strong>IAI-TOGO</strong></h3>
         </div>
         <h2 class="entete">Liste des demandes de l'année en cours</h2>
         <table class="tableau">
