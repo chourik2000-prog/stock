@@ -34,7 +34,7 @@
     </head>
     <body>
         <h3 id="titre"><strong>IAI-TOGO</strong></h3>
-        <h2 class="entete">Liste des approvisionnements de l'année en cours</h2>
+        <h3 class="entete">Liste des approvisionnements de l'année en cours</h3>
         <table class="tableau">
             <thead>
                 <tr>

@@ -10,7 +10,7 @@
                 border-collapse:collapse;
         }
         thead th{
-            border: 1px solid black;
+            border: 2px solid black;
             text-align: left;
         }
         td th{
@@ -28,7 +28,7 @@
             margin-top: 0.7%;
         }
         .time{
-        text-align:right;
+            text-align:right;
         }
     </style>
 
@@ -37,7 +37,7 @@
         <div>
             <h3 id="titre"><strong>IAI-TOGO</strong></h3>
         </div>
-        <h2 class="entete">Liste des demandes de l'année en cours</h2>
+        <h3 class="entete">Liste des demandes de l'année en cours</h3>
         <table class="tableau">
             <thead>
                 <tr>
