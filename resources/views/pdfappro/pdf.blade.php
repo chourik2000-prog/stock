@@ -4,7 +4,7 @@
         <title>Téléchargement du PDF</title>
         <style>
             .tableau{
-                margin-top: 7%;
+                margin-top: 3%;
                 min-width: 400px;
                 width: 700px;
                 border-collapse:collapse;
@@ -33,7 +33,7 @@
         </style>
     </head>
     <body>
-        <h2 id="titre"><strong>IAI-TOGO</strong></h2>
+        <h3 id="titre"><strong>IAI-TOGO</strong></h3>
         <h2 class="entete">Liste des approvisionnements de l'année en cours</h2>
         <table class="tableau">
             <thead>

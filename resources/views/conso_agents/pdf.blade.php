@@ -4,7 +4,7 @@
         <title>Téléchargement du PDF</title>
     <style>
         .tableau{
-        margin-top: 7%;
+        margin-top: 3%;
         min-width: 200px;
         width: 700px;
         border-collapse:collapse;
