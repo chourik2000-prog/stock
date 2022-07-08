@@ -34,10 +34,9 @@
 
     </head>
     <body>
-        
+        <h3 id="titre"><strong>IAI-TOGO</strong></h3>
+        <h3 class="entete">Liste des demandes de l'année en cours</h3>
         <table class="tableau">
-            <h3 id="titre"><strong>IAI-TOGO</strong></h3>
-            <h3 class="entete">Liste des demandes de l'année en cours</h3>
             <thead>
                 <tr>
                     <th>Demandeur</th>
