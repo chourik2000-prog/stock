@@ -2,6 +2,10 @@
 
 namespace App\Http\Controllers;
 use App\Models\Annee;
+use App\Models\Approvisionnement;
+use App\Models\Article;
+use App\Models\Demande;
+use App\Models\Perte;
 use Illuminate\Http\Request;
 use Auth;
 use Illuminate\Support\Facades\DB;
@@ -49,25 +53,73 @@ class AnneeController extends Controller
         $annees->dateDebut = $request->dateDebut;
         $annees->dateFin = $request->dateFin;
         $annees->status = $request->input('status') ? true : false;
-        
-            $stat = $request->input('status');
-                if($stat == true)
-                    {
-                        $annee = Annee::where('status', true)->first();
-                            if($annee)
-                                {
-                                    $annee->status = !$annee->status;
-                                    $annee->update();
-                                    $annees->save();
-                                        return redirect()->route('annees.index')
-                                        ->with('success',"Année enregistré avec succès.");
-                                }
-                    }
         $annees->save();
+        
+        // recupérer l'id de ll'année dernière
+            $id=$annees->id;
+            // dd($id);
+            $id1 = $id-1;
+            $id2 = $id-2;
+            $articles = DB::table('articles')
+            ->orderBy('libelle', 'asc')
+            ->get();
+            foreach($articles as $article)
+            {
+                if ($id == 2) {
+                    $si = 0;
+
+                } else {   
+                    $si = DB::table('sistocks')->where('idstock',$id2)->where('libelle',$article)
+                                ->pluck('stockfinal')->first();
+                }
+                // initialisation des valeurs 
+                $entree = 0;
+                $livree = 0;
+                $perdue = 0;
+                $stocktotal =0;
+                $stockfinal = 0;
+                
+                // recupération des articles qui sont dans approvisionnements et qui sont dans l'année choisie
+                $approvisionnements = Approvisionnement::whereIdArticle($article->id)
+                ->where('id_annee',$id1)
+                ->get();
+                
+                // parcourir les approvisionnement et faire la somme 
+                foreach($approvisionnements as $approvisionnement)
+                {
+                    $entree += $approvisionnement->qentrant;
+                }  
+                
+                $demandes = Demande::whereIdArticle($article->id)
+                ->where('id_annee',$id1)
+                ->get();
+                
+                foreach($demandes as $demande)
+                {
+                    $livree += $demande->qlivree;
+                }   
+
+                $pertes = Perte::whereIdArticle($article->id)
+                ->where('id_annee',$id1)
+                ->get();
+                
+                foreach($pertes as $perte)
+                {
+                    $perdue += $perte->qperdue;
+                }   
+                $stocktotal = $si + $entree;
+                $stockfinal = $stocktotal - ($livree + $perdue);
+               
+                // remplissage du tableau
+                 DB::table('sistocks')->insert([
+                        'libelle' => $article->libelle,
+                        'stockfinal' => $stockfinal,
+                        'idstock' => $id1,
+                    ]);
+            }
             return redirect()->route('annees.index')
                 ->with('success',"Année enregistré avec succès.");
-        
-    }
+}
 
     public function date(Request $request , $id)
     {
