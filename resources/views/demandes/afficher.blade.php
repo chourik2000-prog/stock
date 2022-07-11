@@ -16,18 +16,12 @@
 						Voir pour une autre année
 					</a>
 				</div>
-				<div class="text-center">
-					<a href={{route('dem.pdf')}} class="btn btn-danger">
-						<i class="micon icon-copy dw dw-open-book-1"></i>
-					   PDF
-					</a>
-				</div>
 				@if($user != "admin")		
-					<div class="pull-right" id="ajouter">
+					<div class="pull-right">
 						<a class="btn btn-success btn-sm text-white" id="disabled" data-toggle="modal" data-target="#exampleModal"> + Ajouter</a>
 					</div>
 				@else
-					<div class="pull-right" id="ajouter">
+					<div class="pull-right">
 						<a class="btn btn-success btn-sm text-white" data-toggle="modal" data-target="#exampleModal"> + Ajouter</a>
 					</div>
 				@endif
