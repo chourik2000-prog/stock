@@ -20,9 +20,8 @@ class ConsoCategorieController extends Controller
         
         // recupérer tous les articles
         $articles = DB::table('articles')
-        ->orderBy('libelle', 'asc')
-        ->get(); 
-        $agents = DB::table('agents')->get();
+            ->orderBy('libelle', 'asc')
+            ->get(); 
 
         if($request->id_annee) 
         {

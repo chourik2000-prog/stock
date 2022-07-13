@@ -57,7 +57,7 @@ class AnneeController extends Controller
         
         // recupérer l'id de ll'année dernière
             $id=$annees->id;
-            // dd($id);
+            //  dd($id);
             $id1 = $id-1;
             $id2 = $id-2;
             $articles = DB::table('articles')
@@ -67,9 +67,8 @@ class AnneeController extends Controller
             {
                 if ($id == 2) {
                     $si = 0;
-
                 } else {   
-                    $si = DB::table('sistocks')->where('idstock',$id2)->where('libelle',$article)
+                    $si = DB::table('sistocks')->where('idstock',$id2)->where('libelle',$article->libelle)
                                 ->pluck('stockfinal')->first();
                 }
                 // initialisation des valeurs 

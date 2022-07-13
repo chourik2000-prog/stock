@@ -48,7 +48,7 @@ class FournisseurController extends Controller
     {
         $request->validate([
             'nom' => 'required|max:255',
-            'contact' => 'required|min:8',
+            'contact' => 'required|min:8|numeric',
         ]);
         Fournisseur::create($request->all());
         return redirect()->route('fournisseurs.index')

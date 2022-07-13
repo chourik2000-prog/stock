@@ -8,6 +8,7 @@ use App\Models\Demande;
 use App\Models\Perte;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+
 class AccueilController extends Controller
 {
     /**
@@ -25,6 +26,8 @@ class AccueilController extends Controller
         $articles = DB::table('articles')
                 ->orderBy('libelle', 'asc')
                 ->get();
+            
+         $ida = $request->id_annee;
 
         if($request->id_annee) 
         {
@@ -33,8 +36,15 @@ class AccueilController extends Controller
 
             foreach($articles as $article)
             {
+                if($ida ==1){
+                    $si = 0;
+                }else{
+                    $si = DB::table('sistocks')->where('idstock',$ida -1)->where('libelle',$article->libelle)
+                        ->value('stockfinal');
+                        
+                }
                 // initialisation des valeurs 
-                $si = 0;
+                
                 $entree = 0;
                 $livree = 0;
                 $perdue = 0;
