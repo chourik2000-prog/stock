@@ -65,7 +65,7 @@ class AnneeController extends Controller
             ->get();
             foreach($articles as $article)
             {
-                if ($id == 2) {
+                if ($id == 1) {
                     $si = 0;
                 } else {   
                     $si = DB::table('sistocks')->where('idstock',$id2)->where('libelle',$article->libelle)
